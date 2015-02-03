@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Creating the Enterprise Bean - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3"><a href="">Creating the Enterprise Bean</a></p>
+<p class="toc level4"><a href="#gipsx">Coding the Enterprise Bean Class</a></p>
+<p class="toc level4"><a href="#gipsi">Creating the <tt>converter</tt> Web Client</a></p>
+<p class="toc level4"><a href="#gipvv">Compiling, Packaging, and Running the <tt>converter</tt> Example</a></p>
+<p class="toc level5"><a href="#gipum">To Build, Package, and Deploy the <tt>converter</tt> Example in NetBeans IDE</a></p>
+<p class="toc level5"><a href="#gipvq">To Build, Package, and Deploy the <tt>converter</tt> Example Using Ant</a></p>
+<p class="toc level5"><a href="#gjsjc">To Run the <tt>converter</tt> Example</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="gipti.html">Modifying the Java EE Application</a></p>
+<p class="toc level4"><a href="gipti.html#gipuk">To Modify a Class File</a></p>
+<p class="toc level2 tocsp"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gijre.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="gipti.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gipss"></a><h3>Creating the Enterprise Bean</h3>
+<p>The enterprise bean in our example is a stateless session bean called
+<tt>ConverterBean</tt>. The source code for <tt>ConverterBean</tt> is in the <tt></tt><i>tut-install</i><tt>/examples/ejb/converter/src/java/</tt> directory.</p>
+
+<p>Creating <tt>ConverterBean</tt> requires these steps:</p>
+
+
+<ol><li><p>Coding the bean&rsquo;s implementation class (the source code is provided)</p>
+
+</li>
+<li><p>Compiling the source code with the Ant tool</p>
+
+</li></ol>
+
+
+<a name="gipsx"></a><h4>Coding the Enterprise Bean Class</h4>
+<p><a name="indexterm-905"></a><a name="indexterm-906"></a><a name="indexterm-907"></a>The enterprise bean class for this example is called <tt>ConverterBean</tt>. This class implements two
+business methods (<tt>dollarToYen</tt> and <tt>yenToEuro</tt>). Because the enterprise bean class doesn't implement a
+business interface, the enterprise bean exposes a local, no-interface view. The public methods
+in the enterprise bean class are available to clients that obtain a reference
+to <tt>ConverterBean</tt>. The source code for the <tt>ConverterBean</tt> class follows.</p>
+
+<pre>package com.sun.tutorial.javaee.ejb;
+
+import java.math.BigDecimal;
+import javax.ejb.*;
+
+@Stateless
+public class ConverterBean {
+    private BigDecimal yenRate = new BigDecimal("115.3100");
+    private BigDecimal euroRate = new BigDecimal("0.0071");
+
+    public BigDecimal dollarToYen(BigDecimal dollars) {
+        BigDecimal result = dollars.multiply(yenRate);
+        return result.setScale(2, BigDecimal.ROUND_UP);
+    }
+
+    public BigDecimal yenToEuro(BigDecimal yen) {
+        BigDecimal result = yen.multiply(euroRate);
+        return result.setScale(2, BigDecimal.ROUND_UP);
+    }
+}</pre><p>Note the <tt>@Stateless</tt> annotation decorating the enterprise bean class. This lets the container
+know that <tt>ConverterBean</tt> is a stateless session bean.</p>
+
+
+
+<a name="gipsi"></a><h4>Creating the <tt>converter</tt> Web Client</h4>
+<p><a name="indexterm-908"></a><a name="indexterm-909"></a><a name="indexterm-910"></a><a name="indexterm-911"></a>The web client is contained in the servlet class <tt></tt><i>tut-install</i><tt>/examples/ejb/converter/src/java/converter/web/ConverterServlet.java</tt>. A Java
+servlet is a web component that responds to HTTP requests.</p>
+
+<p><a name="indexterm-912"></a>The <tt>ConverterServlet</tt> class uses dependency injection to obtain a reference to <tt>ConverterBean</tt>.
+The <tt>javax.ejb.EJB</tt> annotation is added to the declaration of the private member variable
+<tt>converterBean</tt>, which is of type <tt>ConverterBean</tt>. <tt>ConverterBean</tt> exposes a local, no-interface view,
+so the enterprise bean implementation class is the variable type.</p>
+
+<pre>@WebServlet
+public class ConverterServlet extends HttpServlet {
+  @EJB
+  ConverterBean converterBean;
+  ...
+}</pre><p>When the user enters an amount to be converted to Yen and Euro,
+the amount is retrieved from the request parameters, then the <tt>ConverterBean.dollarToYen</tt> and
+<tt>ConverterBean.yenToEuro</tt> methods are called.</p>
+
+<pre>...
+try {
+  String amount = request.getParameter("amount");
+  if (amount != null &amp;&amp; amount.length() > 0) {
+    // convert the amount to a BigDecimal from the request parameter
+    BigDecimal d = new BigDecimal(amount);
+    // call the ConverterBean.dollarToYen() method to get the amount
+    // in Yen
+    BigDecimal yenAmount = converter.dollarToYen(d);
+
+    // call the ConverterBean.yenToEuro() method to get the amount
+    // in Euros
+    BigDecimal euroAmount = converter.yenToEuro(yenAmount);
+    ...
+  }
+  ...
+}</pre><p>The results are displayed to the user.</p>
+
+
+
+<a name="gipvv"></a><h4>Compiling, Packaging, and Running the <tt>converter</tt> Example</h4>
+<a name="indexterm-913"></a><a name="indexterm-914"></a><a name="indexterm-915"></a><a name="indexterm-916"></a><a name="indexterm-917"></a><a name="indexterm-918"></a><p>Now you are ready to compile the enterprise bean class (<tt>ConverterBean.java</tt>) and
+the servlet class (<tt>ConverterServlet.java</tt>), and package the compiled classes into a WAR file.</p>
+
+
+
+<a name="gipum"></a><h5>To Build, Package, and Deploy the <tt>converter</tt> Example in NetBeans IDE</h5>
+<p>To build, package, and deploy the <tt>converter</tt> example in NetBeans IDE, follow these
+steps.</p>
+
+<ol>
+<li><b>In NetBeans IDE, select File&rarr;Open Project.</b></li>
+<li><b>In the Open Project dialog, navigate to <tt></tt><i>tut-install</i><tt>/examples/ejb/</tt>.</b></li>
+<li><b>Select the <tt>converter</tt> folder.</b></li>
+<li><b>Select the Open as Main Project and Open Required Projects check boxes.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>In the Projects tab, right-click the <tt>converter</tt> project and select Deploy. </b><p>A web browser window opens the URL <tt>http://localhost:8080/converter</tt>.</p></li></ol>
+
+<a name="gipvq"></a><h5>To Build, Package, and Deploy the <tt>converter</tt> Example Using Ant</h5>
+<p>To build. package. and deploy <tt>converter</tt> using Ant, follow these steps.</p>
+
+<ol>
+<li><b>In a terminal window, go to this directory:</b><pre><i>tut-install</i>/examples/ejb/converter/</pre></li>
+<li><b>Type the following command:</b><pre><tt><b>ant all</b></tt></pre><p>This command calls the <tt>default</tt> task, which compiles the source files for the
+enterprise bean and the servlet, placing the class files in the <tt>build</tt> subdirectory
+(not the <tt>src</tt> directory) of the project. The default task packages the project
+into a WAR module: <tt>converter.war</tt>. For more information about the Ant tool,
+see <a href="bnaan.html">Building the Examples</a>.</p>
+<hr><p><b>Note - </b><a name="indexterm-919"></a><a name="indexterm-920"></a>When compiling the code, the <tt>ant</tt> task includes the Java EE API
+JAR files in the classpath. These JARs reside in the <tt>modules</tt> directory of
+your GlassFish Server installation. If you plan to use other tools to compile
+the source code for Java EE components, make sure that the classpath includes
+the Java EE API JAR files.</p>
+
+
+<hr>
+</li></ol>
+
+<a name="gjsjc"></a><h5>To Run the <tt>converter</tt> Example</h5>
+<p>To run the <tt>converter</tt> example, follow these steps.</p>
+
+<ol>
+<li><b>Open a web browser to the following URL:</b><pre>http://localhost:8080/converter</pre><p>The screen shown in <a href="#giptr">Figure&nbsp;15-1</a> appears.</p><a name="giptr"></a><h6>Figure&nbsp;15-1 <tt>converter</tt> Web Client</h6><img src="figures/ejb-converterWebClient.gif" alt="Screenshot showing the converter web client." width="631" height="367"></img></li>
+<li><b>Type <tt>100</tt> in the input field and click Submit.</b><p>A second page appears, showing the converted values.</p></li></ol>
+         </div>
+         <div class="navigation">
+             <a href="gijre.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="gipti.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

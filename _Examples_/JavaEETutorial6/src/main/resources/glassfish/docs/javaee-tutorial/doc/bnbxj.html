@@ -1,0 +1,433 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Working with Realms, Users, Groups, and Roles - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level3"><a href="bnbwk.html">Overview of Java EE Security</a></p>
+<p class="toc level4"><a href="bnbwk.html#bnbwl">A Simple Security Example</a></p>
+<p class="toc level5"><a href="bnbwk.html#bnbwm">Step 1: Initial Request</a></p>
+<p class="toc level5"><a href="bnbwk.html#bnbwo">Step 2: Initial Authentication</a></p>
+<p class="toc level5"><a href="bnbwk.html#bnbwq">Step 3: URL Authorization</a></p>
+<p class="toc level5"><a href="bnbwk.html#bnbws">Step 4: Fulfilling the Original Request</a></p>
+<p class="toc level5"><a href="bnbwk.html#bnbwu">Step 5: Invoking Enterprise Bean Business Methods</a></p>
+<p class="toc level4 tocsp"><a href="bnbwk.html#bnbww">Features of a Security Mechanism</a></p>
+<p class="toc level4"><a href="bnbwk.html#bnbwx">Characteristics of Application Security</a></p>
+<p class="toc level3 tocsp"><a href="bnbwy.html">Security Implementation Mechanisms</a></p>
+<p class="toc level4"><a href="bnbwy.html#bnbwz">Java SE Security Implementation Mechanisms</a></p>
+<p class="toc level4"><a href="bnbwy.html#bnbxa">Java EE Security Implementation Mechanisms</a></p>
+<p class="toc level5"><a href="bnbwy.html#bnbxb">Application-Layer Security</a></p>
+<p class="toc level5"><a href="bnbwy.html#bnbxc">Transport-Layer Security</a></p>
+<p class="toc level5"><a href="bnbwy.html#bnbxd">Message-Layer Security</a></p>
+<p class="toc level3 tocsp"><a href="bnbxe.html">Securing Containers</a></p>
+<p class="toc level4"><a href="bnbxe.html#bnbxg">Using Annotations to Specify Security Information</a></p>
+<p class="toc level4"><a href="bnbxe.html#bnbxf">Using Deployment Descriptors for Declarative Security</a></p>
+<p class="toc level4"><a href="bnbxe.html#bnbxh">Using Programmatic Security</a></p>
+<p class="toc level3 tocsp"><a href="bnbxi.html">Securing the GlassFish Server</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3"><a href="">Working with Realms, Users, Groups, and Roles</a></p>
+<p class="toc level4"><a href="#bnbxk">What Are Realms, Users, Groups, and Roles?</a></p>
+<p class="toc level5"><a href="#bnbxm">What Is a Realm?</a></p>
+<p class="toc level5"><a href="#bnbxn">What Is a User?</a></p>
+<p class="toc level5"><a href="#bnbxo">What Is a Group?</a></p>
+<p class="toc level5"><a href="#bnbxp">What Is a Role?</a></p>
+<p class="toc level5"><a href="#bnbxq">Some Other Terminology</a></p>
+<p class="toc level4 tocsp"><a href="#bnbxr">Managing Users and Groups on the GlassFish Server</a></p>
+<p class="toc level5"><a href="#bnbxs">To Add Users to the GlassFish Server</a></p>
+<p class="toc level5"><a href="#bnbxt">Adding Users to the Certificate Realm</a></p>
+<p class="toc level4 tocsp"><a href="#bnbxu">Setting Up Security Roles</a></p>
+<p class="toc level4"><a href="#bnbxv">Mapping Roles to Users and Groups</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="bnbxw.html">Establishing a Secure Connection Using SSL</a></p>
+<p class="toc level4"><a href="bnbxw.html#bnbxx">Installing and Configuring SSL Support</a></p>
+<p class="toc level4"><a href="bnbxw.html#bnbxy">Specifying a Secure Connection in Your Application Deployment Descriptor</a></p>
+<p class="toc level4"><a href="bnbxw.html#bnbxz">Verifying SSL Support</a></p>
+<p class="toc level5"><a href="bnbxw.html#bnbya">Tips on Running SSL</a></p>
+<p class="toc level4 tocsp"><a href="bnbxw.html#bnbyb">Working with Digital Certificates</a></p>
+<p class="toc level5"><a href="bnbxw.html#bnbyc">Creating a Server Certificate</a></p>
+<p class="toc level5"><a href="bnbxw.html#bnbyg">Miscellaneous Commands for Certificates</a></p>
+<p class="toc level3 tocsp"><a href="bnbyj.html">Further Information about Security</a></p>
+<p class="toc level2 tocsp"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bnbxi.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="bnbxw.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bnbxj"></a><h3>Working with Realms, Users, Groups, and Roles</h3>
+<p><a name="indexterm-1367"></a><a name="indexterm-1368"></a><a name="indexterm-1369"></a>You often need to protect resources to ensure that only <b>authorized users</b> have
+access. <b>Authorization</b> provides controlled access to protected resources. Authorization is based on identification and
+authentication. <b>Identification</b> is a process that enables recognition of an entity by a
+system, and <b>authentication</b> is a process that verifies the identity of a user,
+device, or other entity in a computer system, usually as a prerequisite to
+allowing access to resources in a system. These concepts are discussed in more
+detail in <a href="bnbwk.html#bnbwx">Characteristics of Application Security</a>.</p>
+
+<p>This section discusses setting up users so that they can be correctly identified
+and either given access to protected resources, or denied access if the user
+is not authorized to access the protected resources. To authenticate a user, you
+need to follow these basic steps:</p>
+
+
+<ol><li><p>The Application Developer writes code to prompt the user for their user name and password. The different methods of authentication are discussed in <a href="gkbaa.html#bncbn">Specifying an Authentication Mechanism</a>.</p>
+
+</li>
+<li><p>The Application Developer communicates how to set up security for the deployed application by use of a metadata annotation or deployment descriptor. This step is discussed in <a href="#bnbxu">Setting Up Security Roles</a>.</p>
+
+</li>
+<li><p>The Server Administrator sets up authorized users and groups on the GlassFish Server. This is discussed in <a href="#bnbxr">Managing Users and Groups on the GlassFish Server</a>.</p>
+
+</li>
+<li><p>The Application Deployer maps the application&rsquo;s security roles to users, groups, and principals defined on the GlassFish Server. This topic is discussed in <a href="#bnbxv">Mapping Roles to Users and Groups</a>.</p>
+
+</li></ol>
+
+
+<a name="bnbxk"></a><h4>What Are Realms, Users, Groups, and Roles?</h4>
+<p><a name="indexterm-1370"></a>A realm is a security policy domain defined for a web or application
+server. A realm contains a collection of users, who may or may not
+be assigned to a group. Managing users on the GlassFish Server is discussed
+in <a href="#bnbxr">Managing Users and Groups on the GlassFish Server</a>.</p>
+
+<p>An application will often prompt a user for their user name and
+password before allowing access to a protected resource. After the user has entered their
+user name and password, that information is passed to the server, which either
+authenticates the user and sends the protected resource, or does not authenticate the
+user, in which case access to the protected resource is denied. This type
+of user authentication is discussed in <a href="gkbaa.html#bncbn">Specifying an Authentication Mechanism</a>.</p>
+
+<p>In some applications, authorized users are assigned to roles. In this situation, the
+role assigned to the user in the application must be mapped to a
+principal or group defined on the application server. <a href="#bnbxl">Figure&nbsp;24-6</a> shows this. More
+information on mapping roles to users and groups can be found in <a href="#bnbxu">Setting Up Security Roles</a>.</p>
+
+<a name="bnbxl"></a><h6>Figure&nbsp;24-6 Mapping Roles to Users and Groups</h6><img src="figures/security-roleMapping.gif" alt="Diagram of role mapping, showing creation of users and groups, definition of roles, and mapping of roles to users and groups"></img><p>The following sections provide more information on realms, users, groups, and roles.</p>
+
+
+
+<a name="bnbxm"></a><h5>What Is a Realm?</h5>
+<a name="indexterm-1371"></a><a name="indexterm-1372"></a><p>A realm is a security policy domain defined for a web or
+application server. It is also a string, passed as part of an HTTP
+request during basic authentication, that defines a protection space. The protected resources on a
+server can be partitioned into a set of protection spaces, each with
+its own authentication scheme and/or authorization database containing a collection of users, which may
+or may not be assigned to a group. For a web application, a
+<b>realm</b> is a complete database of <b>users</b> and <b>groups</b> that identify valid
+users of a web application (or a set of web applications) and are
+controlled by the same authentication policy.</p>
+
+<p>The Java EE server authentication service can govern users in multiple realms. In
+this release of the GlassFish Server, the <tt>file</tt>, <tt>admin-realm</tt>, and <tt>certificate</tt> realms
+come preconfigured for the GlassFish Server.</p>
+
+<p><a name="indexterm-1373"></a>In the <tt>file</tt> realm, the server stores user credentials locally in a file
+named <tt>keyfile</tt>. You can use the Administration Console to manage users in the
+<tt>file</tt> realm. When using the <tt>file</tt> realm, the server authentication service verifies user
+identity by checking the <tt>file</tt> realm. This realm is used for the
+authentication of all clients except for web browser clients that use the HTTPS
+protocol and certificates.</p>
+
+<p><a name="indexterm-1374"></a>In the <tt>certificate</tt> realm, the server stores user credentials in a certificate database.
+When using the <tt>certificate</tt> realm, the server uses certificates with the HTTPS protocol
+to authenticate web clients. To verify the identity of a user in the
+<tt>certificate</tt> realm, the authentication service verifies an X.509 certificate. For step-by-step instructions for creating
+this type of certificate, see <a href="bnbxw.html#bnbyb">Working with Digital Certificates</a>. The common name field of the
+X.509 certificate is used as the principal name.</p>
+
+<p><a name="indexterm-1375"></a>The <tt>admin-realm</tt> is also a <tt>file</tt> realm and stores administrator user credentials locally
+in a file named <tt>admin-keyfile</tt>. You can use the Administration Console to manage
+users in this realm in the same way you manage users in the
+<tt>file</tt> realm. For more information, see <a href="#bnbxr">Managing Users and Groups on the GlassFish Server</a>.</p>
+
+
+
+<a name="bnbxn"></a><h5>What Is a User?</h5>
+<a name="indexterm-1376"></a><a name="indexterm-1377"></a><p>A <b>user</b> is an individual (or application program) identity that has been defined
+in the GlassFish Server. In a web application, a user can have a
+set of <b>roles</b> associated with that identity, which entitles them to access all
+resources protected by those roles. Users can be associated with a group.</p>
+
+<p>A Java EE user is similar to an operating system user. Typically,
+both types of users represent people. However, these two types of users are
+not the same. The Java EE server authentication service has no knowledge of
+the user name and password you provide when you log in to the
+operating system. The Java EE server authentication service is not connected to the
+security mechanism of the operating system. The two security services manage users that belong
+to different realms.</p>
+
+
+
+<a name="bnbxo"></a><h5>What Is a Group?</h5>
+<a name="indexterm-1378"></a><a name="indexterm-1379"></a><p>A <b>group</b> is a set of authenticated <b>users</b>, classified by common traits, defined
+in the GlassFish Server.</p>
+
+<p>A Java EE user of the <tt>file</tt> realm can belong to a group
+on the GlassFish Server. (A user in the <tt>certificate</tt> realm cannot.) A group
+on the GlassFish Server is a category of users classified by common traits,
+such as job title or customer profile. For example, most customers of an
+e-commerce application might belong to the <tt>CUSTOMER</tt> group, but the big spenders would
+belong to the <tt>PREFERRED</tt> group. Categorizing users into groups makes it easier to
+control the access of large numbers of users.</p>
+
+<p>A group on the GlassFish Server has a different scope from a
+<b>role</b>. A group is designated for the entire GlassFish Server, whereas a role
+is associated only with a specific application in the GlassFish Server.</p>
+
+
+
+<a name="bnbxp"></a><h5>What Is a Role?</h5>
+<a name="indexterm-1380"></a><a name="indexterm-1381"></a><p>A <b>role</b> is an abstract name for the permission to access a particular
+set of resources in an <b>application</b>. A role can be compared to a
+key that can open a lock. Many people might have a copy of
+the key. The lock doesn&rsquo;t care who you are, only that you have
+the right key.</p>
+
+
+
+<a name="bnbxq"></a><h5>Some Other Terminology</h5>
+<p>The following terminology is also used to describe the security requirements of the
+Java EE platform:</p>
+
+
+<ul><li><p><a name="indexterm-1382"></a><b>Principal</b>: A principal is an entity that can be authenticated by an authentication protocol in a security service that is deployed in an enterprise. A principal is identified using a principal name and authenticated using authentication data.</p>
+
+</li>
+<li><p><a name="indexterm-1383"></a><a name="indexterm-1384"></a><b>Security policy domain</b> (also known as <b>security domain</b> or <b>realm</b>): A security policy domain is a scope over which a common security policy is defined and enforced by the security administrator of the security service.</p>
+
+</li>
+<li><p><b>Security attributes</b>: A set of security attributes is associated with every principal. The security attributes have many uses, for example, access to protected resources and auditing of users. Security attributes can be associated with a principal by an authentication protocol.</p>
+
+</li>
+<li><p><a name="indexterm-1385"></a><b>Credential</b>: A credential contains or references information (security attributes) used to authenticate a principal for Java EE product services. A principal acquires a credential upon authentication, or from another principal that allows its credential to be used.</p>
+
+</li></ul>
+
+
+<a name="bnbxr"></a><h4>Managing Users and Groups on the GlassFish Server</h4>
+<a name="indexterm-1386"></a><a name="indexterm-1387"></a><p>Managing users on the GlassFish Server is discussed in more detail in
+the <a href="http://docs.sun.com/doc/821-1751"><i>Oracle GlassFish Server 3.0.1 Administration Guide</i></a>.</p>
+
+<p>This tutorial provides steps for managing users that will need to be completed
+to work through the tutorial examples.</p>
+
+
+
+<a name="bnbxs"></a><h5>To Add Users to the GlassFish Server</h5>
+<a name="indexterm-1388"></a><a name="indexterm-1389"></a><p>To add users to the GlassFish Server, follow these steps.</p>
+
+<ol>
+<li><b>Start the GlassFish Server, if you haven&rsquo;t already done so.</b><p>Information on starting the GlassFish Server is available in <a href="bnadi.html">Starting and Stopping the GlassFish Server</a>.</p></li>
+<li><b>Start the Administration Console, if you haven&rsquo;t already done so.</b><p>To start the Administration Console, open a web browser and specify the
+URL <tt>http://localhost:4848/</tt>. If you changed the default Admin port during installation, type the
+correct port number in place of <tt>4848</tt>.</p></li>
+<li><b>In the navigation tree, expand the Configuration node.</b></li>
+<li><b>Expand the Security node.</b></li>
+<li><b>Expand the Realms node.</b></li>
+<li><b>Select the realm to which you are adding users.</b><ul>
+<li><b>Select the <tt>file</tt> realm to add users you want to access applications running
+in this realm.</b><p>For the example security applications, select the <tt>file</tt> realm.</p><p>The Edit Realm page opens.</p></li>
+<li><b>Select the <tt>admin-realm</tt> to add users you want to enable as system administrators
+of the GlassFish Server.</b><p>The Edit Realm page opens.</p></li></ul><p>You cannot enter users into the <tt>certificate</tt> realm using the Administration Console. You
+can only add certificates to the <tt>certificate</tt> realm. For information on adding
+(importing) certificates to the <tt>certificate</tt> realm, see <a href="#bnbxt">Adding Users to the Certificate Realm</a>.</p></li>
+<li><b>On  the Edit Realm page, click the Manage Users button.</b><p>The File Users or Admin Users page opens.</p></li>
+<li><b>On the File Users or Admin Users page, click New to add
+a new user to the realm.</b><p>The New File Realm User page opens.</p></li>
+<li><b>Type values in the User ID, Group List, New Password, and Confirm New
+Password fields.</b><p>For the Admin Realm, the Group List field is read-only, and the group
+name is <tt>asadmin</tt>. Restart the GlassFish Server and Administration Console after you add
+a user to the Admin Realm.</p><p>For more information on these properties, read <a href="">Working with Realms, Users, Groups, and Roles</a>.</p><p>For the example security applications, specify a user with any name and password
+you like, but make sure that the user is assigned to the
+group <tt>TutorialUser</tt>. The user name and password are case-sensitive. Keep a record
+of the user name and password for working with examples later in this
+tutorial.</p></li>
+<li><b>Click OK to add this user to the realm, or click Cancel
+to quit without saving.</b></li></ol>
+
+<a name="bnbxt"></a><h5>Adding Users to the Certificate Realm</h5>
+<p><a name="indexterm-1390"></a><a name="indexterm-1391"></a>In the <tt>certificate</tt> realm, user identity is set up in the GlassFish
+Server security context and populated with user data obtained from cryptographically-verified client certificates. For
+step-by-step instructions for creating this type of certificate, see <a href="bnbxw.html#bnbyb">Working with Digital Certificates</a>.</p>
+
+
+
+<a name="bnbxu"></a><h4>Setting Up Security Roles</h4>
+<a name="indexterm-1392"></a><a name="indexterm-1393"></a><a name="indexterm-1394"></a><p>When you design an enterprise bean or web component, you should always think
+about the kinds of users who will access the component. For example, a
+web application for a human resources department might have a different request URL
+for someone who has been assigned the role of <tt>DEPT_ADMIN</tt> than for someone
+who has been assigned the role of <tt>DIRECTOR</tt>. The <tt>DEPT_ADMIN</tt> role may let
+you view employee data, but the <tt>DIRECTOR</tt> role enables you to modify employee
+data, including salary data. Each of these security roles is an abstract logical grouping
+of users that is defined by the person who assembles the application. When
+an application is deployed, the deployer will map the roles to security identities
+in the operational environment, as shown in <a href="#bnbxl">Figure&nbsp;24-6</a>.</p>
+
+<p>For Java EE components, you define security roles using the <tt>@DeclareRoles</tt> and
+<tt>@RolesAllowed</tt> metadata annotations.</p>
+
+<p>The following is an example of an application where the role of
+<tt>DEPT-ADMIN</tt> is authorized for methods that review employee payroll data and the role
+of <tt>DIRECTOR</tt> is authorized for methods that change employee payroll data.</p>
+
+<p>The enterprise bean would be annotated as shown in the following code:</p>
+
+<pre>import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
+...
+@DeclareRoles({"DEPT-ADMIN", "DIRECTOR"})
+@Stateless public class PayrollBean implements Payroll {
+    @Resource SessionContext ctx;
+
+
+    @RolesAllowed("DEPT-ADMIN")
+    public void reviewEmployeeInfo(EmplInfo info) {
+
+        oldInfo = ... read from database;
+
+        // ...
+    }
+
+    @RolesAllowed("DIRECTOR")
+    public void updateEmployeeInfo(EmplInfo info) {
+
+        newInfo = ... update database;
+
+        // ...
+    }
+    ...
+ }</pre><p>For a servlet, you commonly use the <tt>@HttpConstraint</tt> annotation within the <tt>@ServletSecurity</tt> annotation
+to specify the roles that are allowed to access the servlet. For example,
+a servlet might be annotated as follows:</p>
+
+<pre>@WebServlet(name = "PayrollServlet", urlPatterns = {"/payroll"})
+@ServletSecurity(
+@HttpConstraint(transportGuarantee = TransportGuarantee.CONFIDENTIAL,
+    rolesAllowed = {"DEPT-ADMIN", "DIRECTOR"}))
+public class GreetingServlet extends HttpServlet {</pre><p>These annotations are discussed in more detail in <a href="bncbx.html#gjrmh">Specifying Security for Basic Authentication Using Annotations</a> and <a href="bnbyl.html#gjgdi">Securing an Enterprise Bean Using Declarative Security and Annotations</a>.</p>
+
+<p>After users have provided their login information, and the application has declared what
+roles are authorized to access protected parts of an application, the next step
+is to map the security role to the name of a user,
+or principal. This step is discussed in the following section.</p>
+
+
+
+<a name="bnbxv"></a><h4>Mapping Roles to Users and Groups</h4>
+<a name="indexterm-1395"></a><a name="indexterm-1396"></a><a name="indexterm-1397"></a><a name="indexterm-1398"></a><a name="indexterm-1399"></a><p>When you are developing a Java EE application, you don&rsquo;t need to know
+what categories of users have been defined for the realm in which the
+application will be run. In the Java EE platform, the security architecture provides
+a mechanism for mapping the roles defined in the application to the users
+or groups defined in the runtime realm. </p>
+
+<p>The role names used in the application are often the same as the
+group names defined on the GlassFish Server. Under these circumstances, you can enable
+a default principal-to-role mapping on the GlassFish Server using the Administration Console. The
+task <a href="bncbx.html#gjjlk">To Set Up Your System for Running the Security Examples</a> explains how to do this. All the tutorial security examples use
+default principal-to-role mapping.</p>
+
+<p>If the role names used in an application are not the same as
+the group names defined on the server, you use the runtime deployment descriptor
+to specify the mapping.</p>
+
+
+         </div>
+         <div class="navigation">
+             <a href="bnbxi.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="bnbxw.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

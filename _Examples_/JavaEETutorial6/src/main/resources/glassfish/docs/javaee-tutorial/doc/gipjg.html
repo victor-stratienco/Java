@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>What Is a Session Bean? - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level3"><a href="gipmb.html">What Is an Enterprise Bean?</a></p>
+<p class="toc level4"><a href="gipmb.html#giplk">Benefits of Enterprise Beans</a></p>
+<p class="toc level4"><a href="gipmb.html#gipkn">When to Use Enterprise Beans</a></p>
+<p class="toc level4"><a href="gipmb.html#gipnm">Types of Enterprise Beans</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">What Is a Session Bean?</a></p>
+<p class="toc level4"><a href="#gipkr">Types of Session Beans</a></p>
+<p class="toc level5"><a href="#gipnl">Stateful Session Beans</a></p>
+<p class="toc level5"><a href="#gipin">Stateless Session Beans</a></p>
+<p class="toc level5"><a href="#gipim">Singleton Session Beans</a></p>
+<p class="toc level4 tocsp"><a href="#gipmt">When to Use Session Beans</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="gipko.html">What Is a Message-Driven Bean?</a></p>
+<p class="toc level4"><a href="gipko.html#gipmj">What Makes Message-Driven Beans Different from Session Beans?</a></p>
+<p class="toc level4"><a href="gipko.html#gipjx">When to Use Message-Driven Beans</a></p>
+<p class="toc level3 tocsp"><a href="gipjf.html">Accessing Enterprise Beans</a></p>
+<p class="toc level4"><a href="gipjf.html#girfl">Using Enterprise Beans in Clients</a></p>
+<p class="toc level5"><a href="gipjf.html#girgn">Portable JNDI Syntax</a></p>
+<p class="toc level4 tocsp"><a href="gipjf.html#gipiz">Deciding on Remote or Local Access</a></p>
+<p class="toc level4"><a href="gipjf.html#gipmz">Local Clients</a></p>
+<p class="toc level5"><a href="gipjf.html#gipsc">Accessing Local Enterprise Beans Using the No-Interface View</a></p>
+<p class="toc level5"><a href="gipjf.html#gipse">Accessing Local Enterprise Beans That Implement Business Interfaces</a></p>
+<p class="toc level4 tocsp"><a href="gipjf.html#gipiu">Remote Clients</a></p>
+<p class="toc level5"><a href="gipjf.html#gipsf">Accessing Remote Enterprise Beans</a></p>
+<p class="toc level4 tocsp"><a href="gipjf.html#gipkd">Web Service Clients</a></p>
+<p class="toc level4"><a href="gipjf.html#giply">Method Parameters and Access</a></p>
+<p class="toc level5"><a href="gipjf.html#giplx">Isolation</a></p>
+<p class="toc level5"><a href="gipjf.html#gipkv">Granularity of Accessed Data</a></p>
+<p class="toc level3 tocsp"><a href="gipio.html">The Contents of an Enterprise Bean</a></p>
+<p class="toc level4"><a href="gipio.html#gipnz">Packaging Enterprise Beans In EJB JAR Modules</a></p>
+<p class="toc level4"><a href="gipio.html#gippi">Packaging Enterprise Beans in WAR Modules</a></p>
+<p class="toc level3 tocsp"><a href="gipks.html">Naming Conventions for Enterprise Beans</a></p>
+<p class="toc level3"><a href="giplj.html">The Life Cycles of Enterprise Beans</a></p>
+<p class="toc level4"><a href="giplj.html#gipln">The Life Cycle of a Stateful Session Bean</a></p>
+<p class="toc level4"><a href="giplj.html#giplm">The Life Cycle of a Stateless Session Bean</a></p>
+<p class="toc level4"><a href="giplj.html#giprx">The Life Cycle of a Singleton Session Bean</a></p>
+<p class="toc level4"><a href="giplj.html#gipkw">The Life Cycle of a Message-Driven Bean</a></p>
+<p class="toc level3 tocsp"><a href="giplg.html">Further Information about Enterprise Beans</a></p>
+<p class="toc level2 tocsp"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gipmb.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="gipko.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gipjg"></a><h3>What Is a Session Bean?</h3>
+<a name="indexterm-854"></a><p><a name="indexterm-855"></a><a name="indexterm-856"></a>A <b>session bean</b> encapsulates business logic that can be invoked programmatically by a client
+over local, remote, or web service client views. To access an application that
+is deployed on the server, the client invokes the session bean&rsquo;s methods. The
+session bean performs work for its client, shielding the client from complexity by
+executing business tasks inside the server.</p>
+
+<p>A session bean is not persistent. (That is, its data is not
+saved to a database.)</p>
+
+<p>For code samples, see <a href="gijrb.html">Chapter&nbsp;16, Running the Enterprise Bean Examples</a>.</p>
+
+
+
+<a name="gipkr"></a><h4>Types of Session Beans</h4>
+<p>There are three types of session beans: stateful, stateless, and singleton.</p>
+
+
+
+<a name="gipnl"></a><h5>Stateful Session Beans</h5>
+<p><a name="indexterm-857"></a>The state of an object consists of the values of its instance variables.
+In a <b>stateful</b> session bean, the instance variables represent the state of a
+unique client-bean session. Because the client interacts (&ldquo;talks&rdquo;) with its bean, this state
+is often called the <b>conversational state</b>. <a name="indexterm-858"></a><a name="indexterm-859"></a><a name="indexterm-860"></a></p>
+
+<p>As its name suggests, a session bean is similar to an interactive
+session. A session bean is not shared; it can have only one client,
+in the same way that an interactive session can have only one user.
+When the client terminates, its session bean appears to terminate and is no
+longer associated with the client.</p>
+
+<p>The state is retained for the duration of the client-bean session. If the
+client removes the bean, the session ends and the state disappears. This transient
+nature of the state is not a problem, however, because when the conversation
+between the client and the bean ends there is no need to
+retain the state.</p>
+
+
+
+<a name="gipin"></a><h5>Stateless Session Beans</h5>
+<p><a name="indexterm-861"></a>A <b>stateless</b> session bean does not maintain a conversational state with the client.
+When a client invokes the methods of a stateless bean, the bean&rsquo;s instance
+variables may contain a state specific to that client, but only for the
+duration of the invocation. When the method is finished, the client-specific state should
+not be retained. Clients may, however, change the state of instance variables in
+pooled stateless beans, and this state is held over to the next invocation
+of the pooled stateless bean. Except during method invocation, all instances of a
+stateless bean are equivalent, allowing the EJB container to assign an instance to
+any client. That is, the state of a stateless session bean should apply
+across all clients.</p>
+
+<p>Because stateless session beans can support multiple clients, they can offer better scalability
+for applications that require large numbers of clients. Typically, an application requires fewer
+stateless session beans than stateful session beans to support the same number of
+clients.</p>
+
+<p>A stateless session bean can implement a web service, but a stateful session
+bean cannot.</p>
+
+
+
+<a name="gipim"></a><h5>Singleton Session Beans</h5>
+<p>A <b>singleton</b> session bean is instantiated once per application, and exists for the
+life cycle of the application. Singleton session beans are designed for circumstances where
+a single enterprise bean instance is shared across and concurrently accessed by clients.</p>
+
+<p>Singleton session beans offer similar functionality to stateless session beans, but differ from
+stateless session beans in that there is only one singleton session bean per
+application, as opposed to a pool of stateless session beans, any of which
+may respond to a client request. Like stateless session beans, singleton session beans
+can implement web service endpoints.</p>
+
+<p>Singleton session beans maintain their state between client invocations, but are not required
+to maintain their state across server crashes or shutdowns.</p>
+
+<p>Applications that use a singleton session bean may specify that the singleton should
+be instantiated upon application startup, which allows the singleton to perform initialization tasks
+for the application. The singleton may perform cleanup tasks on application shutdown as
+well, because the singleton will operate throughout the life cycle of the application.</p>
+
+
+
+<a name="gipmt"></a><h4>When to Use Session Beans</h4>
+<p><a name="indexterm-862"></a>Stateful session beans are appropriate if any of the following conditions are true:</p>
+
+
+<ul><li><p>The bean&rsquo;s state represents the interaction between the bean and a specific client.</p>
+
+</li>
+<li><p>The bean needs to hold information about the client across method invocations.</p>
+
+</li>
+<li><p>The bean mediates between the client and the other components of the application, presenting a simplified view to the client.</p>
+
+</li>
+<li><p><a name="indexterm-863"></a>Behind the scenes, the bean manages the work flow of several enterprise beans. </p>
+
+</li></ul>
+<p><a name="indexterm-864"></a>To improve performance, you might choose a stateless session bean if it has
+any of these traits:</p>
+
+
+<ul><li><p>The bean&rsquo;s state has no data for a specific client.</p>
+
+</li>
+<li><p>In a single method invocation, the bean performs a generic task for all clients. For example, you might use a stateless session bean to send an email that confirms an online order.</p>
+
+</li>
+<li><p>The bean implements a web service.</p>
+
+</li></ul>
+<p>Singleton session beans are appropriate in the following circumstances:</p>
+
+
+<ul><li><p>State needs to be shared across the application.</p>
+
+</li>
+<li><p>A single enterprise bean needs to be accessed by multiple threads concurrently.</p>
+
+</li>
+<li><p>The application needs an enterprise bean to perform tasks upon application startup and shutdown.</p>
+
+</li>
+<li><p>The bean implements a web service.</p>
+
+</li></ul>
+
+         </div>
+         <div class="navigation">
+             <a href="gipmb.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="gipko.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

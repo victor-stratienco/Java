@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="appclient" default="default" basedir=".">
+    <description>Builds, tests, and runs the project appclient.</description>
+    <property name="is.app-client.module" value="true"/>
+    <property name="is.webservice.client" value="true"/>
+    <import file="../../bp-project/main.xml"/>
+
+    <property name="wsimport.wsdl.location" value="http://localhost:8080/helloservice/HelloService?wsdl"/>
+    <property name="wsimport.package" value="helloservice.endpoint"/>
+
+    <target name="-pre-compile" unless="netbeans.home" depends="init,wsimport-client-generate"/>
+
+    <target name="run-nb" if="netbeans.home" depends="init">
+        <antcall target="run-tool2"/>
+    </target>
+
+    <target name="run-ant" unless="netbeans.home" depends="init">
+        <antcall target="client-jar"/>
+        <antcall target="bpp-run-app-client"/>
+    </target>
+
+    <target name="run" depends="init,run-deploy">
+        <antcall target="run-ant"/>
+        <antcall target="run-nb"/>
+    </target>
+
+</project>

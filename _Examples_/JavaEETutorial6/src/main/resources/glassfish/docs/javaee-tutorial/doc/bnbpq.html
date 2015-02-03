@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Packaging, Deploying, and Running the simplemessage Example - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level3"><a href="bnbpl.html"><tt>simplemessage</tt> Example Application Overview</a></p>
+<p class="toc level3"><a href="bnbpn.html">The <tt>simplemessage</tt> Application Client</a></p>
+<p class="toc level3"><a href="bnbpo.html">The Message-Driven Bean Class</a></p>
+<p class="toc level4"><a href="bnbpo.html#bnbpp">The <tt>onMessage</tt> Method</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">Packaging, Deploying, and Running the <tt>simplemessage</tt> Example</a></p>
+<p class="toc level4"><a href="#bnbpr">Creating the Administered Objects for the <tt>simplemessage</tt> Example</a></p>
+<p class="toc level4"><a href="#bnbps">To Build, Deploy, and Run the <tt>simplemessage</tt> Application Using NetBeans IDE</a></p>
+<p class="toc level4"><a href="#gjvjb">To Undeploy the <tt>simplemessage</tt> Application  Using NetBeans IDE</a></p>
+<p class="toc level4"><a href="#bnbpt">To Build, Deploy, and Run the <tt>simplemessage</tt> Application Using Ant</a></p>
+<p class="toc level4"><a href="#gjvjw">To Undeploy  the <tt>simplemessage</tt> Application Using Ant</a></p>
+<p class="toc level4"><a href="#bnbpu">Removing the Administered Objects for the <tt>simplemessage</tt> Example</a></p>
+</div>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bnbpo.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="gjbnr.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bnbpq"></a><h3>Packaging, Deploying, and Running the <tt>simplemessage</tt> Example</h3>
+<p>To package, deploy and run this example, go to the <tt></tt><i>tut-install</i><tt>/examples/ejb/simplemessage/</tt> directory.</p>
+
+
+
+<a name="bnbpr"></a><h4>Creating the Administered Objects for the <tt>simplemessage</tt> Example</h4>
+<a name="indexterm-981"></a><a name="indexterm-982"></a><p>This example requires the following:</p>
+
+
+<ul><li><p>A JMS connection factory resource</p>
+
+</li>
+<li><p>A JMS destination resource</p>
+
+</li></ul>
+<p>If you have run the simple JMS examples in <a href="bncdq.html">Chapter&nbsp;30, Java Message Service Concepts</a> and have
+not deleted the resources, you already have these resources and do not need
+to perform these steps.</p>
+
+<p>You can use Ant targets to create the resources. The Ant targets,
+which are defined in the <tt>build.xml</tt> file for this example, use the <tt>asadmin</tt> command.
+To create the resources needed for this example, use the following commands:</p>
+
+<pre><tt><b>ant create-cf ant create-queue</b></tt></pre><p>These commands do the following:</p>
+
+
+<ul><li><p>Create a connection factory resource named <tt>jms/ConnectionFactory</tt></p>
+
+</li>
+<li><p>Create a destination resource named <tt>jms/Queue</tt></p>
+
+</li></ul>
+<p>The Ant targets for these commands refer to other targets that are
+defined in the <tt></tt><i>tut-install</i><tt>/examples/bp-project/app-server-ant.xml</tt> file.</p>
+
+
+
+<a name="bnbps"></a><h4>To Build, Deploy, and Run the <tt>simplemessage</tt> Application Using NetBeans IDE</h4><p>To build, deploy, and run the application using NetBeans IDE, do the following:</p>
+
+<ol>
+<li><b>In NetBeans IDE, choose Open Project from the File menu.</b></li>
+<li><b>In the Open Project dialog, navigate to <tt></tt><i>tut-install</i><tt>/examples/ejb/</tt>.</b></li>
+<li><b>Select the <tt>simplemessage</tt> folder.</b></li>
+<li><b>Select the Open as Main Project check box and the Open Required Projects
+check box.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>Right-click the <tt>simplemessage</tt> project and choose Build.</b><p>This task packages the application client and the message-driven bean, then creates a
+file named <tt>simplemessage.ear</tt> in the <tt>dist</tt> directory.</p></li>
+<li><b>Right-click the project and choose Run.</b><p>This command deploys the project, returns a JAR file named <tt>simplemessageClient.jar</tt>, and then executes
+it.</p><p>The output of the application client in the Output pane looks like
+this (preceded by application client container output):</p><pre>Sending message: This is message 1
+Sending message: This is message 2
+Sending message: This is message 3
+To see if the bean received the messages,
+ check &lt;install_dir>/domains/domain1/logs/server.log.</pre><p>The output from the message-driven bean appears in the server log (<tt></tt><i>domain-dir</i><tt>/logs/server.log</tt>),
+wrapped in logging information.</p><pre>MESSAGE BEAN: Message received: This is message 1
+MESSAGE BEAN: Message received: This is message 2
+MESSAGE BEAN: Message received: This is message 3</pre><p>The received messages may appear in a different order from the order in
+which they were sent.</p></li></ol>
+
+<a name="gjvjb"></a><h4>To Undeploy the <tt>simplemessage</tt> Application  Using NetBeans IDE</h4><p>Undeploy the application after you finish running the client. To undeploy the application,
+follow these steps:</p>
+
+<ol>
+<li><b>Click the Services tab.</b></li>
+<li><b>Expand the Servers node.</b></li>
+<li><b>Expand the GlassFish v3 Domain node.</b></li>
+<li><b>Expand the Applications node.</b><p>You may need to right-click the node and choose Refresh to see the
+contents of the Applications node.</p></li>
+<li><b>Right-click <tt>simplemessage</tt> and choose Undeploy.</b></li>
+<li><b>To remove the generated files, click the Projects tab, then right-click the <tt>simplemessage</tt>
+project and choose Clean.</b></li></ol>
+
+<a name="bnbpt"></a><h4>To Build, Deploy, and Run the <tt>simplemessage</tt> Application Using Ant</h4><p>To build, deploy, and run the application using Ant, do the following:</p>
+
+<ol>
+<li><b>Go to the following directory:</b><pre><tt></tt><i>tut-install</i><tt>/examples/ejb/simplemessage/</tt></pre></li>
+<li><b>To compile the source files and package the application, use the following command:</b><pre><tt><b>ant</b></tt></pre><p>This target packages the application client and the message-driven bean, then creates a
+file named <tt>simplemessage.ear</tt> in the <tt>dist</tt> directory.</p><p>By using resource injection and annotations, you avoid having to create deployment descriptor
+files for the message-driven bean and application client. You need to use deployment
+descriptors only if you want to override the values specified in the annotated
+source files.</p></li>
+<li><b>To deploy the application and run the client using Ant, use the following
+command:</b><pre><tt><b>ant run</b></tt></pre><p>Ignore the message that states that the application is deployed at a URL.</p><p>The output in the terminal window looks like this (preceded by application client
+container output):</p><pre>Sending message: This is message 1
+Sending message: This is message 2
+Sending message: This is message 3
+To see if the bean received the messages,
+ check &lt;install_dir>/domains/domain1/logs/server.log.</pre><p>In the server log file, the following lines appear, wrapped in logging information:</p><pre>MESSAGE BEAN: Message received: This is message 1
+MESSAGE BEAN: Message received: This is message 2
+MESSAGE BEAN: Message received: This is message 3</pre><p>The received messages may appear in a different order from the order in
+which they were sent.</p></li></ol>
+
+<a name="gjvjw"></a><h4>To Undeploy the <tt>simplemessage</tt> Application Using Ant</h4><ol>
+<li><b>Undeploy the application after you finish running the client. Use the following command:</b><pre><tt><b>ant undeploy</b></tt></pre></li>
+<li><b>To remove the generated files, use the following command in the <tt>simplemessage</tt>,
+<tt>simplemessage-app-client</tt>, and <tt>simplemessage-ejb</tt> directories:</b><pre><tt><b>ant clean</b></tt></pre></li></ol>
+
+<a name="bnbpu"></a><h4>Removing the Administered Objects for the <tt>simplemessage</tt> Example</h4>
+<p>After you run the example, you can use the following Ant targets
+to delete the connection factory and queue:</p>
+
+<pre><tt><b>ant delete-cf ant delete-queue</b></tt></pre>
+         </div>
+         <div class="navigation">
+             <a href="bnbpo.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="gjbnr.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

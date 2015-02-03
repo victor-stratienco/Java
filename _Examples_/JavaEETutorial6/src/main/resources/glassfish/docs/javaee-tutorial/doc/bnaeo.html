@@ -1,0 +1,521 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Configuring Web Applications: The hello2 Example - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level3"><a href="geysj.html">Web Applications</a></p>
+<p class="toc level3"><a href="bnadu.html">Web Application Life Cycle</a></p>
+<p class="toc level3"><a href="bnadx.html">Web Modules: The <tt>hello1</tt> Example</a></p>
+<p class="toc level4"><a href="bnadx.html#gjwux">Examining the <tt>hello1</tt> Web Module</a></p>
+<p class="toc level5"><a href="bnadx.html#gjwtv">To View the <tt>hello1</tt> Web Module Using NetBeans IDE</a></p>
+<p class="toc level4 tocsp"><a href="bnadx.html#bnadz">Packaging a Web Module</a></p>
+<p class="toc level5"><a href="bnadx.html#bnaeb">To Set the Context Root</a></p>
+<p class="toc level5"><a href="bnadx.html#gjrgn">To Build and Package the <tt>hello1</tt> Web Module Using  NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnadx.html#gjrkn">To Build and Package the <tt>hello1</tt> Web Module Using Ant</a></p>
+<p class="toc level4 tocsp"><a href="bnadx.html#bnaea">Deploying a Web Module</a></p>
+<p class="toc level5"><a href="bnadx.html#bnaeg">To Deploy the <tt>hello1</tt> Web Module Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnadx.html#bnaef">To Deploy the <tt>hello1</tt> Web Module Using Ant</a></p>
+<p class="toc level4 tocsp"><a href="bnadx.html#gentextid-2084">Running a Deployed Web Module</a></p>
+<p class="toc level5"><a href="bnadx.html#bnaeh">To Run a Deployed Web Module</a></p>
+<p class="toc level4 tocsp"><a href="bnadx.html#bnaei">Listing Deployed Web Modules</a></p>
+<p class="toc level5"><a href="bnadx.html#gjsgr">To List Deployed Web Modules Using the Administration Console</a></p>
+<p class="toc level5"><a href="bnadx.html#gjsew">To List Deployed Web Modules Using the <tt>asadmin</tt> Command</a></p>
+<p class="toc level4 tocsp"><a href="bnadx.html#bnaej">To Update a Web Module</a></p>
+<p class="toc level4"><a href="bnadx.html#bnaem">Dynamic Reloading</a></p>
+<p class="toc level5"><a href="bnadx.html#gjsgv">To Disable or Modify Dynamic Reloading</a></p>
+<p class="toc level4 tocsp"><a href="bnadx.html#bnaen">Undeploying Web Modules</a></p>
+<p class="toc level5"><a href="bnadx.html#gjsej">To Undeploy the <tt>hello1</tt> Web Module Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnadx.html#gjshh">To Undeploy the <tt>hello1</tt> Web Module Using Ant</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">Configuring Web Applications: The <tt>hello2</tt> Example</a></p>
+<p class="toc level4"><a href="#bnaep">Mapping URLs to Web Components</a></p>
+<p class="toc level4"><a href="#gjwwg">Examining the <tt>hello2</tt> Web Module</a></p>
+<p class="toc level5"><a href="#gjwwa">To View the <tt>hello2</tt> Web Module Using NetBeans IDE</a></p>
+<p class="toc level4 tocsp"><a href="#gjsed">To Package, Deploy, and Run the <tt>hello2</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level4"><a href="#gjshx">To Package, Deploy, and Run the <tt>hello2</tt> Example Using Ant</a></p>
+<p class="toc level4"><a href="#bnaer">Declaring Welcome Files</a></p>
+<p class="toc level4"><a href="#bnaes">Setting Context and Initialization Parameters</a></p>
+<p class="toc level5"><a href="#gjsfj">To Add a Context Parameter Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#gjsdy">To Add an Initialization Parameter Using NetBeans IDE</a></p>
+<p class="toc level4 tocsp"><a href="#bnaet">To Map Errors to Error Screens</a></p>
+<p class="toc level4"><a href="#bnaeu">Declaring Resource References</a></p>
+<p class="toc level5"><a href="#bnaew">Declaring a Reference to a Resource</a></p>
+<p class="toc level5"><a href="#bnaex">Declaring a Reference to a Web Service</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="bnafc.html">Further Information about Web Applications</a></p>
+<p class="toc level2 tocsp"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bnadx.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="bnafc.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bnaeo"></a><h3>Configuring Web Applications: The <tt>hello2</tt> Example</h3>
+<p><a name="indexterm-175"></a>Web applications are configured by means of annotations or by elements contained in
+the web application deployment descriptor.</p>
+
+<p>The following sections give a brief introduction to the web application features you
+will usually want to configure.</p>
+
+<p>In the following sections, examples demonstrate procedures for configuring the Hello, World application.
+If Hello, World does not use a specific configuration feature, the section gives
+references to other examples that illustrate how to specify the deployment descriptor element.</p>
+
+
+
+<a name="bnaep"></a><h4>Mapping URLs to Web Components</h4>
+<p><a name="indexterm-176"></a>When the web container receives a request, it must determine which web component
+should handle the request. It does so by mapping the URL path contained
+in the request to a web application and a web component. A URL
+path contains the context root and, optionally, a URL pattern:</p>
+
+<pre>http://<i>host</i>:<i>port</i>/<i>context-root</i>[/<i>url-pattern</i>]</pre><p>You set the URL pattern for a servlet by using the <tt>@WebServlet</tt> annotation in
+the servlet source file. For example, the <tt>GreetingServlet.java</tt> file in the <tt>hello2</tt> application
+contains the following annotation, specifying the URL pattern as <tt>/greeting</tt>:</p>
+
+<pre>@WebServlet("/greeting")
+public class GreetingServlet extends HttpServlet {
+    ...</pre><p>This annotation indicates that the URL pattern <tt>/greeting</tt> follows the context root,
+so that when the servlet is deployed locally it is accessed with the
+following URL:</p>
+
+<pre>http://localhost:8080/hello2/greeting</pre><p>To access the servlet using only the context root, specify <tt>"/"</tt> as
+the URL pattern.</p>
+
+
+
+<a name="gjwwg"></a><h4>Examining the <tt>hello2</tt> Web Module</h4>
+<p>The <tt>hello2</tt> application behaves almost identically to the <tt>hello1</tt> application. However, it is
+implemented using Java Servlet technology instead of JavaServer Faces technology. You can use a
+text editor to view the application files, or you can use NetBeans
+IDE.</p>
+
+
+
+<a name="gjwwa"></a><h5>To View the <tt>hello2</tt> Web Module Using NetBeans IDE</h5>
+<ol>
+<li><b>In NetBeans IDE, select File&rarr;Open Project.</b></li>
+<li><b>In the Open Project dialog, navigate to:</b><pre><i>tut-install</i>/examples/web/</pre></li>
+<li><b>Select the <tt>hello2</tt> folder.</b></li>
+<li><b>Select the Open as Main Project check box.</b></li>
+<li><b>Expand the Source Packages node, then the <tt>servlets</tt> node.</b></li>
+<li><b>Double-click the <tt>GreetingServlet.java</tt> file to view it.</b><p>This servlet overrides the <tt>doGet</tt> method, implementing the GET method of the HTTP
+protocol. It displays a simple HTML greeting form whose Submit button, like that
+of <tt>hello1</tt>, specifies a response page for its action. The following excerpt begins
+with the <tt>@WebServlet</tt> annotation that specifies the component alias, relative to the context root.</p><pre>@WebServlet("/greeting")
+public class GreetingServlet extends HttpServlet {
+
+    @Override
+    public void doGet(HttpServletRequest request,
+            HttpServletResponse response)
+            throws ServletException, IOException {
+
+        response.setContentType("text/html");
+        response.setBufferSize(8192);
+        PrintWriter out = response.getWriter();
+
+        // then write the data of the response
+        out.println("&lt;html>"
+                + "&lt;head>&lt;title>Servlet Hello&lt;/title>&lt;/head>");
+
+        // then write the data of the response
+        out.println("&lt;body  bgcolor=\"#ffffff\">"
+                + "&lt;img src=\"duke.waving.gif\" alt=\"Duke waving\">"
+                + "&lt;h2>Hello, my name is Duke. What's yours?&lt;/h2>"
+                + "&lt;form method=\"get\">"
+                + "&lt;input type=\"text\" name=\"username\" size=\"25\">"
+                + "&lt;p>&lt;/p>"
+                + "&lt;input type=\"submit\" value=\"Submit\">"
+                + "&lt;input type=\"reset\" value=\"Reset\">"
+                + "&lt;/form>");
+
+        String username = request.getParameter("username");
+        if (username != null &amp;&amp; username.length() > 0) {
+            RequestDispatcher dispatcher =
+                    getServletContext().getRequestDispatcher("/response");
+
+            if (dispatcher != null) {
+                dispatcher.include(request, response);
+            }
+        }
+        out.println("&lt;/body>&lt;/html>");
+        out.close();
+    }
+    ...</pre></li>
+<li><b>Double-click the <tt>ResponseServlet.java</tt> file to view it.</b><p>This servlet also overrides the <tt>doGet</tt> method. It displays only the response. The
+following excerpt begins with the <tt>@WebServlet</tt> annotation that specifies the component alias,
+relative to the context root.</p><pre>@WebServlet("/response")
+public class ResponseServlet extends HttpServlet {
+
+    @Override
+    public void doGet(HttpServletRequest request,
+            HttpServletResponse response)
+            throws ServletException, IOException {
+        PrintWriter out = response.getWriter();
+
+        // then write the data of the response
+        String username = request.getParameter("username");
+        if (username != null &amp;&amp; username.length() > 0) {
+            out.println("&lt;h2>Hello, " + username + "!&lt;/h2>");
+        }
+    }
+    ...</pre></li>
+<li><b>Under the Web Pages node, expand the <tt>WEB-INF</tt> node, then double-click the <tt>sun-web.xml</tt>
+file to view it.</b><p>In the General tab, observe that the Context Root field is set
+to <tt>/hello2</tt>.</p><p>For this simple servlet application, a <tt>web.xml</tt> file is not required.</p></li></ol>
+
+<a name="gjsed"></a><h4>To Package, Deploy, and Run the <tt>hello2</tt> Example Using NetBeans IDE</h4><p>To package, deploy, and run the <tt>hello2</tt>example using NetBeans IDE, follow these steps.</p>
+
+<ol>
+<li><b>Select File&rarr;Open Project.</b></li>
+<li><b>In the Open Project dialog, navigate to the following folder</b><pre><i>tut-install</i>/examples/web/</pre></li>
+<li><b>Select the <tt>hello2</tt> folder.</b></li>
+<li><b>Select the Open as Main Project check box.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>In the Projects tab, right-click the <tt>hello2</tt> project and select Build.</b></li>
+<li><b>Right-click the project and select Deploy.</b></li>
+<li><b>In a web browser, open the URL <tt>http://localhost:8080/hello2/greeting</tt>.</b><p>The URL specifies the context root, followed by the component alias.</p><p>The application looks much like the <tt>hello1</tt> application shown in <a href="bnadu.html#bnadv">Figure&nbsp;3-2</a>. The major
+difference is that after you click the Submit button, the response appears below
+the greeting, not on a separate page.</p></li></ol>
+
+<a name="gjshx"></a><h4>To Package, Deploy, and Run the <tt>hello2</tt> Example Using Ant</h4><p>To package the example with the Ant utility, follow these steps.</p>
+
+<ol>
+<li><b>In a terminal window, go to <tt></tt><i>tut-install</i><tt>/examples/web/hello2/</tt>.</b></li>
+<li><b>Type <tt><b>ant</b></tt>.</b><p>This target builds the WAR file and copies it to the <tt></tt><i>tut-install</i><tt>/examples/web/hello2/dist/</tt> directory.</p></li>
+<li><b>Type <tt><b>ant deploy</b></tt>.</b><p>Ignore the URL shown in the deploy target output.</p></li>
+<li><b>In a web browser, open the URL <tt>http://localhost:8080/hello2/greeting</tt>.</b><p>The URL specifies the context root, followed by the component alias.</p><p>The application looks much like the <tt>hello1</tt> application shown in <a href="bnadu.html#bnadv">Figure&nbsp;3-2</a>. The major difference is
+that after you click the Submit button, the response appears below the greeting,
+not on a separate page.</p></li></ol>
+
+<a name="bnaer"></a><h4>Declaring Welcome Files</h4>
+<p><a name="indexterm-177"></a>The <b>welcome files</b> mechanism allows you to specify a list of files that the
+web container will use for appending to a request for a URL (called
+a <b>valid partial request</b>) that is not mapped to a web component.</p>
+
+<p>For example, suppose you define a welcome file <tt>welcome.html</tt>. When a client requests
+a URL such as <tt><i>host</i>:<i>port</i>/<i>webapp</i>/<i>directory</i></tt>, where <i>directory</i> is not mapped to a servlet
+or XHTML page, the file <tt></tt><i>host</i><tt>:</tt><i>port</i><tt>/</tt><i>webapp</i><tt>/</tt><i>directory</i><tt>/welcome.html</tt> is returned to the client.</p>
+
+<p>If a web container receives a valid partial request, the web container examines
+the welcome file list and appends to the partial request each welcome file
+in the order specified and checks whether a static resource or servlet in
+the WAR is mapped to that request URL. The web container then
+sends the request to the first resource in the WAR that matches.</p>
+
+<p>If no welcome file is specified, the GlassFish Server will use a
+file named <tt>index.html</tt> as the default welcome file. If there is no welcome
+file and no file named <tt>index.html</tt>, the GlassFish Server returns a directory listing.</p>
+
+<p>By convention, you specify the welcome file for a JavaServer Faces application as
+<tt>faces/<i>file-name</i>.xhtml</tt>.</p>
+
+
+
+<a name="bnaes"></a><h4>Setting Context and Initialization Parameters</h4>
+<p>The web components in a web module share an object that represents
+their application context. You can pass initialization parameters to the context or to a
+web component.</p>
+
+
+
+<a name="gjsfj"></a><h5>To Add a Context Parameter Using NetBeans IDE</h5>
+<a name="indexterm-178"></a><a name="indexterm-179"></a><p>To add a context parameter using NetBeans IDE, follow these steps.</p>
+
+<ol>
+<li><b>Open the project if you haven&rsquo;t already.</b></li>
+<li><b>Expand the project&rsquo;s node in the Projects pane.</b></li>
+<li><b>Expand the Web Pages node and then the WEB-INF node.</b></li>
+<li><b>Double-click <tt>web.xml</tt>.</b></li>
+<li><b>Click General at the top of the editor pane.</b></li>
+<li><b>Expand the Context Parameters node.</b></li>
+<li><b>Click Add.</b><p>An Add Context Parameter dialog opens.</p></li>
+<li><b>In the Parameter Name field, type the name that specifies the context
+object.</b></li>
+<li><b>In the Parameter Value field, type the parameter to pass to the
+context object.</b></li>
+<li><b>Click OK.</b></li></ol>
+
+<a name="gjsdy"></a><h5>To Add an Initialization Parameter Using NetBeans IDE</h5>
+<a name="indexterm-180"></a><p>You can use the <tt>@WebServlet</tt> annotation to specify web component initialization parameters using the
+<tt>initParams</tt> attribute and the <tt>@WebInitParam</tt> annotation. For example:</p>
+
+<pre>@WebServlet(urlPatterns="/MyPattern", initParams=
+  {@WebInitParam(name="ccc", value="333")})</pre><p>Alternatively, you can add an initialization parameter to the <tt>web.xml</tt> file. To do this
+using NetBeans IDE, follow these steps.</p>
+
+<ol>
+<li><b>Open the project if you haven&rsquo;t already.</b></li>
+<li><b>Expand the project&rsquo;s node in the Projects pane.</b></li>
+<li><b>Expand the Web Pages node and then the WEB-INF node.</b></li>
+<li><b>Double-click <tt>web.xml</tt>.</b></li>
+<li><b>Click Servlets at the top of the editor pane.</b></li>
+<li><b>Click the Add button under the Initialization Parameters table.</b><p>An Add Initialization Parameter dialog opens.</p></li>
+<li><b>In the Parameter Name field, type the name of the parameter.</b></li>
+<li><b>In the Parameter Value Field, type the parameter&rsquo;s value.</b></li>
+<li><b>Click OK.</b></li></ol>
+
+<a name="bnaet"></a><h4>To Map Errors to Error Screens</h4><a name="indexterm-181"></a><a name="indexterm-182"></a><a name="indexterm-183"></a><p>When an error occurs during execution of a web application, you can have
+the application display a specific error screen according to the type of error.
+In particular, you can specify a mapping between the status code returned in
+an HTTP response or a Java programming language exception returned by any web
+component and any type of error screen.</p>
+
+<p>You can have multiple <tt>error-page</tt> elements in your deployment descriptor. Each one of
+the elements identifies a different error that causes an error page to open.
+This error page can be the same for any number of <tt>error-page</tt> elements.</p>
+
+<p>To set up error mappings using NetBeans IDE, follow these steps.</p>
+
+<ol>
+<li><b>Open the project if you haven&rsquo;t already.</b></li>
+<li><b>Expand the project&rsquo;s node in the Projects pane.</b></li>
+<li><b>Expand the Web Pages node and then the WEB-INF node.</b></li>
+<li><b>Double-click <tt>web.xml</tt>.</b></li>
+<li><b>Click Pages at the top of the editor pane.</b></li>
+<li><b>Expand the Error Pages node.</b></li>
+<li><b>Click Add.</b><p>The Add Error Page dialog opens.</p></li>
+<li><b>Click Browse to locate the page that you want to act as
+the error page.</b></li>
+<li><b>In the Error Code field, type the HTTP status code that will cause the
+error page to be opened.</b></li>
+<li><b>In the Exception Type field, type the exception that will cause the error page
+to load.</b></li>
+<li><b>Click OK.</b></li></ol>
+
+<a name="bnaeu"></a><h4>Declaring Resource References</h4>
+<p>If your web component uses objects such as enterprise beans, data sources, or
+web services, you use Java EE annotations to inject these resources into your
+application. Annotations eliminate a lot of the boilerplate lookup code and configuration elements
+that previous versions of Java EE required.</p>
+
+<p>Although resource injection using annotations can be more convenient for the developer, there
+are some restrictions from using it in web applications. First, you can only
+inject resources into container-managed objects. This is because a container must have control
+over the creation of a component so that it can perform the injection
+into a component. As a result, you cannot inject resources into objects such
+as simple JavaBeans components. However, JavaServer Faces managed beans are managed by the
+container; therefore, they can accept resource injections.</p>
+
+<p>Components that can accept resource injections are listed in <a href="#bnaev">Table&nbsp;3-1</a>.</p>
+
+<p>This section describes how to use a couple of the annotations supported by
+a servlet container to inject resources. <a href="gijst.html">Chapter&nbsp;21, Running the Persistence Examples</a> describes how web applications use annotations
+supported by the Java Persistence API. <a href="bncas.html">Chapter&nbsp;25, Getting Started Securing Web Applications</a>, describes how to use annotations to
+specify information about securing web applications.</p>
+
+<a name="bnaev"></a><h6>Table&nbsp;3-1 Web Components That Accept Resource Injections</h6><table><col width="22%"><col width="77%"><tr><th align="left" valign="top" scope="column"><p>Component</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Interface/Class</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>Servlets</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>javax.servlet.Servlet</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>Servlet Filters</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>javax.servlet.ServletFilter</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>Event Listeners</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>javax.servlet.ServletContextListener</tt></p>
+
+<p><tt>javax.servlet.ServletContextAttributeListener</tt></p>
+
+<p><tt>javax.servlet.ServletRequestListener</tt></p>
+
+<p><tt>javax.servlet.ServletRequestAttributeListener</tt></p>
+
+<p><tt>javax.servlet.http.HttpSessionListener</tt></p>
+
+<p><tt>javax.servlet.http.HttpSessionAttributeListener</tt></p>
+
+<p><tt>javax.servlet.http.HttpSessionBindingListener</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>Taglib Listeners</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Same as above</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>Taglib Tag
+Handlers</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>javax.servlet.jsp.tagext.JspTag</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>Managed Beans</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Plain Old Java Objects</p>
+
+</td>
+</tr>
+</table>
+
+<a name="bnaew"></a><h5>Declaring a Reference to a Resource</h5>
+<p>The <tt>@Resource</tt> annotation is used to declare a reference to a resource such
+as a data source, an enterprise bean, or an environment entry.</p>
+
+<p>The <tt>@Resource</tt> annotation is specified on a class, method or field. The container
+is responsible for injecting references to resources declared by the <tt>@Resource</tt> annotation and
+mapping it to the proper JNDI resources. In the following example, the <tt>@Resource</tt>
+annotation is used to inject a data source into a component that needs
+to make a connection to the data source, as is done when
+using JDBC technology to access a relational database:</p>
+
+<pre>@Resource javax.sql.DataSource catalogDS;
+public getProductsByCategory() {
+    // get a connection and execute the query
+    Connection conn = catalogDS.getConnection();
+    ..
+}</pre><p>The container injects this data source prior to the component being made available
+to the application. The data source JNDI mapping is inferred from the field
+name <tt>catalogDS</tt> and the type, <tt>javax.sql.DataSource</tt>.</p>
+
+<p>If you have multiple resources that you need to inject into one
+component, you need to use the <tt>@Resources</tt> annotation to contain them, as shown by
+the following example:</p>
+
+<pre>@Resources ({
+    @Resource (name="myDB" type=java.sql.DataSource),
+    @Resource(name="myMQ" type=javax.jms.ConnectionFactory)
+})</pre><p>The web application examples in this tutorial use the Java Persistence API to
+access relational databases. This API does not require you to explicitly create a
+connection to a data source. Therefore, the examples do not use the
+<tt>@Resource</tt> annotation to inject a data source. However, this API supports the <tt>@PersistenceUnit</tt>
+and <tt>@PersistenceContext</tt> annotations for injecting <tt>EntityManagerFactory</tt> and <tt>EntityManager</tt> instances, respectively. <a href="gijst.html">Chapter&nbsp;21, Running the Persistence Examples</a> 
+describes these annotations and the use of the Java Persistence API in web
+applications.</p>
+
+
+
+<a name="bnaex"></a><h5>Declaring a Reference to a Web Service</h5>
+<p>The <tt>@WebServiceRef</tt> annotation provides a reference to a web service. The following example
+shows uses the <tt>@WebServiceRef</tt> annotation to declare a reference to a web service.
+<tt>WebServiceRef</tt> uses the <tt>wsdlLocation</tt> element to specify the URI of the deployed service&rsquo;s WSDL
+file:</p>
+
+<pre>...
+import javax.xml.ws.WebServiceRef;
+...
+public class ResponseServlet extends HTTPServlet {
+@WebServiceRef(wsdlLocation=
+    "http://localhost:8080/helloservice/hello?wsdl")
+static HelloService service;</pre>
+         </div>
+         <div class="navigation">
+             <a href="bnadx.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="bnafc.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

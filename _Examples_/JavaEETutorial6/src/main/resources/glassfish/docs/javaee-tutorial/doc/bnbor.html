@@ -1,0 +1,281 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>A Web Service Example: helloservice - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level3"><a href="bnbod.html">The <tt>cart</tt> Example</a></p>
+<p class="toc level4"><a href="bnbod.html#bnboe">The Business Interface</a></p>
+<p class="toc level4"><a href="bnbod.html#bnbof">Session Bean Class</a></p>
+<p class="toc level5"><a href="bnbod.html#bnbog">Lifecycle Callback Methods</a></p>
+<p class="toc level5"><a href="bnbod.html#bnboh">Business Methods</a></p>
+<p class="toc level4 tocsp"><a href="bnbod.html#bnboi">The Remove Method</a></p>
+<p class="toc level4"><a href="bnbod.html#bnboj">Helper Classes</a></p>
+<p class="toc level4"><a href="bnbod.html#bnbok">Building, Packaging, Deploying, and Running the <tt>cart</tt> Example</a></p>
+<p class="toc level5"><a href="bnbod.html#bnbol">To Build, Package, and Deploy the <tt>cart</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnbod.html#bnbom">To Run the <tt>cart</tt> Application Client Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnbod.html#bnbon">To Build, Package, and Deploy the <tt>cart</tt> Example Using Ant</a></p>
+<p class="toc level5"><a href="bnbod.html#bnboo">To Run the <tt>cart</tt> Application Client Using Ant</a></p>
+<p class="toc level5"><a href="bnbod.html#bnbop">The <tt>all</tt> Task</a></p>
+<p class="toc level4 tocsp"><a href="bnbod.html#bnboq">Undeploying the <tt>cart</tt> Example</a></p>
+<p class="toc level5"><a href="bnbod.html#gjsjx">To Undeploy the <tt>cart</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnbod.html#gjsio">To Undeploy the <tt>cart</tt> Example Using Ant</a></p>
+<p class="toc level3 tocsp"><a href="gipvi.html">A Singleton Session Bean Example: <tt>counter</tt></a></p>
+<p class="toc level4"><a href="gipvi.html#gipvc">Creating a Singleton Session Bean</a></p>
+<p class="toc level5"><a href="gipvi.html#gippq">Initializing Singleton Session Beans</a></p>
+<p class="toc level5"><a href="gipvi.html#gipsz">Managing Concurrent Access in a Singleton Session Bean</a></p>
+<p class="toc level5"><a href="gipvi.html#gipvd">Handling Errors in a Singleton Session Bean</a></p>
+<p class="toc level4 tocsp"><a href="gipvi.html#gipxl">The Architecture of the <tt>counter</tt> Example</a></p>
+<p class="toc level4"><a href="gipvi.html#gipvl">Building, Deploying, and Running the <tt>counter</tt> Example</a></p>
+<p class="toc level5"><a href="gipvi.html#gipxt">To Build, Deploy, and Run the <tt>counter</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="gipvi.html#gipzw">To Build, Deploy, and Run the <tt>counter</tt> Example Using Ant</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">A Web Service Example: <tt>helloservice</tt></a></p>
+<p class="toc level4"><a href="#bnbos">The Web Service Endpoint Implementation Class</a></p>
+<p class="toc level4"><a href="#bnbot">Stateless Session Bean Implementation Class</a></p>
+<p class="toc level4"><a href="#bnbou">Building, Packaging, Deploying, and Testing the <tt>helloservice</tt> Example</a></p>
+<p class="toc level5"><a href="#bnbov">To Build, Package, and Deploy the <tt>helloservice</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#bnbow">To Build, Package, and Deploy the <tt>helloservice</tt> Example Using Ant</a></p>
+<p class="toc level5"><a href="#bnbox">To Test the Service without a Client</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="bnboy.html">Using the Timer Service</a></p>
+<p class="toc level4"><a href="bnboy.html#giqlk">Creating Calendar-Based Timer Expressions</a></p>
+<p class="toc level5"><a href="bnboy.html#giqmx">Specifying Multiple Values in Calendar Expressions</a></p>
+<p class="toc level4 tocsp"><a href="bnboy.html#giqlt">Programmatic Timers</a></p>
+<p class="toc level5"><a href="bnboy.html#bnboz">The <tt>Timeout</tt> Method</a></p>
+<p class="toc level5"><a href="bnboy.html#bnbpa">Creating Programmatic Timers</a></p>
+<p class="toc level4 tocsp"><a href="bnboy.html#giqmb">Automatic Timers</a></p>
+<p class="toc level5"><a href="bnboy.html#giqlg">The <tt>@Schedule</tt> and <tt>@Schedules</tt> Annotations</a></p>
+<p class="toc level4 tocsp"><a href="bnboy.html#bnbpb">Canceling and Saving Timers</a></p>
+<p class="toc level4"><a href="bnboy.html#bnbpc">Getting Timer Information</a></p>
+<p class="toc level4"><a href="bnboy.html#bnbpd">Transactions and Timers</a></p>
+<p class="toc level4"><a href="bnboy.html#bnbpe">The <tt>timersession</tt> Example</a></p>
+<p class="toc level4"><a href="bnboy.html#bnbpf">Building, Packaging, Deploying, and Running the <tt>timersession</tt> Example</a></p>
+<p class="toc level5"><a href="bnboy.html#giqni">To Build, Package, Deploy, and Run the <tt>timersession</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnboy.html#giqnq">To Build, Package, and Deploy the <tt>timersession</tt> Example Using Ant</a></p>
+<p class="toc level5"><a href="bnboy.html#giqop">To Run the Web Client</a></p>
+<p class="toc level3 tocsp"><a href="bnbpj.html">Handling Exceptions</a></p>
+<p class="toc level2 tocsp"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gipvi.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="bnboy.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bnbor"></a><h3>A Web Service Example: <tt>helloservice</tt></h3>
+<a name="indexterm-943"></a><p><a name="indexterm-944"></a><a name="indexterm-945"></a>This example demonstrates a simple web service that generates a response based on
+information received from the client. <tt>HelloServiceBean</tt> is a stateless session bean that
+implements a single method, <tt>sayHello</tt>. This method matches the <tt>sayHello</tt> method invoked by
+the client described in <a href="bnayn.html#bnayx">A Simple JAX-WS Application Client</a>.</p>
+
+
+
+<a name="bnbos"></a><h4>The Web Service Endpoint Implementation Class</h4>
+<p><a name="indexterm-946"></a><tt>HelloServiceBean</tt> is the endpoint implementation class. The endpoint implementation class is typically the primary
+programming artifact for enterprise bean web service endpoints. The web service endpoint implementation
+class has the following requirements:</p>
+
+
+<ul><li><p>The class must be annotated with either the <tt>javax.jws.WebService</tt> or <tt>javax.jws.WebServiceProvider</tt> annotations.</p>
+
+</li>
+<li><p>The implementing class may explicitly reference an SEI through the <tt>endpointInterface</tt> element of the <tt>@WebService</tt> annotation, but is not required to do so. If no <tt>endpointInterface</tt> is specified in <tt>@WebService</tt>, an SEI is implicitly defined for the implementing class.</p>
+
+</li>
+<li><p>The business methods of the implementing class must be public, and must not be declared <tt>static</tt> or <tt>final</tt>.</p>
+
+</li>
+<li><p>Business methods that are exposed to web service clients must be annotated with <tt>javax.jws.WebMethod</tt>.</p>
+
+</li>
+<li><p>Business methods that are exposed to web service clients must have JAXB-compatible parameters and return types. See <a href="http://download.oracle.com/docs/cd/E17477_01/javaee/5/tutorial/doc/bnazq.html#bnazs">JAXB default data type bindings</a>.</p>
+
+</li>
+<li><p>The implementing class must not be declared <tt>final</tt> and must not be <tt>abstract</tt>.</p>
+
+</li>
+<li><p>The implementing class must have a default public constructor.</p>
+
+</li>
+<li><p>The endpoint class must be annotated <tt>@Stateless</tt>.</p>
+
+</li>
+<li><p>The implementing class must not define the <tt>finalize</tt> method.</p>
+
+</li>
+<li><p>The implementing class may use the <tt>javax.annotation.PostConstruct</tt> or <tt>javax.annotation.PreDestroy</tt> annotations on its methods for lifecycle event callbacks.</p>
+
+<p>The <tt>@PostConstruct</tt> method is called by the container before the implementing class begins responding to web service clients.</p>
+
+<p>The <tt>@PreDestroy</tt> method is called by the container before the endpoint is removed from operation.</p>
+
+</li></ul>
+
+
+<a name="bnbot"></a><h4>Stateless Session Bean Implementation Class</h4>
+<a name="indexterm-947"></a><p>The <tt>HelloServiceBean</tt> class implements the <tt>sayHello</tt> method, which is annotated <tt>@WebMethod</tt>. The source
+code for the <tt>HelloServiceBean</tt> class follows:</p>
+
+<pre>package com.sun.tutorial.javaee.ejb;
+
+import javax.ejb.Stateless;
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
+@Stateless
+@WebService
+public class HelloServiceBean {
+    private String message = "Hello, ";
+
+    public void HelloServiceBean() {}
+
+    @WebMethod
+    public String sayHello(String name) {
+        return message + name + ".";
+    }
+}</pre>
+
+<a name="bnbou"></a><h4>Building, Packaging, Deploying, and Testing the <tt>helloservice</tt> Example</h4>
+<p>You can build, package, and deploy the <tt>helloservice</tt> example using either NetBeans IDE
+or Ant. You can then use the Administration Console to test the web
+service endpoint methods.</p>
+
+
+
+<a name="bnbov"></a><h5>To Build, Package, and Deploy the <tt>helloservice</tt> Example Using NetBeans IDE</h5>
+<p>To build, package, and deploy the <tt>helloservice</tt> example using NetBeans IDE, follow these
+steps.</p>
+
+<ol>
+<li><b>In NetBeans IDE, select File&rarr;Open Project.</b></li>
+<li><b>In the Open Project dialog, navigate to <tt></tt><i>tut-install</i><tt>/examples/ejb/</tt>.</b></li>
+<li><b>Select the <tt>helloservice</tt> folder.</b></li>
+<li><b>Select the Open as Main Project and Open Required Projects check boxes.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>In the Projects tab, right-click the <tt>helloservice</tt> project and select Deploy.</b><p>This builds and packages the application into <tt>helloservice.ear</tt>, located in <tt></tt><i>tut-install</i><tt>/examples/ejb/helloservice/dist</tt>, and
+deploys this ear file to the GlassFish Server.</p></li></ol>
+
+<a name="bnbow"></a><h5>To Build, Package, and Deploy the <tt>helloservice</tt> Example Using Ant</h5>
+<p>To build, package, and deploy the <tt>helloservice</tt> example using Ant, follow these steps.</p>
+
+<ol>
+<li><b>In a terminal window, go to the <tt></tt><i>tut-install</i><tt>/examples/ejb/helloservice/</tt> directory.</b></li>
+<li><b>To build <tt>helloservice</tt>, type the following command:</b><pre><tt><b>ant</b></tt></pre><p>This runs the <tt>default</tt> task, which compiles the source files and packages the
+application into a JAR file located at <tt></tt><i>tut-install</i><tt>/examples/ejb/helloservice/dist/helloservice.jar</tt>.</p></li>
+<li><b>To deploy <tt>helloservice</tt>, type the following command:</b><pre><tt><b>ant deploy</b></tt></pre><p>Upon deployment, the GlassFish Server generates additional artifacts required for web service invocation,
+including the WSDL file.</p></li></ol>
+
+<a name="bnbox"></a><h5>To Test the Service without a Client</h5>
+<p>The GlassFish Server Administration Console allows you to test the methods of
+a web service endpoint. To test the <tt>sayHello</tt> method of <tt>HelloServiceBean</tt>, follow these
+steps.</p>
+
+<ol>
+<li><b>Open the Administration Console by opening the following URL in a web browser:</b><pre>http://localhost:4848/</pre></li>
+<li><b>In the left pane of the Administration Console, select the Applications node.</b></li>
+<li><b>In the Applications table, click <tt>helloservice</tt>.</b></li>
+<li><b>In the Modules and Components table, click View Endpoint.</b></li>
+<li><b>On the Web Service Endpoint Information page, click the Tester link, <tt> /HelloServiceBeanService/HelloServiceBean?Tester</tt>.</b><p>The tester page opens in a browser window or tab.</p></li>
+<li><b>Under Methods, type a name as the parameter to the <tt>sayHello</tt> method.</b></li>
+<li><b>Click the <tt>sayHello</tt> button.</b><p>The <tt>sayHello</tt> Method invocation page opens. Under Method returned, you&rsquo;ll see the response
+from the endpoint.</p></li></ol>
+         </div>
+         <div class="navigation">
+             <a href="gipvi.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="bnboy.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

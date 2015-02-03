@@ -1,0 +1,922 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Securing Enterprise Beans - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3"><a href="">Securing Enterprise Beans</a></p>
+<p class="toc level4"><a href="#gjgdi">Securing an Enterprise Bean Using Declarative Security and Annotations</a></p>
+<p class="toc level5"><a href="#gjgcq">Specifying Authorized Users by Declaring Security Roles</a></p>
+<p class="toc level5"><a href="#bnbyu">Specifying an Authentication Mechanism and Secure Connection</a></p>
+<p class="toc level5"><a href="#bnbzk">Example: Securing an Enterprise Bean</a></p>
+<p class="toc level4 tocsp"><a href="#gjgcs">Securing an Enterprise Bean Programmatically</a></p>
+<p class="toc level5"><a href="#gjgcr">Accessing an Enterprise Bean Caller's Security Context</a></p>
+<p class="toc level5"><a href="#bncaa">Example: Using the <tt>isCallerInRole</tt> and <tt>getCallerPrincipal</tt> Methods</a></p>
+<p class="toc level4 tocsp"><a href="#bnbyr">Propagating a Security Identity (Run-As)</a></p>
+<p class="toc level5"><a href="#bnbzb">Configuring a Component's Propagated Security Identity</a></p>
+<p class="toc level5"><a href="#bnbzc">Trust Between Containers</a></p>
+<p class="toc level4 tocsp"><a href="#bnbzg">Deploying Secure Enterprise Beans</a></p>
+<p class="toc level5"><a href="#bnbzh">To Accept Unauthenticated Users</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="bncah.html">Securing Application Clients</a></p>
+<p class="toc level4"><a href="bncah.html#bncai">Using Login Modules</a></p>
+<p class="toc level4"><a href="bncah.html#bncaj">Using Programmatic Login</a></p>
+<p class="toc level3 tocsp"><a href="bncal.html">Securing Enterprise Information Systems (EIS) Applications</a></p>
+<p class="toc level4"><a href="bncal.html#bncam">Container-Managed Sign-On</a></p>
+<p class="toc level4"><a href="bncal.html#bncan">Component-Managed Sign-On</a></p>
+<p class="toc level4"><a href="bncal.html#bncao">Configuring Resource Adapter Security</a></p>
+<p class="toc level4"><a href="bncal.html#bncap">To Map an Application Principal to EIS Principals</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bnbyk.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="bncah.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bnbyl"></a><h3>Securing Enterprise Beans</h3>
+<a name="indexterm-1510"></a><a name="indexterm-1511"></a><a name="indexterm-1512"></a><a name="indexterm-1513"></a><a name="indexterm-1514"></a><p>Enterprise beans are Java EE components that implement Enterprise JavaBeans (EJB) technology. Enterprise
+beans run in the EJB container, a runtime environment within the GlassFish Server.
+Although transparent to the application developer, the EJB container provides system-level services such
+as transactions and security to its enterprise beans, which form the core of
+transactional Java EE applications. </p>
+
+<p>Enterprise bean methods can be secured using one of the following methods:</p>
+
+
+<ul><li><p><a name="indexterm-1515"></a><a name="indexterm-1516"></a><a name="indexterm-1517"></a><a name="indexterm-1518"></a><a name="indexterm-1519"></a><b>Declarative Security</b> (preferred)</p>
+
+<p>Declarative security expresses an application component&rsquo;s security requirements using either deployment descriptors or annotations.</p>
+
+<p>The presence of an annotation in the business method of an enterprise bean class that specifies method permissions is all that is needed for method protection and authentication in some situations. This section discusses this simple and efficient method of securing enterprise beans.</p>
+
+<p>There are some limitations to the simplified method of securing enterprise beans, so there are some instances where you would want to continue to use the deployment descriptor to specify security information. An authentication mechanism must be configured on the server for the simple solution to work. The GlassFish Server provides a default authentication method of basic authentication. Using deployment descriptors to specify security information for enterprise applications is discussed in Part&nbsp;VII, Security, in <i>The Java EE 6 Tutorial, Volume II</i>.</p>
+
+<p>This tutorial describes how to invoke username-password authentication of authorized users by decorating the enterprise application's business methods with <b>annotations</b> that specify method permissions.</p>
+
+<p>To make the deployer's task easier, the application developer can define security roles. A security role is a grouping of permissions that a given type of users of the application must have in order to successfully use the application. For example, in a payroll application, there will be users who want to view their own payroll information (<i>employee</i>), user who need to view others' payroll information (<i>manager</i>), and users who need to be able to change others' payroll information (<i>payrollDept</i>). The application developer would determine who the potential users of the application would be, and which methods would be accessible to which users. The application developer would then decorate classes or methods of the enterprise bean with annotations that specify the types of users authorized to access those methods. Using annotations to specify authorized users is described in <a href="#gjgcq">Specifying Authorized Users by Declaring Security Roles</a>.</p>
+
+<p>When one of the annotations is used to define method permissions, the deployment system will automatically require username-password authentication. In this type of authentication, a user is prompted to enter a username and password. These will be compared against a database of known users. If the user is found and the password matches, the roles that the user is assigned will be compared against the roles that are authorized to access the method. If the user is authenticated and found to have a role that is authorized to access that method, the data will be returned to the user.</p>
+
+<p>Using declarative security is discussed in <a href="#gjgdi">Securing an Enterprise Bean Using Declarative Security and Annotations</a>.</p>
+
+</li>
+<li><p><a name="indexterm-1520"></a><a name="indexterm-1521"></a><b>Programmatic Security</b> </p>
+
+<p>For an enterprise bean, programmatic security is code that is embedded in a business method, is used to access a caller's identity programmatically, and uses this information to make security decisions. Programmatic security is useful when declarative security alone is not sufficient to express the security model of an application.</p>
+
+<p>In general, security management should be enforced by the container in a manner that is transparent to the enterprise beans' business methods. The programmatic security APIs described in this chapter should be used only in the less frequent situations in which the enterprise bean business methods need to access the security context information, such as when you want to grant access based on the time of day (or other nontrivial condition checks) for a particular role.</p>
+
+<p>Programmatic security is discussed in <a href="#gjgcs">Securing an Enterprise Bean Programmatically</a>.</p>
+
+</li></ul>
+<p>Some of the material in this chapter assumes that you have already
+read <a href="bnbwj.html">Chapter&nbsp;24, Introduction to Security in the Java EE Platform</a>, <a href="gijsz.html">Chapter&nbsp;14, Enterprise Beans</a>, and <a href="gijre.html">Chapter&nbsp;15, Getting Started with Enterprise Beans</a>. </p>
+
+<p>As mentioned earlier, enterprise beans run in the EJB container, a runtime environment
+within the GlassFish Server, as shown in <a href="#bnbym">Figure&nbsp;26-1</a>.</p>
+
+<a name="bnbym"></a><h6>Figure&nbsp;26-1 Java EE Server and Containers</h6><img src="figures/overview-serverAndContainers.gif" alt="Diagram of Java EE server showing web container and EJB container"></img><p>This section discusses how to secure a Java EE application where one or
+more modules (such as EJB JAR files) are packaged into an EAR
+file, the archive file that holds the application. Security annotations will be used in
+the Java programming class files to specify authorized users and basic, or username-password,
+authentication.</p>
+
+<p>Enterprise beans often provide the business logic of a <b>web</b> application. In these
+cases, packaging the enterprise bean within the web application's WAR module simplifies deployment
+and application organization. Enterprise beans may be packaged within a WAR module as
+Java programming language class files or within a JAR file that is bundled
+within the WAR module. When a servlet, JSP page, or JavaServer Faces page
+handles the web front-end, and the application is packaged into a WAR module
+as a Java programming class file, then security for the <b>application</b> can be
+handled in the application's <tt>web.xml</tt> file. The EJB in the WAR file
+can have its own deployment descriptor, <tt>ejb-jar.xml</tt>, if required. Securing web applications using <tt>web.xml</tt>
+is discussed in <a href="bncas.html">Chapter&nbsp;25, Getting Started Securing Web Applications</a> and Part&nbsp;VII, Security, in <i>The Java EE 6 Tutorial, Volume II</i>.</p>
+
+<p>The following sections describe declarative and programmatic security mechanisms that can be used
+to protect enterprise bean resources. The protected resources include methods of enterprise beans
+that are called from application clients, web components, or other enterprise beans. </p>
+
+<p>You should also read <i>JSR 318: Enterprise JavaBeans 3.1</i> for more information on this topic. This document
+can be downloaded from <a href="http://jcp.org/en/jsr/detail?id=318">http://jcp.org/en/jsr/detail?id=318</a>. Chapter 17 of this specification, <i>Security Management</i>, discusses security management
+for enterprise beans.</p>
+
+
+
+<a name="gjgdi"></a><h4>Securing an Enterprise Bean Using Declarative Security and Annotations</h4>
+<p>Declarative security enables the application developer to specify which users are authorized to
+access which methods of the enterprise beans, and to authenticate these users with
+basic, or username-password, authentication.</p>
+
+<p>Frequently, the person who is developing an enterprise application is not the same
+person who is responsible for deploying the application. When an application developer uses
+declarative security to define method permissions and authentications mechanisms, they are passing along
+to the deployer a <b>security view</b> of the enterprise beans contained in the
+EJB JAR. When a security view is passed on to the deployer, the
+deployer uses this information to define method permissions for security roles. If you
+don&rsquo;t define a security view, the deployer will have to determine what each
+business method does to determine which users are authorized to call each method.</p>
+
+<p><a name="indexterm-1522"></a><a name="indexterm-1523"></a><a name="indexterm-1524"></a><a name="indexterm-1525"></a><a name="indexterm-1526"></a>A security view consists of a set of <b>security roles</b>, a semantic grouping of
+permissions that a given type of users of an application must have to
+successfully access the application. Security roles are meant to be logical roles, representing a
+type of user. You can define method permissions for each security role. A
+method permission is a permission to invoke a specified group of methods of
+the enterprise beans&rsquo; business interface, home interface, component interface, and/or web service endpoints.
+After method permissions are defined, username-password authentication will be used to verify the
+identity of the user.</p>
+
+<p>It is important to keep in mind that security roles are used
+to define the logical security view of an application. They should not be
+confused with the user groups, users, principals, and other concepts that exist in
+the GlassFish Server. An additional step is required to map the roles defined
+in the application to users, groups, and principals that are the components of
+the user database in the file realm of the GlassFish Server. These steps
+are outlined in <a href="#bnbyy">To Map Security Roles to GlassFish Server Groups</a>.</p>
+
+<p>The following sections show how an application developer uses declarative security to either
+secure an application or to create a security view to pass along to
+the deployer.</p>
+
+
+
+<a name="gjgcq"></a><h5>Specifying Authorized Users by Declaring Security Roles</h5>
+<a name="indexterm-1527"></a><a name="indexterm-1528"></a><a name="indexterm-1529"></a><a name="indexterm-1530"></a><a name="indexterm-1531"></a><a name="indexterm-1532"></a><a name="indexterm-1533"></a><p>This section discusses how to use annotations to specify the method permissions for
+the methods of a bean class. If you'd like more information on these
+annotations, refer to <a href="http://jcp.org/en/jsr/detail?id=250">JSR 250: Common Annotations for the Java Platform</a>.</p>
+
+<p>Method permissions can be specified on the class, the business methods of the
+class, or both. Method permissions can be specified on a method of the
+bean class to override the method permissions value specified on the entire bean
+class. The following annotations are used to specify method permissions:</p>
+
+
+<ul><li><p><a name="indexterm-1534"></a><a name="indexterm-1535"></a><tt>@DeclareRoles</tt></p>
+
+<p>This annotation is used to specify all of the roles that will be used by the application, including roles not specifically named in a <tt>@RolesAllowed</tt> annotation. The set of security roles used by the application is the total of the security roles defined in the <tt>@DeclareRoles</tt> and <tt>@RolesAllowed</tt> annotations.</p>
+
+<p>The <tt>@DeclareRoles</tt> annotation is specified on a bean class, where it serves to declare roles that can be tested (for example, by calling <tt>isCallerInRole</tt>) from within the methods of the annotated class. When declaring the name of a role used as a parameter to the <tt>isCallerInRole(String roleName)</tt> method, the declared name must be the same as the parameter value.</p>
+
+<p>The following example code demonstrates the use of the <tt>@DeclareRoles</tt> annotation.</p>
+
+<pre>@DeclareRoles("BusinessAdmin")
+public class Calculator {
+    ...
+}</pre><p>The syntax for declaring more than one role is as shown in the following example:</p>
+
+<pre>@DeclareRoles({"Administrator", "Manager", "Employee"})</pre></li>
+<li><p><a name="indexterm-1536"></a><a name="indexterm-1537"></a><tt>@RolesAllowed("</tt><i>list-of-roles</i><tt>")</tt></p>
+
+<p>The <tt>@RolesAllowed</tt> annotation specifies the security roles permitted to access methods in an application. This annotation can be specified on a class or on one or more methods. When specified at the class level, it applies to all methods in the class. When specified on a method, it applies to that method only, and overrides any values specified at the class level.</p>
+
+<p>To specify that no roles are authorized to access methods in an application, use the <tt>@DenyAll</tt> annotation. To specify that a user in any role is authorized to access the application, use the <tt>@PermitAll</tt> annotation.</p>
+
+<p>When used in conjunction with the <tt>@DeclareRoles</tt> annotation, the combined set of security roles is used by the application.</p>
+
+<p>The following example code demonstrates the use of the <tt>@RolesAllowed</tt> annotation.</p>
+
+<pre>@DeclareRoles({"Administrator", "Manager", "Employee"})
+public class Calculator {
+
+    @RolesAllowed("Administrator")
+    public void setNewRate(int rate) {
+        ...
+    }
+}</pre></li>
+<li><p><a name="indexterm-1538"></a><a name="indexterm-1539"></a><tt>@PermitAll</tt></p>
+
+<p>The <tt>@PermitAll</tt> annotation specifies that <b>all</b> security roles are permitted to execute the specified method or methods. The user is not checked against a database to ensure that this user is authorized to access this application.</p>
+
+<p>This annotation can be specified on a class or on one or more methods. Specifying this annotation on the class means that it applies to all methods of the class. Specifying it at the method level means that it applies to only that method.</p>
+
+<p>The following example code demonstrates the use of the <tt>@PermitAll</tt> annotation.</p>
+
+<pre>import javax.annotation.security.*;
+@RolesAllowed("RestrictedUsers")
+public class Calculator {
+
+    @RolesAllowed("Administrator")
+    public void setNewRate(int rate) {
+        //...
+    }
+    @PermitAll
+    public long convertCurrency(long amount) {
+        //...
+    }
+}</pre></li>
+<li><p><a name="indexterm-1540"></a><a name="indexterm-1541"></a><tt>@DenyAll</tt></p>
+
+<p>The <tt>@DenyAll</tt> annotation specifies that <b>no</b> security roles are permitted to execute the specified method or methods. This means that these methods are excluded from execution in the Java EE container.</p>
+
+<p>The following example code demonstrates the use of the <tt>@DenyAll</tt> annotation.</p>
+
+<pre>import javax.annotation.security.*;
+@RolesAllowed("Users")
+public class Calculator {
+    @RolesAllowed("Administrator")
+    public void setNewRate(int rate) {
+        //...
+    }
+    @DenyAll
+    public long convertCurrency(long amount) {
+        //...
+    }
+}</pre></li></ul>
+<a name="gjgmu"></a><h6>Example&nbsp;26-1 Declaring Roles Using the <tt>@DeclareRoles</tt> Annotation</h6><p>The following code snippet demonstrates the use of the <tt>@DeclareRoles</tt> annotation with
+the <tt>isCallerInRole</tt> method. In this example, the <tt>@DeclareRoles</tt> annotation declares a role that the
+enterprise bean <tt>PayrollBean</tt> uses to make the security check using <tt>isCallerInRole("payroll")</tt> to verify that
+the caller is authorized to change salary data.</p>
+
+<pre>@DeclareRoles("payroll")
+@Stateless public class PayrollBean implements Payroll {
+    @Resource SessionContext ctx;
+
+    public void updateEmployeeInfo(EmplInfo info) {
+
+        oldInfo = ... read from database;
+
+        // The salary field can be changed only by callers
+        // who have the security role "payroll"
+        Principal callerPrincipal = ctx.getCallerPrincipal();
+        if (info.salary != oldInfo.salary &amp;&amp; !ctx.isCallerInRole("payroll")) {
+            throw new SecurityException(...);
+        }
+        ...
+    }
+    ...
+}</pre><a name="gjgnb"></a><h6>Example&nbsp;26-2 Declaring Roles Using the <tt>@RolesAllowed</tt> Annotation</h6><p>The following example code illustrates the use of the <tt>@RolesAllowed</tt> annotation:</p>
+
+<pre>@RolesAllowed("admin")
+public class SomeClass {
+    public void aMethod () {...}
+    public void bMethod () {...}
+    ...
+}
+
+@Stateless public class MyBean extends SomeClass implements A  {
+
+    @RolesAllowed("HR")
+    public void aMethod () {...}
+
+    public void cMethod () {...}
+    ...
+}</pre><p>In this example, assuming <tt>aMethod</tt>, <tt>bMethod</tt>, and <tt>cMethod</tt> are methods of business interface
+<tt>A</tt>, the method permissions values of methods <tt>aMethod</tt> and <tt>bMethod</tt> are <tt>@RolesAllowed("HR")</tt> and
+<tt>@RolesAllowed("admin")</tt> respectively. The method permissions for method <tt>cMethod</tt> have not been specified.</p>
+
+<p>To clarify, the annotations are not inherited by the subclass itself. Instead, the
+annotations apply to methods of the superclass that are inherited by the subclass.</p>
+
+
+
+<a name="bnbyy"></a><h5>To Map Security Roles to GlassFish Server Groups</h5>
+<p>The GlassFish Server assigns users to <b>principals</b> or <b>groups</b>, rather than to
+security roles. When you are developing a Java EE application, you don&rsquo;t need
+to know what categories of users have been defined for the realm in
+which the application will be run. In the Java EE platform, the security
+architecture provides a mechanism for mapping the security roles defined in the application
+to the users, principals, or groups defined in the runtime realm. The deployer
+works with the security view provided by the application developer to implement this
+mapping.</p>
+
+<p>One way to declare a mapping between a security role used in
+the application and one or more groups and/or principals defined for the applicable
+realm of the GlassFish Server is to use the <tt>security-role-mapping</tt> element in the runtime
+deployment descriptor (<tt>sun-application.xml</tt>, <tt>sun-web.xml</tt>, or <tt>sun-ejb-jar.xml</tt>.) This is the method to use when
+the role name defined in the application does not match the group or
+principal name defined for the GlassFish Server.</p>
+
+<p>In the tutorial, the role names used in the application are the
+same as the group names defined on the GlassFish Server. Under these circumstances, you
+can enable a default principal-to-role mapping on the GlassFish Server using the Administration
+Console. To enable the default principal-to-role-mapping, follow these steps.</p>
+
+<ol>
+<li><b>Start the GlassFish Server, if it is not already running.</b></li>
+<li><b>Start the Administration Console.</b></li>
+<li><b>Expand the Configuration node.</b></li>
+<li><b>Select the Security node.</b></li>
+<li><b>On the Security page, select the Default Principal to Role Mapping Enabled check
+box.</b></li>
+<li><b>Click Save.</b></li></ol>
+
+<a name="bnbyu"></a><h5>Specifying an Authentication Mechanism and Secure Connection</h5>
+<a name="indexterm-1542"></a><a name="indexterm-1543"></a><p>When method permissions are specified, basic username-password authentication will be invoked by the
+GlassFish Server.</p>
+
+<p>If you would like to specify a different type of authentication, or to
+require a secure connection using SSL, you would specify this information in an
+application deployment descriptor. Using application deployment descriptors is discussed in Part&nbsp;VII, Security, in
+<i>The Java EE 6 Tutorial, Volume II</i>.</p>
+
+
+
+<a name="bnbzk"></a><h5>Example: Securing an Enterprise Bean</h5>
+<p>This section discusses how to configure an enterprise bean for basic username-password
+authentication. When a bean that is constrained in this way is requested, the
+server requests a user name and password from the client and verifies that
+the user name and password are valid by comparing them against a database
+of authorized users on the GlassFish Server.</p>
+
+<p>If the topic of authentication is new to you, please refer to
+the section titled <a href="gkbaa.html#bncbn">Specifying an Authentication Mechanism</a>.</p>
+
+<p>This example demonstrates security by starting with the unsecured enterprise bean application, 
+<tt>cart</tt>, which is found in the directory <tt><i>tut-install</i>/examples/ejb/cart/</tt>  and is discussed
+in <a href="bnbod.html">The <tt>cart</tt> Example</a>.</p>
+
+<p>In general, the following steps are necessary to add username-password authentication to an
+existing application that contains an enterprise bean. In the example application included with
+this tutorial, these steps have been completed for you and are listed here
+simply to show what needs to be done should you wish to create
+a similar application.</p>
+
+
+<ol><li><p>Create an application like the one in <a href="bnbod.html">The <tt>cart</tt> Example</a>. The example in this tutorial starts with this example and demonstrates adding basic authentication of the client to this application. The example application discussed in this section can be found at <tt></tt><i>tut-install</i><tt>/examples/security/cart-secure/</tt>.</p>
+
+</li>
+<li><p>If you have not already done so, complete the steps in <a href="bncbx.html#gjjlk">To Set Up Your System for Running the Security Examples</a> to configure your system for running the tutorial applications.</p>
+
+</li>
+<li><p>Modify the source code for the enterprise bean, <tt>CartBean.java</tt>, to specify which roles are authorized to access which protected methods. This step is discussed in <a href="#bnbzl">Annotating the Bean</a>.</p>
+
+</li>
+<li><p>Build, package, and deploy the enterprise bean, then build and run the client application by following the steps in <a href="#bnbzn">To Build, Deploy, and Run the Secure Cart Example Using NetBeans IDE</a> or <a href="#bnbzo">To Build, Deploy, and Run the Secure Cart Example Using Ant</a>.</p>
+
+</li></ol>
+
+
+<a name="bnbzl"></a><h5>Annotating the Bean</h5>
+<p>The source code for the original <tt>cart</tt> application was modified as shown in
+the following code snippet (modifications in <b>bold</b>). The resulting file can be
+found in the following location:</p>
+
+<pre><i>tut-install</i>/examples/security/cart-secure/cart-secure-ejb/src/java/cart/
+ejb/CartBean.java</pre><p>The code snippet is as follows:</p>
+
+<pre>package cart.ejb;
+
+import cart.util.BookException;
+import cart.util.IdVerifier;
+import java.util.ArrayList;
+import java.util.List;
+import javax.ejb.Remove;
+import javax.ejb.Stateful;
+<b>import javax.annotation.security.DeclareRoles;</b>
+<b>import javax.annotation.security.RolesAllowed;</b>
+@Stateful
+<b>@DeclareRoles("TutorialUser")</b>
+public class CartBean implements Cart {
+    List&lt;String> contents;
+    String customerId;
+    String customerName;
+
+    public void initialize(String person) throws BookException {
+        if (person == null) {
+            throw new BookException("Null person not allowed.");
+        } else {
+            customerName = person;
+        }
+
+        customerId = "0";
+        contents = new ArrayList&lt;String>();
+    }
+
+    public void initialize(
+        String person,
+        String id) throws BookException {
+        if (person == null) {
+            throw new BookException("Null person not allowed.");
+        } else {
+            customerName = person;
+        }
+
+        IdVerifier idChecker = new IdVerifier();
+
+        if (idChecker.validate(id)) {
+            customerId = id;
+        } else {
+            throw new BookException("Invalid id: " + id);
+        }
+
+        contents = new ArrayList&lt;String>();
+    }
+
+    <b>@RolesAllowed("TutorialUser")</b>
+    public void addBook(String title) {
+        contents.add(title);
+    }
+
+    <b>@RolesAllowed("TutorialUser")</b>
+    public void removeBook(String title) throws BookException {
+        boolean result = contents.remove(title);
+
+        if (result == false) {
+            throw new BookException("\"" + title + "\" not in cart.");
+        }
+    }
+
+    <b>@RolesAllowed("TutorialUser")</b>
+    public List&lt;String> getContents() {
+        return contents;
+    }
+
+    @Remove()
+    <b>@RolesAllowed("TutorialUser")</b>
+    public void remove() {
+        contents = null;
+    }
+}</pre><p>The <tt>@RolesAllowed</tt> annotation is specified on methods for which you want to restrict
+access. In this example, only users in the role of <tt>TutorialUser</tt> will be
+allowed to add and remove books from the cart, and to list the
+contents of the cart. A <tt>@RolesAllowed</tt> annotation implicitly declares a role that will
+be referenced in the application; therefore, no <tt>@DeclareRoles</tt> annotation is required. The presence
+of the <tt>@RolesAllowed</tt> annotation also implicitly declares that authentication will be required for a
+user to access these methods. If no authentication method is specified in the
+deployment descriptor, the type of authentication will be username-password authentication.</p>
+
+
+
+<a name="bnbzn"></a><h5>To Build, Deploy, and Run the Secure Cart Example Using NetBeans IDE</h5>
+<p>To build, deploy, and run the <tt>cart-secure</tt> project in your GlassFish Server instance
+using NetBeans IDE, follow these steps.</p>
+
+<ol>
+<li><b>Follow the steps in <a href="bncbx.html#gjjlk">To Set Up Your System for Running the Security Examples</a>.</b></li>
+<li><b>In NetBeans IDE, select File&rarr;Open Project.</b></li>
+<li><b>In the Open Project dialog, navigate to <tt></tt><i>tut-install</i><tt>/examples/security/</tt>.</b></li>
+<li><b>Select the <tt>cart-secure</tt> folder.</b></li>
+<li><b>Select the Open as Main Project and Open Required Projects check boxes.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>In the Projects tab, right-click the <tt>cart-secure</tt> project and select Build.</b></li>
+<li><b>In the Projects tab, right-click the <tt>cart-secure</tt> project and select Deploy.</b><p>This step builds and packages the application into <tt>cart-secure.ear</tt>, located in the directory
+<tt></tt><i>tut-install</i><tt>/examples/security/cart-secure/dist/</tt>, and deploys this EAR file to your GlassFish Server instance.</p></li>
+<li><b>To run the application client, right-click the <tt>cart-secure</tt> project and select Run.</b><p>A <tt>Login for user:</tt> dialog box appears.</p></li>
+<li><b>In the dialog box, type the user name and password of a
+file realm user created on the GlassFish Server and assigned to the group
+<tt>TutorialUser</tt>; then click OK.</b><p>If the user name and password you enter are authenticated, the output
+of the application client appears in the Output pane:</p><pre>...
+Retrieving book title from cart: Infinite Jest
+Retrieving book title from cart: Bel Canto
+Retrieving book title from cart: Kafka on the Shore
+Removing "Gravity&rsquo;s Rainbow" from cart.
+Caught a BookException: "Gravity&rsquo;s Rainbow" not in cart.
+Java Result: 1
+...</pre><p>If the user name and password are not authenticated, the dialog box
+reappears until you type correct values.</p></li></ol>
+
+<a name="bnbzo"></a><h5>To Build, Deploy, and Run the Secure Cart Example Using Ant</h5>
+<p>To build, deploy, and run the secure EJB example using the Ant
+tool, follow these steps.</p>
+
+<ol>
+<li><b>Follow the steps in <a href="bncbx.html#gjjlk">To Set Up Your System for Running the Security Examples</a>.</b></li>
+<li><b>From a terminal window or command prompt, go to the <tt></tt><i>tut-install</i><tt>/examples/security/cart-secure/</tt> directory.</b></li>
+<li><b>To build the application and package it into an EAR file, type the
+following command at the terminal window or command prompt:</b><pre><tt><b>ant</b></tt></pre></li>
+<li><b>To deploy the application to the GlassFish Server, type the following command:</b><pre><tt><b>ant deploy</b></tt></pre></li>
+<li><b>To run the application client, type the following command:</b><pre><tt><b>ant run</b></tt></pre><p>This task retrieves the application client JAR and runs the application client.</p><p>A <tt>Login for user:</tt> dialog box appears.</p></li>
+<li><b>In the dialog box, type the user name and password of a
+file realm user created on the GlassFish Server and assigned to the group
+<tt>TutorialUser</tt>, then click OK.</b><p>If the user name and password are authenticated, the client displays the following
+output:</p><pre>[echo] running application client container.
+[exec] Retrieving book title from cart: Infinite Jest
+[exec] Retrieving book title from cart: Bel Canto
+[exec] Retrieving book title from cart: Kafka on the Shore
+[exec] Removing "Gravity&rsquo;s Rainbow" from cart.
+[exec] Caught a BookException: "Gravity&rsquo;s Rainbow" not in cart.
+[exec] Result: 1</pre><p>If the username and password are not authenticated, the dialog box reappears until
+you type correct values.</p></li></ol>
+
+<a name="gjgcs"></a><h4>Securing an Enterprise Bean Programmatically</h4>
+<p>Programmatic security is code that is embedded in a business method, is used
+to access a caller's identity programmatically, and uses this information to make security
+decisions within the method itself.</p>
+
+
+
+<a name="gjgcr"></a><h5>Accessing an Enterprise Bean Caller&rsquo;s Security Context</h5>
+<a name="indexterm-1544"></a><a name="indexterm-1545"></a><a name="indexterm-1546"></a><a name="indexterm-1547"></a><a name="indexterm-1548"></a><a name="indexterm-1549"></a><p>In general, security management should be enforced by the container in a manner
+that is transparent to the enterprise beans&rsquo; business methods. The security API described
+in this section should be used only in the less frequent situations in
+which the enterprise bean business methods need to access the security context information,
+such as when you want to restrict access to a particular time of
+day.</p>
+
+<p>The <tt>javax.ejb.EJBContext</tt> interface provides two methods that allow the bean provider to access
+security information about the enterprise bean&rsquo;s caller:</p>
+
+
+<ul><li><p><tt>getCallerPrincipal</tt></p>
+
+<p>The purpose of the <tt>getCallerPrincipal</tt> method is to allow the enterprise bean methods to obtain the current caller principal&rsquo;s name. The methods might, for example, use the name as a key to information in a database.</p>
+
+<p>The following code sample illustrates the use of the <tt>getCallerPrincipal</tt> method:</p>
+
+<pre>@Stateless public class EmployeeServiceBean implements EmployeeService {
+    @Resource SessionContext ctx;
+    @PersistenceContext EntityManager em;
+
+    public void changePhoneNumber(...) {
+        ...
+        // obtain the caller principal.
+        callerPrincipal = ctx.getCallerPrincipal();
+
+        // obtain the caller principal&rsquo;s name.
+        callerKey = callerPrincipal.getName();
+
+        // use callerKey as primary key to find EmployeeRecord
+        EmployeeRecord myEmployeeRecord =
+            em.find(EmployeeRecord.class, callerKey);
+
+        // update phone number
+        myEmployeeRecord.setPhoneNumber(...);
+
+        ...
+    }
+}</pre><p>In this example, the enterprise bean obtains the principal name of the current caller and uses it as the primary key to locate an <tt>EmployeeRecord</tt> entity. This example assumes that application has been deployed such that the current caller principal contains the primary key used for the identification of employees (for example, employee number).</p>
+
+</li>
+<li><p><tt>isCallerInRole</tt></p>
+
+<p>The enterprise bean code can use the <tt>isCallerInRole</tt> method to allow the bean provider/application developer to code the security checks that cannot be easily defined using method permissions. Such a check might impose a role-based limit on a request, or it might depend on information stored in the database.</p>
+
+<p>The enterprise bean code can use the <tt>isCallerInRole</tt> method to test whether the current caller has been assigned to a given security role. Security roles are defined by the bean provider or the application assembler, and are assigned to principals or principal groups that exist in the operational environment by the deployer.</p>
+
+<p>The following code sample illustrates the use of the <tt>isCallerInRole</tt> method:</p>
+
+<pre>@Stateless public class PayrollBean implements Payroll {
+     @Resource SessionContext ctx;
+
+     public void updateEmployeeInfo(EmplInfo info) {
+
+         oldInfo = ... read from database;
+
+         // The salary field can be changed only by callers
+         // who have the security role "payroll"
+         if (info.salary != oldInfo.salary &amp;&amp;
+             !ctx.isCallerInRole("payroll")) {
+                 throw new SecurityException(...);
+         }
+         ...
+     }
+     ...
+ }</pre></li></ul>
+<p>You would use programmatic security in this way to dynamically control access to
+a method, for example, when you want to deny access except during a
+particular time of day. An example application that uses the <tt>getCallerPrincipal</tt> and
+<tt>isCallerInRole</tt> methods is described in <a href="#bncaa">Example: Using the <tt>isCallerInRole</tt> and <tt>getCallerPrincipal</tt> Methods</a>.</p>
+
+
+
+<a name="bncaa"></a><h5>Example: Using the <tt>isCallerInRole</tt> and <tt>getCallerPrincipal</tt> Methods</h5>
+<p>This example demonstrates how to use the <tt>getCallerPrincipal</tt> and <tt>isCallerInRole</tt> methods with
+an enterprise bean. This example starts with a very simple EJB application, <tt>converter</tt>,
+and modifies the methods of the <tt>ConverterBean</tt> so that currency conversion will only occur
+when the requester is in the role of <tt>TutorialUser</tt>.</p>
+
+<p>The completed version of this example can be found at <tt></tt><i>tut-install</i><tt>/examples/security/converter-secure</tt>. This
+example is based on the unsecured enterprise bean application, <tt>converter</tt>, which is
+discussed in <a href="gijre.html">Chapter&nbsp;15, Getting Started with Enterprise Beans</a> and is found in the directory <tt></tt><i>tut-install</i><tt>/examples/ejb/converter/</tt>. This section
+builds on this example by adding the necessary elements to secure the application
+using the <tt>getCallerPrincipal</tt> and <tt>isCallerInRole</tt> methods, which are discussed in more detail
+in <a href="#gjgcr">Accessing an Enterprise Bean Caller's Security Context</a>.</p>
+
+<p>In general, the following steps are necessary when using the <tt>getCallerPrincipal</tt> and
+<tt>isCallerInRole</tt> methods with an enterprise bean. In the example application included with this
+tutorial, many of these steps have been completed for you and are listed
+here simply to show what needs to be done should you wish to
+create a similar application.</p>
+
+
+<ol><li><p>Create a simple enterprise bean application, such as the <tt>converter</tt> example. See <a href="gijre.html">Chapter&nbsp;15, Getting Started with Enterprise Beans</a> for more information on creating and understanding this example. This section of the tutorial starts with this unsecured application and demonstrates how to access an enterprise bean caller&rsquo;s security context.</p>
+
+</li>
+<li><p>If you have not already done so, set up a user on the GlassFish Server in the <tt>file</tt> realm, in the group <tt>TutorialUser</tt>, and set up default principal to role mapping. To do this, follow the steps in <a href="bncbx.html#gjjlk">To Set Up Your System for Running the Security Examples</a>.</p>
+
+</li>
+<li><p>Modify <tt>ConverterBean</tt> to add the <tt>getCallerPrincipal</tt> and <tt>isCallerInRole</tt> methods. For this example, callers that are in the role of <tt>TutorialUser</tt> will be able to calculate the currency conversion. Callers not in the role of <tt>TutorialUser</tt> will see a value of zero for the conversion amount. Modifying the <tt>ConverterBean</tt> code is discussed in <a href="#bncab">Modifying <tt>ConverterBean</tt></a>.</p>
+
+</li>
+<li><p>Modify <tt>ConverterServlet</tt> to specify security for the servlet, as described in <a href="bncbx.html#gjrmh">Specifying Security for Basic Authentication Using Annotations</a>. the only change is to specify the following annotations:</p>
+
+<pre>@WebServlet(name = "ConverterServlet", urlPatterns = {"/"})
+@ServletSecurity(
+@HttpConstraint(transportGuarantee = TransportGuarantee.CONFIDENTIAL,
+    rolesAllowed = {"TutorialUser"}))</pre></li>
+<li><p>Build, package, deploy, and run the application.</p>
+
+</li>
+<li><p>If necessary, refer to the tips in <a href="#bncaf">Troubleshooting the Secure Converter Application</a> for tips on errors you might encounter and some possible solutions.</p>
+
+</li></ol>
+
+
+<a name="bncab"></a><h5>Modifying <tt>ConverterBean</tt></h5>
+<p>The source code for the original <tt>converter</tt> application was modified as shown in
+the following code snippet (modifications in <b>bold</b>) to add the <tt>if..else</tt> clause that
+tests if the caller is in the role of <tt>TutorialUser</tt>. If the user
+is in the correct role, the currency conversion is computed and displayed. If
+the user is not in the correct role, the computation is not performed,
+and the application displays the result as <tt>0</tt>. The code example can
+be found in the following file:</p>
+
+<pre><i>tut-install</i>/examples/ejb/converter-secure/converter-secure-ejb/src/java/
+converter/ejb/ConverterBean.java</pre><p>The code snippet is as follows:</p>
+
+<pre>package converter.ejb;
+
+import java.math.BigDecimal;
+import javax.ejb.Stateless;
+<b>import java.security.Principal;</b>
+<b>import javax.annotation.Resource;</b>
+<b>import javax.ejb.SessionContext;</b>
+<b>import javax.annotation.security.DeclareRoles;</b>
+<b>import javax.annotation.security.RolesAllowed;</b>
+
+@Stateless()
+<b>@DeclareRoles("TutorialUser")</b>
+public class ConverterBean{
+
+    <b>@Resource SessionContext ctx;</b>
+    private BigDecimal yenRate = new BigDecimal("89.5094");
+    private BigDecimal euroRate = new BigDecimal("0.0081");
+
+    <b>@RolesAllowed("TutorialUser")</b>
+     public BigDecimal dollarToYen(BigDecimal dollars) {
+        <b>BigDecimal result = new BigDecimal("0.0");</b>
+        <b>Principal callerPrincipal = ctx.getCallerPrincipal();</b>
+        <b>if (ctx.isCallerInRole("TutorialUser")) {</b>
+            result = dollars.multiply(yenRate);
+            return result.setScale(2, BigDecimal.ROUND_UP);
+        <b>} else {</b>
+            <b>return result.setScale(2, BigDecimal.ROUND_UP);</b>
+        <b>}</b>
+    }
+
+    <b>@RolesAllowed("TutorialUser")</b>
+    public BigDecimal yenToEuro(BigDecimal yen) {
+        <b>BigDecimal result = new BigDecimal("0.0");</b>
+        <b>Principal callerPrincipal = ctx.getCallerPrincipal();</b>
+        <b>if (ctx.isCallerInRole("TutorialUser")) {</b>
+             result = yen.multiply(euroRate);
+             return result.setScale(2, BigDecimal.ROUND_UP);
+        <b>} else {</b>
+             <b>return result.setScale(2, BigDecimal.ROUND_UP);</b>
+        <b>}</b>
+    }
+}</pre>
+
+<a name="bncad"></a><h5>To Build, Package, and Deploy the Secure Converter Example Using NetBeans IDE</h5>
+<p>After you've observed the changes to the enterprise bean and servlet, follow these
+steps to build, deploy, and run the secure converter example using NetBeans IDE.</p>
+
+<ol>
+<li><b>Follow the steps in <a href="bncbx.html#gjjlk">To Set Up Your System for Running the Security Examples</a>.</b></li>
+<li><b>In NetBeans IDE, select File&rarr;Open Project.</b></li>
+<li><b>In the Open Project dialog, navigate to <tt></tt><i>tut-install</i><tt>/examples/security/</tt>.</b></li>
+<li><b>Select the <tt>converter-secure</tt> folder.</b></li>
+<li><b>Select the Open as Main Project check box.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>Right-click the <tt>converter-secure</tt> project and select Build. </b></li>
+<li><b>Right-click the <tt>converter-secure</tt> project and select Deploy.</b></li>
+<li><b>Right-click the <tt>converter-secure</tt> project and select Run.</b><p>A web browser window opens the URL <tt>http://localhost:8080/converter-secure</tt>, and an authentication dialog
+appears.</p></li>
+<li><b>Type the username and password of a user that has been entered into
+the database of users for the file realm and has been assigned
+to the group of <tt>TutorialUser</tt>.</b><p>If the username and password you enter are authorized, you will see the
+main page of the <tt>converter</tt> application.</p></li>
+<li><b>Type a dollar amount in the text field and click Submit.</b><p>Output similar to the following appears.</p><pre>100 dollars are 8950.94 yen.
+8950.94 yen are 72.51 Euro.</pre></li></ol>
+
+<a name="bncae"></a><h5>To Build, Package, and Deploy the Secure Converter Example Using Ant</h5>
+<p>After you've observed the changes to the enterprise bean and servlet, follow these
+steps to build, deploy, and run the secure converter example using Ant.</p>
+
+<ol>
+<li><b>Follow the steps in <a href="bncbx.html#gjjlk">To Set Up Your System for Running the Security Examples</a>.</b></li>
+<li><b>From a terminal window or command prompt, go to the <tt></tt><i>tut-install</i><tt>/examples/security/converter-secure/</tt> directory.</b></li>
+<li><b>Type the following command:</b><pre><tt><b>ant all</b></tt></pre><p>This command both builds and deploys the example.</p></li></ol>
+
+<a name="gjtdp"></a><h5>To Run the Secure Converter Example</h5>
+<ol>
+<li><b>Open a web browser to the following URL:</b><pre>http://localhost:8080/converter</pre><p>An Authentication Required dialog box appears. Its appearance varies, depending on the browser
+you use.</p></li>
+<li><b>Type a user name and password combination that corresponds to a user who
+has already been created in the <tt>file</tt> realm of the GlassFish Server and
+has been assigned to the group of <tt>TutorialUser</tt>, then click OK.</b><p>The screen shown in <a href="gipss.html#giptr">Figure&nbsp;15-1</a> appears.</p></li>
+<li><b>Type <tt>100</tt> in the input field and click Submit.</b><p>A second page appears, showing the converted values.</p></li></ol>
+
+<a name="bncaf"></a><h5>Troubleshooting the Secure Converter Application</h5>
+<p><b>Problem</b>: The application displays zero values after authentication, as shown here:</p>
+
+<pre>appclient-command-common:
+    [exec] $100.00 is 0.00 Yen.
+    [exec] 0.00 Yen is 0.00 Euro.</pre><p><b>Solution</b>: Verify that the user name and password that you entered for authentication
+match a user name and password in the GlassFish Server, and that this
+user is assigned to the group named <tt>TutorialUser</tt>. User names and passwords
+are case-sensitive. Read <a href="bnbxj.html#bnbxs">To Add Users to the GlassFish Server</a> for more information on adding users to the <tt>file</tt>
+realm of the GlassFish Server.</p>
+
+
+
+<a name="bnbyr"></a><h4>Propagating a Security Identity (Run-As)</h4>
+<a name="indexterm-1550"></a><a name="indexterm-1551"></a><a name="indexterm-1552"></a><a name="indexterm-1553"></a><a name="indexterm-1554"></a><a name="indexterm-1555"></a><p>You can specify whether a caller&rsquo;s security identity should be used for the
+execution of specified methods of an enterprise bean, or whether a specific run-as
+identity should be used.</p>
+
+<p><a href="#bnbza">Figure&nbsp;26-2</a> illustrates this concept.</p>
+
+<a name="bnbza"></a><h6>Figure&nbsp;26-2 Security Identity Propagation</h6><img src="figures/security-idPropag.gif" alt="Diagram of security identity propagation from client to intermediate container to target container"></img><p>In this illustration, an application client is making a call to an
+enterprise bean method in one EJB container. This enterprise bean method, in turn,
+makes a call to an enterprise bean method in another container. The security
+identity during the first call is the identity of the caller. The security
+identity during the second call can be any of the following options:</p>
+
+
+<ul><li><p>By default, the identity of the caller of the intermediate component is propagated to the target enterprise bean. This technique is used when the target container trusts the intermediate container.</p>
+
+</li>
+<li><p><a name="indexterm-1556"></a>A <b>specific identity</b> is propagated to the target enterprise bean. This technique is used when the target container expects access using a specific identity.</p>
+
+<p>To propagate an identity to the target enterprise bean, configure a run-as identity for the bean, as described in <a href="#bnbzb">Configuring a Component's Propagated Security Identity</a>.</p>
+
+<p>Establishing a run-as identity for an enterprise bean does not affect the identities of its callers, which are the identities tested for permission to access the methods of the enterprise bean. The run-as identity establishes the identity that the enterprise bean will use when it makes calls.</p>
+
+<p>The run-as identity applies to the enterprise bean as a whole, including all the methods of the enterprise bean&rsquo;s business interface, local and remote interfaces, component interface, and web service endpoint interfaces, the message listener methods of a message-driven bean, the timeout method of an enterprise bean, and all internal methods of the bean that might be called in turn.</p>
+
+</li></ul>
+
+
+<a name="bnbzb"></a><h5>Configuring a Component&rsquo;s Propagated Security Identity</h5>
+<p>You can configure an enterprise bean&rsquo;s run-as, or propagated, security identity using the
+<tt>@RunAs</tt> annotation. The <tt>@RunAs</tt> annotation defines the role of the application during
+execution in a Java EE container. It can be specified on a class,
+allowing developers to execute an application under a particular role. The role <b>must</b>
+map to the user/group information in the container's security realm. The <tt>@RunAs</tt> annotation
+specifies the name of a security role as its parameter.</p>
+
+<p>Here is some example code that demonstrates the use of the <tt>@RunAs</tt>
+annotation.</p>
+
+<pre>@RunAs("Admin")
+public class Calculator {
+    //....
+}</pre><p>You will have to map the run-as role name to a given
+principal defined on the GlassFish Server if the given roles associate to more
+than one user principal. Mapping roles to principals is described in Part&nbsp;VII, Security,
+in <i>The Java EE 6 Tutorial, Volume II</i>.</p>
+
+
+
+<a name="bnbzc"></a><h5>Trust Between Containers</h5>
+<a name="indexterm-1557"></a><a name="indexterm-1558"></a><p>When an enterprise bean is designed so that either the original caller identity
+or a designated identity is used to call a target bean, the
+target bean will receive the propagated identity only; it will not receive any
+authentication data.</p>
+
+<p>There is no way for the target container to authenticate the propagated security
+identity. However, because the security identity is used in authorization checks (for example,
+method permissions or with the <tt>isCallerInRole()</tt> method), it is vitally important that the
+security identity be authentic. Because there is no authentication data available to authenticate
+the propagated identity, the target must trust that the calling container has propagated
+an authenticated security identity.</p>
+
+<p>By default, the GlassFish Server is configured to trust identities that are propagated
+from different containers. Therefore, there are no special steps that you need to
+take to set up a trust relationship.</p>
+
+
+
+<a name="bnbzg"></a><h4>Deploying Secure Enterprise Beans</h4>
+<a name="indexterm-1559"></a><p>The deployer is responsible for ensuring that an assembled application is secure after
+it has been deployed in the target operational environment. If a security view
+has been provided to the deployer through the use of security annotations and/or
+a deployment descriptor, the security view is mapped to the mechanisms and policies
+used by the security domain in the target operational environment, which in this
+case is the GlassFish Server. If no security view is provided, the deployer
+must set up the appropriate security policy for the enterprise bean application.</p>
+
+<p>Deployment information is specific to a web or application server. See the
+<a href="http://docs.sun.com/doc/821-1750"><i>Oracle GlassFish Server 3.0.1 Application Deployment Guide</i></a> for more information on deploying enterprise beans.</p>
+
+
+
+<a name="bnbzh"></a><h5>To Accept Unauthenticated Users</h5>
+<a name="indexterm-1560"></a><a name="indexterm-1561"></a><p>Web applications may accept unauthenticated web clients and allow these clients to make
+calls to the EJB container. The EJB specification requires a security credential for
+accessing EJB methods. Typically, the credential will be that of a generic unauthenticated
+user. The way you specify this credential is implementation-specific.</p>
+
+<p>In the GlassFish Server, you must specify the name and password that
+an unauthenticated user will use to log in by modifying the GlassFish Server
+using the Administration Console.</p>
+
+<ol>
+<li><b>Start the GlassFish Server if it is not already running.</b></li>
+<li><b>Start the Administration Console.</b></li>
+<li><b>Expand the Configuration node.</b></li>
+<li><b>Select the Security node.</b></li>
+<li><b>On the Security page, type values in the Default Principal and Default Principal
+Password fields.</b></li>
+<li><b>Click Save.</b></li></ol>
+         </div>
+         <div class="navigation">
+             <a href="bnbyk.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="bncah.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

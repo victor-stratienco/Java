@@ -1,0 +1,1116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Writing Simple JMS Applications - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3"><a href="">Writing Simple JMS Applications</a></p>
+<p class="toc level4"><a href="#bncfb">A Simple Example of Synchronous Message Receives</a></p>
+<p class="toc level5"><a href="#bncfc">Writing the Clients for the Synchronous Receive Example</a></p>
+<p class="toc level5"><a href="#bncfd">Starting the JMS Provider</a></p>
+<p class="toc level5"><a href="#bncfe">To Create JMS Administered Objects for the Synchronous Receive Example</a></p>
+<p class="toc level5"><a href="#bncfg">Building, Deploying, and Running the Clients for the Synchronous Receive Example</a></p>
+<p class="toc level4 tocsp"><a href="#bncfh">A Simple Example of Asynchronous Message Consumption</a></p>
+<p class="toc level5"><a href="#bncfi">Writing the Clients for the Asynchronous Receive Example</a></p>
+<p class="toc level5"><a href="#gjsch">To Build and Package the <tt>AsynchConsumer</tt> Client  Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#gjscf">To Deploy and Run the Clients for the Asynchronous Receive Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#bncfj">To Build and Package the <tt>AsynchConsumer</tt> Client Using Ant</a></p>
+<p class="toc level5"><a href="#bncfk">To Deploy and Run the Clients for the Asynchronous Receive Example Using Ant and the <tt>appclient</tt> Command</a></p>
+<p class="toc level4 tocsp"><a href="#bncfl">A Simple Example of Browsing Messages in a Queue</a></p>
+<p class="toc level5"><a href="#bncfm">Writing the Client for the Queue Browser Example</a></p>
+<p class="toc level5"><a href="#bncfo">To Build, Package, Deploy, and Run the <tt>MessageBrowser</tt> Client Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#bncfn">To Build, Package, Deploy, and Run the <tt>MessageBrowser</tt> Client Using Ant and the <tt>appclient</tt> Command</a></p>
+<p class="toc level4 tocsp"><a href="#bncfp">Running JMS Clients on Multiple Systems</a></p>
+<p class="toc level5"><a href="#bncfq">To Create Administered Objects for Multiple Systems</a></p>
+<p class="toc level5"><a href="#gjsdi">Changing the Default Host Name</a></p>
+<p class="toc level5"><a href="#gjsag">To Edit, Build, Package, Deploy, and Run the Clients Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#bncfs">To Edit, Build, Package, Deploy, and Run the Clients Using Ant and the <tt>appclient</tt> Command</a></p>
+<p class="toc level4 tocsp"><a href="#bncft">Undeploying and Cleaning the Simple JMS Examples</a></p>
+<p class="toc level5"><a href="#gjscq">To Undeploy and Clean the Simple JMS Examples Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#gjsbu">To Undeploy and Clean the Simple JMS Examples Using Ant</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="giwfh.html">Writing Robust JMS Applications</a></p>
+<p class="toc level4"><a href="giwfh.html#bncfx">A Message Acknowledgment Example</a></p>
+<p class="toc level5"><a href="giwfh.html#gjsab">To Build, Package, Deploy, and Run the <tt>ackequivexample</tt> Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="giwfh.html#gjscg">To Build, Package, Deploy, and Run <tt>ackequivexample</tt> Using Ant</a></p>
+<p class="toc level4 tocsp"><a href="giwfh.html#bncgg">A Durable Subscription Example</a></p>
+<p class="toc level5"><a href="giwfh.html#gjsar">To Build, Package, Deploy, and Run <tt>durablesubscriberexample</tt> Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="giwfh.html#gjsci">To Build, Package, Deploy, and Run <tt>durablesubscriberexample</tt> Using Ant</a></p>
+<p class="toc level4 tocsp"><a href="giwfh.html#bncgj">A Local Transaction Example</a></p>
+<p class="toc level5"><a href="giwfh.html#gjsem">To Build, Package, Deploy, and Run <tt>transactedexample</tt> Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="giwfh.html#gjsha">To Build, Package, Deploy, and Run <tt>transactedexample</tt> Using Ant and the <tt>appclient</tt> Command</a></p>
+<p class="toc level3 tocsp"><a href="bncgw.html">An Application That Uses the JMS API with a Session Bean</a></p>
+<p class="toc level4"><a href="bncgw.html#bncgx">Writing the Application Components for the <tt>clientsessionmdb</tt> Example</a></p>
+<p class="toc level5"><a href="bncgw.html#bncgz">Coding the Application Client: <tt>MyAppClient.java</tt></a></p>
+<p class="toc level5"><a href="bncgw.html#bncha">Coding the Publisher Session Bean</a></p>
+<p class="toc level5"><a href="bncgw.html#bnchb">Coding the Message-Driven Bean: <tt>MessageBean.java</tt></a></p>
+<p class="toc level4 tocsp"><a href="bncgw.html#bnchc">Creating Resources for the <tt>clientsessionmdb</tt> Example</a></p>
+<p class="toc level4"><a href="bncgw.html#bnchd">To Build, Package, Deploy, and Run the <tt>clientsessionmdb</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level4"><a href="bncgw.html#bnche">To Build, Package, Deploy, and Run the <tt>clientsessionmdb</tt> Example Using Ant</a></p>
+<p class="toc level3 tocsp"><a href="bnchf.html">An Application That Uses the JMS API with an Entity</a></p>
+<p class="toc level4"><a href="bnchf.html#bnchg">Overview of the <tt>clientmdbentity</tt> Example Application</a></p>
+<p class="toc level4"><a href="bnchf.html#bnchi">Writing the Application Components for the <tt>clientmdbentity</tt> Example</a></p>
+<p class="toc level5"><a href="bnchf.html#bnchj">Coding the Application Client: <tt>HumanResourceClient.java</tt></a></p>
+<p class="toc level5"><a href="bnchf.html#bnchk">Coding the Message-Driven Beans for the <tt>clientmdbentity</tt> Example</a></p>
+<p class="toc level5"><a href="bnchf.html#bnchl">Coding the Entity Class for the <tt>clientmdbentity</tt> Example</a></p>
+<p class="toc level4 tocsp"><a href="bnchf.html#bnchm">Creating Resources for the <tt>clientmdbentity</tt> Example</a></p>
+<p class="toc level4"><a href="bnchf.html#bnchn">To Build, Package, Deploy, and Run the <tt>clientmdbentity</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level4"><a href="bnchf.html#bncho">To Build, Package, Deploy, and Run the <tt>clientmdbentity</tt> Example Using Ant</a></p>
+<p class="toc level3 tocsp"><a href="bnchp.html">An Application Example That Consumes Messages from a Remote Server</a></p>
+<p class="toc level4"><a href="bnchp.html#bnchq">Overview of the <tt>consumeremote</tt> Example Modules</a></p>
+<p class="toc level4"><a href="bnchp.html#bnchs">Writing the Module Components for the <tt>consumeremote</tt> Example</a></p>
+<p class="toc level4"><a href="bnchp.html#bncht">Creating Resources for the <tt>consumeremote</tt> Example</a></p>
+<p class="toc level4"><a href="bnchp.html#bnchu">Using Two Application Servers for the <tt>consumeremote</tt> Example</a></p>
+<p class="toc level4"><a href="bnchp.html#bnchv">To Build, Package, Deploy, and Run the <tt>consumeremote</tt>Modules Using NetBeans IDE</a></p>
+<p class="toc level4"><a href="bnchp.html#bnchw">To Build, Package, Deploy, and Run the <tt>consumeremote</tt> Modules Using Ant</a></p>
+<p class="toc level3 tocsp"><a href="bnchx.html">An Application Example That Deploys a Message-Driven Bean on Two Servers</a></p>
+<p class="toc level4"><a href="bnchx.html#bnchy">Overview of the <tt>sendremote</tt> Example Modules</a></p>
+<p class="toc level4"><a href="bnchx.html#bnchz">Writing the Module Components for the <tt>sendremote</tt> Example</a></p>
+<p class="toc level5"><a href="bnchx.html#bncib">Coding the Application Client: <tt>MultiAppServerClient.java</tt></a></p>
+<p class="toc level5"><a href="bnchx.html#bncic">Coding the Message-Driven Bean: <tt>ReplyMsgBean.java</tt></a></p>
+<p class="toc level4 tocsp"><a href="bnchx.html#bncid">Creating Resources for the <tt>sendremote</tt> Example</a></p>
+<p class="toc level4"><a href="bnchx.html#bncie">To Use Two Application Servers for the <tt>sendremote</tt> Example</a></p>
+<p class="toc level4"><a href="bnchx.html#bncif">To Build, Package, Deploy, and Run the <tt>sendremote</tt> Modules Using NetBeans IDE</a></p>
+<p class="toc level4"><a href="bnchx.html#bncig">To Build, Package, Deploy, and Run the <tt>sendremote</tt> Modules Using Ant</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bncgv.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="giwfh.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bncfa"></a><h3>Writing Simple JMS Applications</h3>
+<a name="indexterm-1843"></a><a name="indexterm-1844"></a><p>This section shows how to create, package, and run simple JMS clients that
+are packaged as application clients and deployed to a Java EE server. The
+clients demonstrate the basic tasks that a JMS application must perform:</p>
+
+
+<ul><li><p>Creating a connection and a session</p>
+
+</li>
+<li><p>Creating message producers and consumers</p>
+
+</li>
+<li><p>Sending and receiving messages</p>
+
+</li></ul>
+<p>In a Java EE application, some of these tasks are performed, in
+whole or in part, by the container. If you learn about these tasks,
+you will have a good basis for understanding how a JMS application works
+on the Java EE platform.</p>
+
+<p>Each example uses two clients: one that sends messages and one that receives
+them. You can run the clients in NetBeans IDE or in two
+terminal windows.</p>
+
+<p>When you write a JMS client to run in a enterprise bean
+application, you use many of the same methods in much the same sequence
+as you do for an application client. However, there are some significant differences.
+<a href="bncgl.html">Using the JMS API in Java EE Applications</a> describes these differences, and this chapter provides examples that illustrate them.</p>
+
+<p>The examples for this section are in the following directory:</p>
+
+<pre><tt></tt><i>tut-install</i><tt>/examples/jms/simple/</tt></pre><p>The examples are in the following four subdirectories:</p>
+
+<table><tr><td align="left" valign="top" scope="row"><p><tt>producer</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>synchconsumer</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>asynchconsumer</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>messagebrowser</tt></p>
+
+</td>
+</tr>
+</table>
+
+<a name="bncfb"></a><h4>A Simple Example of Synchronous Message Receives</h4>
+<a name="indexterm-1845"></a><a name="indexterm-1846"></a><a name="indexterm-1847"></a><p>This section describes the sending and receiving clients in an example that uses
+the <tt>receive</tt> method to consume messages synchronously. This section then explains how to
+compile, package, and run the clients using the GlassFish Server.</p>
+
+<p>The following sections describe the steps in creating and running the example.</p>
+
+
+
+<a name="bncfc"></a><h5>Writing the Clients for the Synchronous Receive Example</h5>
+<p>The sending client, <tt>producer/src/java/Producer.java</tt>, performs the following steps:</p>
+
+
+<ol><li><p>Injects resources for a connection factory, queue, and topic:</p>
+
+<pre>@Resource(lookup = "jms/ConnectionFactory")
+private static ConnectionFactory connectionFactory;
+@Resource(lookup = "jms/Queue")private static Queue queue;
+@Resource(lookup = "jms/Topic")private static Topic topic;</pre></li>
+<li><p>Retrieves and verifies command-line arguments that specify the destination type and the number of arguments:</p>
+
+<pre>final int NUM_MSGS;
+String destType = args[0];
+System.out.println("Destination type is " + destType);
+if ( ! ( destType.equals("queue") || destType.equals("topic") ) ) { 
+    System.err.println("Argument must be \&rdquo;queue\&rdquo; or " + "\&rdquo;topic\&rdquo;");
+    System.exit(1);
+}
+if (args.length == 2){ 
+    NUM_MSGS = (new Integer(args[1])).intValue();
+} 
+else { 
+    NUM_MSGS = 1;
+}</pre></li>
+<li><p>Assigns either the queue or topic to a destination object, based on the specified destination type:</p>
+
+<pre>Destination dest = null;
+try { 
+    if (destType.equals("queue")) { 
+        dest = (Destination) queue; 
+    } else { 
+        dest = (Destination) topic; 
+    }
+} 
+catch (Exception e) {
+    System.err.println("Error setting destination: " + e.toString()); 
+    e.printStackTrace(); 
+    System.exit(1);
+}</pre></li>
+<li><p>Creates a <tt>Connection</tt> and a <tt>Session</tt>:</p>
+
+<pre>Connection connection = connectionFactory.createConnection(); 
+Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);</pre></li>
+<li><p>Creates a <tt>MessageProducer</tt> and a <tt>TextMessage</tt>:</p>
+
+<pre>MessageProducer producer = session.createProducer(dest);
+TextMessage message = session.createTextMessage();</pre></li>
+<li><p>Sends one or more messages to the destination:</p>
+
+<pre>for (int i = 0; i &lt; NUM_MSGS; i++) { 
+    message.setText("This is message " + (i + 1) + " from producer"); 
+    System.out.println("Sending message: " + message.getText()); 
+    producer.send(message);
+}</pre></li>
+<li><p>Sends an empty control message to indicate the end of the message stream:</p>
+
+<pre>producer.send(session.createMessage());</pre><p>Sending an empty message of no specified type is a convenient way to indicate to the consumer that the final message has arrived.</p>
+
+</li>
+<li><p>Closes the connection in a <tt>finally</tt> block, automatically closing the session and <tt>MessageProducer</tt>:</p>
+
+<pre>} finally { 
+    if (connection != null) { 
+        try { connection.close(); } 
+        catch (JMSException e) { } 
+    }
+}</pre></li></ol>
+<p>The receiving client, <tt>synchconsumer/src/java/SynchConsumer.java</tt>, performs the following steps:</p>
+
+
+<ol><li><p>Injects resources for a connection factory, queue, and topic.</p>
+
+</li>
+<li><p>Assigns either the queue or topic to a destination object, based on the specified destination type.</p>
+
+</li>
+<li><p>Creates a <tt>Connection</tt> and a <tt>Session</tt>.</p>
+
+</li>
+<li><p>Creates a <tt>MessageConsumer</tt>:</p>
+
+<pre>consumer = session.createConsumer(dest);</pre></li>
+<li><p>Starts the connection, causing message delivery to begin:</p>
+
+<pre>connection.start();</pre></li>
+<li><p>Receives the messages sent to the destination until the end-of-message-stream control message is received:</p>
+
+<pre>while (true) {
+    Message m = consumer.receive(1); 
+    if (m != null) { 
+        if (m instanceof TextMessage) { 
+            message = (TextMessage) m; 
+            System.out.println("Reading message: " + message.getText()); 
+        } else { 
+            break; 
+        } 
+    }
+}</pre><p>Because the control message is not a <tt>TextMessage</tt>, the receiving client terminates the <tt>while</tt> loop and stops receiving messages after the control message arrives.</p>
+
+</li>
+<li><p>Closes the connection in a <tt>finally</tt> block, automatically closing the session and <tt>MessageConsumer</tt>.</p>
+
+</li></ol>
+<p>The <tt>receive</tt> method can be used in several ways to perform a synchronous
+receive. If you specify no arguments or an argument of <tt>0</tt>, the method
+blocks indefinitely until a message arrives:</p>
+
+<pre>Message m = consumer.receive();
+Message m = consumer.receive(0);</pre><p>For a simple client, this may not matter. But if you do
+not want your application to consume system resources unnecessarily, use a timed synchronous receive.
+Do one of the following:</p>
+
+
+<ul><li><p>Call the <tt>receive</tt> method with a timeout argument greater than <tt>0</tt>:</p>
+
+<pre>Message m = consumer.receive(1); // 1 millisecond</pre></li>
+<li><p>Call the <tt>receiveNoWait</tt> method, which receives a message only if one is available:</p>
+
+<pre>Message m = consumer.receiveNoWait();</pre></li></ul>
+<p>The <tt>SynchConsumer</tt> client uses an indefinite <tt>while</tt> loop to receive messages, calling
+<tt>receive</tt> with a timeout argument. Calling <tt>receiveNoWait</tt> would have the same effect.</p>
+
+
+
+<a name="bncfd"></a><h5>Starting the JMS Provider</h5>
+<p>When you use the GlassFish Server, your JMS provider is the GlassFish
+Server. Start the server as described in <a href="bnadi.html">Starting and Stopping the GlassFish Server</a>.</p>
+
+
+
+<a name="bncfe"></a><h5>To Create JMS Administered Objects for the Synchronous Receive Example</h5>
+<a name="indexterm-1848"></a><a name="indexterm-1849"></a><a name="indexterm-1850"></a><a name="indexterm-1851"></a><p>Creating the JMS administered objects for this section involves the following:</p>
+
+
+<ul><li><p>Creating a connection factory</p>
+
+</li>
+<li><p>Creating two destination resources</p>
+
+</li></ul>
+<p>If you built and ran the <tt>SimpleMessage</tt> example in <a href="bnbpk.html">Chapter&nbsp;17, A Message-Driven Bean Example</a> and did not
+delete the resources afterward, you need to create only the topic resource.</p>
+
+<p>You can create these objects using the Ant tool. To create all
+the resources, follow these steps.</p>
+
+<ol>
+<li><b>In a terminal window, go to the <tt>producer</tt> directory:</b><pre><tt><b>cd producer</b></tt></pre></li>
+<li><b>To create all the resources, type the following command:</b><pre><tt><b>ant create-resources</b></tt></pre><p>To create only the topic resource, type the following command:</p><pre><tt><b>ant create-topic</b></tt></pre><p>These Ant targets use the <tt>asadmin create-jms-resource</tt> command to create the connection factory and
+the destination resources.</p></li>
+<li><b>To verify that the resources have been created, use the following command:</b><pre><tt><b>asadmin list-jms-resources</b></tt></pre><p>The output looks like this:</p><pre>jms/Queue
+jms/Topic
+jms/ConnectionFactory
+Command list-jms-resources executed successfully.</pre></li></ol>
+
+<a name="bncfg"></a><h5>Building, Deploying, and Running the Clients for the Synchronous Receive Example</h5>
+<p>To run these examples using the GlassFish Server, package each one in
+an application client JAR file. The application client JAR file requires a manifest file,
+located in the <tt>src/conf</tt> directory for each example, along with the <tt>.class</tt> file.</p>
+
+<p>The <tt>build.xml</tt> file for each example contains Ant targets that compile and package
+the example. The targets place the <tt>.class</tt> file for the example in
+the <tt>build/jar</tt> directory. Then the targets use the <tt>jar</tt> command to package the
+class file and the manifest file in an application client JAR file.</p>
+
+<p>Because the examples use the common interfaces, you can run them using either
+a queue or a topic.</p>
+
+
+
+<a name="gjsde"></a><h5>To Build and Package the Clients for the Synchronous Receive Example Using NetBeans IDE</h5>
+<a name="indexterm-1852"></a><p>To build and package the <tt>Producer</tt> and <tt>SynchConsumer</tt> examples using NetBeans IDE,
+follow these steps.</p>
+
+<ol>
+<li><b>In NetBeans IDE, choose Open Project from the File menu.</b></li>
+<li><b>In the Open Project dialog, navigate to <tt></tt><i>tut-install</i><tt>/examples/jms/simple/</tt>.</b></li>
+<li><b>Select the <tt>producer</tt> folder.</b></li>
+<li><b>Select the Open as Main Project check box.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>Right-click the project and choose Build.</b></li></ol>
+
+<a name="gjsan"></a><h5>To Deploy and Run the Clients for the Synchronous Receive Example Using NetBeans IDE</h5>
+<a name="indexterm-1853"></a><p>To deploy and run the <tt>Producer</tt> and <tt>SynchConsumer</tt> examples using NetBeans IDE,
+follow these steps.</p>
+
+<ol>
+<li><b>Deploy and run the <tt>Producer</tt> example:</b><ol style="list-style-type: lower-alpha">
+<li><b>Right-click the <tt>producer</tt> project and choose Properties.</b></li>
+<li><b>Select Run from the Categories tree.</b></li>
+<li><b>In the Arguments field, type the following:</b><pre><tt><b>queue 3</b></tt></pre></li>
+<li><b>Click OK.</b></li>
+<li><b>Right-click the project and choose Run.</b><p>The output of the program looks like this (along with some application client
+container output):</p><pre>Destination type is queue
+Sending message: This is message 1 from producer
+Sending message: This is message 2 from producer
+Sending message: This is message 3 from producer</pre><p>The messages are now in the queue, waiting to be received.</p>
+<hr><p><b>Note - </b>When you run an application client, there is usually a noticeable delay between
+the first two application client container messages and the remainder of the output.</p>
+
+
+<hr>
+</li></ol></li>
+<li><b>Now deploy and run the <tt>SynchConsumer</tt> example:</b><ol style="list-style-type: lower-alpha">
+<li><b>Right-click the <tt>synchconsumer</tt> project and choose Properties.</b></li>
+<li><b>Select Run from the Categories tree.</b></li>
+<li><b>In the Arguments field, type the following:</b><pre><tt><b>queue</b></tt></pre></li>
+<li><b>Click OK.</b></li>
+<li><b>Right-click the project and choose Run.</b><p>The output of the program looks like this (along with some application client
+container output):</p><pre>Destination type is queue
+Reading message: This is message 1 from producer
+Reading message: This is message 2 from producer
+Reading message: This is message 3 from producer</pre></li></ol></li>
+<li><b>Now try running the programs in the opposite order. Right-click the <tt>synchconsumer</tt> project
+and choose Run.</b><p>The Output pane displays the destination type and then appears to hang, waiting for
+messages.</p></li>
+<li><b>Right-click the <tt>producer</tt> project and choose Run.</b><p>The Output pane shows the output of both programs, in two different tabs.</p></li>
+<li><b>Now run the <tt>Producer</tt> example using a topic instead of a queue.</b><ol style="list-style-type: lower-alpha">
+<li><b>Right-click the <tt>producer</tt> project and choose Properties.</b></li>
+<li><b>Select Run from the Categories tree.</b></li>
+<li><b>In the Arguments field, type the following:</b><pre><tt><b>topic 3</b></tt></pre></li>
+<li><b>Click OK.</b></li>
+<li><b>Right-click the project and choose Run.</b><p>The output looks like this (along with some application client container output):</p><pre>Destination type is topic
+Sending message: This is message 1 from producer
+Sending message: This is message 2 from producer
+Sending message: This is message 3 from producer</pre></li></ol></li>
+<li><b>Now run the <tt>SynchConsumer</tt> example using the topic.</b><ol style="list-style-type: lower-alpha">
+<li><b>Right-click the <tt>synchconsumer</tt> project and choose Properties.</b></li>
+<li><b>Select Run from the Categories tree.</b></li>
+<li><b>In the Arguments field, type the following:</b><pre><tt><b>topic</b></tt></pre></li>
+<li><b>Click OK.</b></li>
+<li><b>Right-click the project and choose Run.</b><p>The result, however, is different. Because you are using a topic, messages that
+were sent before you started the consumer cannot be received. (See <a href="bncdx.html#bnced">Publish/Subscribe Messaging Domain</a>, for
+details.) Instead of receiving the messages, the program appears to hang.</p></li></ol></li>
+<li><b>Run the <tt>Producer</tt> example again. Right-click the <tt>producer</tt> project and choose Run.</b><p>Now the <tt>SynchConsumer</tt> example receives the messages:</p><pre>Destination type is topic
+Reading message: This is message 1 from producer
+Reading message: This is message 2 from producer
+Reading message: This is message 3 from producer</pre></li></ol>
+
+<a name="gjsco"></a><h5>To Build and Package the Clients for the Synchronous Receive Example Using Ant</h5>
+<a name="indexterm-1854"></a><p>To build and package the <tt>Producer</tt> and <tt>SynchConsumer</tt> examples using Ant, follow
+these steps.</p>
+
+<ol>
+<li><b>In a terminal window, go to the <tt>producer</tt> directory:</b><pre><tt><b>cd producer</b></tt></pre></li>
+<li><b>Type the following command:</b><pre><tt><b>ant</b></tt></pre></li>
+<li><b>In a terminal window, go to the <tt>synchconsumer</tt> directory:</b><pre><tt><b>cd ../synchconsumer</b></tt></pre></li>
+<li><b>Type the following command:</b><pre><tt><b>ant</b></tt></pre><p>The targets place the application client JAR file in the <tt>dist</tt> directory for
+each example.</p></li></ol>
+
+<a name="bncff"></a><h5>To Deploy and Run the Clients for the Synchronous Receive Example Using Ant and the <tt>appclient</tt> Command</h5>
+<a name="indexterm-1855"></a><p>You can run the clients using the <tt>appclient</tt> command. The <tt>build.xml</tt> file for
+each project includes a target that deploys the client and then retrieves the
+client stubs that the <tt>appclient</tt> command uses. Each of the clients takes
+one or more command-line arguments: a destination type and, for <tt>Producer</tt>, a number of
+messages.</p>
+
+<p>To build, deploy, and run the <tt>Producer</tt> and <tt>SynchConsumer</tt> examples using Ant
+and the <tt>appclient</tt>, follow these steps.</p>
+
+<p>To run the clients, you need two terminal windows.</p>
+
+<ol>
+<li><b>In a terminal window, go to the <tt>producer</tt> directory:</b><pre><tt><b>cd ../producer</b></tt></pre></li>
+<li><b>Deploy the client JAR file to the GlassFish Server, then retrieve the client
+stubs:</b><pre><tt><b>ant getclient</b></tt></pre><p>Ignore the message that states that the application is deployed at a URL.</p></li>
+<li><b>Run the <tt>Producer</tt> program, sending three messages to the queue:</b><pre><tt><b>appclient -client client-jar/producerClient.jar queue 3</b></tt></pre><p>The output of the program looks like this (along with some application client
+container output):</p><pre>Destination type is queue
+Sending message: This is message 1 from producer
+Sending message: This is message 2 from producer
+Sending message: This is message 3 from producer</pre><p>The messages are now in the queue, waiting to be received.</p>
+<hr><p><b>Note - </b>When you run an application client, there is usually a noticeable delay between
+the first two application client container messages and the remainder of the output.</p>
+
+
+<hr>
+</li>
+<li><b>In the same window, go to the <tt>synchconsumer</tt> directory:</b><pre><tt><b>cd ../synchconsumer</b></tt></pre></li>
+<li><b>Deploy the client JAR file to the GlassFish Server, then retrieve the client
+stubs:</b><pre><tt><b>ant getclient</b></tt></pre><p>Ignore the message that states that the application is deployed at a URL.</p></li>
+<li><b>Run the <tt>SynchConsumer</tt> client, specifying the queue:</b><pre><tt><b>appclient -client client-jar/synchconsumerClient.jar queue</b></tt></pre><p>The output of the client looks like this (along with some application client
+container output):</p><pre>Destination type is queue
+Reading message: This is message 1 from producer
+Reading message: This is message 2 from producer
+Reading message: This is message 3 from producer</pre></li>
+<li><b>Now try running the clients in the opposite order. Run the <tt>SynchConsumer</tt>
+client:</b><pre><tt><b>appclient -client client-jar/synchconsumerClient.jar queue</b></tt></pre><p>The client displays the destination type and then appears to hang, waiting for
+messages.</p></li>
+<li><b>In a different terminal window, run the <tt>Producer</tt> client.</b><pre><tt><b>cd </tt><i>tut-install</i><tt>/examples/jms/simple/producer appclient -client client-jar/producerClient.jar queue 3</b></tt></pre><p>When the messages have been sent, the <tt>SynchConsumer</tt> client receives them and exits.</p></li>
+<li><b>Now run the <tt>Producer</tt> client using a topic instead of a queue:</b><pre><tt><b>appclient -client client-jar/producerClient.jar topic 3</b></tt></pre><p>The output of the client looks like this (along with some application client
+container output):</p><pre>Destination type is topic
+Sending message: This is message 1 from producer
+Sending message: This is message 2 from producer
+Sending message: This is message 3 from producer</pre></li>
+<li><b>Now run the <tt>SynchConsumer</tt> client using the topic:</b><pre><tt><b>appclient -client client-jar/synchconsumerClient.jar topic</b></tt></pre><p>The result, however, is different. Because you are using a topic, messages that
+were sent before you started the consumer cannot be received. (See <a href="bncdx.html#bnced">Publish/Subscribe Messaging Domain</a>,
+for details.) Instead of receiving the messages, the client appears to hang.</p></li>
+<li><b>Run the <tt>Producer</tt> client again.</b><p>Now the <tt>SynchConsumer</tt> client receives the messages (along with some application client container output):</p><pre>Destination type is topic
+Reading message: This is message 1 from producer
+Reading message: This is message 2 from producer
+Reading message: This is message 3 from producer</pre></li></ol>
+
+<a name="bncfh"></a><h4>A Simple Example of Asynchronous Message Consumption</h4>
+<a name="indexterm-1856"></a><a name="indexterm-1857"></a><a name="indexterm-1858"></a><p>This section describes the receiving clients in an example that uses a message
+listener to consume messages asynchronously. This section then explains how to compile and
+run the clients using the GlassFish Server.</p>
+
+
+
+<a name="bncfi"></a><h5>Writing the Clients for the Asynchronous Receive Example</h5>
+<p>The sending client is <tt>producer/src/java/Producer.java</tt>, the same client used in the example in
+<a href="#bncfb">A Simple Example of Synchronous Message Receives</a>.</p>
+
+<p>An asynchronous consumer normally runs indefinitely. This one runs until the user types
+the letter <tt>q</tt> or <tt>Q</tt> to stop the client.</p>
+
+<p>The receiving client, <tt>asynchconsumer/src/java/AsynchConsumer.java</tt>, performs the following steps:</p>
+
+
+<ol><li><p>Injects resources for a connection factory, queue, and topic.</p>
+
+</li>
+<li><p>Assigns either the queue or topic to a destination object, based on the specified destination type.</p>
+
+</li>
+<li><p>Creates a <tt>Connection</tt> and a <tt>Session</tt>.</p>
+
+</li>
+<li><p>Creates a <tt>MessageConsumer</tt>.</p>
+
+</li>
+<li><p>Creates an instance of the <tt>TextListener</tt> class and registers it as the message listener for the <tt>MessageConsumer</tt>:</p>
+
+<pre>listener = new TextListener();consumer.setMessageListener(listener);</pre></li>
+<li><p>Starts the connection, causing message delivery to begin.</p>
+
+</li>
+<li><p>Listens for the messages published to the destination, stopping when the user types the character <tt>q</tt> or <tt>Q</tt>:</p>
+
+<pre>System.out.println("To end program, type Q or q, " + "then &lt;return>");
+inputStreamReader = new InputStreamReader(System.in);
+while (!((answer == &rsquo;q&rsquo;) || (answer == &rsquo;Q&rsquo;))) { 
+    try { 
+        answer = (char) inputStreamReader.read(); 
+    } catch (IOException e) { 
+        System.out.println("I/O exception: " + e.toString()); 
+    }
+}</pre></li>
+<li><p>Closes the connection, which automatically closes the session and <tt>MessageConsumer</tt>.</p>
+
+</li></ol>
+<p><a name="indexterm-1859"></a>The message listener, <tt>asynchconsumer/src/java/TextListener.java</tt>, follows these steps:</p>
+
+
+<ol><li><p>When a message arrives, the <tt>onMessage</tt> method is called automatically.</p>
+
+</li>
+<li><p>The <tt>onMessage</tt> method converts the incoming message to a <tt>TextMessage</tt> and displays its content. If the message is not a text message, it reports this fact:</p>
+
+<pre>public void onMessage(Message message) { 
+    TextMessage msg = null; 
+    try { 
+        if (message instanceof TextMessage) { 
+            msg = (TextMessage) message; 
+             System.out.println("Reading message: " + msg.getText()); 
+        } else { 
+             System.out.println("Message is not a " + "TextMessage"); 
+        } 
+    } catch (JMSException e) { 
+        System.out.println("JMSException in onMessage(): " + e.toString()); 
+    } catch (Throwable t) { 
+        System.out.println("Exception in onMessage():" + t.getMessage()); 
+    }
+}</pre></li></ol>
+<p>You will use the connection factory and destinations you created in <a href="#bncfe">To Create JMS Administered Objects for the Synchronous Receive Example</a>.</p>
+
+
+
+<a name="gjsch"></a><h5>To Build and Package the <tt>AsynchConsumer</tt> Client  Using NetBeans IDE</h5>
+<a name="indexterm-1860"></a><p>To build and package the <tt>AsynchConsumer</tt> example using NetBeans IDE, follow these steps.</p>
+
+<ol>
+<li><b>In NetBeans IDE, choose Open Project from the File menu.</b></li>
+<li><b>In the Open Project dialog, navigate to <tt></tt><i>tut-install</i><tt>/examples/jms/simple/</tt>.</b></li>
+<li><b>Select the <tt>asynchconsumer</tt> folder.</b></li>
+<li><b>Select the Open as Main Project check box.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>Right-click the project and choose Build.</b></li></ol>
+
+<a name="gjscf"></a><h5>To Deploy and Run the Clients for the Asynchronous Receive Example Using NetBeans IDE</h5>
+<a name="indexterm-1861"></a><p>To deploy and run the clients using NetBeans IDE, follow these steps.</p>
+
+<ol>
+<li><b>Run the <tt>AsynchConsumer</tt> example:</b><ol style="list-style-type: lower-alpha">
+<li><b>Right-click the <tt>asynchconsumer</tt> project and choose Properties.</b></li>
+<li><b>Select Run from the Categories tree.</b></li>
+<li><b>In the Arguments field, type the following:</b><pre><tt><b>topic</b></tt></pre></li>
+<li><b>Click OK.</b></li>
+<li><b>Right-click the project and choose Run.</b><p>The client displays the following lines and appears to hang:</p><pre>Destination type is topic
+To end program, type Q or q, then &lt;return></pre></li></ol></li>
+<li><b>Now run the <tt>Producer</tt> example:</b><ol style="list-style-type: lower-alpha">
+<li><b>Right-click the <tt>producer</tt> project and choose Properties.</b></li>
+<li><b>Select Run from the Categories tree.</b></li>
+<li><b>In the Arguments field, type the following:</b><pre><tt><b>topic 3</b></tt></pre></li>
+<li><b>Click OK.</b></li>
+<li><b>Right-click the project and choose Run.</b><p>The output of the client looks like this:</p><pre>Destination type is topic
+Sending message: This is message 1 from producer
+Sending message: This is message 2 from producer
+Sending message: This is message 3 from producer</pre><p>In the other window, the <tt>AsynchConsumer</tt> client displays the following:</p><pre>Destination type is topic
+To end program, type Q or q, then &lt;return>
+Reading message: This is message 1 from producer
+Reading message: This is message 2 from producer
+Reading message: This is message 3 from producer
+Message is not a TextMessage</pre><p>The last line appears because the client has received the non-text control message
+sent by the <tt>Producer</tt> client.</p></li></ol></li>
+<li><b>Type <tt>Q</tt> or <tt>q</tt> in the Output window and press Return to stop
+the client.</b></li>
+<li><b>Now run the <tt>Producer</tt> client using a queue.</b><p>In this case, as with the synchronous example, you can run the
+<tt>Producer</tt> client first, because there is no timing dependency between the sender and
+receiver.</p><ol style="list-style-type: lower-alpha">
+<li><b>Right-click the <tt>producer</tt> project and choose Properties.</b></li>
+<li><b>Select Run from the Categories tree.</b></li>
+<li><b>In the Arguments field, type the following:</b><pre><tt><b>queue 3</b></tt></pre></li>
+<li><b>Click OK.</b></li>
+<li><b>Right-click the project and choose Run.</b><p>The output of the client looks like this:</p><pre>Destination type is queue
+Sending message: This is message 1 from producer
+Sending message: This is message 2 from producer
+Sending message: This is message 3 from producer</pre></li></ol></li>
+<li><b>Run the <tt>AsynchConsumer</tt> client.</b><ol style="list-style-type: lower-alpha">
+<li><b>Right-click the <tt>asynchconsumer</tt> project and choose Properties.</b></li>
+<li><b>Select Run from the Categories tree.</b></li>
+<li><b>In the Arguments field, type the following:</b><pre><tt><b>queue</b></tt></pre></li>
+<li><b>Click OK.</b></li>
+<li><b>Right-click the project and choose Run.</b><p>The output of the client looks like this:</p><pre>Destination type is queue
+To end program, type Q or q, then &lt;return>
+Reading message: This is message 1 from producer
+Reading message: This is message 2 from producer
+Reading message: This is message 3 from producer
+Message is not a TextMessage</pre></li></ol></li>
+<li><b>Type <tt>Q</tt> or <tt>q</tt> in the Output window and press Return to stop
+the client.</b></li></ol>
+
+<a name="bncfj"></a><h5>To Build and Package the <tt>AsynchConsumer</tt> Client Using Ant</h5>
+<a name="indexterm-1862"></a><p>To build and package the <tt>AsynchConsumer</tt> example using Ant, follow these steps.</p>
+
+<ol>
+<li><b>In a terminal window, go to the <tt>asynchconsumer</tt> directory:</b><pre><tt><b>cd ../asynchconsumer</b></tt></pre></li>
+<li><b>Type the following command:</b><pre><tt><b>ant</b></tt></pre><p>The targets package both the main class and the message listener class in
+the JAR file and place the file in the <tt>dist</tt> directory for the
+example.</p></li></ol>
+
+<a name="bncfk"></a><h5>To Deploy and Run the Clients for the Asynchronous Receive Example Using Ant and the <tt>appclient</tt> Command</h5>
+<a name="indexterm-1863"></a><p>To deploy and run the clients using Ant and the <tt>appclient</tt> command, follow
+these steps.</p>
+
+<ol>
+<li><b>Deploy the client JAR file to the GlassFish Server, then retrieve the client
+stubs:</b><pre><tt><b>ant getclient</b></tt></pre><p>Ignore the message that states that the application is deployed at a URL.</p></li>
+<li><b>Run the <tt>AsynchConsumer</tt> client, specifying the <tt>topic</tt> destination type.</b><pre><tt><b>appclient -client client-jar/asynchconsumerClient.jar topic</b></tt></pre><p>The client displays the following lines (along with some application client container output)
+and appears to hang:</p><pre>Destination type is topic
+To end program, type Q or q, then &lt;return></pre></li>
+<li><b>In the terminal window where you ran the <tt>Producer</tt> client previously, run the
+client again, sending three messages.</b><pre><tt><b>appclient -client client-jar/producerClient.jar topic 3</b></tt></pre><p>The output of the client looks like this (along with some application client
+container output):</p><pre>Destination type is topic
+Sending message: This is message 1 from producer
+Sending message: This is message 2 from producer
+Sending message: This is message 3 from producer</pre><p>In the other window, the <tt>AsynchConsumer</tt> client displays the following (along with some
+application client container output):</p><pre>Destination type is topic
+To end program, type Q or q, then &lt;return>
+Reading message: This is message 1 from producer
+Reading message: This is message 2 from producer
+Reading message: This is message 3 from producer
+Message is not a TextMessage</pre><p>The last line appears because the client has received the non-text control message
+sent by the <tt>Producer</tt> client.</p></li>
+<li><b>Type <tt>Q</tt> or <tt>q</tt> and press Return to stop the client.</b></li>
+<li><b>Now run the clients using a queue.</b><p>In this case, as with the synchronous example, you can run the <tt>Producer</tt>
+client first, because there is no timing dependency between the sender and receiver:</p><pre><tt><b>appclient -client client-jar/producerClient.jar queue 3</b></tt></pre><p>The output of the client looks like this:</p><pre>Destination type is queue
+Sending message: This is message 1 from producer
+Sending message: This is message 2 from producer
+Sending message: This is message 3 from producer</pre></li>
+<li><b>Run the <tt>AsynchConsumer</tt> client:</b><pre><tt><b>appclient -client client-jar/asynchconsumerClient.jar queue</b></tt></pre><p>The output of the client looks like this (along with some application client
+container output):</p><pre>Destination type is queue
+To end program, type Q or q, then &lt;return>
+Reading message: This is message 1 from producer
+Reading message: This is message 2 from producer
+Reading message: This is message 3 from producer
+Message is not a TextMessage</pre></li>
+<li><b>Type <tt>Q</tt> or <tt>q</tt> to stop the client.</b></li></ol>
+
+<a name="bncfl"></a><h4>A Simple Example of Browsing Messages in a Queue</h4>
+<a name="indexterm-1864"></a><a name="indexterm-1865"></a><a name="indexterm-1866"></a><p>This section describes an example that creates a <tt>QueueBrowser</tt> object to examine messages
+on a queue, as described in <a href="bnceh.html#bncey">JMS Queue Browsers</a>. This section then explains how
+to compile, package, and run the example using the GlassFish Server.</p>
+
+
+
+<a name="bncfm"></a><h5>Writing the Client for the Queue Browser Example</h5>
+<p><a name="indexterm-1867"></a>To create a <tt>QueueBrowser</tt> for a queue, you call the <tt>Session.createBrowser</tt> method with
+the queue as the argument. You obtain the messages in the queue as
+an <tt>Enumeration</tt> object. You can then iterate through the <tt>Enumeration</tt> object and display the
+contents of each message.</p>
+
+<p>The <tt>messagebrowser/src/java/MessageBrowser.java</tt> client performs the following steps:</p>
+
+
+<ol><li><p>Injects resources for a connection factory and a queue.</p>
+
+</li>
+<li><p>Creates a <tt>Connection</tt> and a <tt>Session</tt>.</p>
+
+</li>
+<li><p>Creates a <tt>QueueBrowser</tt>:</p>
+
+<pre>QueueBrowser browser = session.createBrowser(queue);</pre></li>
+<li><p>Retrieves the <tt>Enumeration</tt> that contains the messages:</p>
+
+<pre>Enumeration msgs = browser.getEnumeration();</pre></li>
+<li><p>Verifies that the <tt>Enumeration</tt> contains messages, then displays the contents of the messages:</p>
+
+<pre>if ( !msgs.hasMoreElements() ) { 
+    System.out.println("No messages in queue");
+} else { 
+    while (msgs.hasMoreElements()) { 
+        Message tempMsg = (Message)msgs.nextElement(); 
+        System.out.println("Message: " + tempMsg); 
+    }
+}</pre></li>
+<li><p>Closes the connection, which automatically closes the session and <tt>QueueBrowser</tt>.</p>
+
+</li></ol>
+<p>The format in which the message contents appear is implementation-specific. In the GlassFish
+Server, the message format looks like this:</p>
+
+<pre>Message contents: 
+Text:   This is message 3 from producer
+Class:                  com.sun.messaging.jmq.jmsclient.TextMessageImpl
+getJMSMessageID():      ID:14-129.148.71.199(f9:86:a2:d5:46:9b)-40814-1255980521747
+getJMSTimestamp():      1129061034355
+getJMSCorrelationID():  null
+JMSReplyTo:             null
+JMSDestination:         PhysicalQueue
+getJMSDeliveryMode():   PERSISTENT
+getJMSRedelivered():    false
+getJMSType():           null
+getJMSExpiration():     0
+getJMSPriority():       4
+Properties:             null</pre><p>You will use the connection factory and queue you created in <a href="#bncfe">To Create JMS Administered Objects for the Synchronous Receive Example</a>.</p>
+
+
+
+<a name="bncfo"></a><h5>To Build, Package, Deploy, and Run the <tt>MessageBrowser</tt> Client Using NetBeans IDE</h5>
+<p>To build, package, deploy, and run the <tt>MessageBrowser</tt> example using NetBeans IDE, follow
+these steps.</p>
+
+<p>You also need the <tt>Producer</tt> example to send the message to the queue,
+and one of the consumer clients to consume the messages after you inspect
+them. If you did not do so already, package these examples.</p>
+
+<ol>
+<li><b>In NetBeans IDE, choose Open Project from the File menu.</b></li>
+<li><b>In the Open Project dialog, navigate to <tt></tt><i>tut-install</i><tt>/examples/jms/simple/</tt>.</b></li>
+<li><b>Select the <tt>messagebrowser</tt> folder.</b></li>
+<li><b>Select the Open as Main Project check box.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>Right-click the project and choose Build.</b></li>
+<li><b>Run the <tt>Producer</tt> client, sending one message to the queue:</b><ol style="list-style-type: lower-alpha">
+<li><b>Right-click the <tt>producer</tt> project and choose Properties.</b></li>
+<li><b>Select Run from the Categories tree.</b></li>
+<li><b>In the Arguments field, type the following:</b><pre><tt><b>queue</b></tt></pre></li>
+<li><b>Click OK.</b></li>
+<li><b>Right-click the project and choose Run.</b><p>The output of the client looks like this:</p><pre>Destination type is queue
+Sending message: This is message 1 from producer</pre></li></ol></li>
+<li><b>Run the <tt>MessageBrowser</tt> client. Right-click the <tt>messagebrowser</tt> project and choose Run.</b><p>The output of the client looks like this:</p><pre>Message: 
+Text: This is message 1 from producer
+Class: com.sun.messaging.jmq.jmsclient.TextMessageImpl
+getJMSMessageID(): ID:12-129.148.71.199(8c:34:4a:1a:1b:b8)-40883-1255980521747
+getJMSTimestamp(): 1129062957611
+getJMSCorrelationID(): null
+JMSReplyTo: null
+JMSDestination: PhysicalQueue
+getJMSDeliveryMode(): PERSISTENT
+getJMSRedelivered(): false
+getJMSType(): null
+getJMSExpiration(): 0
+getJMSPriority(): 4
+Properties: null
+Message: 
+Class: com.sun.messaging.jmq.jmsclient.MessageImpl
+getJMSMessageID(): ID:13-129.148.71.199(8c:34:4a:1a:1b:b8)-40883-1255980521747
+getJMSTimestamp(): 1129062957616
+getJMSCorrelationID(): null
+JMSReplyTo: null
+JMSDestination: PhysicalQueue
+getJMSDeliveryMode(): PERSISTENT
+getJMSRedelivered(): false
+getJMSType(): null
+getJMSExpiration(): 0
+getJMSPriority(): 4
+Properties: null</pre><p>The first message is the <tt>TextMessage</tt>, and the second is the non-text control
+message.</p></li>
+<li><b>Run the <tt>SynchConsumer</tt> client to consume the messages.</b><ol style="list-style-type: lower-alpha">
+<li><b>Right-click the <tt>synchconsumer</tt> project and choose Properties.</b></li>
+<li><b>Select Run from the Categories tree.</b></li>
+<li><b>In the Arguments field, type the following:</b><pre><tt><b>queue</b></tt></pre></li>
+<li><b>Click OK.</b></li>
+<li><b>Right-click the project and choose Run.</b><p>The output of the client looks like this:</p><pre>Destination type is queue
+Reading message: This is message 1 from producer</pre></li></ol></li></ol>
+
+<a name="bncfn"></a><h5>To Build, Package, Deploy, and Run the <tt>MessageBrowser</tt> Client Using Ant and the <tt>appclient</tt> Command</h5>
+<p>To build, package, deploy, and run the <tt>MessageBrowser</tt> example using Ant, follow these
+steps.</p>
+
+<p>You also need the <tt>Producer</tt> example to send the message to the queue,
+and one of the consumer clients to consume the messages after you inspect
+them. If you did not do so already, package these examples.</p>
+
+<p>To run the clients, you need two terminal windows.</p>
+
+<ol>
+<li><b>In a terminal window, go to the <tt>messagebrowser</tt> directory.</b><pre><tt><b>cd ../messagebrowser</b></tt></pre></li>
+<li><b>Type the following command:</b><pre><tt><b>ant</b></tt></pre><p>The targets place the application client JAR file in the <tt>dist</tt> directory for
+the example.</p></li>
+<li><b>Go to the <tt>producer</tt> directory.</b></li>
+<li><b>Run the <tt>Producer</tt> client, sending one message to the queue:</b><pre><tt><b>appclient -client client-jar/producerClient.jar queue</b></tt></pre><p>The output of the client looks like this (along with some application client
+container output):</p><pre>Destination type is queue
+Sending message: This is message 1 from producer</pre></li>
+<li><b>Go to the <tt>messagebrowser</tt> directory.</b></li>
+<li><b>Deploy the client JAR file to the GlassFish Server, then retrieve the client
+stubs:</b><pre><tt><b>ant getclient</b></tt></pre><p>Ignore the message that states that the application is deployed at a URL.</p></li>
+<li><b>Because this example takes no command-line arguments, you can run the <tt>MessageBrowser</tt> client
+using the following command:</b><pre><tt><b>ant run</b></tt></pre><p>Alternatively, you can type the following command:</p><pre><tt><b>appclient -client client-jar/messagebrowserClient.jar</b></tt></pre><p>The output of the client looks like this (along with some application client
+container output):</p><pre>Message: 
+Text: This is message 1 from producer
+Class: com.sun.messaging.jmq.jmsclient.TextMessageImpl
+getJMSMessageID(): ID:12-129.148.71.199(8c:34:4a:1a:1b:b8)-40883-1255980521747
+getJMSTimestamp(): 1255980521747
+getJMSCorrelationID(): null
+JMSReplyTo: null
+JMSDestination: PhysicalQueue
+getJMSDeliveryMode(): PERSISTENT
+getJMSRedelivered(): false
+getJMSType(): null
+getJMSExpiration(): 0
+getJMSPriority(): 4
+Properties: null
+Message: 
+Class: com.sun.messaging.jmq.jmsclient.MessageImpl
+getJMSMessageID(): ID:13-129.148.71.199(8c:34:4a:1a:1b:b8)-40883-1255980521767
+getJMSTimestamp(): 1255980521767
+getJMSCorrelationID(): null
+JMSReplyTo: null
+JMSDestination: PhysicalQueue
+getJMSDeliveryMode(): PERSISTENT
+getJMSRedelivered(): false
+getJMSType(): null
+getJMSExpiration(): 0
+getJMSPriority(): 4
+Properties: null</pre><p>The first message is the <tt>TextMessage</tt>, and the second is the non-text control
+message.</p></li>
+<li><b>Go to the <tt>synchconsumer</tt> directory.</b></li>
+<li><b>Run the <tt>SynchConsumer</tt> client to consume the messages:</b><pre><tt><b>appclient -client client-jar/synchconsumerClient.jar queue</b></tt></pre><p>The output of the client looks like this (along with some application client
+container output):</p><pre>Destination type is queue
+Reading message: This is message 1 from producer</pre></li></ol>
+
+<a name="bncfp"></a><h4>Running JMS Clients on Multiple Systems</h4>
+<a name="indexterm-1868"></a><a name="indexterm-1869"></a><p>JMS clients that use the GlassFish Server can exchange messages with each other
+when they are running on different systems in a network. The systems must
+be visible to each other by name (the UNIX host name or
+the Microsoft Windows computer name) and must both be running the GlassFish Server.</p>
+
+
+<hr><p><b>Note - </b>Any mechanism for exchanging messages between systems is specific to the Java EE
+server implementation. This tutorial describes how to use the GlassFish Server for this
+purpose.</p>
+
+
+<hr>
+<p>Suppose that you want to run the <tt>Producer</tt> client on one system, <tt>earth</tt>,
+and the <tt>SynchConsumer</tt> client on another system, <tt>jupiter</tt>. Before you can do so,
+you need to perform these tasks:</p>
+
+
+<ol><li><p>Create two new connection factories</p>
+
+</li>
+<li><p>Change the name of the default JMS host on one system</p>
+
+</li>
+<li><p>Edit the source code for the two examples</p>
+
+</li>
+<li><p>Recompile and repackage the examples</p>
+
+
+<hr><p><b>Note - </b>A limitation in the JMS provider in the GlassFish Server may cause a runtime failure to create a connection to systems that use the Dynamic Host Configuration Protocol (DHCP) to obtain an IP address. You can, however, create a connection <b>from</b> a system that uses DHCP <b>to</b> a system that does not use DHCP. In the examples in this tutorial, <tt>earth</tt> can be a system that uses DHCP, and <tt>jupiter</tt> can be a system that does not use DHCP.</p>
+
+
+<hr>
+</li></ol>
+<p>When you run the clients, they will work as shown in <a href="#bncfr">Figure&nbsp;31-1</a>.
+The client run on <tt>earth</tt> needs the queue on <tt>earth</tt> only in
+order that the resource injection will succeed. The connection, session, and message producer are
+all created on <tt>jupiter</tt> using the connection factory that points to <tt>jupiter</tt>. The
+messages sent from <tt>earth</tt> will be received on <tt>jupiter</tt>.</p>
+
+<a name="bncfr"></a><h6>Figure&nbsp;31-1 Sending Messages from One System to Another</h6><img src="figures/jms-multiServer.gif" alt="Diagram showing a message being sent to a queue by a producer on Earth and being received by a consumer on Jupiter"></img><p>For examples showing how to deploy more complex applications on two different systems,
+see <a href="bnchp.html">An Application Example That Consumes Messages from a Remote Server</a> and <a href="bnchx.html">An Application Example That Deploys a Message-Driven Bean on Two Servers</a>.</p>
+
+
+
+<a name="bncfq"></a><h5>To Create Administered Objects for Multiple Systems</h5>
+<a name="indexterm-1870"></a><p>To run these clients, you must do the following:</p>
+
+
+<ul><li><p>Create a new connection factory on both <tt>earth</tt> and <tt>jupiter</tt></p>
+
+</li>
+<li><p>Create a destination resource on both <tt>earth</tt> and <tt>jupiter</tt></p>
+
+</li></ul>
+<p>You do not have to install the tutorial examples on both systems,
+but you must be able to access the filesystem where it is installed.
+You may find it more convenient to install the tutorial examples on both
+systems if the two systems use different operating systems (for example, Windows and
+Solaris). Otherwise you will have to edit the file <tt></tt><i>tut-install</i><tt>/examples/bp-project/build.properties</tt> and change the
+location of the <tt>javaee.home</tt> property each time you build or run a client
+on a different system.</p>
+
+<ol>
+<li><b>Start the GlassFish Server on <tt>earth</tt>.</b></li>
+<li><b>Start the GlassFish Server on <tt>jupiter</tt>.</b></li>
+<li><b>To create a new connection factory on <tt>jupiter</tt>, follow these steps:</b><ol style="list-style-type: lower-alpha">
+<li><b>From a command shell on <tt>jupiter</tt>, go to the directory <tt></tt><i>tut-install</i><tt>/examples/jms/simple/producer/</tt>.</b></li>
+<li><b>Type the following command:</b><pre><tt><b>ant create-local-factory</b></tt></pre><p>The <tt>create-local-factory</tt> target, defined in the <tt>build.xml</tt> file for the <tt>Producer</tt> example,
+creates a connection factory named <tt>jms/JupiterConnectionFactory</tt>.</p></li></ol></li>
+<li><b>To create a new connection factory on <tt>earth</tt> that points to the connection
+factory on <tt>jupiter</tt>, follow these steps:</b><ol style="list-style-type: lower-alpha">
+<li><b>From a command shell on <tt>earth</tt>, go to the directory <tt></tt><i>tut-install</i><tt>/examples/jms/simple/producer/</tt>.</b></li>
+<li><b>Type the following command:</b><pre><tt><b>ant create-remote-factory -Dsys=</tt><i>remote-system-name</i><tt></b></tt></pre><p>Replace <i>remote-system-name</i> with the actual name of the remote system.</p><p>The <tt>create-remote-factory</tt> target, defined in the <tt>build.xml</tt> file for the <tt>Producer</tt> example,
+also creates a connection factory named <tt>jms/JupiterConnectionFactory</tt>. In addition, it sets the <tt>AddressList</tt> property
+for this factory to the name of the remote system.</p></li></ol></li>
+<li><b>If you have already been working on either <tt>earth</tt> or <tt>jupiter</tt>, you
+have the queue and topic on one system. On the system that does
+not have the queue and topic, type the following command:</b><pre><tt><b>ant create-resources</b></tt></pre></li></ol>
+
+<a name="gjsdi"></a><h5>Changing the Default Host Name</h5>
+<p>By default, the default host name for the JMS service on the
+GlassFish Server is <tt>localhost</tt>. To access the JMS service from another system,
+however, you must change the host name. You can change it to either
+the actual host name or to <tt>0.0.0.0</tt>.</p>
+
+<p>You can change the default host name using either the Administration Console
+or the <tt>asadmin</tt> command.</p>
+
+
+
+<a name="gjkpv"></a><h5>To Change the Default Host Name Using the Administration Console</h5>
+<p>To change the default host name using the Administration Console, follow these steps.</p>
+
+<ol>
+<li><b>On <tt>jupiter</tt>, start the Administration Console by opening a browser at <tt>http://localhost:4848/</tt>.</b></li>
+<li><b>In the navigation tree, expand the Configuration node.</b></li>
+<li><b>Under the Configuration node, expand the Java Message Service node.</b></li>
+<li><b>Under the Java Message Service node, expand the JMS Hosts node.</b></li>
+<li><b>Under the JMS Hosts node, select <tt>default_JMS_host</tt>.</b><p>The Edit JMS Host page opens.</p></li>
+<li><b>In the Host field, type the name of the system, or type
+<tt>0.0.0.0</tt>.</b></li>
+<li><b>Click Save.</b></li>
+<li><b>Restart the GlassFish Server.</b></li></ol>
+
+<a name="gjsbq"></a><h5>To Change the Default Host Name Using the <tt>asadmin</tt> Command</h5>
+<p>To change the default host name using the <tt>asadmin</tt> command, follow these steps.</p>
+
+<ol>
+<li><b>Specify a command like one of the following:</b><pre><tt><b>asadmin set server-config.jms-service.jms-host.default_JMS_host.host="0.0.0.0"</b></tt></pre><pre><tt><b>asadmin set server-config.jms-service.jms-host.default_JMS_host.host="</tt><i>hostname</i><tt>"</b></tt></pre></li>
+<li><b>Restart the GlassFish Server.</b></li></ol>
+
+<a name="gjsag"></a><h5>To Edit, Build, Package, Deploy, and Run the Clients Using NetBeans IDE</h5>
+<p>These steps assume that you have the tutorial installed on both of
+the two systems you are using and that you are able to access
+the file system of <tt>jupiter</tt> from <tt>earth</tt> or vice versa. You will edit the
+source files to specify the new connection factory. Then you will rebuild and
+run the clients. Follow these steps.</p>
+
+<ol>
+<li><b>To edit the source files, follow these steps:</b><ol style="list-style-type: lower-alpha">
+<li><b>On <tt>earth,</tt>, open the following file in NetBeans IDE:</b><pre><tt></tt><i>tut-install</i><tt>/examples/jms/simple/producer/src/java/Producer.java</tt></pre></li>
+<li><a name="gjsft"></a><b>Find the following line:</b><pre>@Resource(lookup = "jms/ConnectionFactory")</pre></li>
+<li><a name="gjsev"></a><b>Change the line to the following:</b><pre>@Resource(lookup = "jms/JupiterConnectionFactory")</pre></li>
+<li><b>On <tt>jupiter</tt>, open the following file inNetBeans IDE:</b><pre><tt></tt><i>tut-install</i><tt>/examples/jms/simple/synchconsumer/src/java/SynchConsumer.java</tt></pre></li>
+<li><b>Repeat steps <a href="#gjsft">Step&nbsp;b</a> and <a href="#gjsev">Step&nbsp;c</a>.</b></li></ol></li>
+<li><b>To recompile and repackage the <tt>Producer</tt> example on <tt>earth</tt>, right-click the <tt>producer</tt> project and
+choose Clean and Build.</b></li>
+<li><b>To recompile and repackage the <tt>SynchConsumer</tt> example on <tt>jupiter</tt>, right-click the <tt>synchconsumer</tt> project and
+choose Clean and Build.</b></li>
+<li><b>On <tt>earth</tt>, deploy and run <tt>Producer</tt>. Follow these steps:</b><ol style="list-style-type: lower-alpha">
+<li><b>Right-click the <tt>producer</tt> project and choose Properties.</b></li>
+<li><b>Select Run from the Categories tree.</b></li>
+<li><b>In the Arguments field, type the following:</b><pre><tt><b>queue 3</b></tt></pre></li>
+<li><b>Click OK.</b></li>
+<li><b>Right-click the project and choose Run.</b></li></ol></li>
+<li><b>On <tt>jupiter</tt>, run <tt>SynchConsumer</tt>. Follow these steps:</b><ol style="list-style-type: lower-alpha">
+<li><b>Right-click the <tt>synchconsumer</tt> project and choose Properties.</b></li>
+<li><b>Select Run from the Categories tree.</b></li>
+<li><b>In the Arguments field, type the following:</b><pre><tt><b>queue</b></tt></pre></li>
+<li><b>Click OK.</b></li>
+<li><b>Right-click the project and choose Run.</b></li></ol></li></ol>
+
+<a name="bncfs"></a><h5>To Edit, Build, Package, Deploy, and Run the Clients Using Ant and the <tt>appclient</tt> Command</h5>
+<p>These steps assume that you have the tutorial installed on both of
+the two systems you are using and that you are able to access
+the file system of <tt>jupiter</tt> from <tt>earth</tt> or vice versa. You will edit the
+source files to specify the new connection factory. Then you will rebuild and
+run the clients. Follow these steps.</p>
+
+<ol>
+<li><b>To edit the source files, follow these steps:</b><ol style="list-style-type: lower-alpha">
+<li><b>On <tt>earth,</tt>, open the following file in a text editor:</b><pre><tt></tt><i>tut-install</i><tt>/examples/jms/simple/producer/src/java/Producer.java</tt></pre></li>
+<li><a name="gjsfe"></a><b>Find the following line:</b><pre>@Resource(lookup = "jms/ConnectionFactory")</pre></li>
+<li><a name="gjsgi"></a><b>Change the line to the following:</b><pre>@Resource(lookup = "jms/JupiterConnectionFactory")</pre></li>
+<li><b>On <tt>jupiter</tt>, open the following file in a text editor:</b><pre><tt></tt><i>tut-install</i><tt>/examples/jms/simple/synchconsumer/src/java/SynchConsumer.java</tt></pre></li>
+<li><b>Repeat steps <a href="#gjsfe">Step&nbsp;b</a> and <a href="#gjsgi">Step&nbsp;c</a>.</b></li></ol></li>
+<li><b>To recompile and repackage the <tt>Producer</tt> example on <tt>earth</tt>, type the following:</b><pre><tt><b>ant</b></tt></pre></li>
+<li><b>To recompile and repackage the <tt>SynchConsumer</tt> example on <tt>jupiter</tt>, go to the <tt>synchconsumer</tt>
+directory and type the following:</b><pre><tt><b>ant</b></tt></pre></li>
+<li><b>On <tt>earth</tt>, deploy and run <tt>Producer</tt>. Follow these steps:</b><ol style="list-style-type: lower-alpha">
+<li><b>On <tt>earth</tt>, from  the <tt>producer</tt> directory, deploy the client JAR file to
+the GlassFish Server, then retrieve the client stubs:</b><pre><tt><b>ant getclient</b></tt></pre><p>Ignore the message that states that the application is deployed at a URL.</p></li>
+<li><b>To run the client, type the following:</b><pre><tt><b>appclient -client client-jar/producerClient.jar queue 3</b></tt></pre></li></ol></li>
+<li><b>On <tt>jupiter</tt>, run <tt>SynchConsumer</tt>. Follow these steps:</b><ol style="list-style-type: lower-alpha">
+<li><b>From the <tt>synchconsumer</tt> directory, deploy the client JAR file to the GlassFish Server,
+then retrieve the client stubs:</b><pre><tt><b>ant getclient</b></tt></pre><p>Ignore the message that states that the application is deployed at a URL.</p></li>
+<li><b>To run the client, type the following:</b><pre><tt><b>appclient -client client-jar/synchconsumerClient.jar queue</b></tt></pre></li></ol></li></ol>
+
+<a name="bncft"></a><h4>Undeploying and Cleaning the Simple JMS Examples</h4>
+<p>After you finish running the examples, you can undeploy them and remove the
+build artifacts. </p>
+
+<p>You can also use Ant targets in the <tt>producer/build.xml</tt> file to delete the
+destinations and connection factories you created in <a href="#bncfe">To Create JMS Administered Objects for the Synchronous Receive Example</a>. However, it is recommended
+that you keep them, because they will be used in most of the
+examples later in this chapter. After you have created them, they will be
+available whenever you restart the GlassFish Server.</p>
+
+
+
+<a name="gjscq"></a><h5>To Undeploy and Clean the Simple JMS Examples Using NetBeans IDE</h5>
+<p>To undeploy the examples and remove the build artifacts using NetBeans IDE, follow
+these steps.</p>
+
+<ol>
+<li><b>To undeploy the examples, follow these steps.</b><ol style="list-style-type: lower-alpha">
+<li><b>Click the Services tab.</b></li>
+<li><b>Expand the Servers node.</b></li>
+<li><b>Expand the GlassFish v3 Domain node.</b></li>
+<li><b>Expand or refresh the Applications node.</b></li>
+<li><b>Right-click each deployed example and choose Undeploy.</b></li></ol></li>
+<li><b>To delete the class and JAR files for each client, follow these steps.</b><ol style="list-style-type: lower-alpha">
+<li><b>Click the Projects tab.</b></li>
+<li><b>Right-click each project and choose Clean.</b></li></ol></li></ol>
+
+<a name="gjsbu"></a><h5>To Undeploy and Clean the Simple JMS Examples Using Ant</h5>
+<p>To undeploy the examples and remove the build artifacts using Ant, follow these
+steps.</p>
+
+<ol>
+<li><b>To undeploy each client, go to the directory for the client and type
+the following:</b><pre><tt><b>ant undeploy</b></tt></pre></li>
+<li><b>To delete the class and JAR files for each client, go to
+the directory for the client and type the following:</b><pre><tt><b>ant clean</b></tt></pre></li>
+<li><b>If you wish to delete the connection factories and destinations, go to the
+<tt>producer</tt> directory and type the following:</b><pre><tt><b>ant delete-resources</b></tt>
+<tt><b>ant delete-remote-factory</b></tt></pre><p>Remember to delete the remote connection factory on both systems.</p></li></ol>
+         </div>
+         <div class="navigation">
+             <a href="bncgv.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="giwfh.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

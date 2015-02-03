@@ -1,0 +1,367 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Resource Adapters and Contracts - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level3"><a href="bncji.html">Resources and JNDI Naming</a></p>
+<p class="toc level3"><a href="bncjj.html"><tt>DataSource</tt> Objects and Connection Pools</a></p>
+<p class="toc level3"><a href="bncjk.html">Resource Injection</a></p>
+<p class="toc level4"><a href="bncjk.html#bncjl">Field-Based Injection</a></p>
+<p class="toc level4"><a href="bncjk.html#bncjm">Method-Based Injection</a></p>
+<p class="toc level4"><a href="bncjk.html#bncjn">Class-Based Injection</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">Resource Adapters and Contracts</a></p>
+<p class="toc level4"><a href="#gipgy">Management Contracts</a></p>
+<p class="toc level5"><a href="#gipht">Life Cycle Management</a></p>
+<p class="toc level5"><a href="#gipig">Work Management Contract</a></p>
+<p class="toc level4 tocsp"><a href="#gipmk">Generic Work Context Contract</a></p>
+<p class="toc level5"><a href="#gipke">Transaction Context</a></p>
+<p class="toc level5"><a href="#gipnw">Security Context</a></p>
+<p class="toc level5"><a href="#gipjh">Work Security Map</a></p>
+<p class="toc level5"><a href="#gipjr">Hints Context</a></p>
+<p class="toc level4 tocsp"><a href="#gipji">Outbound Contracts</a></p>
+<p class="toc level5"><a href="#gipki">Connection Management Contract</a></p>
+<p class="toc level5"><a href="#gipkg">Transaction Management Contract</a></p>
+<p class="toc level5"><a href="#gipjn">Security Management Contract</a></p>
+<p class="toc level4 tocsp"><a href="#gipjw">Inbound Contracts</a></p>
+<p class="toc level5"><a href="#gipiy">Messaging Contracts</a></p>
+<p class="toc level5"><a href="#gipjk">Transaction Inflow</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="girdd.html">Metadata Annotations</a></p>
+<p class="toc level3"><a href="gjiyn.html">Replacing Deployment Descriptors With Metadata Annotations</a></p>
+<p class="toc level4"><a href="gjiyn.html#gjiyu">Example 1: <tt>@Connector</tt> Annotation</a></p>
+<p class="toc level4"><a href="gjiyn.html#gjixz">Example 2: <tt>@ConnectionDefinition</tt> Annotation</a></p>
+<p class="toc level4"><a href="gjiyn.html#gjiyg">Example 3: <tt>@Activation</tt> Annotation</a></p>
+<p class="toc level3 tocsp"><a href="gipju.html">Common Client Interface</a></p>
+<p class="toc level3"><a href="bncjw.html">Further Information about Resources</a></p>
+<p class="toc level2 tocsp"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bncjk.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="girdd.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gipgl"></a><h3>Resource Adapters and Contracts</h3>
+<a name="indexterm-1674"></a><p>A resource adapter is a Java EE component that implements the Java
+EE Connector Architecture for a specific Enterprise Information System (EIS). Examples of EISs include
+Enterprise Resource Planning (ERP), mainframe transaction processing (TP), and database systems. As illustrated
+in <a href="#gjtzo">Figure&nbsp;29-1</a>, the resource adapter facilitates communication between a Java EE application and
+an EIS.</p>
+
+<a name="gjtzo"></a><h6>Figure&nbsp;29-1 Resource Adapters</h6><img src="figures/connector-accessingEIS.gif" alt="Resource Adapter Contracts"></img><p>Stored in a Resource Adapter Archive (RAR) file, a resource adapter can be
+deployed on any Java EE server, much like a Java EE application.
+An RAR file may be contained in an Enterprise Archive (EAR) file, or
+it may exist as a separate file. </p>
+
+<p>A resource adapter is analogous to a JDBC driver. Both provide a
+standard API through which an application can access a resource that is outside
+the Java EE server. For a resource adapter, the target system is an
+EIS; for a JDBC driver, it is a DBMS. Resource adapters and JDBC
+drivers are rarely created by application developers. In most cases, both types of
+software are built by vendors that sell products such as tools, servers, or
+integration software.</p>
+
+<p>The resource adapter mediates communication between the Java EE server and the EIS
+by means of contracts. The application contract defines the API through which a
+Java EE component such as an enterprise bean accesses the EIS. This API
+is the only view that the component has of the EIS. The system
+contracts link the resource adapter to important services that are managed by the
+Java EE server. The resource adapter itself and its system contracts are transparent
+to the Java EE component.</p>
+
+
+
+<a name="gipgy"></a><h4>Management Contracts</h4>
+<p>The Java EE Connector Architecture defines system contracts that enable resource adapter life
+cycle and thread management.</p>
+
+
+
+<a name="gipht"></a><h5>Life Cycle Management</h5>
+<p>The Connector Architecture specifies a life cycle management contract that allows an application
+server to manage the life cycle of a resource adapter. This contract provides
+a mechanism for the application server to bootstrap a resource adapter instance during
+the deployment or application server startup. It also provides a means for the
+application server to notify the resource adapter instance when it is undeployed or
+when an orderly shutdown of the application server takes place.</p>
+
+
+
+<a name="gipig"></a><h5>Work Management Contract</h5>
+<p>The Connector Architecture work management contract ensures that resource adapters use threads in
+the proper, recommended manner. It also enables an application server to manage threads
+for resource adapters. </p>
+
+<p>Resource adapters that improperly use threads can jeopardize the entire application server environment.
+For example, a resource adapter might create too many threads or it might
+not properly release threads it has created. Poor thread handling inhibits application server
+shutdown. It also impacts the application server's performance because creating and destroying threads are
+expensive operations.</p>
+
+<p>The work management contract establishes a means for the application server to pool
+and reuse threads, similar to pooling and reusing connections. By adhering to this
+contract, the resource adapter does not have to manage threads itself. Instead, the
+resource adapter has the application server create and provide needed threads. When the
+resource adapter is finished with a given thread, it returns the thread to
+the application server. The application server manages the thread: It can return the
+thread to a pool and reuse it later, or it can destroy the
+thread. Handling threads in this manner results in increased application server performance and
+more efficient use of resources. </p>
+
+<p>In addition to moving thread management to the application server, the Connector Architecture
+provides a flexible model for a resource adapter that uses threads:</p>
+
+
+<ul><li><p>The requesting thread can choose to block (stop its own execution) until the work thread completes.</p>
+
+</li>
+<li><p>Or the requesting thread can block while it waits to get the work thread. When the application server provides a work thread, the requesting thread and the work thread execute in parallel.</p>
+
+</li>
+<li><p>The resource adapter can opt to submit the work for the thread to a queue. The thread executes the work from the queue at some later point. The resource adapter continues its own execution from the point it submitted the work to the queue, no matter when the thread executes it.</p>
+
+</li></ul>
+<p>With the latter two approaches, the submitting thread and the work thread may
+execute simultaneously or independently from each other. For these approaches, the contract specifies
+a listener mechanism to notify the resource adapter that the thread has completed
+its operation. The resource adapter can also specify the execution context for the
+thread, and the work management contract controls the context in which the thread
+executes.</p>
+
+
+
+<a name="gipmk"></a><h4>Generic Work Context Contract</h4>
+<p>A generic work context contract enables a resource adapter to control the contexts
+in which the Work instances submitted by it are executed by the application
+server's <tt>WorkManager</tt>. A Generic Work context mechanism also enables an application server to
+support new message inflow and delivery schemes. It also provides a richer contextual
+Work execution environment to the resource adapter while still maintaining control over concurrent behavior
+in a managed environment. </p>
+
+<p>The Generic Work Context contract standardizes the transaction context and the security context.</p>
+
+
+
+<a name="gipke"></a><h5>Transaction Context</h5>
+<p>The transaction context between the resource adapter and the application server leverages the
+Generic Work Context mechanism by describing a standard <tt>WorkContext</tt>, the <tt>TransactionContext</tt>. It
+represents the standard interface that a resource adapter can use to propagate transaction context
+information from the EIS to the application server. </p>
+
+
+
+<a name="gipnw"></a><h5>Security Context</h5>
+<p>The security context between the resource adapter and the application server leverages the
+Generic Work Context mechanism by describing a standard <tt>WorkContext</tt>, the <tt>SecurityContext</tt>, that
+can be provided by the resource adapter while submitting a Work for execution.</p>
+
+<p>The <tt>SecurityContext</tt> provides a portable mechanism for the resource adapter to pass security
+context information to the application server. This work context enables an EIS or
+resource adapter to flow-in security context information while submitting a Work to a
+<tt>WorkContext</tt> for execution.</p>
+
+
+
+<a name="gipjh"></a><h5>Work Security Map</h5>
+<p>A work security map matches EIS identities to the application server domain's identities.</p>
+
+
+
+<a name="gipjr"></a><h5>Hints Context</h5>
+<p>The propagation of Quality-of-Service hints to a <tt>WorkManager</tt> for the execution of a
+Work instance is standardized through the <tt>HintsContext</tt> class. This class provides a
+mechanism for the resource adapter to pass quality-of-service metadata to the <tt>WorkManager</tt> during the
+submission of a Work instance. The application server can use the specified hints
+to control the execution of the Work instance.</p>
+
+
+
+<a name="gipji"></a><h4>Outbound Contracts</h4>
+<p>The Connector Architecture defines system-level contracts between an application server and an EIS
+that enable outbound connectivity to an EIS.</p>
+
+
+
+<a name="gipki"></a><h5>Connection Management Contract</h5>
+<p>The connection management contract supports connection pooling, a technique that enhances application performance
+and scalability. Connection pooling is transparent to the application, which simply obtains a
+connection to the EIS.</p>
+
+
+
+<a name="gipkg"></a><h5>Transaction Management Contract</h5>
+<p>The Connector Architecture supports the concept of transactions - a number of operations
+that must be committed together or not at all for the data to
+remain consistent and to maintain data integrity.</p>
+
+<p>A local transaction is limited in scope to a single EIS system,
+and the EIS resource manager itself manages such transaction. An XA transaction or global
+transaction can span multiple resource managers. This form of transaction requires transaction coordination
+by an external transaction manager, typically bundled with an application server. A transaction
+manager uses a two-phase commit protocol to manage a transaction that spans multiple
+resource managers or EISs. It uses one-phase commit optimization if only one resource
+manager is participating in an XA transaction.</p>
+
+<p>The Connector Architecture defines a transaction management contract between an application server and
+a resource adapter . The transaction management contract extends the connection management contract
+and provides support for management of both local and XA transactions. These contracts
+enable an application server to provide the infrastructure and runtime environment for transaction management.
+Application components rely on this transaction infrastructure to support the component-level transaction model.</p>
+
+<p>An application server is required to support all three levels of transactions:</p>
+
+
+<ul><li><p>No transaction support at all - this is typical of legacy applications and back-end systems.</p>
+
+</li>
+<li><p>Support for local transactions only</p>
+
+</li>
+<li><p>Support for both local and XA transactions</p>
+
+</li></ul>
+
+
+<a name="gipjn"></a><h5>Security Management Contract</h5>
+<p>The security management contract provides mechanisms for authentication, authorization, and secure communication between
+a Java EE server and an EIS to protect the information in the
+EIS.</p>
+
+
+
+<a name="gipjw"></a><h4>Inbound Contracts</h4>
+<p>The Java EE Connector Architecture defines system contracts between a Java EE server
+and an EIS that enable inbound connectivity from the EIS: pluggability contracts for
+message providers and contracts for importing transactions.</p>
+
+
+
+<a name="gipiy"></a><h5>Messaging Contracts</h5>
+<p>To enable external systems to connect to a Java EE application server, the
+Connector Architecture extends the capabilities of message-driven beans to handle messages from any
+message provider. That is, message-driven beans are no longer limited to handling JMS
+messages. Instead, EISs and message providers can plug any message provider, including their
+own custom or proprietary message providers, into a Java EE server. </p>
+
+<p>To provide this feature, a message provider or an EIS resource adapter implements
+the messaging contract, which details APIs for message handling and message delivery. A
+conforming resource adapter is assured of the ability to send messages from any
+provider to a message-driven bean, and it also can be plugged into a
+Java EE server in a standard manner.</p>
+
+
+
+<a name="gipjk"></a><h5>Transaction Inflow</h5>
+<p>The Connector Architecture supports importing transactions from an EIS to a Java EE
+server. The architecture specifies how to propagate the transaction context from the EIS.
+For example, a transaction can be started by the EIS, such as the
+Customer Information Control System (CICS). Within the same CICS transaction, a connection can
+be made through a resource adapter to an enterprise bean on the application
+server. The enterprise bean does its work under the CICS transaction context and
+commits within that transaction context.</p>
+
+<p>The Connector Architecture also specifies how the container participates in transaction completion and
+how it handles crash recovery to ensure that data integrity is not lost.</p>
+
+
+         </div>
+         <div class="navigation">
+             <a href="bncjk.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="girdd.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

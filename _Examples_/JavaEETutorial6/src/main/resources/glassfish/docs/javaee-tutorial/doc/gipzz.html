@@ -1,0 +1,329 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Example Applications for JAX-RS - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level3"><a href="gijqy.html">What are RESTful Web Services?</a></p>
+<p class="toc level3"><a href="gilik.html">Creating a RESTful Root Resource Class</a></p>
+<p class="toc level4"><a href="gilik.html#gilru">Developing RESTful Web Services with JAX-RS</a></p>
+<p class="toc level4"><a href="gilik.html#gilqb">Overview of a JAX-RS Application</a></p>
+<p class="toc level4"><a href="gilik.html#ginpw">The <tt>@Path</tt> Annotation and URI Path Templates</a></p>
+<p class="toc level4"><a href="gilik.html#gipys">Responding to HTTP Resources</a></p>
+<p class="toc level5"><a href="gilik.html#gipxs">The Request Method Designator Annotations</a></p>
+<p class="toc level5"><a href="gilik.html#gipze">Using Entity Providers to Map HTTP Response and Request Entity Bodies</a></p>
+<p class="toc level4 tocsp"><a href="gilik.html#gipzh">Using <tt>@Consumes</tt> and <tt>@Produces</tt> to Customize Requests and Responses</a></p>
+<p class="toc level5"><a href="gilik.html#gipxf">The <tt>@Produces</tt> Annotation</a></p>
+<p class="toc level5"><a href="gilik.html#gipyt">The <tt>@Consumes</tt> Annotation</a></p>
+<p class="toc level4 tocsp"><a href="gilik.html#gipyw">Extracting Request Parameters</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">Example Applications for JAX-RS</a></p>
+<p class="toc level4"><a href="#gipyz">Creating a RESTful Web Service</a></p>
+<p class="toc level5"><a href="#giqaa">Creating a RESTful Web Service Using NetBeans IDE</a></p>
+<p class="toc level4 tocsp"><a href="#gjvbc">The <tt>rsvp</tt> Example Application</a></p>
+<p class="toc level5"><a href="#gjvaw">Components of the <tt>rsvp</tt> Example Application</a></p>
+<p class="toc level5"><a href="#gjvau">Running the <tt>rsvp</tt> Example Application in NetBeans IDE</a></p>
+<p class="toc level5"><a href="#gjvai">Running the <tt>rsvp</tt> Example Application using Ant</a></p>
+<p class="toc level4 tocsp"><a href="#girci">Real-World Examples</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="giliz.html">Further Information about JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gilik.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="giliz.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gipzz"></a><h3>Example Applications for JAX-RS</h3>
+<a name="indexterm-836"></a><a name="indexterm-837"></a><a name="indexterm-838"></a><a name="indexterm-839"></a><a name="indexterm-840"></a><a name="indexterm-841"></a><p>This section provides an introduction to creating, deploying, and running your own JAX-RS
+applications. This section demonstrates the steps that you would take to create, build,
+deploy, and test a very simple web application that uses JAX-RS annotations.</p>
+
+
+
+<a name="gipyz"></a><h4>Creating a RESTful Web Service</h4>
+<p>This section discusses two ways that you can create a RESTful web
+service. If you choose to use NetBeans IDE to create a RESTful web
+service, the IDE generates a skeleton where you simply need to implement the
+appropriate methods. If you choose not to use an IDE, try using one
+of the example applications that ship with Jersey as a template to modify.</p>
+
+
+
+<a name="giqaa"></a><h5>Creating a RESTful Web Service Using NetBeans IDE</h5>
+<p>This section describes, using a very simple example, how to create a Jersey-annotated
+web application from NetBeans IDE. </p>
+
+<ol>
+<li><b>In NetBeans IDE, create a simple web application. This example creates a very
+simple &ldquo;Hello, World&rdquo; web application.</b><ol style="list-style-type: lower-alpha">
+<li><b>In NetBeans IDE, select File &rarr; New Project.</b></li>
+<li><b>From Categories, select Java Web. From Projects, select Web Application. Click Next.</b>
+<hr><p><b>Note - </b>For this step, you could also create a RESTful web service in a
+Maven web project by selecting Maven as the category and Maven Web
+Project as the project. The remaining steps would be the same.</p>
+
+
+<hr>
+</li>
+<li><b>Enter a project name, <tt><b>HelloWorldApplication</b></tt>, click Next.</b></li>
+<li><b>Make sure the Server is GlassFish Server (or similar wording.)</b></li>
+<li><b>Click Finish. You may be prompted for your server Administrator User Name and
+Password. If so, enter this information.</b></li></ol></li>
+<li><b>The project will be created. The file <tt>index.jsp</tt> will display in the Source
+pane. </b></li>
+<li><b>Right-click the project and select New, then select RESTful Web Services from Patterns.</b><ol style="list-style-type: lower-alpha">
+<li><b>Select Simple Root Resource. Click Next.</b></li>
+<li><b>Enter a Resource Package name, like <tt><b>helloWorld</b></tt>. </b></li>
+<li><b>Enter <tt><b>helloworld</b></tt> in the Path field. Enter <tt><b>HelloWorld</b></tt> in the Class Name
+field. For MIME Type select <tt>text/html</tt>.</b></li>
+<li><b>Click Finish.</b></li>
+<li><b>The REST Resources Configuration page displays. Select OK.</b><p>A new resource, <tt>HelloWorld.java</tt>, is added to the project and appears in the
+Source pane. This file provides a template for creating a RESTful web service.</p></li></ol></li>
+<li><b>In <tt>HelloWorld.java</tt>, find the <tt>getHtml()</tt> method. Replace the <tt>//TODO</tt> comment and the exception
+with the following text, so that the finished product resembles the following method.</b>
+<hr><p><b>Note - </b>Because the MIME type produced is HTML, you can use HTML tags in
+your return statement.</p>
+
+
+<hr>
+<pre>/**
+     * Retrieves representation of an instance of helloWorld.HelloWorld
+     * @return an instance of java.lang.String
+     */
+    @GET
+    @Produces("text/html")
+    public String getHtml() {
+        return "&lt;html>&lt;body>&lt;h1>Hello, World!!&lt;/body>&lt;/h1>&lt;/html>";
+    }
+
+    </pre></li>
+<li><b>Test the web service. To do this, right-click the project node and click
+Test RESTful Web Services. </b><p>This step deploys the application and brings up a test client in the
+browser. </p></li>
+<li><b>When the test client appears, select the <tt>helloworld</tt> resource in the left pane,
+and click the Test button in the right pane.</b><p>The words <tt>Hello, World!!</tt> appear in the Response window below.</p></li>
+<li><b>Deploy and run the application.</b><ol style="list-style-type: lower-alpha">
+<li><b>Set the Run Properties. To do this, right-click the project node, select Properties,
+and then select the Run category. Set the Relative URL to the location
+of the RESTful web service relative to the Context Path, which for this
+example is <tt>resources/helloworld</tt>.</b>
+<hr><p><b>Tip - </b>You can find the value for the Relative URL in the Test
+RESTful Web Services browser window. In the top of the right pane, after
+Resource, is the URL for the RESTful web service being tested. The part
+following the Context Path (<tt>http://localhost:8080/HelloWorldApp</tt>) is the Relative URL that needs to be entered
+here.</p>
+
+<p>If you don't set this property, by default the file <tt>index.jsp</tt> will display when
+the application is run. As this file also contains <tt>Hello World</tt> as its default
+value, you might not notice that your RESTful web service isn't running, so
+just be aware of this default and the need to set this
+property, or update <tt>index.jsp</tt> to provide a link to the RESTful web service.</p>
+
+
+<hr>
+</li>
+<li><b>Right-click the project and select Deploy.</b></li>
+<li><b>Right-click the project and select Run.</b><p>A browser window opens and displays the return value of <tt>Hello, World!!</tt></p></li></ol></li></ol><h6>See Also</h6><p>For other sample applications that demonstrate deploying and running Jersey applications using NetBeans
+IDE, read <a href="#gjvbc">The <tt>rsvp</tt> Example Application</a> and <a href="http://download.oracle.com/docs/cd/E17410_01/javaee/6/firstcup/doc/">Your First Cup: An Introduction to the Java EE Platform</a>. You may also look at the tutorials
+on the NetBeans IDE tutorial site, such as the one titled <a href="http://www.netbeans.org/kb/docs/websvc/rest.html">Getting Started with RESTful Web Services</a>. This
+tutorial includes a section on creating a CRUD application from a database. Create, read,
+update and delete (CRUD) are the four basic functions of persistent storage and
+relational databases.</p>
+
+
+
+<a name="gjvbc"></a><h4>The <tt>rsvp</tt> Example Application</h4>
+<a name="indexterm-842"></a><p>The <tt>rsvp</tt> example application, located in <tt></tt><i>tut-install</i><tt>/examples/jaxrs/rsvp</tt>, is a more complicated example
+that allows invitees to an event to indicate whether or not they will
+attend. The events, people invited to the event, and the responses to the
+invite are stored in a Java DB database using the Java Persistence API.
+The JAX-RS resources in <tt>rsvp</tt> are exposed in a stateless session enterprise bean.</p>
+
+
+
+<a name="gjvaw"></a><h5>Components of the <tt>rsvp</tt> Example Application</h5>
+<a name="indexterm-843"></a><p>There are three enterprise beans in the <tt>rsvp</tt> example application: <tt>rsvp.ejb.COnfigBean</tt>, <tt>rsvp.ejb.StatusBean</tt>, and
+<tt>rsvp.ejb.ResponseBean</tt>.</p>
+
+<p><tt>ConfigBean</tt> is a singleton session bean that initializes the data in the database.
+</p>
+
+<p><tt>StatusBean</tt> exposes a JAX-RS resource for displaying the current status of all invitees
+to an event. The URI path template is declared as follows:</p>
+
+<pre>@Path("/status/{eventId}/"}</pre><p>The URI path variable <tt>eventId</tt> is a <tt>@PathParam</tt> variable in the <tt>getResponse</tt>
+method, which responds to HTTP <tt>GET</tt> requests, and has been annotated with <tt>@GET</tt>. The
+<tt>eventId</tt> variable is used to look up all the current responses in the
+database for that particular event.</p>
+
+<p><tt>ResponseBean</tt> exposes a JAX-RS resource for setting an invitee's response to a particular
+event. The URI path template for <tt>ResponseBean</tt> is declared as follows:</p>
+
+<pre>@Path("/{eventId}/{inviteId}</pre><p>There are two URI path variables declared in the path template, <tt>eventId</tt>
+and <tt>inviteId</tt>. As in <tt>StatusBean</tt>, <tt>eventId</tt> is the unique ID for a
+particular event. Each invitee to that event has a unique ID for their
+invitation, and that is the <tt>inviteId</tt>. Both of these path variables are
+used in two JAX-RS methods in <tt>ResponseBean</tt>, <tt>getResponse</tt> and <tt>putResponse</tt>. The <tt>getResponse</tt>
+method responds to HTTP <tt>GET</tt> requests, and displays the invitees current response and a
+form to change the response.</p>
+
+<p>If an invitee wants to change her response, she selects the new
+response and submits the form data, which is processed as an HTTP <tt>PUT</tt>
+request by the <tt>putResponse</tt> method. One of the parameters to the <tt>putResponse</tt> method, the
+<tt>userResponse</tt> string, is annotated with <tt>@FormParam("attendeeResponse")</tt>. The HTML form created by <tt>getResponse</tt> stores the
+changed response in select list with an ID of <tt>attendeeResponse</tt>. The <tt>@FormParam("attendeeResponse")</tt> annotation indicates that
+the value of the select response is extracted from the HTTP <tt>PUT</tt>
+request and stored as the <tt>userResponse</tt> string. The <tt>putResponse</tt> method uses <tt>userResponse</tt>, <tt>eventId</tt>, and
+<tt>inviteId</tt> to update the invitees response in the database.</p>
+
+<p>The events, people, and responses in <tt>rsvp</tt> are encapsulated in Java Persistence API
+entities. The <tt>rsvp.entity.Event</tt>, <tt>rsvp.entity.Person</tt>, and <tt>rsvp.entity.Response</tt> entities respectively represent events, invitees, and responses
+to an event.</p>
+
+<p>The <tt>rsvp.util.ResponseEnum</tt> class declares an enumerated type that represents all the possible response
+statuses an invitee may have.</p>
+
+
+
+<a name="gjvau"></a><h5>Running the <tt>rsvp</tt> Example Application in NetBeans IDE</h5>
+<p>Follow these steps to deploy and run <tt>rsvp</tt> in NetBeans IDE.</p>
+
+<ol>
+<li><b>Select File &rarr; Open Project, navigate to <tt></tt><i>tut-install</i><tt>/examples/jaxrs/rsvp</tt>, and click Open Project.</b></li>
+<li><b>Right-click the <tt>rsvp</tt> project in the left pane, and select Run.</b><p>The project will be compiled, assembled, and deployed to GlassFish Server. A web
+browser window will open to <tt>http://localhost:8080/rsvp</tt>.</p></li>
+<li><b>In the web browser window, click the Event Status link for the Duke's
+Birthday event.</b><p>You'll see the current invitees and their responses.</p></li>
+<li><b>Click on the name of one of the invitees, select a response,
+and click Submit response, then click Back to event page.</b><p>The invitees new status should now be displayed in the table of invitees
+and their response statuses.</p></li></ol>
+
+<a name="gjvai"></a><h5>Running the <tt>rsvp</tt> Example Application using Ant</h5>
+<p>Follow these steps to deploy and run <tt>rsvp</tt> using Ant.</p>
+
+<h6>Before You Begin</h6><p>You must have started GlassFish Server and the Java DB database before running
+<tt>rsvp</tt>.</p>
+
+<ol>
+<li><b>In a terminal window, navigate to <tt></tt><i>tut-install</i><tt>/examples/jaxrs/rsvp</tt>.</b></li>
+<li><b>Enter the following command:</b><pre>ant all</pre><p>This command will build, assemble, and deploy <tt>rsvp</tt> to GlassFish Server.</p></li>
+<li><b>Open a web browser window to <tt>http://localhost:8080/rsvp</tt>.</b></li>
+<li><b>In the web browser window, click the Event Status link for the Duke's
+Birthday event.</b><p>You'll see the current invitees and their responses.</p></li>
+<li><b>Click on the name of one of the invitees, select a response,
+and click Submit response, then click Back to event page.</b><p>The invitees new status should now be displayed in the table of invitees
+and their response statuses.</p></li></ol>
+
+<a name="girci"></a><h4>Real-World Examples</h4>
+<p>Most blog sites use RESTful web services. These sites involve downloading XML
+files, in RSS or Atom format, that contain lists of links to other
+resources. Other web sites and web applications that use REST-like developer interfaces to
+data include Twitter and Amazon S3 (Simple Storage Service). With Amazon S3, buckets
+and objects can be created, listed, and retrieved using either a REST-style HTTP
+interface or a SOAP interface. The examples that ship with Jersey include a
+storage service example with a RESTful interface. The tutorial at <a href="http://netbeans.org/kb/docs/websvc/twitter-swing.html">http://netbeans.org/kb/docs/websvc/twitter-swing.html</a> uses NetBeans
+IDE to create a simple, graphical, REST-based client that displays Twitter public timeline messages and
+lets you view and update your Twitter status.</p>
+
+
+         </div>
+         <div class="navigation">
+             <a href="gilik.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="giliz.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

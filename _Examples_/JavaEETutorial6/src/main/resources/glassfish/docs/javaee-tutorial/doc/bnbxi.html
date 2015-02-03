@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Securing the GlassFish Server - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level3"><a href="bnbwk.html">Overview of Java EE Security</a></p>
+<p class="toc level4"><a href="bnbwk.html#bnbwl">A Simple Security Example</a></p>
+<p class="toc level5"><a href="bnbwk.html#bnbwm">Step 1: Initial Request</a></p>
+<p class="toc level5"><a href="bnbwk.html#bnbwo">Step 2: Initial Authentication</a></p>
+<p class="toc level5"><a href="bnbwk.html#bnbwq">Step 3: URL Authorization</a></p>
+<p class="toc level5"><a href="bnbwk.html#bnbws">Step 4: Fulfilling the Original Request</a></p>
+<p class="toc level5"><a href="bnbwk.html#bnbwu">Step 5: Invoking Enterprise Bean Business Methods</a></p>
+<p class="toc level4 tocsp"><a href="bnbwk.html#bnbww">Features of a Security Mechanism</a></p>
+<p class="toc level4"><a href="bnbwk.html#bnbwx">Characteristics of Application Security</a></p>
+<p class="toc level3 tocsp"><a href="bnbwy.html">Security Implementation Mechanisms</a></p>
+<p class="toc level4"><a href="bnbwy.html#bnbwz">Java SE Security Implementation Mechanisms</a></p>
+<p class="toc level4"><a href="bnbwy.html#bnbxa">Java EE Security Implementation Mechanisms</a></p>
+<p class="toc level5"><a href="bnbwy.html#bnbxb">Application-Layer Security</a></p>
+<p class="toc level5"><a href="bnbwy.html#bnbxc">Transport-Layer Security</a></p>
+<p class="toc level5"><a href="bnbwy.html#bnbxd">Message-Layer Security</a></p>
+<p class="toc level3 tocsp"><a href="bnbxe.html">Securing Containers</a></p>
+<p class="toc level4"><a href="bnbxe.html#bnbxg">Using Annotations to Specify Security Information</a></p>
+<p class="toc level4"><a href="bnbxe.html#bnbxf">Using Deployment Descriptors for Declarative Security</a></p>
+<p class="toc level4"><a href="bnbxe.html#bnbxh">Using Programmatic Security</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">Securing the GlassFish Server</a></p>
+</div>
+<p class="toc level3"><a href="bnbxj.html">Working with Realms, Users, Groups, and Roles</a></p>
+<p class="toc level4"><a href="bnbxj.html#bnbxk">What Are Realms, Users, Groups, and Roles?</a></p>
+<p class="toc level5"><a href="bnbxj.html#bnbxm">What Is a Realm?</a></p>
+<p class="toc level5"><a href="bnbxj.html#bnbxn">What Is a User?</a></p>
+<p class="toc level5"><a href="bnbxj.html#bnbxo">What Is a Group?</a></p>
+<p class="toc level5"><a href="bnbxj.html#bnbxp">What Is a Role?</a></p>
+<p class="toc level5"><a href="bnbxj.html#bnbxq">Some Other Terminology</a></p>
+<p class="toc level4 tocsp"><a href="bnbxj.html#bnbxr">Managing Users and Groups on the GlassFish Server</a></p>
+<p class="toc level5"><a href="bnbxj.html#bnbxs">To Add Users to the GlassFish Server</a></p>
+<p class="toc level5"><a href="bnbxj.html#bnbxt">Adding Users to the Certificate Realm</a></p>
+<p class="toc level4 tocsp"><a href="bnbxj.html#bnbxu">Setting Up Security Roles</a></p>
+<p class="toc level4"><a href="bnbxj.html#bnbxv">Mapping Roles to Users and Groups</a></p>
+<p class="toc level3 tocsp"><a href="bnbxw.html">Establishing a Secure Connection Using SSL</a></p>
+<p class="toc level4"><a href="bnbxw.html#bnbxx">Installing and Configuring SSL Support</a></p>
+<p class="toc level4"><a href="bnbxw.html#bnbxy">Specifying a Secure Connection in Your Application Deployment Descriptor</a></p>
+<p class="toc level4"><a href="bnbxw.html#bnbxz">Verifying SSL Support</a></p>
+<p class="toc level5"><a href="bnbxw.html#bnbya">Tips on Running SSL</a></p>
+<p class="toc level4 tocsp"><a href="bnbxw.html#bnbyb">Working with Digital Certificates</a></p>
+<p class="toc level5"><a href="bnbxw.html#bnbyc">Creating a Server Certificate</a></p>
+<p class="toc level5"><a href="bnbxw.html#bnbyg">Miscellaneous Commands for Certificates</a></p>
+<p class="toc level3 tocsp"><a href="bnbyj.html">Further Information about Security</a></p>
+<p class="toc level2 tocsp"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bnbxe.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="bnbxj.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bnbxi"></a><h3>Securing the GlassFish Server</h3>
+<a name="indexterm-1350"></a><p>This tutorial describes deployment to GlassFish Server, which provides highly secure, interoperable, and
+distributed component computing based on the Java EE security model. GlassFish Server supports
+the Java EE 6 security model. You can configure GlassFish Server for the
+following purposes:</p>
+
+
+<ul><li><p>Adding, deleting, or modifying authorized users. For more information on this topic, read <a href="bnbxj.html">Working with Realms, Users, Groups, and Roles</a>.</p>
+
+</li>
+<li><p><a name="indexterm-1351"></a><a name="indexterm-1352"></a>Configuring secure HTTP and Internet Inter-Orb Protocol (IIOP) listeners.</p>
+
+</li>
+<li><p>Configuring secure Java Management Extensions (JMX) connectors.</p>
+
+</li>
+<li><p><a name="indexterm-1353"></a>Adding, deleting, or modifying existing or custom realms.</p>
+
+<p>A discussion of this topic is available in <a href="http://docs.sun.com/doc/821-1752/beabo?a=view">Realm Configuration in <i>Oracle GlassFish Server 3.0.1 Application Development Guide</i></a>.</p>
+
+</li>
+<li><p><a name="indexterm-1354"></a><a name="indexterm-1355"></a><a name="indexterm-1356"></a>Defining an interface for pluggable authorization providers using Java Authorization Contract for Containers (JACC).</p>
+
+<p>Java Authorization Contract for Containers (JACC) defines security contracts between the GlassFish Server and authorization policy modules. These contracts specify how the authorization providers are installed, configured, and used in access decisions. JACC is discussed in <a href="http://docs.sun.com/doc/821-1752/beabt?a=view">JACC Support in <i>Oracle GlassFish Server 3.0.1 Application Development Guide</i></a>.</p>
+
+</li>
+<li><p><a name="indexterm-1357"></a><a name="indexterm-1358"></a>Using pluggable audit modules. </p>
+
+<p>A discussion of using pluggable audit modules can be found in <a href="http://docs.sun.com/doc/821-1752/beabu?a=view">Pluggable Audit Module Support in <i>Oracle GlassFish Server 3.0.1 Application Development Guide</i></a></p>
+
+</li>
+<li><p>Customizing authentication mechanisms</p>
+
+<p>All implementations of Java EE 6 compatible Servlet containers are required to support the Servlet Profile of JSR&ndash;196, which offers an avenue for customizing the authentication mechanism applied by the web container on behalf of one or more applications. Some discussion of using the JSR&ndash;196 contract to configure a custom container authentication mechanism is discussed in <a href="http://docs.sun.com/doc/821-1752/gizel?a=view">Adding Authentication Mechanisms to the Servlet Container in <i>Oracle GlassFish Server 3.0.1 Application Development Guide</i></a>.</p>
+
+</li>
+<li><p><a name="indexterm-1359"></a>Setting and changing policy permissions for an application.</p>
+
+<p>You can read more about changing policy permissions in <a href="http://docs.sun.com/doc/821-1752/beabx?a=view">The server.policy File in <i>Oracle GlassFish Server 3.0.1 Application Development Guide</i></a>.</p>
+
+</li></ul>
+<p>The following features are specific to the GlassFish Server:</p>
+
+
+<ul><li><p><a name="indexterm-1360"></a><a name="indexterm-1361"></a>Message security</p>
+
+<p>Message security is discussed in <a href="http://docs.sun.com/doc/821-1752/beaca?a=view">Configuring Message Security for Web Services in <i>Oracle GlassFish Server 3.0.1 Application Development Guide</i></a>.</p>
+
+</li>
+<li><p><a name="indexterm-1362"></a><a name="indexterm-1363"></a><a name="indexterm-1364"></a>Single sign-on across all GlassFish Server applications within a single security domain.</p>
+
+<p>You can learn more about single sign-on in <a href="http://docs.sun.com/doc/821-1752/beacq?a=view">User Authentication for Single Sign-on in <i>Oracle GlassFish Server 3.0.1 Application Development Guide</i></a>.</p>
+
+</li>
+<li><p><a name="indexterm-1365"></a><a name="indexterm-1366"></a>Programmatic login</p>
+
+<p>You can learn more about programmatic login in <a href="http://docs.sun.com/doc/821-1752/beacm?a=view">Programmatic Login in <i>Oracle GlassFish Server 3.0.1 Application Development Guide</i></a>.</p>
+
+</li></ul>
+<p>For more information about configuring the GlassFish Server, read the <a href="http://docs.sun.com/doc/821-1752"><i>Oracle GlassFish Server 3.0.1 Application Development Guide</i></a> and
+<a href="http://docs.sun.com/doc/821-1751"><i>Oracle GlassFish Server 3.0.1 Administration Guide</i></a>.</p>
+
+
+         </div>
+         <div class="navigation">
+             <a href="bnbxe.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="bnbxj.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

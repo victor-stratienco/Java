@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Using Deployment Descriptors to Secure Web Applications - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level3"><a href="bncat.html">Overview of Web Application Security</a></p>
+<p class="toc level3"><a href="gkbaa.html">Securing Web Applications</a></p>
+<p class="toc level4"><a href="gkbaa.html#bncbk">Specifying Security Constraints</a></p>
+<p class="toc level5"><a href="gkbaa.html#gjjcd">Specifying a Web Resource Collection</a></p>
+<p class="toc level5"><a href="gkbaa.html#gjjcg">Specifying an Authorization Constraint</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbm">Specifying a Secure Connection</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbl">Specifying Separate Security Constraints for Various Resources</a></p>
+<p class="toc level4 tocsp"><a href="gkbaa.html#gentextid-18908">Specifying Authentication Mechanisms</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbo">HTTP Basic Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbq">Form-Based Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbw">Digest Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbs">HTTPS Client Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbt">Mutual Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbn">Specifying an Authentication Mechanism</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">Using Deployment Descriptors to Secure Web Applications</a></p>
+<p class="toc level4"><a href="#bncav">Declaring Security Roles</a></p>
+<p class="toc level5"><a href="#bncaz">Mapping Security Roles to GlassFish Server Groups</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="gjiie.html">Using Programmatic Security with Web Applications</a></p>
+<p class="toc level4"><a href="gjiie.html#gircj">Authenticating Users Programmatically</a></p>
+<p class="toc level4"><a href="gjiie.html#bncba">Checking Caller Identity Programmatically</a></p>
+<p class="toc level4"><a href="gjiie.html#gjjlq">Example Code for Programmatic Security</a></p>
+<p class="toc level4"><a href="gjiie.html#bncbb">Declaring and Linking Role References</a></p>
+<p class="toc level3 tocsp"><a href="bncbx.html">Examples: Securing Web Applications</a></p>
+<p class="toc level4"><a href="bncbx.html#gjjlk">To Set Up Your System for Running the Security Examples</a></p>
+<p class="toc level4"><a href="bncbx.html#bncck">Example: Basic Authentication with a Servlet</a></p>
+<p class="toc level5"><a href="bncbx.html#gjrmh">Specifying Security for Basic Authentication Using Annotations</a></p>
+<p class="toc level5"><a href="bncbx.html#gjqys">To Build, Package, and Deploy the Servlet Basic Authentication Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bncbx.html#gjqzh">To Build, Package, and Deploy the Servlet Basic Authentication Example Using Ant</a></p>
+<p class="toc level5"><a href="bncbx.html#gjqzf">To Run the Basic Authentication Servlet</a></p>
+<p class="toc level4 tocsp"><a href="bncbx.html#bncby">Example: Form-Based Authentication with a JavaServer Faces Application</a></p>
+<p class="toc level5"><a href="bncbx.html#bncca">Creating the Login Form and the Error Page</a></p>
+<p class="toc level5"><a href="bncbx.html#bnccb">Specifying Security for the Form-Based Authentication Example</a></p>
+<p class="toc level5"><a href="bncbx.html#gjrba">To Build, Package, and Deploy the Form-Based Authentication Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bncbx.html#gjraz">To Build, Package, and Deploy the Form-Based Authentication Example Using Ant</a></p>
+<p class="toc level5"><a href="bncbx.html#gjral">To Run the Form-Based Authentication Example</a></p>
+<p class="toc level2 tocsp"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gkbaa.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="gjiie.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bncbe"></a><h3>Using Deployment Descriptors to Secure Web Applications</h3>
+<a name="indexterm-1488"></a><a name="indexterm-1489"></a><p>The web application deployment descriptor, <tt>web.xml</tt>,  directs a deployment tool to
+deploy a module or application with the specified security settings. The <tt>web.xml</tt> file can
+be used to define security constraints, authentication mechanisms, and security roles.</p>
+
+
+
+<a name="bncav"></a><h4>Declaring Security Roles</h4>
+<a name="indexterm-1490"></a><a name="indexterm-1491"></a><a name="indexterm-1492"></a><a name="indexterm-1493"></a><p>You can declare security role names used in web applications by using the
+<tt>security-role</tt> element of the deployment descriptor. Use this element to list all the
+security roles that you have referenced in your application.</p>
+
+<p>The following snippet of a deployment descriptor declares the roles that will be
+used in an application using the <tt>security-role</tt> element and specifies which of these roles
+is authorized to access protected resources using the <tt>auth-constraint</tt> element:</p>
+
+<pre>&lt;security-constraint>
+    &lt;web-resource-collection>
+        &lt;web-resource-name>Protected Area&lt;/web-resource-name>
+        &lt;url-pattern>/jsp/security/protected/*&lt;/url-pattern>
+        &lt;http-method>PUT&lt;/http-method>
+        &lt;http-method>DELETE&lt;/http-method>
+        &lt;http-method>GET&lt;/http-method>
+        &lt;http-method>POST&lt;/http-method>
+    &lt;/web-resource-collection>
+    &lt;auth-constraint>
+        &lt;role-name>manager&lt;/role-name>
+    &lt;/auth-constraint>
+&lt;/security-constraint>
+
+ &lt;!-- Security roles used by this web application -->
+&lt;security-role>
+    &lt;role-name>manager&lt;/role-name>
+&lt;/security-role>
+&lt;security-role>
+    &lt;role-name>employee&lt;/role-name>
+&lt;/security-role></pre><p>In this example, the <tt>security-role</tt> element lists all the security roles used
+in the application: <tt>manager</tt> and <tt>employee</tt>. This enables the deployer to map all
+the roles defined in the application to users and groups defined on the
+GlassFish Server.</p>
+
+<p>The <tt>auth-constraint</tt> element specifies the role, <tt>manager</tt>, that can access the HTTP methods
+<tt>PUT</tt>, <tt>DELETE</tt>, <tt>GET</tt>, <tt>POST</tt> located in the directory specified by the <tt>url-pattern</tt> element
+(<tt>/jsp/security/protected/*</tt>).</p>
+
+
+
+<a name="bncaz"></a><h5>Mapping Security Roles to GlassFish Server Groups</h5>
+<a name="indexterm-1494"></a><a name="indexterm-1495"></a><p>Sometimes, role names used in applications are the same as group names defined
+on the GlassFish Server. If this is the case, you can use the
+Administration Console to define a default principal-to-role-mapping that applies to the entire GlassFish
+Server instance. The task <a href="bncbx.html#gjjlk">To Set Up Your System for Running the Security Examples</a> explains how to do this.</p>
+
+<p>If the role names used in your application are not the same as
+the group names defined on the GlassFish Server, you must use the runtime
+deployment descriptor to map these role names to GlassFish Server principals and groups.
+. The GlassFish Server web application runtime DD is located in the <tt>/WEB-INF/</tt>
+directory along with the web application deployment descriptor.</p>
+
+<p>The following example demonstrates how to do this mapping in the <tt>sun-web.xml</tt>
+file, which is the file used for web applications:</p>
+
+<pre>&lt;sun-web-app>
+
+      &lt;security-role-mapping>
+        &lt;role-name>Mascot&lt;/role-name>
+        &lt;principal-name>Duke&lt;/principal-name>
+    &lt;/security-role-mapping>
+
+    &lt;security-role-mapping>
+        &lt;role-name>Admin&lt;/role-name>
+        &lt;group-name>Director&lt;/group-name>
+    &lt;/security-role-mapping>
+
+    ...
+
+&lt;/sun-web-app></pre><p>A role can be mapped to specific principals, specific groups, or both. The
+principal or group names must be valid principals or groups in the
+current default realm or in the realm specified in the <tt>login-config</tt> element. In this example,
+the role of <tt>Mascot</tt> used in the application is mapped to a principal,
+named <tt>Duke</tt>, that exists on the application server. Mapping a role to a
+specific principal is useful when the person occupying that role may change. For
+this application, you would need to modify only the runtime deployment descriptor and not
+search and replace throughout the application for references to this principal.</p>
+
+<p>Also in this example, the role of <tt>Admin</tt> is mapped to a group
+of users assigned the group name of <tt>Director</tt>. This is useful because the
+group of people authorized to access director-level administrative data has to be maintained
+only on the GlassFish Server. The application developer does not need to know
+who these people are but only to define the group of people who
+will be given access to the information.</p>
+
+<p>The <tt>role-name</tt> must match the <tt>role-name</tt> in the <tt>security-role</tt> element of the corresponding
+ deployment descriptor  or the role name defined in an <tt>@DeclareRoles</tt>
+annotation.</p>
+
+
+         </div>
+         <div class="navigation">
+             <a href="gkbaa.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="gjiie.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

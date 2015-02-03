@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Overview of Web Application Security - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3"><a href="">Overview of Web Application Security</a></p>
+</div>
+<p class="toc level3"><a href="gkbaa.html">Securing Web Applications</a></p>
+<p class="toc level4"><a href="gkbaa.html#bncbk">Specifying Security Constraints</a></p>
+<p class="toc level5"><a href="gkbaa.html#gjjcd">Specifying a Web Resource Collection</a></p>
+<p class="toc level5"><a href="gkbaa.html#gjjcg">Specifying an Authorization Constraint</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbm">Specifying a Secure Connection</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbl">Specifying Separate Security Constraints for Various Resources</a></p>
+<p class="toc level4 tocsp"><a href="gkbaa.html#gentextid-18908">Specifying Authentication Mechanisms</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbo">HTTP Basic Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbq">Form-Based Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbw">Digest Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbs">HTTPS Client Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbt">Mutual Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbn">Specifying an Authentication Mechanism</a></p>
+<p class="toc level3 tocsp"><a href="bncbe.html">Using Deployment Descriptors to Secure Web Applications</a></p>
+<p class="toc level4"><a href="bncbe.html#bncav">Declaring Security Roles</a></p>
+<p class="toc level5"><a href="bncbe.html#bncaz">Mapping Security Roles to GlassFish Server Groups</a></p>
+<p class="toc level3 tocsp"><a href="gjiie.html">Using Programmatic Security with Web Applications</a></p>
+<p class="toc level4"><a href="gjiie.html#gircj">Authenticating Users Programmatically</a></p>
+<p class="toc level4"><a href="gjiie.html#bncba">Checking Caller Identity Programmatically</a></p>
+<p class="toc level4"><a href="gjiie.html#gjjlq">Example Code for Programmatic Security</a></p>
+<p class="toc level4"><a href="gjiie.html#bncbb">Declaring and Linking Role References</a></p>
+<p class="toc level3 tocsp"><a href="bncbx.html">Examples: Securing Web Applications</a></p>
+<p class="toc level4"><a href="bncbx.html#gjjlk">To Set Up Your System for Running the Security Examples</a></p>
+<p class="toc level4"><a href="bncbx.html#bncck">Example: Basic Authentication with a Servlet</a></p>
+<p class="toc level5"><a href="bncbx.html#gjrmh">Specifying Security for Basic Authentication Using Annotations</a></p>
+<p class="toc level5"><a href="bncbx.html#gjqys">To Build, Package, and Deploy the Servlet Basic Authentication Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bncbx.html#gjqzh">To Build, Package, and Deploy the Servlet Basic Authentication Example Using Ant</a></p>
+<p class="toc level5"><a href="bncbx.html#gjqzf">To Run the Basic Authentication Servlet</a></p>
+<p class="toc level4 tocsp"><a href="bncbx.html#bncby">Example: Form-Based Authentication with a JavaServer Faces Application</a></p>
+<p class="toc level5"><a href="bncbx.html#bncca">Creating the Login Form and the Error Page</a></p>
+<p class="toc level5"><a href="bncbx.html#bnccb">Specifying Security for the Form-Based Authentication Example</a></p>
+<p class="toc level5"><a href="bncbx.html#gjrba">To Build, Package, and Deploy the Form-Based Authentication Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bncbx.html#gjraz">To Build, Package, and Deploy the Form-Based Authentication Example Using Ant</a></p>
+<p class="toc level5"><a href="bncbx.html#gjral">To Run the Form-Based Authentication Example</a></p>
+<p class="toc level2 tocsp"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bncas.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="gkbaa.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bncat"></a><h3>Overview of Web Application Security</h3>
+<p><a name="indexterm-1444"></a><a name="indexterm-1445"></a>In the Java EE platform, <b>web components</b> provide the dynamic extension capabilities for a web
+server. Web components can be Java servlets or JavaServer Faces pages. The interaction
+between a web client and a web application is illustrated in <a href="#bncau">Figure&nbsp;25-1</a>.</p>
+
+<a name="bncau"></a><h6>Figure&nbsp;25-1 Java Web Application Request Handling</h6><img src="figures/web-requestHandling.gif" alt="Diagram of steps in web application request handling, showing web client, HttpServlet request, web and JavaBeans components, and HttpServlet response"></img><p>Web components are supported by the services of a runtime platform called a
+<b>web container</b>. A web container provides such services as request dispatching, security, concurrency, and
+life-cycle management. Certain aspects of web application security can be configured when the
+application is installed, or <b>deployed</b>, to the web container. Annotations and/or deployment
+descriptors are used to relay information to the deployer about security and other
+aspects of the application. Specifying this information in annotations or in the deployment descriptor
+helps the deployer set up the appropriate security policy for the web application.
+Any values explicitly specified in the deployment descriptor override any values specified in
+annotations. </p>
+
+<p>Security for Java EE web applications can be implemented in the following ways.</p>
+
+
+<ul><li><p><a name="indexterm-1446"></a><a name="indexterm-1447"></a><a name="indexterm-1448"></a><a name="indexterm-1449"></a><b>Declarative security:</b> Can be implemented using either metadata annotations or an application's deployment descriptor. See <a href="bnbwk.html">Overview of Java EE Security</a> for more information.</p>
+
+<p>Declarative security for web applications is described in <a href="bncbe.html">Using Deployment Descriptors to Secure Web Applications</a>.</p>
+
+</li>
+<li><p><a name="indexterm-1450"></a><a name="indexterm-1451"></a><b>Programmatic security:</b> Is embedded in an application and can be used to make security decisions when declarative security alone is not sufficient to express the security model of an application. Declarative security alone may not be sufficient when conditional login in a particular work flow, instead of for all cases, is required in the middle of an application. See <a href="bnbwk.html">Overview of Java EE Security</a> for more information.</p>
+
+<p>Servlet 3.0 provides the <tt>authenticate</tt>, <tt>login</tt>, and <tt>logout</tt> methods of the <tt>HttpServletRequest</tt> interface. With the addition of the <tt>authenticate</tt>, <tt>login</tt>, and <tt>logout</tt> methods to the Servlet specification, an application deployment descriptor is no longer required for web applications but may still be used to further specify security requirements beyond the basic default values.</p>
+
+<p>Programmatic security is discussed in <a href="gjiie.html">Using Programmatic Security with Web Applications</a></p>
+
+</li>
+<li><p><a name="indexterm-1452"></a><a name="indexterm-1453"></a><b>Message Security:</b> Works with web services and incorporates security features, such as digital signatures and encryption, into the header of a SOAP message, working in the application layer, ensuring end-to-end security. Message security is not a component of Java EE 6 and is mentioned here for informational purposes only.</p>
+
+</li></ul>
+<p>Some of the material in this chapter builds on material presented earlier in
+this tutorial. In particular, this chapter assumes that you are familiar with the
+information in the following chapters:</p>
+
+
+<ul><li><p><a href="bnadr.html">Chapter&nbsp;3, Getting Started with Web Applications</a></p>
+
+</li>
+<li><p><a href="bnaph.html">Chapter&nbsp;4, JavaServer Faces Technology</a></p>
+
+</li>
+<li><p><a href="bnafd.html">Chapter&nbsp;10, Java Servlet Technology</a></p>
+
+</li>
+<li><p><a href="bnbwj.html">Chapter&nbsp;24, Introduction to Security in the Java EE Platform</a></p>
+
+</li></ul>
+
+         </div>
+         <div class="navigation">
+             <a href="bncas.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="gkbaa.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

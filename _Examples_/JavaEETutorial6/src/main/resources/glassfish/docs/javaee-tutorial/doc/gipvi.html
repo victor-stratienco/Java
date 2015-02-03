@@ -1,0 +1,531 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>A Singleton Session Bean Example: counter - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level3"><a href="bnbod.html">The <tt>cart</tt> Example</a></p>
+<p class="toc level4"><a href="bnbod.html#bnboe">The Business Interface</a></p>
+<p class="toc level4"><a href="bnbod.html#bnbof">Session Bean Class</a></p>
+<p class="toc level5"><a href="bnbod.html#bnbog">Lifecycle Callback Methods</a></p>
+<p class="toc level5"><a href="bnbod.html#bnboh">Business Methods</a></p>
+<p class="toc level4 tocsp"><a href="bnbod.html#bnboi">The Remove Method</a></p>
+<p class="toc level4"><a href="bnbod.html#bnboj">Helper Classes</a></p>
+<p class="toc level4"><a href="bnbod.html#bnbok">Building, Packaging, Deploying, and Running the <tt>cart</tt> Example</a></p>
+<p class="toc level5"><a href="bnbod.html#bnbol">To Build, Package, and Deploy the <tt>cart</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnbod.html#bnbom">To Run the <tt>cart</tt> Application Client Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnbod.html#bnbon">To Build, Package, and Deploy the <tt>cart</tt> Example Using Ant</a></p>
+<p class="toc level5"><a href="bnbod.html#bnboo">To Run the <tt>cart</tt> Application Client Using Ant</a></p>
+<p class="toc level5"><a href="bnbod.html#bnbop">The <tt>all</tt> Task</a></p>
+<p class="toc level4 tocsp"><a href="bnbod.html#bnboq">Undeploying the <tt>cart</tt> Example</a></p>
+<p class="toc level5"><a href="bnbod.html#gjsjx">To Undeploy the <tt>cart</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnbod.html#gjsio">To Undeploy the <tt>cart</tt> Example Using Ant</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">A Singleton Session Bean Example: <tt>counter</tt></a></p>
+<p class="toc level4"><a href="#gipvc">Creating a Singleton Session Bean</a></p>
+<p class="toc level5"><a href="#gippq">Initializing Singleton Session Beans</a></p>
+<p class="toc level5"><a href="#gipsz">Managing Concurrent Access in a Singleton Session Bean</a></p>
+<p class="toc level5"><a href="#gipvd">Handling Errors in a Singleton Session Bean</a></p>
+<p class="toc level4 tocsp"><a href="#gipxl">The Architecture of the <tt>counter</tt> Example</a></p>
+<p class="toc level4"><a href="#gipvl">Building, Deploying, and Running the <tt>counter</tt> Example</a></p>
+<p class="toc level5"><a href="#gipxt">To Build, Deploy, and Run the <tt>counter</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#gipzw">To Build, Deploy, and Run the <tt>counter</tt> Example Using Ant</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="bnbor.html">A Web Service Example: <tt>helloservice</tt></a></p>
+<p class="toc level4"><a href="bnbor.html#bnbos">The Web Service Endpoint Implementation Class</a></p>
+<p class="toc level4"><a href="bnbor.html#bnbot">Stateless Session Bean Implementation Class</a></p>
+<p class="toc level4"><a href="bnbor.html#bnbou">Building, Packaging, Deploying, and Testing the <tt>helloservice</tt> Example</a></p>
+<p class="toc level5"><a href="bnbor.html#bnbov">To Build, Package, and Deploy the <tt>helloservice</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnbor.html#bnbow">To Build, Package, and Deploy the <tt>helloservice</tt> Example Using Ant</a></p>
+<p class="toc level5"><a href="bnbor.html#bnbox">To Test the Service without a Client</a></p>
+<p class="toc level3 tocsp"><a href="bnboy.html">Using the Timer Service</a></p>
+<p class="toc level4"><a href="bnboy.html#giqlk">Creating Calendar-Based Timer Expressions</a></p>
+<p class="toc level5"><a href="bnboy.html#giqmx">Specifying Multiple Values in Calendar Expressions</a></p>
+<p class="toc level4 tocsp"><a href="bnboy.html#giqlt">Programmatic Timers</a></p>
+<p class="toc level5"><a href="bnboy.html#bnboz">The <tt>Timeout</tt> Method</a></p>
+<p class="toc level5"><a href="bnboy.html#bnbpa">Creating Programmatic Timers</a></p>
+<p class="toc level4 tocsp"><a href="bnboy.html#giqmb">Automatic Timers</a></p>
+<p class="toc level5"><a href="bnboy.html#giqlg">The <tt>@Schedule</tt> and <tt>@Schedules</tt> Annotations</a></p>
+<p class="toc level4 tocsp"><a href="bnboy.html#bnbpb">Canceling and Saving Timers</a></p>
+<p class="toc level4"><a href="bnboy.html#bnbpc">Getting Timer Information</a></p>
+<p class="toc level4"><a href="bnboy.html#bnbpd">Transactions and Timers</a></p>
+<p class="toc level4"><a href="bnboy.html#bnbpe">The <tt>timersession</tt> Example</a></p>
+<p class="toc level4"><a href="bnboy.html#bnbpf">Building, Packaging, Deploying, and Running the <tt>timersession</tt> Example</a></p>
+<p class="toc level5"><a href="bnboy.html#giqni">To Build, Package, Deploy, and Run the <tt>timersession</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnboy.html#giqnq">To Build, Package, and Deploy the <tt>timersession</tt> Example Using Ant</a></p>
+<p class="toc level5"><a href="bnboy.html#giqop">To Run the Web Client</a></p>
+<p class="toc level3 tocsp"><a href="bnbpj.html">Handling Exceptions</a></p>
+<p class="toc level2 tocsp"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bnbod.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="bnbor.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gipvi"></a><h3>A Singleton Session Bean Example: <tt>counter</tt></h3>
+<p>The <tt>counter</tt> example demonstrates how to create a singleton session bean.</p>
+
+
+
+<a name="gipvc"></a><h4>Creating a Singleton Session Bean</h4>
+<p>The <tt>javax.ejb.Singleton</tt> annotation is used to specify that the enterprise bean implementation class
+is a singleton session bean.</p>
+
+<pre>@Singleton
+public class SingletonBean { ... }</pre>
+
+<a name="gippq"></a><h5>Initializing Singleton Session Beans</h5>
+<p>The EJB container is responsible for determining when to initialize a singleton session
+bean instance unless the singleton session bean implementation class is annotated with the
+<tt>javax.ejb.Startup</tt> annotation. This is sometimes called <b>eager initialization</b>. In this case, the EJB container must
+initialize the singleton session bean upon application startup. The singleton session bean is
+initialized before the EJB container delivers client requests to any enterprise beans in
+the application. This allows the singleton session bean to perform, for example, application
+startup tasks.</p>
+
+<a name="giprc"></a><h6>Example&nbsp;16-1 An Eagerly Initialized Singleton Session Bean</h6><p>The following singleton session bean stores the status of an application, and is
+eagerly initialized:</p>
+
+<pre>@Startup
+@Singleton
+public class StatusBean {
+  private String status;
+
+  @PostConstruct
+  void init {
+    status = "Ready";
+  }
+  ...
+}</pre><p>Sometimes multiple singleton session beans are used to initialize data for an application,
+and therefore must be initialized in a specific order. In these cases, use
+the <tt>javax.ejb.DependsOn</tt> annotation to declare the startup dependencies of the singleton session bean.
+The <tt>@DependsOn</tt> annotation's value attribute is one or more strings that specify the
+name of the target singleton session bean. If more than one dependent singleton
+bean is specifies in <tt>@DependsOn</tt>, the order that they are listed is not
+necessarily the order that the EJB container will initialize the target singleton session
+beans.</p>
+
+<a name="gipvn"></a><h6>Example&nbsp;16-2 Specifying the Ordering Of Singleton Session Bean Initialization</h6><p>The following singleton session bean, <tt>PrimaryBean</tt> should be started up first:</p>
+
+<pre>@Singleton
+public class PrimaryBean { ... }</pre><p><tt>SecondaryBean</tt> depends on <tt>PrimaryBean</tt>:</p>
+
+<pre>@Singleton
+@DependsOn("PrimaryBean")
+public class SecondaryBean { ... }</pre><p>This guarantees that the EJB container will initialize <tt>PrimaryBean</tt> before <tt>SecondaryBean</tt>.</p>
+
+<a name="gipsp"></a><h6>Example&nbsp;16-3 Specifying Multiple Dependent Singleton Session Beans</h6><p>The following singleton session bean, <tt>TertiaryBean</tt>, depends on <tt>PrimaryBean</tt> and <tt>SecondaryBean</tt>:</p>
+
+<pre>@Singleton
+@DependsOn("PrimaryBean", "SecondaryBean")
+public class TertiaryBean { ... }</pre><p><tt>SecondaryBean</tt> explicitly requires <tt>PrimaryBean</tt> to be initialized before it is initialized (through
+it's own <tt>@DependsOn</tt> annotation). In this case, the EJB container will first initialize
+<tt>PrimaryBean</tt>, then <tt>SecondaryBean</tt>, and finally <tt>TertiaryBean</tt>.</p>
+
+<p>If, however, <tt>SecondaryBean</tt> did not explicitly depend on <tt>PrimaryBean</tt>, the EJB container may
+initialize either <tt>PrimaryBean</tt> or <tt>SecondaryBean</tt> first. That is, the EJB container could initialize the
+singletons in the following order: <tt>SecondaryBean</tt>, <tt>PrimaryBean</tt>, <tt>TertiaryBean</tt>.</p>
+
+
+
+<a name="gipsz"></a><h5>Managing Concurrent Access in a Singleton Session Bean</h5>
+<p>Singleton session beans are designed for <b>concurrent access</b>, or situations where many clients need
+to access a single instance of a session bean at the same time.
+A singleton's client only needs a reference to a singleton in order to
+invoke any business methods exposed by the singleton, and doesn't need to worry
+about any other clients that may be simultaneously invoking business methods on the
+same singleton.</p>
+
+<p>When creating a singleton session bean there are two ways of controlling concurrent
+access to the singleton's business methods: <b>container-managed concurrency</b> and <b>bean-managed concurrency</b>. </p>
+
+<p>The <tt>javax.ejb.ConcurrencyManagement</tt> annotation is used to specify either container-managed or bean-managed concurrency for the
+singleton. <tt>@ConcurrencyManagement</tt> requires a type attribute to be set, one of <tt>javax.ejb.ConcurrencyManagementType.CONTAINER</tt> or
+<tt>javax.ejb.ConcurrencyManagementType.BEAN</tt>. If no <tt>@ConcurrencyManagement</tt> annotation is present on the singleton implementation class, the EJB
+container default of container-managed concurrency is used.</p>
+
+
+
+<a name="gipvm"></a><h5>Container-Managed Concurrency</h5>
+<p>If a singleton uses container-managed concurrency, the EJB container controls client access to
+the business methods of the singleton. The <tt>javax.ejb.Lock</tt> annotation and a <tt>javax.ejb.LockType</tt>
+type are used to specify the access level of the singleton's business methods
+or <tt>@Timeout</tt> methods. </p>
+
+<p>Annotate a singleton's business or timeout method using <tt>@Lock(READ)</tt> if the method
+can be concurrently accessed, or shared, with many clients. Annotate the business or
+timeout method with <tt>@Lock(WRITE)</tt> if the singleton session bean should be locked to
+other clients while a client is calling that method. Typically, the <tt>@Lock(WRITE)</tt> annotation is
+used when clients are modifying the state of the singleton.</p>
+
+<p>Annotating a singleton class with <tt>@Lock</tt> specifies that all the business methods and
+any timeout methods of the singleton will use the specified lock type unless
+they explicitly set the lock type with a method-level <tt>@Lock</tt> annotation. If no
+<tt>@Lock</tt> annotation is present on the singleton class, the default lock type of
+<tt>@Lock(WRITE)</tt> is applied to all business and timeout methods.</p>
+
+<a name="giptv"></a><h6>Example&nbsp;16-4 Specifying Container-Managed Concurrency in a Singleton Session Bean</h6><p>The following example shows how to use the <tt>@ConcurrencyManagement</tt>, <tt>@Lock(READ)</tt>, and <tt>@Lock(WRITE)</tt>
+annotations for a singleton that uses container-managed concurrency.</p>
+
+<p>Although by default singletons use container-managed concurrency, the <tt>@ConcurrencyManagement(CONTAINER)</tt> annotation may be
+added at the class level of the singleton to explicitly set the concurrency
+management type.</p>
+
+<pre><b>@ConcurrencyManagement(CONTAINER)</b>
+@Singleton
+public class ExampleSingletonBean {
+  private String state;
+
+  <b>@Lock(READ)</b>
+  public String getState() {
+    return state;
+  }
+
+  <b>@Lock(WRITE)</b>
+  public void setState(String newState) {
+    state = newState;
+  }
+}</pre><p>The <tt>getState</tt> method can be accessed by many clients at the same time,
+because it is annotated with <tt>@Lock(READ)</tt>. When the <tt>setState</tt> method is called, however,
+all the methods in <tt>ExampleSingletonBean</tt> will be locked to other clients because <tt>setState</tt> is
+annotated with <tt>@Lock(WRITE)</tt>. This prevents two clients from attempting to simultaneously change the
+<tt>state</tt> variable of <tt>ExampleSingletonBean</tt>.</p>
+
+<a name="gipvb"></a><h6>Example&nbsp;16-5 Using Class- and Method-Level <tt>@Lock</tt> Annotations in a Singleton Session Bean</h6><p>The <tt>getData</tt> and <tt>getStatus</tt> methods in the following singleton are of type <tt>READ</tt>,
+and the <tt>setStatus</tt> method is of type <tt>WRITE</tt>:</p>
+
+<pre>@Singleton
+<b>@Lock(READ)</b>
+public class SharedSingletonBean {
+  private String data;
+  private String status;
+
+  public String getData() {
+    return data;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  <b>@Lock(WRITE)</b>
+  public void setStatus(String newStatus) {
+    status = newStatus;
+  }
+}</pre><p>If a method is of locking type <tt>WRITE</tt>, client access to all the
+singleton's methods are blocked until the current client finishes its method call, or
+an access timeout occurs. When an access timeout occurs, the EJB container throws
+a <tt>javax.ejb.ConcurrentAccessTimeoutException</tt>. The <tt>javax.ejb.AccessTimeout</tt> annotation is used to specify the number of milliseconds
+before an access timeout occurs. If <tt>@AccessTimeout</tt> is added at the class level
+of a singleton, it specifies the access timeout value for all methods in
+the singleton unless a method explicitly overrides the default with its own <tt>@AccessTimeout</tt>
+annotation.</p>
+
+<p>The <tt>@AccessTimeout</tt> annotation can be applied to both <tt>@Lock(READ)</tt> and <tt>@Lock(WRITE)</tt> methods.</p>
+
+<p><tt>@AccessTimeout</tt> has one required element, <tt>value</tt>, and one optional element, <tt>timeUnit</tt>. By
+default, the <tt>value</tt> is specified in milliseconds. To change the <tt>value</tt> unit, set
+<tt>timeUnit</tt> to one of the <tt>java.util.concurrent.TimeUnit</tt> constants: <tt>MICROSECONDS</tt>, <tt>MILLISECONDS</tt>, <tt>MICROSECONDS</tt>, or <tt>SECONDS</tt>.</p>
+
+<a name="giptt"></a><h6>Example&nbsp;16-6 Setting the Access Timeout in a Singleton</h6><p>The following singleton has a default access timeout value of 120,000 milliseconds, or
+2 minutes. The <tt>doTediousOperation</tt> method overrides the default access timeout and sets the
+value to 360,000 milliseconds, or 6 minutes.</p>
+
+<pre>@Singleton
+@AccessTimeout(value=120000)
+public class StatusSingletonBean {
+  private String status;
+
+  @Lock(WRITE)
+  public void setStatus(String new Status) {
+    status = newStatus;
+  }
+
+  @Lock(WRITE)
+  @AccessTimeout(value=360000)
+  public void doTediousOperation {
+    ...
+  }
+}</pre><a name="girej"></a><h6>Example&nbsp;16-7 Setting the Access Timeout in a Singleton in Seconds</h6><p>The following singleton has a default access timeout value of 60 seconds, specified
+using the <tt>TimeUnit.SECONDS</tt> constant.</p>
+
+<pre>@Singleton
+@AccessTimeout(value=60, timeUnit=SECONDS)
+public class StatusSingletonBean { ... }</pre>
+
+<a name="giptu"></a><h5>Bean-Managed Concurrency</h5>
+<p>Singletons that use bean-managed concurrency allow full concurrent access to all the business
+and timeout methods in the singleton. The developer of the singleton is responsible
+for ensuring that the state of the singleton is synchronized across all clients.
+Developers who create singletons with bean-managed concurrency are allowed to use the Java
+programming language synchronization primitives like <tt>synchronization</tt> and <tt>volatile</tt> to prevent errors during concurrent
+access.</p>
+
+<a name="giptc"></a><h6>Example&nbsp;16-8 Specifying Bean-Managed Concurrency in a Singleton Session Bean</h6><p>Add a <tt>@ConcurrencyManagement</tt> annotation at the class level of the singleton to specify
+bean-managed concurrency.</p>
+
+<pre><b>@ConcurrencyManagement(BEAN)</b>
+@Singleton
+public class AnotherSingletonBean { ... }</pre>
+
+<a name="gipvd"></a><h5>Handling Errors in a Singleton Session Bean</h5>
+<p>If a singleton session bean encounters an error when it is initialized by
+the EJB container, that singleton instance will be destroyed.</p>
+
+<p>Unlike other enterprise beans, once a singleton session bean instance is initialized it
+is not destroyed if the singleton's business or lifecycle methods cause system exceptions.
+This ensures that the same singleton instance is used throughout the application lifecycle.</p>
+
+
+
+<a name="gipxl"></a><h4>The Architecture of the <tt>counter</tt> Example</h4>
+<p>The <tt>counter</tt> example consists of a singleton session bean, <tt>CounterBean</tt>, and a JavaServer
+Faces Facelets web front-end.</p>
+
+<p><tt>CounterBean</tt> is a simple singleton with one method, <tt>getHits</tt>, that returns an
+integer representing the number of times a web page has been accessed. Here
+is the code of <tt>CounterBean</tt>:</p>
+
+<pre>package counter.ejb;
+
+import javax.ejb.Singleton;
+
+/**
+ * CounterBean is a simple singleton session bean that records the number
+ * of hits to a web page.
+ */
+@Singleton
+public class CounterBean {
+    private int hits = 1;
+
+    // Increment and return the number of hits
+    public int getHits() {
+        return hits++;
+    }
+}</pre><p>The <tt>@Singleton</tt> annotation marks <tt>CounterBean</tt> as a singleton session bean. <tt>CounterBean</tt> uses a
+local, no-interface view.</p>
+
+<p><tt>CounterBean</tt> uses the EJB container's default metadata values for singletons to simplify the
+coding of the singleton implementation class. There is no <tt>@ConcurrencyManagement</tt> annotation on the class,
+so the default of container-managed concurrency access is applied. There is no <tt>@Lock</tt>
+annotation on the class or business method, so the default of <tt>@Lock(WRITE)</tt> is
+applied to the only business method, <tt>getHits</tt>. The following version of <tt>CounterBean</tt> is functionally
+equivalent to the version above:</p>
+
+<pre>package counter.ejb;
+
+import javax.ejb.Singleton;
+import javax.ejb.ConcurrencyManagement;
+import static javax.ejb.ConcurrencyManagementType.CONTAINER;
+import javax.ejb.Lock;
+import javax.ejb.LockType.WRITE;
+
+/**
+ * CounterBean is a simple singleton session bean that records the number
+ * of hits to a web page.
+ */
+@Singleton
+@ConcurrencyManagement(CONTAINER)
+public class CounterBean {
+    private int hits = 1;
+
+    // Increment and return the number of hits
+    @Lock(WRITE)
+    public int getHits() {
+        return hits++;
+    }
+}</pre><p>The web-front end of <tt>counter</tt> consists of a JSF managed bean, <tt>Count.java</tt>, that
+is used by the Facelets XHTML files <tt>template.xhtml</tt> and <tt>template-client.xhtml</tt>. The <tt>Count</tt> JSF managed
+bean obtains a reference to <tt>CounterBean</tt> through dependency injection. <tt>Count</tt> defines a <tt>hitCount</tt>
+JavaBeans property. When the <tt>getHitCount</tt> getter method is called from the XHTML
+files, <tt>CounterBean</tt>'s <tt>getHits</tt> method is called to return the current number of page
+hits.</p>
+
+<p>Here's the <tt>Count</tt> managed bean class:</p>
+
+<pre>@ManagedBean
+@SessionScoped
+public class Count {
+    @EJB
+    private CounterBean counterBean;
+
+    private int hitCount;
+
+    public Count() {
+        this.hitCount = 0;
+    }
+
+    public int getHitCount() {
+        hitCount = counterBean.getHits();
+        return hitCount;
+    }
+
+    public void setHitCount(int newHits) {
+        this.hitCount = newHits;
+    }
+}</pre><p>The <tt>template.xhtml</tt> and <tt>template-client.xhtml</tt> files are used to render a Facelets view
+that displays the number of hits to that view. The <tt>template-client.xhtml</tt> file uses an
+expression language statement, <tt>#{count.hitCount}</tt>, to access the <tt>hitCount</tt> property of the <tt>Count</tt> managed bean.
+Here is the content of <tt>template-client.xhtml</tt>:</p>
+
+<pre>&lt;?xml version='1.0' encoding='UTF-8' ?> 
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+&lt;html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    &lt;body>
+        
+        This text above will not be displayed.
+        
+        &lt;ui:composition template="/template.xhtml">
+            
+            This text will not be displayed.
+            
+            &lt;ui:define name="title">
+                This page has been accessed <b>#{count.hitCount}</b> time(s).
+            &lt;/ui:define>
+            
+            This text will also not be displayed.
+            
+            &lt;ui:define name="body">
+                Hooray!
+            &lt;/ui:define>
+            
+            This text will not be displayed.
+            
+        &lt;/ui:composition>
+        
+        This text below will also not be displayed.
+        
+    &lt;/body>
+&lt;/html></pre>
+
+<a name="gipvl"></a><h4>Building, Deploying, and Running the <tt>counter</tt> Example</h4>
+<p>The <tt>counter</tt> example application can be built, deployed, and run using NetBeans IDE
+or Ant.</p>
+
+
+
+<a name="gipxt"></a><h5>To Build, Deploy, and Run the <tt>counter</tt> Example Using NetBeans IDE</h5>
+<p>To build, deploy, and run the <tt>counter</tt> example using NetBeans IDE, follow these
+steps.</p>
+
+<ol>
+<li><b>In NetBeans IDE, select File&rarr;Open Project.</b></li>
+<li><b>In the Open Project dialog, navigate to <tt></tt><i>tut-install</i><tt>/examples/ejb/</tt>.</b></li>
+<li><b>Select the <tt>counter</tt> folder.</b></li>
+<li><b>Select the Open as Main Project check box.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>In the Projects tab, right-click the <tt>counter</tt> project and select Run.</b><p>A web browser will open the URL <tt>http://localhost:8080/counter</tt> that displays the number
+of hits.</p></li>
+<li><b>Click the browser's Refresh button to see the hit count increment.</b></li></ol>
+
+<a name="gipzw"></a><h5>To Build, Deploy, and Run the <tt>counter</tt> Example Using Ant</h5>
+<p>To build, deploy, and run the <tt>counter</tt> example using Ant, follow these steps.</p>
+
+<ol>
+<li><b>In a terminal, navigate to <tt></tt><i>tut-install</i><tt>/examples/ejb/counter</tt>.</b></li>
+<li><b>Type the following command:</b><pre>ant all</pre><p>This will build and deploy <tt>counter</tt> to your GlassFish Server instance.</p></li>
+<li><b>In a web browser, type the following URL: <tt>http://localhost:8080/counter</tt>.</b></li>
+<li><b>Click the browser's Refresh button to see the hit count increment.</b></li></ol>
+         </div>
+         <div class="navigation">
+             <a href="bnbod.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="bnbor.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

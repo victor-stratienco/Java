@@ -1,0 +1,546 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Using the Criteria API and Metamodel API to Create Basic Type-Safe Queries  - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level3"><a href="gjrij.html">Overview of the Criteria and Metamodel APIs</a></p>
+<p class="toc level3"><a href="gjiup.html"> Using the Metamodel API to Model Entity Classes</a></p>
+<p class="toc level4"><a href="gjiup.html#gjivl">Using Metamodel Classes</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">Using the Criteria API and Metamodel API to Create Basic Type-Safe Queries </a></p>
+<p class="toc level4"><a href="#gjivs">Creating a Criteria Query</a></p>
+<p class="toc level4"><a href="#gjivq">Query Roots</a></p>
+<p class="toc level4"><a href="#gjiuv">Querying Relationships Using Joins</a></p>
+<p class="toc level4"><a href="#gjive">Path Navigation in Criteria Queries</a></p>
+<p class="toc level4"><a href="#gjivi">Restricting Criteria Query Results</a></p>
+<p class="toc level5"><a href="#gjiwn">The <tt>Expression</tt> Interface Methods</a></p>
+<p class="toc level5"><a href="#gjixa">Expression Methods in the <tt>CriteriaBuilder</tt> Interface</a></p>
+<p class="toc level4 tocsp"><a href="#gjixe">Managing Criteria Query Results</a></p>
+<p class="toc level5"><a href="#gjiwo">Ordering Results</a></p>
+<p class="toc level5"><a href="#gjixg">Grouping Results</a></p>
+<p class="toc level4 tocsp"><a href="#gjivy">Executing Queries</a></p>
+<p class="toc level5"><a href="#gjiur">Single-Valued Query Results</a></p>
+<p class="toc level5"><a href="#gjivp">Collection-Valued Query Results</a></p>
+</div>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gjiup.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="gijrp.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gjivm"></a><h3>Using the Criteria API and Metamodel API to Create Basic Type-Safe Queries </h3>
+<p>The basic semantics of a Criteria query consists of a SELECT clause, a
+FROM clause, and an optional WHERE clause, similar to a JPQL query. Criteria
+queries set these clauses using Java programming language objects, so the query can
+be created in a type-safe manner.</p>
+
+
+
+<a name="gjivs"></a><h4>Creating a Criteria Query</h4>
+<a name="indexterm-1272"></a><a name="indexterm-1273"></a><p>The <tt>javax.persistence.criteria.CriteriaBuilder</tt> interface is used to construct:</p>
+
+
+<ul><li><p>Criteria queries</p>
+
+</li>
+<li><p>Selections</p>
+
+</li>
+<li><p>Expressions</p>
+
+</li>
+<li><p>Predicates</p>
+
+</li>
+<li><p>Ordering</p>
+
+</li></ul>
+<p>To obtain an instance of the <tt>CriteriaBuilder</tt> interface, call the <tt>getCriteriaBuilder</tt> method on
+either an <tt>EntityManager</tt> or <tt>EntityManagerFactory</tt> instance.</p>
+
+<a name="gjiwa"></a><h6>Example&nbsp;23-5 Obtaining a <tt>CriteriaBuilder</tt> Instance Using the <tt>EntityManager.getCriteriaManager</tt> Method</h6><p>The following code shows how to obtain a <tt>CriteriaBuilder</tt> instance using the <tt>EntityManager.getCriteriaBuilder</tt>
+method.</p>
+
+<pre>EntityManager em = ...;
+CriteriaBuilder cb = em.getCriteriaBuilder();</pre><p>Criteria queries are constructed by obtaining an instance of the <tt>javax.persistence.criteria.CriteriaQuery</tt> interface.
+<tt>CriteriaQuery</tt> objects define a particular query that will navigate over one or more
+entities. Obtain <tt>CriteriaQuery</tt> instances by calling one of the <tt>CrtieriaBuilder.createQuery</tt> methods. For creating type-safe
+queries, call the <tt>CriteriaBuilder.createQuery</tt> method as follows:</p>
+
+<pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);</pre><p>The <tt>CriteriaQuery</tt> object's type should be set to the expected result type of
+the query. In the code above, the object's type is set to <tt>CriteriaQuery&lt;Pet></tt>
+for a query which will find instances of the <tt>Pet</tt> entity.</p>
+
+<a name="gjivr"></a><h6>Example&nbsp;23-6 Creating a <tt>CriteriaQuery</tt> Instance for a Query that Returns a <tt>String</tt></h6><p>In the following code snippet, a <tt>CriteriaQuery</tt> object is created for a query
+that returns a string.</p>
+
+<pre>CriteriaQuery&lt;String> cq = cb.createQuery(String.class);</pre>
+
+<a name="gjivq"></a><h4>Query Roots</h4>
+<p>For a particular <tt>CriteriaQuery</tt>object, the root entity of the query, from which all
+navigation originates, is called the <b>query root</b>. It is similar to the <tt>FROM</tt> clause in
+a JPQL query.</p>
+
+<p>Create the query root by calling the <tt>from</tt> method on the <tt>CriteriaQuery</tt> instance.
+The argument to the <tt>from</tt> method is either the entity class, or an <tt>EntityType&lt;T></tt>
+instance for the entity.</p>
+
+<a name="gjivw"></a><h6>Example&nbsp;23-7 Setting the Query Root Using the Entity Class</h6><p>The following code sets the query root to the <tt>Pet</tt> entity.</p>
+
+<pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);
+Root&lt;Pet> pet = cq.from(Pet.class);</pre><a name="gjivu"></a><h6>Example&nbsp;23-8 Setting the Query Root Using a Metamodel <tt>EntityType&lt;T></tt> Instance</h6><p>The following code sets the query root to the <tt>Pet</tt> class using an
+<tt>EntityType&lt;T></tt> instance.</p>
+
+<pre>EntityManager em = ...;
+Metamodel m = em.getMetamodel();
+EntityType&lt;Pet> Pet_ = m.entity(Pet.class);
+Root&lt;Pet> pet = cq.from(Pet_);</pre><p>Criteria queries may have more than one query root. This usually occurs when
+the query navigates from several entities.</p>
+
+<a name="gjiuw"></a><h6>Example&nbsp;23-9 Creating a Query with Multiple Query Roots</h6><p>The following code has two <tt>Root</tt> instances.</p>
+
+<pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);
+Root&lt;Pet> pet1 = cq.from(Pet.class);
+Root&lt;Pet> pet2 = cq.from(Pet.class);</pre>
+
+<a name="gjiuv"></a><h4>Querying Relationships Using Joins</h4>
+<a name="indexterm-1274"></a><p>For queries that navigate to related entity classes, the query must define a
+join to the related entity by calling one of the <tt>From.join</tt> methods on
+the query root object, or another join object. The <tt>join</tt> methods are similar
+to the <tt>JOIN</tt> keyword in JPQL.</p>
+
+<p>The target of the join uses the Metamodel class of type <tt>EntityType&lt;T></tt>
+to specify the persistent field or property of the joined entity.</p>
+
+<p>The <tt>join</tt> methods return an object of type <tt>Join&lt;X, Y></tt>, where <tt>X</tt> is
+the source entity and <tt>Y</tt> is the target of the join.</p>
+
+<a name="gjixi"></a><h6>Example&nbsp;23-10 Joining a Query</h6><pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);
+Metamodel m = em.getMetamodel();
+EntityType&lt;Pet> Pet_ = m.entity(Pet.class);
+
+Root&lt;Pet> pet = cq.from(Pet.class);
+Join&lt;Pet, Owner> owner = pet.join(Pet_.owners);</pre><p>Joins can be chained together to navigate to related entities of the target
+entity without having to create a <tt>Join&lt;X, Y></tt> instance for each join.</p>
+
+<a name="gjiwl"></a><h6>Example&nbsp;23-11 Chaining Joins Together in a Query</h6><pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);
+Metamodel m = em.getMetamodel();
+EntityType&lt;Pet> Pet_ = m.entity(Pet.class);
+EntityType&lt;Owner> Owner_ = m.entity(Owner.class);
+
+Root&lt;Pet> pet = cq.from(Pet.class);
+Join&lt;Owner, Address> address = cq.join(Pet_.owners).join(Owner_.addresses);</pre>
+
+<a name="gjive"></a><h4>Path Navigation in Criteria Queries</h4>
+<p><tt>Path</tt> objects are used in the SELECT and WHERE clauses of a
+Criteria query, and can be query root entities, join entities, or other <tt>Path</tt>
+objects. The <tt>Path.get</tt> method is used to navigate to attributes of the entities
+of a query.</p>
+
+<p>The argument to the <tt>get</tt> method is the corresponding attribute of the entity's
+Metamodel class. The attribute can either be a single-valued attribute (specified by <tt>@SingularAttribute</tt>
+in the Metamodel class) or a collection-valued attribute (specified by one of <tt>@CollectionAttribute</tt>,
+<tt>@SetAttribute</tt>, <tt>@ListAttribute</tt>, or <tt>@MapAttribute</tt>).</p>
+
+<a name="gjjbz"></a><h6>Example&nbsp;23-12 Using <tt>Path</tt> Objects in the SELECT Clause of a Query</h6><pre>CriteriaQuery&lt;String> cq = cb.createQuery(String.class);
+Metamodel m = em.getMetamodel();
+EntityType&lt;Pet> Pet_ = m.entity(Pet.class);
+
+Root&lt;Pet> pet = cq.from(Pet.class);
+cq.select(pet.get(Pet_.name));</pre><p>This query returns the names of all the pets in the data
+store. The <tt>get</tt> method is called on the query root, <tt>pet</tt>, with the
+<tt>name</tt> attribute of the <tt>Pet</tt> entity's Metamodel class, <tt>Pet_</tt> as the argument.</p>
+
+
+
+<a name="gjivi"></a><h4>Restricting Criteria Query Results</h4>
+<a name="indexterm-1275"></a><a name="indexterm-1276"></a><p>The results of a query can be restricted on the <tt>CriteriaQuery</tt> object
+according to conditions set by calling the <tt>CriteriaQuery.where</tt> method. Calling the <tt>where</tt>
+method is analogous to setting the <tt>WHERE</tt> clause in a JPQL query.</p>
+
+<p>The <tt>where</tt> method evaluates instances of the <tt>Expression</tt> interface to restrict the
+results according to the conditions of the expressions. <tt>Expression</tt> instances are created using methods
+defined in the <tt>Expression</tt> and <tt>CriteriaBuilder</tt> interfaces.</p>
+
+
+
+<a name="gjiwn"></a><h5>The <tt>Expression</tt> Interface Methods</h5>
+<a name="indexterm-1277"></a><a name="indexterm-1278"></a><p>An <tt>Expression</tt> object is used in a query's SELECT, WHERE, or HAVING
+clause. <a href="#gjiww">Table&nbsp;23-1</a> shows conditional methods you can use with <tt>Expression</tt> objects.</p>
+
+<a name="gjiww"></a><h6>Table&nbsp;23-1 Conditional Methods in the <tt>Expression</tt> Interface</h6><table><col width="20%"><col width="79%"><tr><th align="left" valign="top" scope="column"><p>Method</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Description</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>isNull</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Tests whether an
+expression is null.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>isNotNull</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Tests whether an expression is not null.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>in</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Tests whether an expression
+is within a list of values.</p>
+
+</td>
+</tr>
+</table><a name="gjjbd"></a><h6>Example&nbsp;23-13 Using the <tt>Expression.isNull</tt> Method</h6><p>The following query finds all pets where the <tt>color</tt> attribute is null.</p>
+
+<pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);
+Metamodel m = em.getMetamodel();
+EntityType&lt;Pet> Pet_ = m.entity(Pet.class);
+Root&lt;Pet> pet = cq.from(Pet.class);
+cq.where(pet.get(Pet_.color).isNull());</pre><a name="gjjbn"></a><h6>Example&nbsp;23-14 Using the <tt>Expression.in</tt> Method</h6><p>The following query finds all brown and black pets.</p>
+
+<pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);
+Metamodel m = em.getMetamodel();
+EntityType&lt;Pet> Pet_ = m.entity(Pet.class);
+Root&lt;Pet> pet = cq.from(Pet.class);
+cq.where(pet.get(Pet_.color).in("brown", "black");</pre><p>The <tt>in</tt> method also can check whether an attribute is a member of
+a collection.</p>
+
+
+
+<a name="gjixa"></a><h5>Expression Methods in the <tt>CriteriaBuilder</tt> Interface</h5>
+<a name="indexterm-1279"></a><a name="indexterm-1280"></a><p>The <tt>CriteriaBuilder</tt> interface defines additional methods for creating expressions. These methods correspond to
+the arithmetic, string, date, time, and case operators and functions of JPQL. 
+<a href="#gjixl">Table&nbsp;23-2</a> shows conditional methods you can use with <tt>CriteriaBuilder</tt> objects.</p>
+
+<a name="gjixl"></a><h6>Table&nbsp;23-2 Conditional Methods in the <tt>CriteriaBuilder</tt> Interface</h6><table><col width="20%"><col width="79%"><tr><th align="left" valign="top" scope="column"><p>Conditional Method</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Description</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>equal</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Tests whether two
+expressions are equal.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>notEqual</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Tests whether two expressions are not equal.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>gt</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Tests whether the first
+numeric expression is greater than the second numeric expression.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>ge</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Tests whether the first numeric
+expression is greater than or equal to the second numeric expression.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>lt</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Tests whether the
+first numeric expression is less than the second numeric expression.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>le</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Tests whether the first
+numeric expression is less than or equal to the second numeric expression.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>between</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Tests whether
+the first expression is between the second and third expression in value.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>like</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Tests whether
+the expression matches a given pattern.</p>
+
+</td>
+</tr>
+</table><a name="gjjbo"></a><h6>Example&nbsp;23-15 Using the <tt>CriteriaBuilder.equal</tt> Method</h6><pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);
+Metamodel m = em.getMetamodel();
+EntityType&lt;Pet> Pet_ = m.entity(Pet.class);
+Root&lt;Pet> pet = cq.from(Pet.class);
+cq.where(cb.equal(pet.get(Pet_.name)), "Fido");
+...</pre><a name="gjjaz"></a><h6>Example&nbsp;23-16 Using the <tt>CriteriaBuilder.gt</tt> Method</h6><pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);
+Metamodel m = em.getMetamodel();
+EntityType&lt;Pet> Pet_ = m.entity(Pet.class);
+Root&lt;Pet> pet = cq.from(Pet.class);
+Date someDate = new Date(...);
+cq.where(cb.gt(pet.get(Pet_.birthday)), date);</pre><a name="gjjbl"></a><h6>Example&nbsp;23-17 Using the <tt>CriteriaBuilder.between</tt> Method</h6><pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);
+Metamodel m = em.getMetamodel();
+EntityType&lt;Pet> Pet_ = m.entity(Pet.class);
+Root&lt;Pet> pet = cq.from(Pet.class);
+Date firstDate = new Date(...);
+Date secondDate = new Date(...);
+cq.where(cb.between(pet.get(Pet_.birthday)), firstDate, secondDate);</pre><a name="gjjbs"></a><h6>Example&nbsp;23-18 Using the <tt>CriteriaBuilder.like</tt> Method</h6><pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);
+Metamodel m = em.getMetamodel();
+EntityType&lt;Pet> Pet_ = m.entity(Pet.class);
+Root&lt;Pet> pet = cq.from(Pet.class);
+cq.where(cb.like(pet.get(Pet_.name)), "*do");</pre><p>Multiple conditional predicates can be specified by using the compound predicate methods of
+the <tt>CriteriaBuilder</tt> interface.</p>
+
+<a name="gjiwu"></a><h6>Table&nbsp;23-3 Compound Predicate Methods in the <tt>CriteriaBuilder</tt> Interface</h6><table><col width="20%"><col width="79%"><tr><th align="left" valign="top" scope="column"><p>Method</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Description</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>and</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>A logical conjunction of two boolean expressions.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>or</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>A logical disjunction of
+two boolean expressions.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>not</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>A logical negation of the given boolean expression.</p>
+
+</td>
+</tr>
+</table><a name="gjjaq"></a><h6>Example&nbsp;23-19 Using Compound Predicates in Queries</h6><pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);
+Metamodel m = em.getMetamodel();
+EntityType&lt;Pet> Pet_ = m.entity(Pet.class);
+Root&lt;Pet> pet = cq.from(Pet.class);
+cq.where(cb.equal(pet.get(Pet_.name), "Fido")
+    .and(cb.equal(pet.get(Pet_.color), "brown");</pre>
+
+<a name="gjixe"></a><h4>Managing Criteria Query Results</h4>
+<a name="indexterm-1281"></a><a name="indexterm-1282"></a><p>For queries that return more than one result, it's often helpful to organize
+those results. The <tt>CriteriaQuery</tt> interface defines the <tt>orderBy</tt>method to order query results according to
+attributes of an entity. The <tt>CriteriaQuery</tt> interface also defines the <tt>groupBy</tt> method to
+group the results of a query together according to attributes of an entity,
+and the <tt>having</tt> method to restrict those groups according to a condition.</p>
+
+
+
+<a name="gjiwo"></a><h5>Ordering Results</h5>
+<p>The order of the results of a query can be set by
+calling the <tt>CriteriaQuery.orderBy</tt> method and passing in an <tt>Order</tt> object. <tt>Order</tt> objects
+are created by calling either the <tt>CriteriaBuilder.asc</tt> or <tt>CriteriaBuilder.desc</tt> methods. The <tt>asc</tt>
+method is used to order the results by ascending value of the passed
+expression parameter. The <tt>desc</tt> method is used to order the results by descending
+value of the passed expression parameter.</p>
+
+<a name="gjiwq"></a><h6>Example&nbsp;23-20 Ordering Results in Descending Order</h6><pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);
+Root&lt;Pet> pet = cq.from(Pet.class);
+cq.select(pet);
+cq.orderBy(cb.desc(pet.get(Pet_.birthday));</pre><p>In this query, the results will be ordered by the pet's birthday
+from highest to lowest. That is, pets born in December will appear before
+pets born in May.</p>
+
+<a name="gjiwv"></a><h6>Example&nbsp;23-21 Ordering Results in Ascending Order</h6><pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);
+Root&lt;Pet> pet = cq.from(Pet.class);
+Join&lt;Owner, Address> address = cq.join(Pet_.owners).join(Owner_.address);
+cq.select(pet);
+cq.orderBy(cb.asc(address.get(Address_.postalCode));</pre><p>In this query, the results will be ordered by the pet owner's
+postal code from lowest to highest. That is, pets whose owner lives in
+the 10001 zip code will appear before pets whose owner lives in the
+91000 zip code.</p>
+
+<p>If more than one <tt>Order</tt> object is passed to <tt>orderBy</tt>, the precedence is
+determined by the order in which they appear in the argument list of
+<tt>orderBy</tt>. The first <tt>Order</tt> object has precedence.</p>
+
+<a name="gjizy"></a><h6>Example&nbsp;23-22 Ordering Results By More than One Criteria</h6><pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);
+Root&lt;Pet> pet = cq.from(Pet.class);
+Join&lt;Pet, Owner> owner = cq.join(Pet_.owners);
+cq.select(pet);
+cq.orderBy(cb.asc(owner.get(Owner_.lastName), owner.get(Owner_.firstName));</pre><p>The results of this query will be ordered alphabetically by the pet owner's
+last name, then first name.</p>
+
+
+
+<a name="gjixg"></a><h5>Grouping Results</h5>
+<p>The <tt>CriteriaQuery.groupBy</tt> method partitions the query results into groups. These groups are set
+by passing an expression to <tt>groupBy</tt>.</p>
+
+<a name="gjizr"></a><h6>Example&nbsp;23-23 Grouping Results Using the <tt>CriteriaQuery.groupBy</tt> Method</h6><pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);
+Root&lt;Pet> pet = cq.from(Pet.class);
+cq.groupBy(pet.get(Pet_.color));</pre><p>This query returns all <tt>Pet</tt> entities, and groups the results by pet's color.</p>
+
+<p>The <tt>CriteriaQuery.having</tt> method is used in conjunction with <tt>groupBy</tt> to filter over the
+groups. The <tt>having</tt> method takes a conditional expression as a parameter. By calling the
+<tt>having</tt> method, the query result is restricted according to the conditional expression.</p>
+
+<a name="gjiwi"></a><h6>Example&nbsp;23-24 Grouping Results Using the <tt>CriteriaQuery.groupBy</tt> and <tt>CriteriaQuery.having</tt> Methods</h6><pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);
+Root&lt;Pet> pet = cq.from(Pet.class);
+cq.groupBy(pet.get(Pet_.color));
+cq.having(cb.in(pet.get(Pet_.color)).value("brown").value("blonde");</pre><p>In this example, the query groups the returned <tt>Pet</tt> entities by color, as
+in the example above. However, the only returned groups will be <tt>Pet</tt> entities
+where the <tt>color</tt> attribute is set to <tt>brown</tt> or <tt>blonde</tt>. That is, no grey
+colored pets will be returned in this query.</p>
+
+
+
+<a name="gjivy"></a><h4>Executing Queries</h4>
+<a name="indexterm-1283"></a><a name="indexterm-1284"></a><p>To prepare a query for execution, create a <tt>TypedQuery&lt;T></tt> object with the type
+of the query result by passing the <tt>CriteriaQuery</tt> object to <tt>EntityManager.createQuery</tt>.</p>
+
+<p>Queries are executed by calling either <tt>getSingleResult</tt> or <tt>getResultList</tt> on the <tt>TypedQuery&lt;T></tt>
+object.</p>
+
+
+
+<a name="gjiur"></a><h5>Single-Valued Query Results</h5>
+<p>The <tt>TypedQuery&lt;T>.getSingleResult</tt> method is used for executing queries that return a single result.</p>
+
+<a name="gjixj"></a><h6>Example&nbsp;23-25 Retrieving Single-Valued Query Result</h6><pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);
+...
+TypedQuery&lt;Pet> q = em.createQuery(cq);
+Pet result = q.getSingleResult();</pre>
+
+<a name="gjivp"></a><h5>Collection-Valued Query Results</h5>
+<a name="indexterm-1285"></a><p>The <tt>TypedQuery&lt;T>.getResultList</tt> method is used for executing queries that return a collection of
+objects.</p>
+
+<a name="gjiwf"></a><h6>Example&nbsp;23-26 Retrieving Collection-Valued Query Results</h6><pre>CriteriaQuery&lt;Pet> cq = cb.createQuery(Pet.class);
+...
+TypedQuery&lt;Pet> q = em.createQuery(cq);
+List&lt;Pet> results = q.getResultList();</pre>
+         </div>
+         <div class="navigation">
+             <a href="gjiup.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="gijrp.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

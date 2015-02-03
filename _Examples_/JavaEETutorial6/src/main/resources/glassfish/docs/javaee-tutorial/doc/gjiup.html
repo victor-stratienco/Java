@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title> Using the Metamodel API to Model Entity Classes - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level3"><a href="gjrij.html">Overview of the Criteria and Metamodel APIs</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3"><a href=""> Using the Metamodel API to Model Entity Classes</a></p>
+<p class="toc level4"><a href="#gjivl">Using Metamodel Classes</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="gjivm.html">Using the Criteria API and Metamodel API to Create Basic Type-Safe Queries </a></p>
+<p class="toc level4"><a href="gjivm.html#gjivs">Creating a Criteria Query</a></p>
+<p class="toc level4"><a href="gjivm.html#gjivq">Query Roots</a></p>
+<p class="toc level4"><a href="gjivm.html#gjiuv">Querying Relationships Using Joins</a></p>
+<p class="toc level4"><a href="gjivm.html#gjive">Path Navigation in Criteria Queries</a></p>
+<p class="toc level4"><a href="gjivm.html#gjivi">Restricting Criteria Query Results</a></p>
+<p class="toc level5"><a href="gjivm.html#gjiwn">The <tt>Expression</tt> Interface Methods</a></p>
+<p class="toc level5"><a href="gjivm.html#gjixa">Expression Methods in the <tt>CriteriaBuilder</tt> Interface</a></p>
+<p class="toc level4 tocsp"><a href="gjivm.html#gjixe">Managing Criteria Query Results</a></p>
+<p class="toc level5"><a href="gjivm.html#gjiwo">Ordering Results</a></p>
+<p class="toc level5"><a href="gjivm.html#gjixg">Grouping Results</a></p>
+<p class="toc level4 tocsp"><a href="gjivm.html#gjivy">Executing Queries</a></p>
+<p class="toc level5"><a href="gjivm.html#gjiur">Single-Valued Query Results</a></p>
+<p class="toc level5"><a href="gjivm.html#gjivp">Collection-Valued Query Results</a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gjrij.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="gjivm.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gjiup"></a><h3> Using the Metamodel API to Model Entity Classes</h3>
+<a name="indexterm-1271"></a><p>The Metamodel API is used to create a metamodel of the managed
+entities in a particular persistence unit. For each entity class in a particular
+package, a metamodel class is created with a trailing underscore, and with attributes that
+correspond to the persistent fields or properties of the entity class.</p>
+
+<a name="gjitq"></a><h6>Example&nbsp;23-2 Example Entity Class and Corresponding Metamodel Class</h6><p>The following entity class <tt>com.example.Pet</tt> has four persistent fields, <tt>id</tt>, <tt>name</tt>, <tt>color</tt>, and
+<tt>owners</tt>.</p>
+
+<pre>package com.example;
+
+...
+
+@Entity
+public class Pet {
+  @Id
+  protected Long id;
+  protected String name;
+  protected String color;
+  @ManyToOne
+  protected Set&lt;Person> owners;
+  ...
+}</pre><p>The corresponding Metamodel class is:</p>
+
+<pre>package com.example;
+
+...
+
+@Static Metamodel(Pet.class)
+public class Pet_ {
+  
+  public static volatile SingularAttribute&lt;Pet, Long> id;
+  public static volatile SingularAttribute&lt;Pet, String> name;
+  public static volatile SingularAttribute&lt;Pet, String> color;
+  public static volatile SetAttribute&lt;Pet, Person> owners;
+}</pre><p>The metamodel class and its attributes are used in Criteria queries to refer
+to the managed entity classes and their persistent state and relationships.</p>
+
+
+
+<a name="gjivl"></a><h4>Using Metamodel Classes</h4>
+<p>Metamodel classes that correspond to entity classes are of type <tt>javax.persistence.metamodel.EntityType&lt;T></tt>, and
+are typically generated by annotation processors either at development time or at runtime. Developers
+of applications that use Criteria queries may generate static metamodel classes using the
+persistence provider's annotation processor, or may obtain the metamodel class either by calling
+the <tt>getModel</tt> method on the query root object or first obtaining an instance
+of the <tt>Metamodel</tt> interface and then passing the entity type to the
+instance's <tt>entity</tt> method.</p>
+
+<a name="gjivo"></a><h6>Example&nbsp;23-3 Obtaining a Metamodel Class Dynamically Using the <tt>Root&lt;T>.getModel</tt> Method</h6><p>The following code snippet shows how to obtain the <tt>Pet</tt> entity's metamodel class
+by calling <tt>Root&lt;T>.getModel</tt>.</p>
+
+<pre>EntityManager em = ...;
+CriteriaBuilder cb = em.getCriteriaBuilder();
+CriteriaQuery cq = cb.createQuery(Pet.class);
+Root&lt;Pet> pet = cq.from(Pet.class);
+EntityType&lt;Pet> Pet_ = pet.getModel();</pre><a name="gjiuz"></a><h6>Example&nbsp;23-4 Obtaining a Metamodel Class Dynamically Using the <tt>Metamodel.getMetamodel</tt> Method</h6><p>The following code snippet shows how to obtain the <tt>Pet</tt> entity's metamodel class
+by first obtaining a metamodel instance using <tt>EntityManager.getMetamodel</tt>, and then calling <tt>entity</tt>
+on the metamodel instance.</p>
+
+<pre>EntityManager em = ...;
+Metamodel m = em.getMetamodel();
+EntityType&lt;Pet> Pet_ = m.entity(Pet.class);</pre>
+         </div>
+         <div class="navigation">
+             <a href="gjrij.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="gjivm.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

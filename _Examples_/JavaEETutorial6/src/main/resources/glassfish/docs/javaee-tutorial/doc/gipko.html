@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>What Is a Message-Driven Bean? - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level3"><a href="gipmb.html">What Is an Enterprise Bean?</a></p>
+<p class="toc level4"><a href="gipmb.html#giplk">Benefits of Enterprise Beans</a></p>
+<p class="toc level4"><a href="gipmb.html#gipkn">When to Use Enterprise Beans</a></p>
+<p class="toc level4"><a href="gipmb.html#gipnm">Types of Enterprise Beans</a></p>
+<p class="toc level3 tocsp"><a href="gipjg.html">What Is a Session Bean?</a></p>
+<p class="toc level4"><a href="gipjg.html#gipkr">Types of Session Beans</a></p>
+<p class="toc level5"><a href="gipjg.html#gipnl">Stateful Session Beans</a></p>
+<p class="toc level5"><a href="gipjg.html#gipin">Stateless Session Beans</a></p>
+<p class="toc level5"><a href="gipjg.html#gipim">Singleton Session Beans</a></p>
+<p class="toc level4 tocsp"><a href="gipjg.html#gipmt">When to Use Session Beans</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">What Is a Message-Driven Bean?</a></p>
+<p class="toc level4"><a href="#gipmj">What Makes Message-Driven Beans Different from Session Beans?</a></p>
+<p class="toc level4"><a href="#gipjx">When to Use Message-Driven Beans</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="gipjf.html">Accessing Enterprise Beans</a></p>
+<p class="toc level4"><a href="gipjf.html#girfl">Using Enterprise Beans in Clients</a></p>
+<p class="toc level5"><a href="gipjf.html#girgn">Portable JNDI Syntax</a></p>
+<p class="toc level4 tocsp"><a href="gipjf.html#gipiz">Deciding on Remote or Local Access</a></p>
+<p class="toc level4"><a href="gipjf.html#gipmz">Local Clients</a></p>
+<p class="toc level5"><a href="gipjf.html#gipsc">Accessing Local Enterprise Beans Using the No-Interface View</a></p>
+<p class="toc level5"><a href="gipjf.html#gipse">Accessing Local Enterprise Beans That Implement Business Interfaces</a></p>
+<p class="toc level4 tocsp"><a href="gipjf.html#gipiu">Remote Clients</a></p>
+<p class="toc level5"><a href="gipjf.html#gipsf">Accessing Remote Enterprise Beans</a></p>
+<p class="toc level4 tocsp"><a href="gipjf.html#gipkd">Web Service Clients</a></p>
+<p class="toc level4"><a href="gipjf.html#giply">Method Parameters and Access</a></p>
+<p class="toc level5"><a href="gipjf.html#giplx">Isolation</a></p>
+<p class="toc level5"><a href="gipjf.html#gipkv">Granularity of Accessed Data</a></p>
+<p class="toc level3 tocsp"><a href="gipio.html">The Contents of an Enterprise Bean</a></p>
+<p class="toc level4"><a href="gipio.html#gipnz">Packaging Enterprise Beans In EJB JAR Modules</a></p>
+<p class="toc level4"><a href="gipio.html#gippi">Packaging Enterprise Beans in WAR Modules</a></p>
+<p class="toc level3 tocsp"><a href="gipks.html">Naming Conventions for Enterprise Beans</a></p>
+<p class="toc level3"><a href="giplj.html">The Life Cycles of Enterprise Beans</a></p>
+<p class="toc level4"><a href="giplj.html#gipln">The Life Cycle of a Stateful Session Bean</a></p>
+<p class="toc level4"><a href="giplj.html#giplm">The Life Cycle of a Stateless Session Bean</a></p>
+<p class="toc level4"><a href="giplj.html#giprx">The Life Cycle of a Singleton Session Bean</a></p>
+<p class="toc level4"><a href="giplj.html#gipkw">The Life Cycle of a Message-Driven Bean</a></p>
+<p class="toc level3 tocsp"><a href="giplg.html">Further Information about Enterprise Beans</a></p>
+<p class="toc level2 tocsp"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gipjg.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="gipjf.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gipko"></a><h3>What Is a Message-Driven Bean?</h3>
+<a name="indexterm-865"></a><a name="indexterm-866"></a><p><a name="indexterm-867"></a><a name="indexterm-868"></a><a name="indexterm-869"></a>A <b>message-driven bean</b> is an enterprise bean that allows Java EE applications to process
+messages asynchronously. It normally acts as a JMS message listener, which is similar
+to an event listener except that it receives JMS messages instead of events.
+The messages can be sent by any Java EE component (an application client,
+another enterprise bean, or a web component) or by a JMS application or
+system that does not use Java EE technology. Message-driven beans can process JMS
+messages or other kinds of messages.</p>
+
+
+
+<a name="gipmj"></a><h4>What Makes Message-Driven Beans Different from Session Beans?</h4>
+<p><a name="indexterm-870"></a>The most visible difference between message-driven beans and session beans is that clients
+do not access message-driven beans through interfaces. Interfaces are described in the section
+<a href="gipjf.html">Accessing Enterprise Beans</a>. Unlike a session bean, a message-driven bean has only a bean class.</p>
+
+<p>In several respects, a message-driven bean resembles a stateless session bean.</p>
+
+
+<ul><li><p>A message-driven bean&rsquo;s instances retain no data or conversational state for a specific client.</p>
+
+</li>
+<li><p>All instances of a message-driven bean are equivalent, allowing the EJB container to assign a message to any message-driven bean instance. The container can pool these instances to allow streams of messages to be processed concurrently.</p>
+
+</li>
+<li><p>A single message-driven bean can process messages from multiple clients.</p>
+
+</li></ul>
+<p><a name="indexterm-871"></a>The instance variables of the message-driven bean instance can contain some state across
+the handling of client messages (for example, a JMS API connection, an open
+database connection, or an object reference to an enterprise bean object).</p>
+
+<p>Client components do not locate message-driven beans and invoke methods directly on them.
+Instead, a client accesses a message-driven bean through, for example, JMS by sending
+messages to the message destination for which the message-driven bean class is the
+<tt>MessageListener</tt>. You assign a message-driven bean&rsquo;s destination during deployment by using GlassFish Server
+resources.</p>
+
+<p>Message-driven beans have the following characteristics:</p>
+
+
+<ul><li><p>They execute upon receipt of a single client message.</p>
+
+</li>
+<li><p>They are invoked asynchronously.</p>
+
+</li>
+<li><p>They are relatively short-lived.</p>
+
+</li>
+<li><p>They do not represent directly shared data in the database, but they can access and update this data.</p>
+
+</li>
+<li><p>They can be transaction-aware.</p>
+
+</li>
+<li><p>They are stateless.</p>
+
+</li></ul>
+<p><a name="indexterm-872"></a><a name="indexterm-873"></a>When a message arrives, the container calls the message-driven bean&rsquo;s <tt>onMessage</tt> method to
+process the message. The <tt>onMessage</tt> method normally casts the message to one
+of the five JMS message types and handles it in accordance with the
+application&rsquo;s business logic. The <tt>onMessage</tt> method can call helper methods, or it can invoke
+a session bean to process the information in the message or to store
+it in a database.</p>
+
+<p><a name="indexterm-874"></a>A message can be delivered to a message-driven bean within a transaction context,
+so all operations within the <tt>onMessage</tt> method are part of a single
+transaction. If message processing is rolled back, the message will be redelivered. For
+more information, see  <a href="bncih.html">Chapter&nbsp;28, Transactions</a>.</p>
+
+
+
+<a name="gipjx"></a><h4>When to Use Message-Driven Beans</h4>
+<p>Session beans allow you to send JMS messages and to receive them
+synchronously, but not asynchronously. To avoid tying up server resources, do not to
+use blocking synchronous receives in a server-side component, and in general JMS messages should
+not be sent or received synchronously. To receive messages asynchronously, use a message-driven
+bean.</p>
+
+
+         </div>
+         <div class="navigation">
+             <a href="gipjg.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="gipjf.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

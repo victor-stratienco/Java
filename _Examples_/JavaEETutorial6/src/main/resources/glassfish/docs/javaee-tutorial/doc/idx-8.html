@@ -1,0 +1,454 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title> - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="idx-7.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="idx-9.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             <h4>T</h4>
+<div class="indexdiv">
+<dl>
+<dd>tag libraries, <a href="gijtu.html#indexterm-202">What Is Facelets?</a></dd>
+</dl>
+<dl>
+<dd>templating, Facelets, <a href="giqxp.html#indexterm-211">Templating</a></dd>
+</dl>
+<dl>
+<dd>temporary JMS destinations, <a href="bncfu.html#indexterm-1808">Creating Temporary Destinations</a><dl>
+<dd>examples<dl>
+<dd><a href="bnchf.html#indexterm-1892">Coding the Application Client: HumanResourceClient.java</a></dd>
+<dd><a href="bnchx.html#indexterm-1909">Coding the Application Client: MultiAppServerClient.java</a></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><tt>TextMessage</tt> interface, <a href="bnceh.html#indexterm-1768">Message Bodies</a></dd>
+</dl>
+<dl>
+<dd>Thawte certificate authority, <a href="bnbxw.html#indexterm-1426">Working with Digital Certificates</a></dd>
+</dl>
+<dl>
+<dd>timer service, <a href="bnboy.html#indexterm-949">Using the Timer Service</a><dl>
+<dd>cancelling timers, <a href="bnboy.html#indexterm-953">Canceling and Saving Timers</a></dd>
+<dd>creating timers, <a href="bnboy.html#indexterm-951">Creating Programmatic Timers</a></dd>
+<dd>examples, <a href="bnboy.html#indexterm-964">The timersession Example</a></dd>
+<dd>exceptions, <a href="bnboy.html#indexterm-956">Canceling and Saving Timers</a></dd>
+<dd><tt>getInfo</tt> method, <a href="bnboy.html#indexterm-960">Getting Timer Information</a></dd>
+<dd><tt>getNextTimeout</tt> method, <a href="bnboy.html#indexterm-959">Getting Timer Information</a></dd>
+<dd><tt>getTimeRemaining</tt> method, <a href="bnboy.html#indexterm-958">Getting Timer Information</a></dd>
+<dd>getting information, <a href="bnboy.html#indexterm-957">Getting Timer Information</a></dd>
+<dd>saving timers, <a href="bnboy.html#indexterm-954">Canceling and Saving Timers</a></dd>
+<dd>transactions, <a href="bnboy.html#indexterm-961">Transactions and Timers</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>timestamps, for messages, <tt>JMSTimestamp</tt> message header field, <a href="bnceh.html#indexterm-1756">Message Headers</a></dd>
+</dl>
+<dl>
+<dd><tt>Topic</tt> interface, <a href="bnceh.html#indexterm-1725">JMS Destinations</a></dd>
+</dl>
+<dl>
+<dd>topics<dl>
+<dd>creating<dl>
+<dd><a href="bnceh.html#indexterm-1723">JMS Destinations</a></dd>
+<dd><a href="bncfa.html#indexterm-1849">To Create JMS Administered Objects for the Synchronous Receive Example</a></dd>
+</dl>
+</dd>
+<dd>durable subscriptions, <a href="bncfu.html#indexterm-1812">Creating Durable Subscriptions</a></dd>
+<dd>introduction, <a href="bnceh.html#indexterm-1721">JMS Destinations</a></dd>
+<dd>temporary<dl>
+<dd><a href="bncfu.html#indexterm-1807">Creating Temporary Destinations</a></dd>
+<dd><a href="bnchx.html#indexterm-1911">Coding the Application Client: MultiAppServerClient.java</a></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>transactions, <a href="bncih.html#indexterm-1590">Transactions</a><dl>
+<dd>application-managed, <a href="bnbqw.html#indexterm-1079">Application-Managed Entity Managers</a></dd>
+<dd>attributes<dl>
+<dd><a href="bncij.html#indexterm-1610">Transaction Attributes</a></dd>
+<dd><a href="bncij.html#indexterm-1617">Setting Transaction Attributes</a></dd>
+</dl>
+</dd>
+<dd>bean-managed<dl>
+<dd><a href="bnciy.html#indexterm-1633">Bean-Managed Transactions</a></dd>
+<dd><a href="bncgl.html#indexterm-1835">Managing Distributed Transactions</a></dd>
+</dl>
+</dd>
+<dd>boundaries<dl>
+<dd><a href="bncii.html#indexterm-1601">What Is a Transaction?</a></dd>
+<dd><a href="bncij.html#indexterm-1626">Methods Not Allowed in Container-Managed Transactions</a></dd>
+<dd><a href="bnciy.html#indexterm-1635">Bean-Managed Transactions</a></dd>
+</dl>
+</dd>
+<dd>business methods<dl>
+<dd><i>See </i>business methods, transactions</dd>
+</dl>
+commits<dl>
+<dd><a href="bncii.html#indexterm-1598">What Is a Transaction?</a></dd>
+<dd><a href="bncij.html#indexterm-1624">Synchronizing a Session Bean&rsquo;s Instance Variables</a></dd>
+</dl>
+</dd>
+<dd>container-managed<dl>
+<dd><a href="bncij.html#indexterm-1602">Container-Managed Transactions</a></dd>
+<dd><a href="bnciy.html#indexterm-1651">Methods Not Allowed in Bean-Managed Transactions</a></dd>
+<dd><a href="bncgl.html#indexterm-1832">Managing Distributed Transactions</a></dd>
+</dl>
+</dd>
+<dd>default transaction demarcation, <a href="bncij.html#indexterm-1608">Container-Managed Transactions</a></dd>
+<dd>defined, <a href="bncii.html#indexterm-1596">What Is a Transaction?</a></dd>
+<dd>distributed, JMS, <a href="bncgl.html#indexterm-1831">Managing Distributed Transactions</a></dd>
+<dd>examples, <a href="giwfh.html#indexterm-1874">A Local Transaction Example</a></dd>
+<dd>exceptions<dl>
+<dd><i>See </i>exceptions transactions</dd>
+</dl>
+JDBC, <a href="bncjd.html#indexterm-1657">Updating Multiple Databases</a></dd>
+<dd>JMS and enterprise bean applications, <a href="bncgl.html#indexterm-1826">Transactions</a></dd>
+<dd>JTA<dl>
+<dd><a href="bnciy.html#indexterm-1638">Bean-Managed Transactions</a></dd>
+<dd><a href="bnciy.html#indexterm-1640">JTA Transactions</a></dd>
+</dl>
+</dd>
+<dd>local, JMS, <a href="bncfu.html#indexterm-1819">Using JMS API Local Transactions</a></dd>
+<dd>managers<dl>
+<dd><a href="bncij.html#indexterm-1616">Summary of Transaction Attributes</a></dd>
+<dd><a href="bnciy.html#indexterm-1641">JTA Transactions</a></dd>
+<dd><a href="bncjd.html#indexterm-1656">Updating Multiple Databases</a></dd>
+<dd><a href="bncjd.html#indexterm-1659">Updating Multiple Databases</a></dd>
+</dl>
+</dd>
+<dd>message-driven beans, <a href="gipko.html#indexterm-874">What Makes Message-Driven Beans Different from Session Beans?</a><dl>
+<dd><i>See </i>message-driven beans, transactions</dd>
+</dl>
+nested<dl>
+<dd><a href="bncij.html#indexterm-1609">Container-Managed Transactions</a></dd>
+<dd><a href="bnciy.html#indexterm-1644">JTA Transactions</a></dd>
+</dl>
+</dd>
+<dd><tt>Required</tt> attribute, <a href="bncgl.html#indexterm-1839">Managing Distributed Transactions</a></dd>
+<dd>rollbacks<dl>
+<dd><a href="bncii.html#indexterm-1599">What Is a Transaction?</a></dd>
+<dd><a href="bncij.html#indexterm-1618">Rolling Back a Container-Managed Transaction</a></dd>
+<dd><a href="bncij.html#indexterm-1625">Synchronizing a Session Bean&rsquo;s Instance Variables</a></dd>
+<dd><a href="bnciy.html#indexterm-1646">JTA Transactions</a></dd>
+</dl>
+</dd>
+<dd>scope, <a href="bncij.html#indexterm-1611">Transaction Attributes</a></dd>
+<dd>session beans<dl>
+<dd><i>See </i>session beans, transactions</dd>
+</dl>
+timeouts, <a href="bncjc.html#indexterm-1654">Transaction Timeouts</a></dd>
+<dd>timer service, <a href="bnboy.html#indexterm-962">Transactions and Timers</a></dd>
+<dd>web components, <a href="bncjg.html#indexterm-1660">Transactions in Web Components</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>transport guarantee, <a href="gkbaa.html#indexterm-1464">Specifying a Secure Connection</a></dd>
+</dl>
+<dl>
+<dd><tt>transport-guarantee</tt> element, <a href="gkbaa.html#indexterm-1463">Specifying a Secure Connection</a></dd>
+</dl>
+<dl>
+<dd>transport-layer security<dl>
+<dd><a href="bnbwy.html#indexterm-1329">Transport-Layer Security</a></dd>
+<dd><a href="bnbxw.html#indexterm-1402">Establishing a Secure Connection Using SSL</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>truststores, <a href="bnbxw.html#indexterm-1422">Working with Digital Certificates</a><dl>
+<dd>managing, <a href="bnbxw.html#indexterm-1435">Working with Digital Certificates</a></dd>
+</dl>
+</dd>
+</dl>
+</div><h4>U</h4>
+<div class="indexdiv">
+<dl>
+<dd>UI component classes<dl>
+<dd><tt>SelectItem</tt> class<dl>
+<dd><a href="bnarf.html#indexterm-416">Using the SelectItem and SelectItems Components</a></dd>
+<dd><a href="bnarf.html#indexterm-424">Using the f:selectItem Tag</a></dd>
+</dl>
+</dd>
+<dd><tt>SelectOne</tt> class, <a href="bnarf.html#indexterm-399">Displaying a Menu Using the h:selectOneMenu Tag</a></dd>
+<dd><tt>UISelectItem</tt> class, <a href="bnarf.html#indexterm-412">Using the SelectItem and SelectItems Components</a></dd>
+<dd><tt>UISelectItems</tt> class, <a href="bnarf.html#indexterm-413">Using the SelectItem and SelectItems Components</a></dd>
+<dd><tt>UISelectMany</tt> class, <a href="bnarf.html#indexterm-406">Rendering Components for Selecting Multiple Values</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><tt>UnavailableException</tt> class, <a href="bnafu.html#indexterm-704">Initializing a Servlet</a></dd>
+</dl>
+<dl>
+<dd>unified expression language, <a href="bnaqm.html#indexterm-602">Using the EL to Reference Backing Beans</a></dd>
+</dl>
+<dl>
+<dd>Unified Expression Language, <i>See </i>EL</dd>
+</dl>
+<dl>
+<dd>unified expression language, managed beans, <a href="gjbak.html#indexterm-1008">Giving Beans EL Names</a></dd>
+</dl>
+<dl>
+<dd>URI path templates, <a href="gilik.html#indexterm-814">The @Path Annotation and URI Path Templates</a></dd>
+</dl>
+<dl>
+<dd>user data constraint, <a href="gkbaa.html#indexterm-1462">Specifying a Secure Connection</a></dd>
+</dl>
+<dl>
+<dd><tt>user-data-constraint</tt> element, <a href="gkbaa.html#indexterm-1461">Specifying a Secure Connection</a></dd>
+</dl>
+<dl>
+<dd>users, <a href="bnbxj.html#indexterm-1376">What Is a User?</a><dl>
+<dd>adding to GlassFish Server, <a href="bnbxj.html#indexterm-1389">To Add Users to the GlassFish Server</a></dd>
+<dd>managing, <a href="bnbxj.html#indexterm-1386">Managing Users and Groups on the GlassFish Server</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><tt>UserTransaction</tt> interface<dl>
+<dd><a href="bncij.html#indexterm-1631">Methods Not Allowed in Container-Managed Transactions</a></dd>
+<dd><a href="bnciy.html#indexterm-1647">JTA Transactions</a></dd>
+<dd><a href="bnciy.html#indexterm-1653">Methods Not Allowed in Bean-Managed Transactions</a></dd>
+<dd><a href="bncjg.html#indexterm-1663">Transactions in Web Components</a></dd>
+</dl>
+<dl>
+<dd>message-driven beans, <a href="bncgl.html#indexterm-1833">Managing Distributed Transactions</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>utility classes, <a href="gipio.html#indexterm-892">The Contents of an Enterprise Bean</a></dd>
+</dl>
+</div><h4>V</h4>
+<div class="indexdiv">
+<dl>
+<dd>validation, entities, <a href="bnbqa.html#indexterm-1032">Validating Persistent Fields and Properties</a></dd>
+</dl>
+<dl>
+<dd>validation model<dl>
+<dd>referencing a method that performs validation, <a href="bnatn.html#indexterm-590">Referencing a Method That Performs Validation</a></dd>
+<dd><tt>validator</tt> attribute<dl>
+<dd><a href="bnatn.html#indexterm-563">Referencing a Backing Bean Method</a></dd>
+<dd><a href="bnavb.html#indexterm-673">Writing a Method to Perform Validation</a></dd>
+</dl>
+<dl>
+<dd>and backing bean methods, <a href="bnatn.html#indexterm-573">Referencing a Backing Bean Method</a></dd>
+<dd>referencing backing bean methods, <a href="bnatn.html#indexterm-592">Referencing a Method That Performs Validation</a></dd>
+<dd>text components, <a href="bnarf.html#indexterm-330">Using Text Components</a></dd>
+</dl>
+<tt>Validator</tt> class, <a href="bnavb.html#indexterm-650">Writing Backing Bean Methods</a></dd>
+<dd><tt>Validator</tt> interface, <a href="bnavb.html#indexterm-669">Writing a Method to Perform Validation</a></dd>
+<dd>writing a backing bean method to perform validation, <a href="bnavb.html#indexterm-668">Writing a Method to Perform Validation</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><tt>Validator</tt> implementation classes, <a href="bnatc.html#indexterm-540">Using the Standard Validators</a><dl>
+<dd><tt>DoubleRangeValidator</tt> class<dl>
+<dd><a href="bnarc.html#indexterm-460">Using core Tags</a></dd>
+<dd><a href="bnatc.html#indexterm-541">Using the Standard Validators</a></dd>
+</dl>
+</dd>
+<dd><tt>LengthValidator</tt> class<dl>
+<dd><a href="bnarc.html#indexterm-462">Using core Tags</a></dd>
+<dd><a href="bnatc.html#indexterm-544">Using the Standard Validators</a></dd>
+</dl>
+</dd>
+<dd><tt>LongRangeValidator</tt> class<dl>
+<dd><a href="bnarc.html#indexterm-464">Using core Tags</a></dd>
+<dd><a href="bnatc.html#indexterm-547">Using the Standard Validators</a></dd>
+<dd><a href="bnatc.html#indexterm-550">Using the LongRangeValidator</a></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>validator tags<dl>
+<dd><a href="bnarc.html#indexterm-456">Using core Tags</a></dd>
+<dd><a href="bnarc.html#indexterm-475">Using core Tags</a></dd>
+</dl>
+<dl>
+<dd><tt>validateDoubleRange</tt> tag, <a href="bnatc.html#indexterm-543">Using the Standard Validators</a></dd>
+<dd><tt>validateLength</tt> tag, <a href="bnatc.html#indexterm-546">Using the Standard Validators</a></dd>
+<dd><tt>validateLongRange</tt> tag<dl>
+<dd><a href="bnatc.html#indexterm-549">Using the Standard Validators</a></dd>
+<dd><a href="bnatc.html#indexterm-552">Using the LongRangeValidator</a></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>validators<dl>
+<dd><i>See </i>validators<dd>custom validators, <a href="bnarc.html#indexterm-466">Using core Tags</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>value binding<dl>
+<dd>a component instance to a bean property<dl>
+<dd><i>See </i>component binding</dd>
+</dl>
+acceptable types of component values, <a href="bnaty.html#indexterm-617">Writing Properties Bound to Component Values</a></dd>
+<dd>properties, <a href="bnaty.html#indexterm-616">Writing Properties Bound to Component Values</a></dd>
+<dd><tt>value</tt> attribute<dl>
+<dd>binding to a backing-bean property, <a href="bnaty.html#indexterm-614">Writing Bean Properties</a></dd>
+<dd><tt>commandButton</tt> tag, <a href="bnarf.html#indexterm-373">Rendering a Button With the h:commandButton Tag</a></dd>
+<dd><tt>graphicImage</tt> tag, <a href="bnarf.html#indexterm-383">Adding Graphics and Images With the h:graphicImage Tag</a></dd>
+<dd><tt>outputFormat</tt> tag, <a href="bnarf.html#indexterm-360">Displaying a Formatted Message With the h:outputFormat Tag</a></dd>
+<dd><tt>outputLabel</tt> tag, <a href="bnarf.html#indexterm-353">Rendering a Label With the outputLabel Tag</a></dd>
+<dd><tt>selectItems</tt> tag, <a href="bnarf.html#indexterm-423">Using the f:selectItems Tag</a></dd>
+</dl>
+value expressions, <a href="bnaty.html#indexterm-623">Data Properties</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>value-change events, <a href="bnasz.html#indexterm-526">Registering a Value-Change Listener on a Component</a><dl>
+<dd><tt>processValueChangeEvent(ValueChangeEvent)</tt> method, <a href="bnavb.html#indexterm-682">Writing a Method to Handle a Value-Change Event</a></dd>
+<dd>referencing methods that handle value-change events, <a href="bnatn.html#indexterm-594">Referencing a Method That Handles a Value-Change Event</a></dd>
+<dd><tt>type</tt> attribute, <a href="bnasz.html#indexterm-532">Registering a Value-Change Listener on a Component</a></dd>
+<dd><tt>ValueChangeEvent</tt> class, <a href="bnasz.html#indexterm-533">Registering a Value-Change Listener on a Component</a></dd>
+<dd><tt>valueChangeListener</tt> attribute<dl>
+<dd><a href="bnarf.html#indexterm-334">Using Text Components</a></dd>
+<dd><a href="bnatn.html#indexterm-565">Referencing a Backing Bean Method</a></dd>
+<dd><a href="bnatn.html#indexterm-575">Referencing a Backing Bean Method</a></dd>
+<dd><a href="bnavb.html#indexterm-680">Writing a Method to Handle a Value-Change Event</a></dd>
+</dl>
+</dd>
+<dd><tt>ValueChangeListener</tt> class<dl>
+<dd><a href="bnasz.html#indexterm-528">Registering a Value-Change Listener on a Component</a></dd>
+<dd><a href="bnavb.html#indexterm-681">Writing a Method to Handle a Value-Change Event</a></dd>
+</dl>
+</dd>
+<dd><tt>valueChangeListener</tt> tag<dl>
+<dd><a href="bnarc.html#indexterm-438">Using core Tags</a></dd>
+<dd><a href="bnasz.html#indexterm-530">Registering a Value-Change Listener on a Component</a></dd>
+</dl>
+</dd>
+<dd>writing a backing bean method to handle value-change events, <a href="bnavb.html#indexterm-678">Writing a Method to Handle a Value-Change Event</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>value expressions, <a href="bnaqm.html#indexterm-604">Using the EL to Reference Backing Beans</a><dl>
+<dd><tt>ValueExpression</tt> class, <a href="bnaqm.html#indexterm-611">Using the EL to Reference Backing Beans</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>VeriSign certificate authority, <a href="bnbxw.html#indexterm-1425">Working with Digital Certificates</a></dd>
+</dl>
+</div>
+         </div>
+         <div class="navigation">
+             <a href="idx-7.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="idx-9.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

@@ -1,0 +1,522 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>The cart Example - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3"><a href="">The <tt>cart</tt> Example</a></p>
+<p class="toc level4"><a href="#bnboe">The Business Interface</a></p>
+<p class="toc level4"><a href="#bnbof">Session Bean Class</a></p>
+<p class="toc level5"><a href="#bnbog">Lifecycle Callback Methods</a></p>
+<p class="toc level5"><a href="#bnboh">Business Methods</a></p>
+<p class="toc level4 tocsp"><a href="#bnboi">The Remove Method</a></p>
+<p class="toc level4"><a href="#bnboj">Helper Classes</a></p>
+<p class="toc level4"><a href="#bnbok">Building, Packaging, Deploying, and Running the <tt>cart</tt> Example</a></p>
+<p class="toc level5"><a href="#bnbol">To Build, Package, and Deploy the <tt>cart</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#bnbom">To Run the <tt>cart</tt> Application Client Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#bnbon">To Build, Package, and Deploy the <tt>cart</tt> Example Using Ant</a></p>
+<p class="toc level5"><a href="#bnboo">To Run the <tt>cart</tt> Application Client Using Ant</a></p>
+<p class="toc level5"><a href="#bnbop">The <tt>all</tt> Task</a></p>
+<p class="toc level4 tocsp"><a href="#bnboq">Undeploying the <tt>cart</tt> Example</a></p>
+<p class="toc level5"><a href="#gjsjx">To Undeploy the <tt>cart</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#gjsio">To Undeploy the <tt>cart</tt> Example Using Ant</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="gipvi.html">A Singleton Session Bean Example: <tt>counter</tt></a></p>
+<p class="toc level4"><a href="gipvi.html#gipvc">Creating a Singleton Session Bean</a></p>
+<p class="toc level5"><a href="gipvi.html#gippq">Initializing Singleton Session Beans</a></p>
+<p class="toc level5"><a href="gipvi.html#gipsz">Managing Concurrent Access in a Singleton Session Bean</a></p>
+<p class="toc level5"><a href="gipvi.html#gipvd">Handling Errors in a Singleton Session Bean</a></p>
+<p class="toc level4 tocsp"><a href="gipvi.html#gipxl">The Architecture of the <tt>counter</tt> Example</a></p>
+<p class="toc level4"><a href="gipvi.html#gipvl">Building, Deploying, and Running the <tt>counter</tt> Example</a></p>
+<p class="toc level5"><a href="gipvi.html#gipxt">To Build, Deploy, and Run the <tt>counter</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="gipvi.html#gipzw">To Build, Deploy, and Run the <tt>counter</tt> Example Using Ant</a></p>
+<p class="toc level3 tocsp"><a href="bnbor.html">A Web Service Example: <tt>helloservice</tt></a></p>
+<p class="toc level4"><a href="bnbor.html#bnbos">The Web Service Endpoint Implementation Class</a></p>
+<p class="toc level4"><a href="bnbor.html#bnbot">Stateless Session Bean Implementation Class</a></p>
+<p class="toc level4"><a href="bnbor.html#bnbou">Building, Packaging, Deploying, and Testing the <tt>helloservice</tt> Example</a></p>
+<p class="toc level5"><a href="bnbor.html#bnbov">To Build, Package, and Deploy the <tt>helloservice</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnbor.html#bnbow">To Build, Package, and Deploy the <tt>helloservice</tt> Example Using Ant</a></p>
+<p class="toc level5"><a href="bnbor.html#bnbox">To Test the Service without a Client</a></p>
+<p class="toc level3 tocsp"><a href="bnboy.html">Using the Timer Service</a></p>
+<p class="toc level4"><a href="bnboy.html#giqlk">Creating Calendar-Based Timer Expressions</a></p>
+<p class="toc level5"><a href="bnboy.html#giqmx">Specifying Multiple Values in Calendar Expressions</a></p>
+<p class="toc level4 tocsp"><a href="bnboy.html#giqlt">Programmatic Timers</a></p>
+<p class="toc level5"><a href="bnboy.html#bnboz">The <tt>Timeout</tt> Method</a></p>
+<p class="toc level5"><a href="bnboy.html#bnbpa">Creating Programmatic Timers</a></p>
+<p class="toc level4 tocsp"><a href="bnboy.html#giqmb">Automatic Timers</a></p>
+<p class="toc level5"><a href="bnboy.html#giqlg">The <tt>@Schedule</tt> and <tt>@Schedules</tt> Annotations</a></p>
+<p class="toc level4 tocsp"><a href="bnboy.html#bnbpb">Canceling and Saving Timers</a></p>
+<p class="toc level4"><a href="bnboy.html#bnbpc">Getting Timer Information</a></p>
+<p class="toc level4"><a href="bnboy.html#bnbpd">Transactions and Timers</a></p>
+<p class="toc level4"><a href="bnboy.html#bnbpe">The <tt>timersession</tt> Example</a></p>
+<p class="toc level4"><a href="bnboy.html#bnbpf">Building, Packaging, Deploying, and Running the <tt>timersession</tt> Example</a></p>
+<p class="toc level5"><a href="bnboy.html#giqni">To Build, Package, Deploy, and Run the <tt>timersession</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnboy.html#giqnq">To Build, Package, and Deploy the <tt>timersession</tt> Example Using Ant</a></p>
+<p class="toc level5"><a href="bnboy.html#giqop">To Run the Web Client</a></p>
+<p class="toc level3 tocsp"><a href="bnbpj.html">Handling Exceptions</a></p>
+<p class="toc level2 tocsp"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gijrb.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="gipvi.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bnbod"></a><h3>The <tt>cart</tt> Example</h3>
+<p>The <tt>cart</tt> example represents a shopping cart in an online bookstore, and uses
+a stateful session bean to manage the operations of the shopping cart. The
+bean&rsquo;s client can add a book to the cart, remove a book, or
+retrieve the cart&rsquo;s contents. To assemble <tt>cart</tt>, you need the following code:</p>
+
+
+<ul><li><p>Session bean class (<tt>CartBean</tt>)</p>
+
+</li>
+<li><p>Remote business interface (<tt>Cart</tt>)</p>
+
+</li></ul>
+<p>All session beans require a session bean class. All enterprise beans that permit
+remote access must have a remote business interface. To meet the needs of
+a specific application, an enterprise bean may also need some helper classes. The
+<tt>CartBean</tt> session bean uses two helper classes (<tt>BookException</tt> and <tt>IdVerifier</tt>) which are discussed in
+the section <a href="#bnboj">Helper Classes</a>.</p>
+
+<p>The source code for this example is in the <tt></tt><i>tut-install</i><tt>/examples/ejb/cart/</tt> directory.</p>
+
+
+
+<a name="bnboe"></a><h4>The Business Interface</h4>
+<p><a name="indexterm-922"></a><a name="indexterm-923"></a>The <tt>Cart</tt> business interface is a plain Java interface that defines all the
+business methods implemented in the bean class. If the bean class implements a
+single interface, that interface is assumed to the business interface. The business interface
+is a local interface unless it is annotated with the <tt>javax.ejb.Remote</tt> annotation; the <tt>javax.ejb.Local</tt>
+annotation is optional in this case.</p>
+
+<p>The bean class may implement more than one interface. If the bean
+class implements more than one interface, either the business interfaces must be explicitly annotated
+either <tt>@Local</tt> or <tt>@Remote</tt>, or the business interfaces must be specified by decorating
+the bean class with <tt>@Local</tt> or <tt>@Remote</tt>. However, the following interfaces are excluded when
+determining if the bean class implements more than one interface:</p>
+
+
+<ul><li><p><tt>java.io.Serializable</tt></p>
+
+</li>
+<li><p><tt>java.io.Externalizable</tt></p>
+
+</li>
+<li><p>Any of the interfaces defined by the <tt>javax.ejb</tt> package</p>
+
+</li></ul>
+<p>The source code for the <tt>Cart</tt> business interface follows:</p>
+
+<pre>package com.sun.tutorial.javaee.ejb;
+
+import java.util.List;
+import javax.ejb.Remote;
+
+@Remote
+public interface Cart {
+    public void initialize(String person) throws BookException;
+    public void initialize(String person, String id)
+         throws BookException;
+    public void addBook(String title);
+    public void removeBook(String title) throws BookException;
+    public List&lt;String> getContents();
+    public void remove();
+}</pre>
+
+<a name="bnbof"></a><h4>Session Bean Class</h4>
+<p><a name="indexterm-924"></a>The session bean class for this example is called <tt>CartBean</tt>. Like any
+stateful session bean, the <tt>CartBean</tt> class must meet these requirements:</p>
+
+
+<ul><li><p><a name="indexterm-925"></a>The class is annotated <tt>@Stateful</tt>.</p>
+
+</li>
+<li><p>The class implements the business methods defined in the business interface.</p>
+
+</li></ul>
+<p>Stateful session beans also may:</p>
+
+
+<ul><li><p>Implement the business interface, a plain Java interface. It is good practice to implement the bean&rsquo;s business interface.</p>
+
+</li>
+<li><p><a name="indexterm-926"></a><a name="indexterm-927"></a><a name="indexterm-928"></a><a name="indexterm-929"></a>Implement any optional life cycle callback methods, annotated <tt>@PostConstruct</tt>, <tt>@PreDestroy</tt>, <tt>@PostActivate</tt>, and <tt>@PrePassivate</tt>.</p>
+
+</li>
+<li><p><a name="indexterm-930"></a>Implement any optional business methods annotated <tt>@Remove</tt>.</p>
+
+</li></ul>
+<p>The source code for the <tt>CartBean</tt> class follows.</p>
+
+<pre>package com.sun.tutorial.javaee.ejb;
+
+import java.util.ArrayList;
+import java.util.List;
+import javax.ejb.Remove;
+import javax.ejb.Stateful;
+
+@Stateful
+public class CartBean implements Cart {
+    String customerName;
+    String customerId;
+    List&lt;String> contents;
+
+    public void initialize(String person) throws BookException {
+        if (person == null) {
+            throw new BookException("Null person not allowed.");
+        } else {
+            customerName = person;
+        }
+
+        customerId = "0";
+        contents = new ArrayList&lt;String>();
+    }
+
+    public void initialize(String person, String id)
+                 throws BookException {
+        if (person == null) {
+            throw new BookException("Null person not allowed.");
+        } else {
+
+            customerName = person;
+        }
+
+        IdVerifier idChecker = new IdVerifier();
+
+        if (idChecker.validate(id)) {
+            customerId = id;
+        } else {
+            throw new BookException("Invalid id: " + id);
+        }
+
+        contents = new ArrayList&lt;String>();
+    }
+
+    public void addBook(String title) {
+        contents.add(title);
+    }
+
+    public void removeBook(String title) throws BookException {
+        boolean result = contents.remove(title);
+        if (result == false) {
+            throw new BookException(title + " not in cart.");
+        }
+    }
+
+    public List&lt;String> getContents() {
+        return contents;
+    }
+
+    @Remove
+    public void remove() {
+        contents = null;
+    }
+}</pre>
+
+<a name="bnbog"></a><h5>Lifecycle Callback Methods</h5>
+<a name="indexterm-931"></a><a name="indexterm-932"></a><a name="indexterm-933"></a><a name="indexterm-934"></a><p>Methods in the bean class may be declared as a lifecycle callback
+method by annotating the method with the following annotations:</p>
+
+
+<ul><li><p><tt>javax.annotation.PostConstruct</tt></p>
+
+</li>
+<li><p><tt>javax.annotation.PreDestroy</tt></p>
+
+</li>
+<li><p><tt>javax.ejb.PostActivate</tt></p>
+
+</li>
+<li><p><tt>javax.ejb.PrePassivate</tt></p>
+
+</li></ul>
+<p>Lifecycle callback methods must return <tt>void</tt> and have no parameters.</p>
+
+<p><tt>@PostConstruct</tt> methods are invoked by the container on newly constructed bean instances after
+all dependency injection has completed and before the first business method is invoked
+on the enterprise bean.</p>
+
+<p><tt>@PreDestroy</tt> methods are invoked after any method annotated <tt>@Remove</tt> has completed, and before
+the container removes the enterprise bean instance.</p>
+
+<p><tt>@PostActivate</tt> methods are invoked by the container after the container moves the bean
+from secondary storage to active status.</p>
+
+<p><tt>@PrePassivate</tt> methods are invoked by the container before the container passivates the enterprise
+bean, meaning the container temporarily removes the bean from the environment and saves
+it to secondary storage.</p>
+
+
+
+<a name="bnboh"></a><h5>Business Methods</h5>
+<p><a name="indexterm-935"></a>The primary purpose of a session bean is to run business tasks for
+the client. The client invokes business methods on the object reference it gets
+from dependency injection or JNDI lookup. From the client&rsquo;s perspective, the business methods
+appear to run locally, but they actually run remotely in the session bean.
+The following code snippet shows how the <tt>CartClient</tt> program invokes the business
+methods:</p>
+
+<pre>cart.create("Duke DeEarl", "123");
+...
+cart.addBook("Bel Canto");
+ ...
+List&lt;String> bookList = cart.getContents();
+...
+cart.removeBook("Gravity&rsquo;s Rainbow");</pre><p>The <tt>CartBean</tt> class implements the business methods in the following code:</p>
+
+<pre>public void addBook(String title) {
+   contents.addElement(title);
+}
+
+public void removeBook(String title) throws BookException {
+   boolean result = contents.remove(title);
+   if (result == false) {
+      throw new BookException(title + "not in cart.");
+   }
+}
+
+public List&lt;String> getContents() {
+   return contents;
+}</pre><p><a name="indexterm-936"></a>The signature of a business method must conform to these rules:</p>
+
+
+<ul><li><p>The method name must not begin with <tt>ejb</tt> to avoid conflicts with callback methods defined by the EJB architecture. For example, you cannot call a business method <tt>ejbCreate</tt> or <tt>ejbActivate</tt>.</p>
+
+</li>
+<li><p>The access control modifier must be <tt>public</tt>.</p>
+
+</li>
+<li><p>If the bean allows remote access through a remote business interface, the arguments and return types must be legal types for the Java Remote Method Invocation (RMI) API.</p>
+
+</li>
+<li><p><a name="indexterm-937"></a>If the bean is a web service endpoint, the arguments and return types for the methods annotated <tt>@WebMethod</tt> must be legal types for JAX-WS.</p>
+
+</li>
+<li><p>The modifier must not be <tt>static</tt> or <tt>final</tt>.</p>
+
+</li></ul>
+<p>The <tt>throws</tt> clause can include exceptions that you define for your application. The
+<tt>removeBook</tt> method, for example, throws a <tt>BookException</tt> if the book is not in the
+cart.</p>
+
+<p><a name="indexterm-938"></a><a name="indexterm-939"></a><a name="indexterm-940"></a>To indicate a system-level problem, such as the inability to connect to a
+database, a business method should throw a <tt>javax.ejb.EJBException</tt>. The container will not
+wrap application exceptions such as <tt>BookException</tt>. Because <tt>EJBException</tt> is a subclass of <tt>RuntimeException</tt>,
+you do not need to include it in the <tt>throws</tt> clause of the
+business method.</p>
+
+
+
+<a name="bnboi"></a><h4>The Remove Method</h4>
+<a name="indexterm-941"></a><p>Business methods annotated with <tt>javax.ejb.Remove</tt> in the stateful session bean class can be
+invoked by enterprise bean clients to remove the bean instance. The container will
+remove the enterprise bean after a <tt>@Remove</tt> method completes, either normally or abnormally.</p>
+
+<p>In <tt>CartBean</tt>, the <tt>remove</tt> method is a <tt>@Remove</tt> method:</p>
+
+<pre>@Remove
+public void remove() {
+    contents = null;
+}</pre>
+
+<a name="bnboj"></a><h4>Helper Classes</h4>
+<p><a name="indexterm-942"></a>The <tt>CartBean</tt> session bean has two helper classes: <tt>BookException</tt> and <tt>IdVerifier</tt>. The
+<tt>BookException</tt> is thrown by the <tt>removeBook</tt> method, and the <tt>IdVerifier</tt> validates the <tt>customerId</tt> in
+one of the <tt>create</tt> methods. Helper classes may reside in an EJB JAR
+file that contains the enterprise bean class, a WAR file if the enterprise
+bean is packaged within a WAR, or in an EAR that contains an
+EJB JAR or a WAR file that contains an enterprise bean.</p>
+
+
+
+<a name="bnbok"></a><h4>Building, Packaging, Deploying, and Running the <tt>cart</tt> Example</h4>
+<p>You can build, package, deploy, and run the <tt>cart</tt> application using either NetBeans
+IDE or the Ant tool.</p>
+
+
+
+<a name="bnbol"></a><h5>To Build, Package, and Deploy the <tt>cart</tt> Example Using NetBeans IDE</h5>
+<p>To build, package, and deploy the <tt>cart</tt> example to your GlassFish Server instance
+using the NetBeans IDE, follow these steps.</p>
+
+<ol>
+<li><b>In NetBeans IDE, select File&rarr;Open Project.</b></li>
+<li><b>In the Open Project dialog, navigate to <tt></tt><i>tut-install</i><tt>/examples/ejb/</tt>.</b></li>
+<li><b>Select the <tt>cart</tt> folder.</b></li>
+<li><b>Select the Open as Main Project and Open Required Projects check boxes.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>In the Projects tab, right-click the <tt>cart</tt> project and select Deploy.</b><p>This builds and packages the application into <tt>cart.ear</tt>, located in <tt></tt><i>tut-install</i><tt>/examples/ejb/cart/dist/</tt>, and deploys
+this EAR file to your GlassFish Server instance.</p></li></ol>
+
+<a name="bnbom"></a><h5>To Run the <tt>cart</tt> Application Client Using NetBeans IDE</h5>
+<p>To run <tt>cart</tt>&rsquo;s application client, select Run&rarr;Run Main Project. You will see the
+output of the application client in the Output pane:</p>
+
+<pre>...
+Retrieving book title from cart: Infinite Jest
+Retrieving book title from cart: Bel Canto
+Retrieving book title from cart: Kafka on the Shore
+Removing "Gravity&rsquo;s Rainbow" from cart.
+Caught a BookException: "Gravity&rsquo;s Rainbow" not in cart.
+Java Result: 1
+run-cart-app-client:
+run-nb:
+BUILD SUCCESSFUL (total time: 14 seconds)</pre>
+
+<a name="bnbon"></a><h5>To Build, Package, and Deploy the <tt>cart</tt> Example Using Ant</h5>
+<p>Now you are ready to compile the remote interface (<tt>Cart.java</tt>), the home interface
+(<tt>CartHome.java</tt>), the enterprise bean class (<tt>CartBean.java</tt>), the client class (<tt>CartClient.java</tt>), and the helper
+classes (<tt>BookException.java</tt> and <tt>IdVerifier.java</tt>). Follow these steps.</p>
+
+<ol>
+<li><b>In a terminal window, go to this directory:</b><pre><i>tut-install</i>/examples/ejb/cart/</pre></li>
+<li><b>Type the following command:</b><pre><tt><b>ant</b></tt></pre><p>This command calls the <tt>default</tt> target, which builds and packages the application into
+an EAR file, <tt>cart.ear</tt>, located in the <tt>dist</tt> directory.</p></li>
+<li><b>Type the following command:</b><pre><tt><b>ant deploy</b></tt></pre><p><tt>cart.ear</tt> will be deployed to the GlassFish Server.</p></li></ol>
+
+<a name="bnboo"></a><h5>To Run the <tt>cart</tt> Application Client Using Ant</h5>
+<p>When you run the client, the application client container injects any component references
+declared in the application client class, in this case the reference to the
+<tt>Cart</tt> enterprise bean. To run the application client, follow these steps.</p>
+
+<ol>
+<li><b>In a terminal window, go to this directory:</b><pre><i>tut-install</i>/examples/ejb/cart/</pre></li>
+<li><b>Type the following command:</b><pre><tt><b>ant run</b></tt></pre><p>This task will retrieve the application client JAR, <tt>cartClient.jar</tt> and run the
+application client. <tt>cartClient.jar</tt> contains the application client class, the helper class <tt>BookException</tt>, and the
+<tt>Cart</tt> business interface.</p><p>This is the equivalent of running:</p><pre><tt><b>appclient -client cartClient.jar</b></tt></pre></li>
+<li><b>In the terminal window, the client displays these lines:</b><pre>[echo] running application client container.
+[exec] Retrieving book title from cart: Infinite Jest
+[exec] Retrieving book title from cart: Bel Canto
+[exec] Retrieving book title from cart: Kafka on the Shore
+[exec] Removing "Gravity&rsquo;s Rainbow" from cart.
+[exec] Caught a BookException: "Gravity&rsquo;s Rainbow" not in cart.
+[exec] Result: 1</pre></li></ol>
+
+<a name="bnbop"></a><h5>The <tt>all</tt> Task</h5>
+<p>As a convenience, the <tt>all</tt> task will build, package, deploy, and run the
+application. To do this, enter the following command:</p>
+
+<pre><tt><b>ant all</b></tt></pre>
+
+<a name="bnboq"></a><h4>Undeploying the <tt>cart</tt> Example</h4>
+<p>You can use either NetBeans IDE or Ant to undeploy the example.</p>
+
+
+
+<a name="gjsjx"></a><h5>To Undeploy the <tt>cart</tt> Example Using NetBeans IDE</h5>
+<p>To undeploy <tt>cart.ear</tt> using NetBeans IDE, follow these steps.</p>
+
+<ol>
+<li><b>Click the Runtime tab.</b></li>
+<li><b>Expand the Servers node and locate the GlassFish Server instance to which you
+deployed <tt>cart</tt>.</b></li>
+<li><b>Expand your GlassFish Server instance node, then Applications.</b></li>
+<li><b>Right-click <tt>cart</tt> and select Undeploy.</b></li></ol>
+
+<a name="gjsio"></a><h5>To Undeploy the <tt>cart</tt> Example Using Ant</h5>
+<p>To undeploy <tt>cart.ear</tt> using Ant, type the following command:</p>
+
+<pre><tt><b>ant undeploy</b></tt></pre>
+         </div>
+         <div class="navigation">
+             <a href="gijrb.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="gipvi.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

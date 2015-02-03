@@ -1,0 +1,383 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Using Programmatic Security with Web Applications - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level3"><a href="bncat.html">Overview of Web Application Security</a></p>
+<p class="toc level3"><a href="gkbaa.html">Securing Web Applications</a></p>
+<p class="toc level4"><a href="gkbaa.html#bncbk">Specifying Security Constraints</a></p>
+<p class="toc level5"><a href="gkbaa.html#gjjcd">Specifying a Web Resource Collection</a></p>
+<p class="toc level5"><a href="gkbaa.html#gjjcg">Specifying an Authorization Constraint</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbm">Specifying a Secure Connection</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbl">Specifying Separate Security Constraints for Various Resources</a></p>
+<p class="toc level4 tocsp"><a href="gkbaa.html#gentextid-18908">Specifying Authentication Mechanisms</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbo">HTTP Basic Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbq">Form-Based Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbw">Digest Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbs">HTTPS Client Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbt">Mutual Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbn">Specifying an Authentication Mechanism</a></p>
+<p class="toc level3 tocsp"><a href="bncbe.html">Using Deployment Descriptors to Secure Web Applications</a></p>
+<p class="toc level4"><a href="bncbe.html#bncav">Declaring Security Roles</a></p>
+<p class="toc level5"><a href="bncbe.html#bncaz">Mapping Security Roles to GlassFish Server Groups</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">Using Programmatic Security with Web Applications</a></p>
+<p class="toc level4"><a href="#gircj">Authenticating Users Programmatically</a></p>
+<p class="toc level4"><a href="#bncba">Checking Caller Identity Programmatically</a></p>
+<p class="toc level4"><a href="#gjjlq">Example Code for Programmatic Security</a></p>
+<p class="toc level4"><a href="#bncbb">Declaring and Linking Role References</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="bncbx.html">Examples: Securing Web Applications</a></p>
+<p class="toc level4"><a href="bncbx.html#gjjlk">To Set Up Your System for Running the Security Examples</a></p>
+<p class="toc level4"><a href="bncbx.html#bncck">Example: Basic Authentication with a Servlet</a></p>
+<p class="toc level5"><a href="bncbx.html#gjrmh">Specifying Security for Basic Authentication Using Annotations</a></p>
+<p class="toc level5"><a href="bncbx.html#gjqys">To Build, Package, and Deploy the Servlet Basic Authentication Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bncbx.html#gjqzh">To Build, Package, and Deploy the Servlet Basic Authentication Example Using Ant</a></p>
+<p class="toc level5"><a href="bncbx.html#gjqzf">To Run the Basic Authentication Servlet</a></p>
+<p class="toc level4 tocsp"><a href="bncbx.html#bncby">Example: Form-Based Authentication with a JavaServer Faces Application</a></p>
+<p class="toc level5"><a href="bncbx.html#bncca">Creating the Login Form and the Error Page</a></p>
+<p class="toc level5"><a href="bncbx.html#bnccb">Specifying Security for the Form-Based Authentication Example</a></p>
+<p class="toc level5"><a href="bncbx.html#gjrba">To Build, Package, and Deploy the Form-Based Authentication Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bncbx.html#gjraz">To Build, Package, and Deploy the Form-Based Authentication Example Using Ant</a></p>
+<p class="toc level5"><a href="bncbx.html#gjral">To Run the Form-Based Authentication Example</a></p>
+<p class="toc level2 tocsp"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bncbe.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="bncbx.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gjiie"></a><h3>Using Programmatic Security with Web Applications</h3>
+<a name="indexterm-1496"></a><p>Programmatic security is used by security-aware applications when declarative security alone is not
+sufficient to express the security model of the application.</p>
+
+
+
+<a name="gircj"></a><h4>Authenticating Users Programmatically</h4>
+<a name="indexterm-1497"></a><a name="indexterm-1498"></a><a name="indexterm-1499"></a><p>Servlet 3.0 specifies the following methods of the <tt>HttpServletRequest</tt> interface that enable
+you to authenticate users for a web application programmatically:</p>
+
+
+<ul><li><p><tt>authenticate</tt>, the method that allows an application to instigate authentication of the request caller by the container from within an unconstrained request context. A login dialog box displays and collects the user's name and password for authentication purposes.</p>
+
+</li>
+<li><p><tt>login</tt>, the method that allows an application to collect user name and password information as an alternative to specifying form-based authentication in an application deployment descriptor.</p>
+
+</li>
+<li><p><tt>logout</tt>, </p>
+
+<p>the method provided to allow an application to reset the caller identity of a request.</p>
+
+</li></ul>
+<p>The following example code shows how to use the <tt>login</tt> and <tt>logout</tt>
+methods:</p>
+
+<pre>package test;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.math.BigDecimal;
+import javax.ejb.EJB;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet(name="TutorialServlet", urlPatterns={"/TutorialServlet"})
+public class TutorialServlet extends HttpServlet {
+    @EJB
+    private ConverterBean converterBean;
+
+    /**
+     * Processes requests for both HTTP &lt;code>GET&lt;/code> 
+     *    and &lt;code>POST&lt;/code> methods.
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, 
+            HttpServletResponse response)
+    throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        try {
+
+            out.println("&lt;html>");
+            out.println("&lt;head>");
+            out.println("&lt;title>Servlet TutorialServlet&lt;/title>");
+            out.println("&lt;/head>");
+            out.println("&lt;body>");
+            request.<b>login</b>("TutorialUser", "TutorialUser");
+            BigDecimal result = converterBean.dollarToYen(new BigDecimal("1.0"));
+            out.println("&lt;h1>Servlet TutorialServlet result of dollarToYen= "
+                + result + "&lt;/h1>");
+            out.println("&lt;/body>");
+            out.println("&lt;/html>");
+        } catch (Exception e) {
+            throw new ServletException(e);
+        } finally {
+            request.<b>logout</b>();
+            out.close();
+        }
+    }
+}</pre><p>This code sample shows how to use the <tt>authenticate</tt> method:</p>
+
+<pre>package com.sam.test;
+
+import java.io.*;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class TestServlet extends HttpServlet {
+
+    protected void processRequest(HttpServletRequest request, 
+            HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        try {
+            request.<b>authenticate</b>(response);
+            out.println("Authenticate Successful");
+        } finally {
+            out.close();
+        }
+    }</pre>
+
+<a name="bncba"></a><h4>Checking Caller Identity Programmatically</h4>
+<a name="indexterm-1500"></a><a name="indexterm-1501"></a><a name="indexterm-1502"></a><a name="indexterm-1503"></a><p>In general, security management should be enforced by the container in a manner
+that is transparent to the web component. The security API described in this
+section should be used only in the less frequent situations in which the
+web component methods need to access the security context information.</p>
+
+<p>Servlet 3.0 specifies the following <tt>HttpServletRequest</tt> interface methods that enable you to access
+security information about the component&rsquo;s caller:</p>
+
+
+<ul><li><p><tt>getRemoteUser</tt>, which determines the user name with which the client authenticated. The <tt>getRemoteUser</tt> method returns the name of the remote user, the caller, associated by the container with the request. If no user has been authenticated, this method returns <tt>null</tt>.</p>
+
+</li>
+<li><p><tt>isUserInRole</tt>, which determines whether a remote user is in a specific security role. If no user has been authenticated, this method returns <tt>false</tt>. This method expects a <tt>String</tt> user <tt>role-name</tt> parameter.</p>
+
+<p>The <tt>security-role-ref</tt> element should be declared in the deployment descriptor with a <tt>role-name</tt> subelement containing the role name to be passed to the method. Using security role references is discussed in <a href="#bncbb">Declaring and Linking Role References</a>.</p>
+
+</li>
+<li><p><tt>getUserPrincipal</tt>, which determines the principal name of the current user and returns a <tt>java.security.Principal</tt> object. If no user has been authenticated, this method returns <tt>null</tt>. Calling the <tt>getName</tt> method on the <tt>Principal</tt> returned by <tt>getUserPrincipal</tt> returns the name of the remote user.</p>
+
+</li></ul>
+<p>Your application can make business-logic decisions based on the information obtained using these
+APIs.</p>
+
+
+
+<a name="gjjlq"></a><h4>Example Code for Programmatic Security</h4>
+<p>The following code demonstrates the use of programmatic security for the purposes of
+programmatic login:</p>
+
+<pre>package enterprise.programmatic_login;
+
+import java.io.*;
+import java.net.*;
+
+import javax.annotation.security.DeclareRoles;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+@DeclareRoles("javaee6user")
+public class LoginServlet extends HttpServlet {
+
+    /** 
+     * Processes requests for both HTTP GET and POST methods.
+     * @param request servlet request
+     * @param response servlet response
+     */
+    protected void processRequest(HttpServletRequest request, 
+                 HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        try {
+            String userName = request.getParameter("txtUserName");
+            String password = request.getParameter("txtPassword");
+            
+            out.println("Before Login"+"&lt;br>&lt;br>");
+            out.println("IsUserInRole?.." + request.isUserInRole("javaee6user")+"&lt;br>");
+            out.println("getRemoteUser?.." + request.getRemoteUser()+"&lt;br>");
+            out.println("getUserPrincipal?.." + request.getUserPrincipal()+"&lt;br>");
+            out.println("getAuthType?.." + request.getAuthType()+"&lt;br>&lt;br>");
+            
+            try {
+                request.login(userName, password); 
+            } catch(ServletException ex) {
+                out.println("Login Failed with a ServletException.." + 
+                           ex.getMessage());
+                return;
+            }
+            out.println("After Login..."+"&lt;br>&lt;br>");
+            out.println("IsUserInRole?.." + request.isUserInRole("javaee6user")+"&lt;br>");
+            out.println("getRemoteUser?.." + request.getRemoteUser()+"&lt;br>");
+            out.println("getUserPrincipal?.." + request.getUserPrincipal()+"&lt;br>");
+            out.println("getAuthType?.." + request.getAuthType()+"&lt;br>&lt;br>");
+            
+            request.logout();
+            out.println("After Logout..."+"&lt;br>&lt;br>");
+            out.println("IsUserInRole?.." + request.isUserInRole("javaee6user")+"&lt;br>");
+            out.println("getRemoteUser?.." + request.getRemoteUser()+"&lt;br>");
+            out.println("getUserPrincipal?.." + request.getUserPrincipal()+"&lt;br>");
+            out.println("getAuthType?.." + request.getAuthType()+"&lt;br>");
+        } finally {
+            out.close();
+        }
+    }
+
+    ...
+}</pre><p>This servlet displays the name of the user currently logged in, prompts
+a user for login, and prints out the information again, then logs out
+the user and prints the information again in order to demonstrate the effect
+of the <tt>login</tt> and <tt>logout</tt> methods. The deployment descriptor specifies basic authentication.</p>
+
+
+
+<a name="bncbb"></a><h4>Declaring and Linking Role References</h4>
+<a name="indexterm-1504"></a><a name="indexterm-1505"></a><p>A <b>security role reference</b> defines a mapping between the name of a role that is
+called from a web component using <tt>isUserInRole(String role)</tt> and the name of a
+security role that has been defined for the application. If no <tt>security-role-ref</tt> element
+is declared in a deployment descriptor and the <tt>isUserInRole</tt> method is called, the container
+defaults to checking the provided role name against the list of all security
+roles defined for the web application. Using the default method instead of using
+the <tt>security-role-ref</tt> element limits your flexibility to change role names in an application
+without also recompiling the servlet making the call.</p>
+
+<p>The <tt>security-role-ref</tt> element is used when an application uses the method <tt>HttpServletRequest.isUserInRole(String role)</tt>. The
+value passed to the <tt>isUserInRole</tt> method is a <tt>String</tt> representing the role name of
+the user. The value of the <tt>role-name</tt> element must be the <tt>String</tt> used
+as the parameter to the method <tt>HttpServletRequest.isUserInRole(String role)</tt>. The <tt>role-link</tt> must contain the
+name of one of the security roles defined in the <tt>security-role</tt> elements. The container
+uses the mapping of <tt>security-role-ref</tt> to <tt>security-role</tt> when determining the return value
+of the call.</p>
+
+<p>For example, to map the security role reference <tt>cust</tt> to the security role
+with role name <tt>bankCustomer</tt>, the syntax would be: </p>
+
+<pre>&lt;servlet>
+...
+    &lt;security-role-ref>
+        &lt;role-name>cust&lt;/role-name>
+        &lt;role-link>bankCustomer&lt;/role-link>
+    &lt;/security-role-ref>
+...
+&lt;/servlet></pre><p>If the servlet is called by a user who belongs to the <tt>bankCustomer</tt> security
+rolel, the method call <tt>isUserInRole("cust")</tt> returns <tt>true</tt>. </p>
+
+<p>The <tt>role-link</tt> element in the <tt>security-role-ref</tt> element must match a <tt>role-name</tt> defined in
+the <tt>security-role</tt> element of the same <tt>web.xml</tt> deployment descriptor, as shown here:</p>
+
+<pre>&lt;security-role>
+    &lt;role-name>bankCustomer&lt;/role-name>
+&lt;/security-role></pre><p>A security role reference, including the name defined by the reference, is scoped
+to the component whose deployment descriptor contains the <tt>security-role-ref</tt> deployment descriptor element.</p>
+
+
+         </div>
+         <div class="navigation">
+             <a href="bncbe.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="bncbx.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

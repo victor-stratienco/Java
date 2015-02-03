@@ -1,0 +1,537 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Creating Robust JMS Applications - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level3"><a href="bncdr.html">Overview of the JMS API</a></p>
+<p class="toc level4"><a href="bncdr.html#bncds">What Is Messaging?</a></p>
+<p class="toc level4"><a href="bncdr.html#bncdt">What Is the JMS API?</a></p>
+<p class="toc level4"><a href="bncdr.html#bncdu">When Can You Use the JMS API?</a></p>
+<p class="toc level4"><a href="bncdr.html#bncdw">How Does the JMS API Work with the Java EE Platform?</a></p>
+<p class="toc level3 tocsp"><a href="bncdx.html">Basic JMS API Concepts</a></p>
+<p class="toc level4"><a href="bncdx.html#bncdy">JMS API Architecture</a></p>
+<p class="toc level4"><a href="bncdx.html#bncea">Messaging Domains</a></p>
+<p class="toc level5"><a href="bncdx.html#bnceb">Point-to-Point Messaging Domain</a></p>
+<p class="toc level5"><a href="bncdx.html#bnced">Publish/Subscribe Messaging Domain</a></p>
+<p class="toc level5"><a href="bncdx.html#bncef">Programming with the Common Interfaces</a></p>
+<p class="toc level4 tocsp"><a href="bncdx.html#bnceg">Message Consumption</a></p>
+<p class="toc level3 tocsp"><a href="bnceh.html">The JMS API Programming Model</a></p>
+<p class="toc level4"><a href="bnceh.html#bncej">JMS Administered Objects</a></p>
+<p class="toc level5"><a href="bnceh.html#bncek">JMS Connection Factories</a></p>
+<p class="toc level5"><a href="bnceh.html#bncel">JMS Destinations</a></p>
+<p class="toc level4 tocsp"><a href="bnceh.html#bncem">JMS Connections</a></p>
+<p class="toc level4"><a href="bnceh.html#bncen">JMS Sessions</a></p>
+<p class="toc level4"><a href="bnceh.html#bnceo">JMS Message Producers</a></p>
+<p class="toc level4"><a href="bnceh.html#bncep">JMS Message Consumers</a></p>
+<p class="toc level5"><a href="bnceh.html#bnceq">JMS Message Listeners</a></p>
+<p class="toc level5"><a href="bnceh.html#bncer">JMS Message Selectors</a></p>
+<p class="toc level4 tocsp"><a href="bnceh.html#bnces">JMS Messages</a></p>
+<p class="toc level5"><a href="bnceh.html#bncet">Message Headers</a></p>
+<p class="toc level5"><a href="bnceh.html#bncev">Message Properties</a></p>
+<p class="toc level5"><a href="bnceh.html#bncew">Message Bodies</a></p>
+<p class="toc level4 tocsp"><a href="bnceh.html#bncey">JMS Queue Browsers</a></p>
+<p class="toc level4"><a href="bnceh.html#bncez">JMS Exception Handling</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">Creating Robust JMS Applications</a></p>
+<p class="toc level4"><a href="#bncfv">Using Basic Reliability Mechanisms</a></p>
+<p class="toc level5"><a href="#bncfw">Controlling Message Acknowledgment</a></p>
+<p class="toc level5"><a href="#bncfy">Specifying Message Persistence</a></p>
+<p class="toc level5"><a href="#bncfz">Setting Message Priority Levels</a></p>
+<p class="toc level5"><a href="#bncga">Allowing Messages to Expire</a></p>
+<p class="toc level5"><a href="#bncgb">Creating Temporary Destinations</a></p>
+<p class="toc level4 tocsp"><a href="#bncgc">Using Advanced Reliability Mechanisms</a></p>
+<p class="toc level5"><a href="#bncgd">Creating Durable Subscriptions</a></p>
+<p class="toc level5"><a href="#bncgh">Using JMS API Local Transactions</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="bncgl.html">Using the JMS API in Java EE Applications</a></p>
+<p class="toc level4"><a href="bncgl.html#bncgm">Using <tt>@Resource</tt> Annotations in Enterprise Bean or Web Components</a></p>
+<p class="toc level4"><a href="bncgl.html#bncgn">Using Session Beans to Produce and to Synchronously Receive Messages</a></p>
+<p class="toc level5"><a href="bncgl.html#bncgo">Resource Management</a></p>
+<p class="toc level5"><a href="bncgl.html#bncgp">Transactions</a></p>
+<p class="toc level4 tocsp"><a href="bncgl.html#bncgq">Using Message-Driven Beans to Receive Messages Asynchronously</a></p>
+<p class="toc level4"><a href="bncgl.html#bncgs">Managing Distributed Transactions</a></p>
+<p class="toc level4"><a href="bncgl.html#bncgt">Using the JMS API with Application Clients and Web Components</a></p>
+<p class="toc level3 tocsp"><a href="bncgu.html">Further Information about JMS</a></p>
+<p class="toc level2 tocsp"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bnceh.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="bncgl.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bncfu"></a><h3>Creating Robust JMS Applications</h3>
+<a name="indexterm-1779"></a><p>This section explains how to use features of the JMS API to
+achieve the level of reliability and performance your application requires. Many people choose to
+implement JMS applications because they cannot tolerate dropped or duplicate messages and require
+that every message be received once and only once. The JMS API provides
+this functionality.</p>
+
+<p>The most reliable way to produce a message is to send a
+<tt>PERSISTENT</tt> message within a transaction. JMS messages are <tt>PERSISTENT</tt> by default. A <b>transaction</b>
+is a unit of work into which you can group a series of
+operations, such as message sends and receives, so that the operations either all
+succeed or all fail. For details, see <a href="#bncfy">Specifying Message Persistence</a> and <a href="#bncgh">Using JMS API Local Transactions</a>.</p>
+
+<p>The most reliable way to consume a message is to do so
+within a transaction, either from a queue or from a durable subscription to
+a topic. For details, see <a href="#bncgb">Creating Temporary Destinations</a>, <a href="#bncgd">Creating Durable Subscriptions</a>, and <a href="#bncgh">Using JMS API Local Transactions</a>.</p>
+
+<p>For other applications, a lower level of reliability can reduce overhead and improve
+performance. You can send messages with varying priority levels (see <a href="#bncfz">Setting Message Priority Levels</a>) and you can
+set them to expire after a certain length of time (see <a href="#bncga">Allowing Messages to Expire</a>).</p>
+
+<p>The JMS API provides several ways to achieve various kinds and degrees of
+reliability. This section divides them into two categories, basic and advanced.</p>
+
+<p>The following sections describe these features as they apply to JMS clients. Some
+of the features work differently in Java EE applications; in these cases, the
+differences are noted here and are explained in detail in <a href="bncgl.html">Using the JMS API in Java EE Applications</a>.</p>
+
+
+
+<a name="bncfv"></a><h4>Using Basic Reliability Mechanisms</h4>
+<a name="indexterm-1780"></a><p>The basic mechanisms for achieving or affecting reliable message delivery are as follows:</p>
+
+
+<ul><li><p><b>Controlling message acknowledgment</b>: You can specify various levels of control over message acknowledgment.</p>
+
+</li>
+<li><p><b>Specifying message persistence</b>: You can specify that messages are persistent, meaning that they must not be lost in the event of a provider failure.</p>
+
+</li>
+<li><p><b>Setting message priority levels</b>: You can set various priority levels for messages, which can affect the order in which the messages are delivered.</p>
+
+</li>
+<li><p><b>Allowing messages to expire</b>: You can specify an expiration time for messages so that they will not be delivered if they are obsolete.</p>
+
+</li>
+<li><p><b>Creating temporary destinations</b>: You can create temporary destinations that last only for the duration of the connection in which they are created.</p>
+
+</li></ul>
+
+
+<a name="bncfw"></a><h5>Controlling Message Acknowledgment</h5>
+<a name="indexterm-1781"></a><a name="indexterm-1782"></a><p>Until a JMS message has been acknowledged, it is not considered to
+be successfully consumed. The successful consumption of a message ordinarily takes place in three
+stages.</p>
+
+
+<ol><li><p>The client receives the message.</p>
+
+</li>
+<li><p>The client processes the message.</p>
+
+</li>
+<li><p>The message is acknowledged. Acknowledgment is initiated either by the JMS provider or by the client, depending on the session acknowledgment mode.</p>
+
+</li></ol>
+<p><a name="indexterm-1783"></a>In transacted sessions (see <a href="#bncgh">Using JMS API Local Transactions</a>), acknowledgment happens automatically when a transaction is committed. If
+a transaction is rolled back, all consumed messages are redelivered.</p>
+
+<p>In nontransacted sessions, when and how a message is acknowledged depend on the
+value specified as the second argument of the <tt>createSession</tt> method. The three possible
+argument values are as follows:</p>
+
+
+<ul><li><p><a name="indexterm-1784"></a><tt>Session.AUTO_ACKNOWLEDGE</tt>: The session automatically acknowledges a client&rsquo;s receipt of a message either when the client has successfully returned from a call to <tt>receive</tt> or when the <tt>MessageListener</tt> it has called to process the message returns successfully. A synchronous receive in an <tt>AUTO_ACKNOWLEDGE</tt> session is the one exception to the rule that message consumption is a three-stage process as described earlier.</p>
+
+<p>In this case, the receipt and acknowledgment take place in one step, followed by the processing of the message.</p>
+
+</li>
+<li><p><a name="indexterm-1785"></a><a name="indexterm-1786"></a><tt>Session.CLIENT_ACKNOWLEDGE</tt>: A client acknowledges a message by calling the message&rsquo;s <tt>acknowledge</tt> method. In this mode, acknowledgment takes place on the session level: Acknowledging a consumed message automatically acknowledges the receipt of <b>all</b> messages that have been consumed by its session. For example, if a message consumer consumes ten messages and then acknowledges the fifth message delivered, all ten messages are acknowledged.</p>
+
+</li>
+<li><p><a name="indexterm-1787"></a><a name="indexterm-1788"></a><tt>Session.DUPS_OK_ACKNOWLEDGE</tt>: This option instructs the session to lazily acknowledge the delivery of messages. This is likely to result in the delivery of some duplicate messages if the JMS provider fails, so it should be used only by consumers that can tolerate duplicate messages. (If the JMS provider redelivers a message, it must set the value of the <tt>JMSRedelivered</tt> message header to <tt>true</tt>.) This option can reduce session overhead by minimizing the work the session does to prevent duplicates.</p>
+
+</li></ul>
+<p>If messages have been received from a queue but not acknowledged when a
+session terminates, the JMS provider retains them and redelivers them when a consumer
+next accesses the queue. The provider also retains unacknowledged messages for a terminated
+session that has a durable <tt>TopicSubscriber</tt>. (See <a href="#bncgd">Creating Durable Subscriptions</a>.) Unacknowledged messages for a nondurable <tt>TopicSubscriber</tt>
+are dropped when the session is closed.</p>
+
+<p><a name="indexterm-1789"></a>If you use a queue or a durable subscription, you can use
+the <tt>Session.recover</tt> method to stop a nontransacted session and restart it with its
+first unacknowledged message. In effect, the session&rsquo;s series of delivered messages is reset
+to the point after its last acknowledged message. The messages it now delivers
+may be different from those that were originally delivered, if messages have expired
+or if higher-priority messages have arrived. For a nondurable <tt>TopicSubscriber</tt>, the provider may
+drop unacknowledged messages when its session is recovered.</p>
+
+<p>The sample program in XREF the next section demonstrates two ways to ensure
+that a message will not be acknowledged until processing of the message is
+complete.</p>
+
+
+
+<a name="bncfy"></a><h5>Specifying Message Persistence</h5>
+<a name="indexterm-1790"></a><a name="indexterm-1791"></a><a name="indexterm-1792"></a><a name="indexterm-1793"></a><a name="indexterm-1794"></a><a name="indexterm-1795"></a><p>The JMS API supports two delivery modes for messages to specify whether messages
+are lost if the JMS provider fails. These delivery modes are fields of
+the <tt>DeliveryMode</tt> interface.</p>
+
+
+<ul><li><p><a name="indexterm-1796"></a>The <tt>PERSISTENT</tt> delivery mode, which is the default, instructs the JMS provider to take extra care to ensure that a message is not lost in transit in case of a JMS provider failure. A message sent with this delivery mode is logged to stable storage when it is sent.</p>
+
+</li>
+<li><p><a name="indexterm-1797"></a>The <tt>NON_PERSISTENT</tt> delivery mode does not require the JMS provider to store the message or otherwise guarantee that it is not lost if the provider fails.</p>
+
+</li></ul>
+<p>You can specify the delivery mode in either of two ways.</p>
+
+
+<ul><li><p>You can use the <tt>setDeliveryMode</tt> method of the <tt>MessageProducer</tt> interface to set the delivery mode for all messages sent by that producer. For example, the following call sets the delivery mode to <tt>NON_PERSISTENT</tt> for a producer:</p>
+
+<pre>producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);</pre></li>
+<li><p>You can use the long form of the <tt>send</tt> or the <tt>publish</tt> method to set the delivery mode for a specific message. The second argument sets the delivery mode. For example, the following <tt>send</tt> call sets the delivery mode for <tt>message</tt> to <tt>NON_PERSISTENT</tt>:</p>
+
+<pre>producer.send(message, DeliveryMode.NON_PERSISTENT, 3, 10000);</pre><p>The third and fourth arguments set the priority level and expiration time, which are described in the next two subsections.</p>
+
+</li></ul>
+<p>If you do not specify a delivery mode, the default is <tt>PERSISTENT</tt>. Using
+the <tt>NON_PERSISTENT</tt> delivery mode may improve performance and reduce storage overhead, but you
+should use it only if your application can afford to miss messages.</p>
+
+
+
+<a name="bncfz"></a><h5>Setting Message Priority Levels</h5>
+<a name="indexterm-1798"></a><a name="indexterm-1799"></a><a name="indexterm-1800"></a><p>You can use message priority levels to instruct the JMS provider to deliver
+urgent messages first. You can set the priority level in either of two
+ways.</p>
+
+
+<ul><li><p>You can use the <tt>setPriority</tt> method of the <tt>MessageProducer</tt> interface to set the priority level for all messages sent by that producer. For example, the following call sets a priority level of 7 for a producer:</p>
+
+<pre>producer.setPriority(7);</pre></li>
+<li><p>You can use the long form of the <tt>send</tt> or the <tt>publish</tt> method to set the priority level for a specific message. The third argument sets the priority level. For example, the following <tt>send</tt> call sets the priority level for <tt>message</tt> to 3:</p>
+
+<pre>producer.send(message, DeliveryMode.NON_PERSISTENT, 3, 10000);</pre></li></ul>
+<p>The ten levels of priority range from 0 (lowest) to 9 (highest).
+If you do not specify a priority level, the default level is 4.
+A JMS provider tries to deliver higher-priority messages before lower-priority ones but does not
+have to deliver messages in exact order of priority.</p>
+
+
+
+<a name="bncga"></a><h5>Allowing Messages to Expire</h5>
+<a name="indexterm-1801"></a><a name="indexterm-1802"></a><a name="indexterm-1803"></a><p>By default, a message never expires. If a message will become obsolete after
+a certain period, however, you may want to set an expiration time.
+You can do this in either of two ways.</p>
+
+
+<ul><li><p>You can use the <tt>setTimeToLive</tt> method of the <tt>MessageProducer</tt> interface to set a default expiration time for all messages sent by that producer. For example, the following call sets a time to live of one minute for a producer:</p>
+
+<pre>producer.setTimeToLive(60000);</pre></li>
+<li><p>You can use the long form of the <tt>send</tt> or the <tt>publish</tt> method to set an expiration time for a specific message. The fourth argument sets the expiration time in milliseconds. For example, the following <tt>send</tt> call sets a time to live of 10 seconds:</p>
+
+<pre>producer.send(message, DeliveryMode.NON_PERSISTENT, 3, 10000);</pre></li></ul>
+<p>If the specified <tt>timeToLive</tt> value is <tt>0</tt>, the message never expires.</p>
+
+<p>When the message is sent, the specified <tt>timeToLive</tt> is added to the current
+time to give the expiration time. Any message not delivered before the specified
+expiration time is destroyed. The destruction of obsolete messages conserves storage and computing
+resources.</p>
+
+
+
+<a name="bncgb"></a><h5>Creating Temporary Destinations</h5>
+<a name="indexterm-1804"></a><a name="indexterm-1805"></a><a name="indexterm-1806"></a><a name="indexterm-1807"></a><a name="indexterm-1808"></a><p>Normally, you create JMS destinations (queues and topics) administratively rather than programmatically. Your
+JMS provider includes a tool that you use to create and remove destinations,
+and it is common for destinations to be long-lasting.</p>
+
+<p>The JMS API also enables you to create destinations (<tt>TemporaryQueue</tt> and <tt>TemporaryTopic</tt>
+objects) that last only for the duration of the connection in which they
+are created. You create these destinations dynamically using the <tt>Session.createTemporaryQueue</tt> and the <tt>Session.createTemporaryTopic</tt> methods.</p>
+
+<p>The only message consumers that can consume from a temporary destination are those
+created by the same connection that created the destination. Any message producer can
+send to the temporary destination. If you close the connection that a temporary
+destination belongs to, the destination is closed and its contents are lost.</p>
+
+<p><a name="indexterm-1809"></a>You can use temporary destinations to implement a simple request/reply mechanism. If you
+create a temporary destination and specify it as the value of the <tt>JMSReplyTo</tt>
+message header field when you send a message, then the consumer of the
+message can use the value of the <tt>JMSReplyTo</tt> field as the destination to
+which it sends a reply. The consumer can also reference the original request
+by setting the <tt>JMSCorrelationID</tt> header field of the reply message to the value of
+the <tt>JMSMessageID</tt> header field of the request. For example, an <tt>onMessage</tt> method can
+create a session so that it can send a reply to the message
+it receives. It can use code such as the following:</p>
+
+<pre>producer = session.createProducer(msg.getJMSReplyTo());
+replyMsg = session.createTextMessage("Consumer " +
+    "processed message: " + msg.getText());
+replyMsg.setJMSCorrelationID(msg.getJMSMessageID());
+producer.send(replyMsg);</pre><p>For more examples, see <a href="bncgv.html">Chapter&nbsp;31, Java Message Service Examples</a>.</p>
+
+
+
+<a name="bncgc"></a><h4>Using Advanced Reliability Mechanisms</h4>
+<a name="indexterm-1810"></a><p>The more advanced mechanisms for achieving reliable message delivery are the following:</p>
+
+
+<ul><li><p><b>Creating durable subscriptions</b>: You can create durable topic subscriptions, which receive messages published while the subscriber is not active. Durable subscriptions offer the reliability of queues to the publish/subscribe message domain.</p>
+
+</li>
+<li><p><b>Using local transactions</b>: You can use local transactions, which allow you to group a series of sends and receives into an atomic unit of work. Transactions are rolled back if they fail at any time.</p>
+
+</li></ul>
+
+
+<a name="bncgd"></a><h5>Creating Durable Subscriptions</h5>
+<a name="indexterm-1811"></a><a name="indexterm-1812"></a><a name="indexterm-1813"></a><a name="indexterm-1814"></a><p>To ensure that a pub/sub application receives all published messages, use <tt>PERSISTENT</tt> delivery
+mode for the publishers. In addition, use durable subscriptions for the subscribers.</p>
+
+<p>The <tt>Session.createConsumer</tt> method creates a nondurable subscriber if a topic is specified as
+the destination. A nondurable subscriber can receive only messages that are published while
+it is active.</p>
+
+<p>At the cost of higher overhead, you can use the <tt>Session.createDurableSubscriber</tt> method
+to create a durable subscriber. A durable subscription can have only one active
+subscriber at a time.</p>
+
+<p>A durable subscriber registers a durable subscription by specifying a unique identity that
+is retained by the JMS provider. Subsequent subscriber objects that have the same
+identity resume the subscription in the state in which it was left by
+the preceding subscriber. If a durable subscription has no active subscriber, the JMS
+provider retains the subscription&rsquo;s messages until they are received by the subscription or
+until they expire.</p>
+
+<p><a name="indexterm-1815"></a><a name="indexterm-1816"></a>You establish the unique identity of a durable subscriber by setting the following:</p>
+
+
+<ul><li><p>A client ID for the connection</p>
+
+</li>
+<li><p>A topic and a subscription name for the subscriber</p>
+
+</li></ul>
+<p>You set the client ID administratively for a client-specific connection factory using either
+the command line or the Administration Console.</p>
+
+<p>After using this connection factory to create the connection and the session, you
+call the <tt>createDurableSubscriber</tt> method with two arguments: the topic and a string that
+specifies the name of the subscription:</p>
+
+<pre>String subName = "MySub";
+MessageConsumer topicSubscriber =
+     session.createDurableSubscriber(myTopic, subName);</pre><p>The subscriber becomes active after you start the <tt>Connection</tt> or <tt>TopicConnection</tt>. Later,
+you might close the subscriber:</p>
+
+<pre>topicSubscriber.close();</pre><p>The JMS provider stores the messages sent or published to the topic, as
+it would store messages sent to a queue. If the program or
+another application calls <tt>createDurableSubscriber</tt> using the same connection factory and its client ID, the
+same topic, and the same subscription name, the subscription is reactivated, and the
+JMS provider delivers the messages that were published while the subscriber was inactive.</p>
+
+<p>To delete a durable subscription, first close the subscriber, and then use the
+<tt>unsubscribe</tt> method, with the subscription name as the argument:</p>
+
+<pre>topicSubscriber.close();
+session.unsubscribe("MySub");</pre><p>The <tt>unsubscribe</tt> method deletes the state that the provider maintains for the subscriber.</p>
+
+<p><a href="#bncge">Figure&nbsp;30-6</a> and <a href="#bncgf">Figure&nbsp;30-7</a> show the difference between a nondurable and a durable subscriber.
+With an ordinary, nondurable subscriber, the subscriber and the subscription begin and end
+at the same point and are, in effect, identical. When a subscriber is
+closed, the subscription also ends. Here, <tt>create</tt> stands for a call to <tt>Session.createConsumer</tt>
+with a <tt>Topic</tt> argument, and <tt>close</tt> stands for a call to <tt>MessageConsumer.close</tt>. Any
+messages published to the topic between the time of the first <tt>close</tt> and
+the time of the second <tt>create</tt> are not consumed by the subscriber. In <a href="#bncge">Figure&nbsp;30-6</a>,
+the subscriber consumes messages M1, M2, M5, and M6, but messages M3 and
+M4 are lost.</p>
+
+<a name="bncge"></a><h6>Figure&nbsp;30-6 Nondurable Subscribers and Subscriptions</h6><img src="figures/jms-nondurableSubscriber.gif" alt="Diagram showing messages being lost when nondurable subscriptions are used"></img><p>With a durable subscriber, the subscriber can be closed and re-created, but the
+subscription continues to exist and to hold messages until the application calls the
+<tt>unsubscribe</tt> method. In <a href="#bncgf">Figure&nbsp;30-7</a>, <tt>create</tt> stands for a call to <tt>Session.createDurableSubscriber</tt>, <tt>close</tt>
+stands for a call to <tt>MessageConsumer.close</tt>, and <tt>unsubscribe</tt> stands for a call
+to <tt>Session.unsubscribe</tt>. Messages published while the subscriber is closed are received when the
+subscriber is created again. So even though messages M2, M4, and M5 arrive
+while the subscriber is closed, they are not lost.</p>
+
+<a name="bncgf"></a><h6>Figure&nbsp;30-7 A Durable Subscriber and Subscription</h6><img src="figures/jms-durableSubscriber.gif" alt="Diagram showing messages being preserved when durable subscriptions are used"></img><p>See <a href="giwfh.html#bncfx">A Message Acknowledgment Example</a>, <a href="giwfh.html#bncgg">A Durable Subscription Example</a>, and <a href="bncgw.html">An Application That Uses the JMS API with a Session Bean</a> for examples of Java EE applications that use
+durable subscriptions.</p>
+
+
+
+<a name="bncgh"></a><h5>Using JMS API Local Transactions</h5>
+<a name="indexterm-1817"></a><a name="indexterm-1818"></a><a name="indexterm-1819"></a><a name="indexterm-1820"></a><a name="indexterm-1821"></a><p>You can group a series of operations into an atomic unit of
+work called a transaction. If any one of the operations fails, the transaction
+can be rolled back, and the operations can be attempted again from the
+beginning. If all the operations succeed, the transaction can be committed.</p>
+
+<p>In a JMS client, you can use local transactions to group message
+sends and receives. The JMS API <tt>Session</tt> interface provides <tt>commit</tt> and <tt>rollback</tt> methods
+that you can use in a JMS client. A transaction commit means that
+all produced messages are sent and all consumed messages are acknowledged. A transaction
+rollback means that all produced messages are destroyed and all consumed messages are
+recovered and redelivered unless they have expired (see <a href="#bncga">Allowing Messages to Expire</a>).</p>
+
+<p>A transacted session is always involved in a transaction. As soon as the
+<tt>commit</tt> or the <tt>rollback</tt> method is called, one transaction ends and another transaction
+begins. Closing a transacted session rolls back its transaction in progress, including any
+pending sends and receives.</p>
+
+<p>In an Enterprise JavaBeans component, you cannot use the <tt>Session.commit</tt> and <tt>Session.rollback</tt>
+methods. Instead, you use distributed transactions, which are described in <a href="bncgl.html">Using the JMS API in Java EE Applications</a>.</p>
+
+<p>You can combine several sends and receives in a single JMS API
+local transaction. If you do so, you need to be careful about the
+order of the operations. You will have no problems if the transaction consists
+of all sends or all receives or if the receives come before the
+sends. But if you try to use a request/reply mechanism, whereby you send
+a message and then try to receive a reply to the sent message
+in the same transaction, the program will hang, because the send cannot take
+place until the transaction is committed. The following code fragment illustrates the problem:</p>
+
+<pre>// Don&rsquo;t do this!
+outMsg.setJMSReplyTo(replyQueue);
+producer.send(outQueue, outMsg);
+consumer = session.createConsumer(replyQueue);
+inMsg = consumer.receive();
+session.commit();</pre><p>Because a message sent during a transaction is not actually sent until the
+transaction is committed, the transaction cannot contain any receives that depend on that
+message&rsquo;s having been sent.</p>
+
+<p>In addition, the production and the consumption of a message cannot both be
+part of the same transaction. The reason is that the transactions take place
+between the clients and the JMS provider, which intervenes between the production and
+the consumption of the message. <a href="#bncgi">Figure&nbsp;30-8</a> illustrates this interaction.</p>
+
+<a name="bncgi"></a><h6>Figure&nbsp;30-8 Using JMS API Local Transactions</h6><img src="figures/jms-localTransactions.gif" alt="Diagram of local transactions, showing separate transactions for sending and consuming a message"></img><p>The sending of one or more messages to one or more destinations
+by client 1 can form a single transaction, because it forms a single
+set of interactions with the JMS provider using a single session. Similarly, the
+receiving of one or more messages from one or more destinations by client
+2 also forms a single transaction using a single session. But because the
+two clients have no direct interaction and are using two different sessions, no
+transactions can take place between them.</p>
+
+<p>Another way of putting this is that the act of producing and/or
+consuming messages in a session can be transactional, but the act of producing
+and consuming a specific message across different sessions cannot be transactional.</p>
+
+<p>This is the fundamental difference between messaging and synchronized processing. Instead of tightly
+coupling the sending and receiving of data, message producers and consumers use an
+alternative approach to reliability, one that is built on a JMS provider&rsquo;s ability
+to supply a once-and-only-once message delivery guarantee.</p>
+
+<p>When you create a session, you specify whether it is transacted. The first
+argument to the <tt>createSession</tt> method is a <tt>boolean</tt> value. A value of
+<tt>true</tt> means that the session is transacted; a value of <tt>false</tt> means that
+it is not transacted. The second argument to this method is the acknowledgment
+mode, which is relevant only to nontransacted sessions (see <a href="#bncfw">Controlling Message Acknowledgment</a>). If the session
+is transacted, the second argument is ignored, so it is a good idea
+to specify <tt>0</tt> to make the meaning of your code clear. For example:</p>
+
+<pre>session = connection.createSession(true, 0);</pre><p>The <tt>commit</tt> and the <tt>rollback</tt> methods for local transactions are associated with the
+session. You can combine queue and topic operations in a single transaction if
+you use the same session to perform the operations. For example, you can
+use the same session to receive a message from a queue and send
+a message to a topic in the same transaction.</p>
+
+<p>You can pass a client program&rsquo;s session to a message listener&rsquo;s constructor function
+and use it to create a message producer. In this way, you can
+use the same session for receives and sends in asynchronous message consumers.</p>
+
+<p><a href="giwfh.html#bncgj">A Local Transaction Example</a> provides an example of the use of JMS API local transactions.</p>
+
+
+         </div>
+         <div class="navigation">
+             <a href="bnceh.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="bncgl.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

@@ -1,0 +1,318 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>The address-book Application - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level3"><a href="giqst.html">The <tt>order</tt> Application</a></p>
+<p class="toc level4"><a href="giqst.html#giqrh">Entity Relationships in the <tt>order</tt> Application</a></p>
+<p class="toc level5"><a href="giqst.html#giqqr">Self-Referential Relationships</a></p>
+<p class="toc level5"><a href="giqst.html#giqsr">One-to-One Relationships</a></p>
+<p class="toc level5"><a href="giqst.html#giqtj">One-to-Many Relationship Mapped to Overlapping Primary and Foreign Keys</a></p>
+<p class="toc level5"><a href="giqst.html#giqud">Unidirectional Relationships</a></p>
+<p class="toc level4 tocsp"><a href="giqst.html#giqqy">Primary Keys in the <tt>order</tt> Application</a></p>
+<p class="toc level5"><a href="giqst.html#giquv">Generated Primary Keys</a></p>
+<p class="toc level5"><a href="giqst.html#giquf">Compound Primary Keys</a></p>
+<p class="toc level4 tocsp"><a href="giqst.html#giqtl">Entity Mapped to More Than One Database Table</a></p>
+<p class="toc level4"><a href="giqst.html#gique">Cascade Operations in the <tt>order</tt> Application</a></p>
+<p class="toc level4"><a href="giqst.html#giqsc">BLOB and CLOB Database Types in the <tt>order</tt> Application</a></p>
+<p class="toc level4"><a href="giqst.html#giqum">Temporal Types in the <tt>order</tt> Application</a></p>
+<p class="toc level4"><a href="giqst.html#giqqv">Managing the <tt>order</tt> Application's Entities</a></p>
+<p class="toc level5"><a href="giqst.html#giqrr">Creating Entities</a></p>
+<p class="toc level5"><a href="giqst.html#giqqc">Finding Entities</a></p>
+<p class="toc level5"><a href="giqst.html#giquk">Setting Entity Relationships</a></p>
+<p class="toc level5"><a href="giqst.html#giqsv">Using Queries</a></p>
+<p class="toc level5"><a href="giqst.html#giqtw">Removing Entities</a></p>
+<p class="toc level4 tocsp"><a href="giqst.html#giqup">Building and Running the <tt>order</tt> Application</a></p>
+<p class="toc level5"><a href="giqst.html#giqsg">To Build, Package, Deploy, and Run <tt>order</tt> UsingNetBeans IDE</a></p>
+<p class="toc level5"><a href="giqst.html#giqty">To Build, Package, Deploy, and Run <tt>order</tt> Using Ant</a></p>
+<p class="toc level5"><a href="giqst.html#giqrq">The <tt>all</tt> Task</a></p>
+<p class="toc level5"><a href="giqst.html#giqsy">To Undeploy <tt>order</tt> Using Ant</a></p>
+<p class="toc level3 tocsp"><a href="giqsq.html">The <tt>roster</tt> Application</a></p>
+<p class="toc level4"><a href="giqsq.html#giqso">Relationships in the <tt>roster</tt> Application</a></p>
+<p class="toc level5"><a href="giqsq.html#giqqk">The Many-To-Many Relationship in <tt>roster</tt></a></p>
+<p class="toc level4 tocsp"><a href="giqsq.html#giqrf">Entity Inheritance in the <tt>roster</tt> Application</a></p>
+<p class="toc level4"><a href="giqsq.html#gjjfl">Criteria Queries in the <tt>roster</tt> Application</a></p>
+<p class="toc level5"><a href="giqsq.html#gjjex">Metamodel Classes in the <tt>roster</tt> Application</a></p>
+<p class="toc level5"><a href="giqsq.html#gjjfn">Obtaining a <tt>CriteriaBuilder</tt> Instance in <tt>RequestBean</tt></a></p>
+<p class="toc level5"><a href="giqsq.html#gjjff">Creating Criteria Queries in <tt>RequestBean</tt>'s Business Methods</a></p>
+<p class="toc level4 tocsp"><a href="giqsq.html#giqrx">Automatic Table Generation in the <tt>roster</tt> Application</a></p>
+<p class="toc level4"><a href="giqsq.html#giquz">Building and Running the <tt>roster</tt> Application</a></p>
+<p class="toc level5"><a href="giqsq.html#giqug">To Build, Package, Deploy, and Run <tt>roster</tt> Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="giqsq.html#giqsj">To Build, Package, Deploy, and Run <tt>roster</tt> Using Ant</a></p>
+<p class="toc level5"><a href="giqsq.html#giqry">The <tt>all</tt> Task</a></p>
+<p class="toc level5"><a href="giqsq.html#giqqd">To Undeploy <tt>roster</tt> Using Ant</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">The <tt>address-book</tt> Application</a></p>
+<p class="toc level4"><a href="#gkaoj">Bean Validation Constraints in <tt>address-book</tt></a></p>
+<p class="toc level4"><a href="#gkanl">Specifying Error Messages for Constraints in <tt>address-book</tt></a></p>
+<p class="toc level4"><a href="#gkaon">Validating <tt>Contact</tt> Input from a JavaServer Faces Application</a></p>
+<p class="toc level4"><a href="#gkaop">Building and Running the <tt>address-book</tt> Application</a></p>
+<p class="toc level5"><a href="#gkaod">Building and Running the <tt>address-book</tt> Application in NetBeans IDE</a></p>
+<p class="toc level5"><a href="#gkanz">Building and Running the <tt>address-book</tt> Application Using Ant</a></p>
+<p class="toc level5"><a href="#gkanp">Undeploying the <tt>address-book</tt> Application Using Ant</a></p>
+</div>
+<p class="toc level2 tocsp"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="giqsq.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="bnbtg.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gkanq"></a><h3>The <tt>address-book</tt> Application</h3>
+<p>The <tt>address-book</tt> example application is a simple web application that stores contact data.
+It uses a single entity class, <tt>Contact</tt>, that uses the Java API
+for JavaBeans Validation (Bean Validation) to validate the data stored in the persistent
+attributes of the entity, as described in <a href="bnbqa.html#gkahq">Validating Persistent Fields and Properties</a>.</p>
+
+
+
+<a name="gkaoj"></a><h4>Bean Validation Constraints in <tt>address-book</tt></h4>
+<p>The <tt>Contact</tt> entity uses the <tt>@NotNull</tt>, <tt>@Pattern</tt>, and <tt>@Past</tt> constraints on the persistent
+attributes.</p>
+
+<p>The <tt>@NotNull</tt> constraint marks the attribute as a required field. The attribute must
+be set to a non-null value before the entity can be persisted or
+modified. Bean Validation will throw a validation error if the attribute is null
+when the entity is persisted or modified.</p>
+
+<p>The <tt>@Pattern</tt> constraint defines a regular expression that the value of the attribute
+must match before the entity can be persisted or modified. There are two
+different uses of <tt>@Pattern</tt> in <tt>address-book</tt>. The regular expression declared in the
+<tt>@Pattern</tt> annotation on the <tt>email</tt> field matches email addresses of the form <tt><i>name</i>@<i>domain name</i>.<i>top level domain</i></tt>, allowing
+only valid characters for email addresses. For example, <tt>username@example.com</tt> will pass validation,
+as will <tt>firstname.lastname@mail.example.com</tt>. However <tt>firstname,lastname@example.com</tt>, which contains an illegal comma character in the
+local name, will fail validation.</p>
+
+<p>The <tt>mobilePhone</tt> and <tt>homePhone</tt> fields are annotated with a <tt>@Pattern</tt> constraint that defines a
+regular expression to match phone numbers of the form <tt>(<i>xxx</i>) xxx-xxxx</tt>.</p>
+
+<p>The <tt>@Past</tt> constraint is applied to the birthday field, which must be a
+<tt>java.util.Date</tt> in the past.</p>
+
+<a name="gkanm"></a><h6>Example&nbsp;21-1 The <tt>Contact</tt> Entity Class</h6><pre>@Entity
+public class Contact implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @NotNull
+    protected String firstName;
+    @NotNull
+    protected String lastName;
+    @Pattern(regexp="[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\\."
+        +"[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*"
+        +"@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
+             message="{invalid.email}")
+    protected String email;
+    @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$",
+             message="{invalid.phonenumber}")
+    protected String mobilePhone;
+    @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$",
+             message="{invalid.phonenumber}")
+    protected String homePhone;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    @Past
+    protected Date birthday;
+    ...
+}</pre>
+
+<a name="gkanl"></a><h4>Specifying Error Messages for Constraints in <tt>address-book</tt></h4>
+<p>Some of the constraints in the <tt>Contact</tt> entity specify an optional message.</p>
+
+<pre>@Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$",
+             message="{invalid.phonenumber}")
+    protected String homePhone;</pre><p>The optional message element in the <tt>@Pattern</tt> constraint overrides the default validation message.
+The message can be specified directly:</p>
+
+<pre>@Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$",
+             message="Invalid phone number!")
+    protected String homePhone;</pre><p>The constraints in <tt>Contact</tt>, however, are strings in the resource bundle <tt></tt><i>tut-install</i><tt>/examples/persistence/address-book/src/java/ValidationMessages.properties</tt>. This
+allows the validation messages to be located in one single properties file, and
+the messages can be easily localized. Overridden Bean Validation messages must in a
+resource bundle properties file in the default package named <tt>ValidationMessages.properties</tt>, with localized resource bundles
+taking the form <tt>ValidationMessages_</tt><i>locale prefix</i><tt>.properties</tt>. For example, <tt>ValidationMessages_es.properties</tt> is the resource bundle used
+in Spanish speaking locales.</p>
+
+
+
+<a name="gkaon"></a><h4>Validating <tt>Contact</tt> Input from a JavaServer Faces Application</h4>
+<p>The <tt>address-book</tt> application uses a JavaServer Faces web front-end to allow users
+to input contacts. While JavaServer Faces has a form input validation mechanism using
+tags in Facelets XHTML files, <tt>address-book</tt> doesn't use these validation tags. Bean
+Validation constraints in JavaServer Faces backing beans, in this case in the <tt>Contact</tt>
+entity, automatically trigger validation when the forms are submitted.</p>
+
+<a name="gkanj"></a><h6>Example&nbsp;21-2 The Input Form for Creating <tt>Contact</tt> Instances</h6><p>The following code snippet from the <tt>Create.xhtml</tt> Facelets file shows some of the
+input form for creating new <tt>Contact</tt> instances.</p>
+
+<pre>&lt;h:form>
+    &lt;h:panelGrid columns="3">
+        &lt;h:outputLabel value="#{bundle.CreateContactLabel_firstName}" 
+                       for="firstName" />
+        &lt;h:inputText id="firstName" 
+                     value="#{contactController.selected.firstName}" 
+                     title="#{bundle.CreateContactTitle_firstName}" />
+        &lt;h:message for="firstName" 
+                   errorStyle="color: red" 
+                   infoStyle="color: green" />
+        &lt;h:outputLabel value="#{bundle.CreateContactLabel_lastName}" 
+                       for="lastName" />
+        &lt;h:inputText id="lastName" 
+                     value="#{contactController.selected.lastName}" 
+                     title="#{bundle.CreateContactTitle_lastName}" />
+        &lt;h:message for="lastName" 
+                   errorStyle="color: red" 
+                   infoStyle="color: green" />
+        ...
+    &lt;/h:panelGrid>
+&lt;/h:form></pre><p>The <tt>&lt;h:inputText></tt> tags <tt>firstName</tt> and <tt>lastName</tt> are bound to the attributes in
+the <tt>Contact</tt> entity instance <tt>selected</tt> in the <tt>ContactController</tt> stateless session bean. Each <tt>&lt;h:inputText></tt> tag
+has an associated <tt>&lt;h:message></tt> tag that will display validation error messages. The form
+doesn't require any JavaServer Faces validation tags, however.</p>
+
+
+
+<a name="gkaop"></a><h4>Building and Running the <tt>address-book</tt> Application</h4>
+<p>This section describes the steps to build and run the <tt>address-book</tt> application
+in both NetBeans IDE and on the command-line using Ant.</p>
+
+
+
+<a name="gkaod"></a><h5>Building and Running the <tt>address-book</tt> Application in NetBeans IDE</h5>
+<p>Follow these steps to build and run <tt>address-book</tt> in NetBeans IDE.</p>
+
+<ol>
+<li><b>In NetBeans IDE, select File&rarr;Open Project.</b></li>
+<li><b>In the Open Project dialog, navigate to <tt></tt><i>tut-install</i><tt>/examples/persistence/</tt>.</b></li>
+<li><b>Select the <tt>address-book</tt> folder.</b></li>
+<li><b>Select the Open as Main Project and Open Required Projects check boxes.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>In the Projects tab, right-click the <tt>address-book</tt> project and select Run.</b><p>After the application has been deployed, a web browser window should appear at
+the following URL:</p><pre>http://localhost:8080/address-book/</pre></li>
+<li><b>Click Show All Contact Items, then Create New Contact. Enter values in the
+form fields, then click Save.</b><p>If any of the values entered violate the constraints in <tt>Contact</tt>, an error
+message will appear in red beside the form field with the incorrect values.</p></li></ol>
+
+<a name="gkanz"></a><h5>Building and Running the <tt>address-book</tt> Application Using Ant</h5>
+<ol>
+<li><b>In NetBeans IDE, select File&rarr;Open Project.</b></li>
+<li><b>In a terminal, navigate to <tt></tt><i>tut-install</i><tt>/examples/persistence/address-book</tt>.</b></li>
+<li><b>Enter the following command:</b><pre><tt><b>ant</b></tt></pre><p>This will compile and assemble the <tt>address-book</tt> application.</p></li>
+<li><b>Enter the following command:</b><pre><tt><b>ant deploy</b></tt></pre><p>This will deploy the application to GlassFish Server.</p></li>
+<li><b>Open a web browser window and enter the following URL:</b><pre>http://localhost:8080/address-book/</pre>
+<hr><p><b>Tip - </b>As a convenience, the <tt>all</tt> task will build, package, deploy, and run the
+application. To do this, type the following command:</p>
+
+<pre><tt><b>ant all</b></tt></pre>
+<hr>
+</li>
+<li><b>Click Show All Contact Items, then Create New Contact. Enter values in the
+form fields, then click Save.</b><p>If any of the values entered violate the constraints in <tt>Contact</tt>, an error
+message will appear in red beside the form field with the incorrect values.</p></li></ol>
+
+<a name="gkanp"></a><h5>Undeploying the <tt>address-book</tt> Application Using Ant</h5>
+<p>To undeploy the <tt>address-book</tt> application, follow these steps.</p>
+
+<ul>
+<li><b>Enter the following command:</b><pre><tt><b>ant undeploy</b></tt></pre></li></ul>
+         </div>
+         <div class="navigation">
+             <a href="giqsq.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="bnbtg.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

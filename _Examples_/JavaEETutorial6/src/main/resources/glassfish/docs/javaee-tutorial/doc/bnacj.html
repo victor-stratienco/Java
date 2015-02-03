@@ -1,0 +1,492 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Java EE 6 APIs - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level3"><a href="giqvh.html">Java EE 6 Platform Highlights</a></p>
+<p class="toc level3"><a href="bnaax.html">Java EE Application Model</a></p>
+<p class="toc level3"><a href="bnaay.html">Distributed Multitiered Applications</a></p>
+<p class="toc level4"><a href="bnaay.html#bnaba">Security</a></p>
+<p class="toc level4"><a href="bnaay.html#bnabb">Java EE Components</a></p>
+<p class="toc level4"><a href="bnaay.html#bnabc">Java EE Clients</a></p>
+<p class="toc level5"><a href="bnaay.html#bnabd">Web Clients</a></p>
+<p class="toc level5"><a href="bnaay.html#bnabf">Application Clients</a></p>
+<p class="toc level5"><a href="bnaay.html#bnabe">Applets</a></p>
+<p class="toc level5"><a href="bnaay.html#bnabg">The JavaBeans Component Architecture</a></p>
+<p class="toc level5"><a href="bnaay.html#bnabh">Java EE Server Communications</a></p>
+<p class="toc level4 tocsp"><a href="bnaay.html#bnabj">Web Components</a></p>
+<p class="toc level4"><a href="bnaay.html#bnabk">Business Components</a></p>
+<p class="toc level4"><a href="bnaay.html#bnabl">Enterprise Information System Tier</a></p>
+<p class="toc level3 tocsp"><a href="bnabo.html">Java EE Containers</a></p>
+<p class="toc level4"><a href="bnabo.html#bnabp">Container Services</a></p>
+<p class="toc level4"><a href="bnabo.html#bnabq">Container Types</a></p>
+<p class="toc level3 tocsp"><a href="bnabs.html">Web Services Support</a></p>
+<p class="toc level4"><a href="bnabs.html#bnabt">XML</a></p>
+<p class="toc level4"><a href="bnabs.html#bnabu">SOAP Transport Protocol</a></p>
+<p class="toc level4"><a href="bnabs.html#bnabv">WSDL Standard Format</a></p>
+<p class="toc level3 tocsp"><a href="bnabx.html">Java EE Application Assembly and Deployment</a></p>
+<p class="toc level3"><a href="bnaby.html">Packaging Applications</a></p>
+<p class="toc level3"><a href="bnaca.html">Development Roles</a></p>
+<p class="toc level4"><a href="bnaca.html#bnacb">Java EE Product Provider</a></p>
+<p class="toc level4"><a href="bnaca.html#bnacc">Tool Provider</a></p>
+<p class="toc level4"><a href="bnaca.html#bnacd">Application Component Provider</a></p>
+<p class="toc level5"><a href="bnaca.html#bnace">Enterprise Bean Developer</a></p>
+<p class="toc level5"><a href="bnaca.html#bnacf">Web Component Developer</a></p>
+<p class="toc level5"><a href="bnaca.html#bnacg">Application Client Developer</a></p>
+<p class="toc level4 tocsp"><a href="bnaca.html#bnach">Application Assembler</a></p>
+<p class="toc level4"><a href="bnaca.html#bnaci">Application Deployer and Administrator</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">Java EE 6 APIs</a></p>
+<p class="toc level4"><a href="#bnacl">Enterprise JavaBeans Technology</a></p>
+<p class="toc level4"><a href="#bnacm">Java Servlet Technology</a></p>
+<p class="toc level4"><a href="#bnacp">JavaServer Faces Technology</a></p>
+<p class="toc level4"><a href="#bnacn">JavaServer Pages Technology</a></p>
+<p class="toc level4"><a href="#bnaco">JavaServer Pages Standard Tag Library</a></p>
+<p class="toc level4"><a href="#bnadb">Java Persistence API</a></p>
+<p class="toc level4"><a href="#bnacr">Java Transaction API</a></p>
+<p class="toc level4"><a href="#girbt">Java API for RESTful Web Services</a></p>
+<p class="toc level4"><a href="#gjxsd">Managed Beans</a></p>
+<p class="toc level4"><a href="#gjxvo">Contexts and Dependency Injection for the Java EE Platform (JSR 299)</a></p>
+<p class="toc level4"><a href="#gjxvg">Dependency Injection for Java (JSR 330)</a></p>
+<p class="toc level4"><a href="#gjxty">Bean Validation</a></p>
+<p class="toc level4"><a href="#bnacq">Java Message Service API</a></p>
+<p class="toc level4"><a href="#bnacz">Java EE Connector Architecture</a></p>
+<p class="toc level4"><a href="#bnacs">JavaMail API</a></p>
+<p class="toc level4"><a href="#girbe">Java Authorization Contract for Containers</a></p>
+<p class="toc level4"><a href="#girgp">Java Authentication Service Provider Interface for Containers</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="girdr.html">Java EE 6 APIs in the Java Platform, Standard Edition 6.0</a></p>
+<p class="toc level4"><a href="girdr.html#bnada">Java Database Connectivity API</a></p>
+<p class="toc level4"><a href="girdr.html#bnadc">Java Naming and Directory Interface API</a></p>
+<p class="toc level4"><a href="girdr.html#bnact">JavaBeans Activation Framework</a></p>
+<p class="toc level4"><a href="girdr.html#bnacu">Java API for XML Processing</a></p>
+<p class="toc level4"><a href="girdr.html#bnacw">Java Architecture for XML Binding</a></p>
+<p class="toc level4"><a href="girdr.html#bnacx">SOAP with Attachments API for Java</a></p>
+<p class="toc level4"><a href="girdr.html#bnacv">Java API for XML Web Services</a></p>
+<p class="toc level4"><a href="girdr.html#bnadd">Java Authentication and Authorization Service</a></p>
+<p class="toc level3 tocsp"><a href="bnadf.html">GlassFish Server 3.0.1 Tools</a></p>
+<p class="toc level2 tocsp"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bnaca.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="girdr.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bnacj"></a><h3>Java EE 6 APIs</h3>
+<a name="indexterm-66"></a><p><a href="#bnack">Figure&nbsp;1-7</a> shows the relationships among the Java EE containers.</p>
+
+<a name="bnack"></a><h6>Figure&nbsp;1-7 Java EE Containers</h6><img src="figures/overview-architecture-containers.gif" alt="Diagram of Java EE containers and their relationships"></img><p><a href="#gjqmg">Figure&nbsp;1-8</a> shows the availability of the Java EE 6 APIs in the web
+container.</p>
+
+<a name="gjqmg"></a><h6>Figure&nbsp;1-8 Java EE APIs in the Web Container</h6><img src="figures/overview-architecture-web.gif" alt="Diagram of Java EE APIs in the web container"></img><p><a href="#gjqmn">Figure&nbsp;1-9</a> shows the availability of the Java EE 6 APIs in the EJB
+container.</p>
+
+<a name="gjqmn"></a><h6>Figure&nbsp;1-9 Java EE APIs in the EJB Container</h6><img src="figures/overview-architecture-ejb.gif" alt="Diagram of Java EE APIs in the EJB container"></img><p><a href="#gjqnh">Figure&nbsp;1-10</a> shows the availability of the Java EE 6 APIs in the application
+client container.</p>
+
+<a name="gjqnh"></a><h6>Figure&nbsp;1-10 Java EE APIs in the Application Client Container</h6><img src="figures/overview-architecture-acc.gif" alt="Diagram of Java EE APIs in the application client container"></img><p>The following sections give a brief summary of the technologies required by the
+Java EE platform and the APIs used in Java EE applications.</p>
+
+
+
+<a name="bnacl"></a><h4>Enterprise JavaBeans Technology</h4>
+<a name="indexterm-67"></a><p>An Enterprise JavaBeans (EJB) component, or <b>enterprise bean</b>, is a body of code having
+fields and methods to implement modules of business logic. You can think of
+an enterprise bean as a building block that can be used alone or
+with other enterprise beans to execute business logic on the Java EE server.</p>
+
+<p><a name="indexterm-68"></a><a name="indexterm-69"></a>Enterprise beans are of two types: session beans and message-driven beans.</p>
+
+
+<ul><li><p>A <b>session bean</b> represents a transient conversation with a client. When the client finishes executing, the session bean and its data are gone.</p>
+
+</li>
+<li><p>A <b>message-driven bean</b> combines features of a session bean and a message listener, allowing a business component to receive messages asynchronously. Commonly, these are Java Message Service (JMS) messages.</p>
+
+</li></ul>
+<p>In the Java EE 6 platform, new enterprise bean features include the following:</p>
+
+
+<ul><li><p>The ability to package local enterprise beans in a WAR file</p>
+
+</li>
+<li><p>Singleton session beans, which provide easy access to shared state</p>
+
+</li>
+<li><p>A lightweight subset of Enterprise JavaBeans functionality (EJB Lite) that can be provided within Java EE Profiles, such as the Java EE Web Profile.</p>
+
+</li></ul>
+<p>The Interceptors specification, which is part of the EJB 3.1 specification, makes more
+generally available the interceptor facility originally defined as part of the EJB 3.0 specification.</p>
+
+
+
+<a name="bnacm"></a><h4>Java Servlet Technology</h4>
+<a name="indexterm-70"></a><a name="indexterm-71"></a><p>Java Servlet technology lets you define HTTP-specific servlet classes. A servlet class extends
+the capabilities of servers that host applications that are accessed by way of
+a request-response programming model. Although servlets can respond to any type of request,
+they are commonly used to extend the applications hosted by web servers.</p>
+
+<p>In the Java EE 6 platform, new Java Servlet technology features include the
+following:</p>
+
+
+<ul><li><p>Annotation support</p>
+
+</li>
+<li><p>Asynchronous support</p>
+
+</li>
+<li><p>Ease of configuration</p>
+
+</li>
+<li><p>Enhancements to existing APIs</p>
+
+</li>
+<li><p>Pluggability</p>
+
+</li></ul>
+
+
+<a name="bnacp"></a><h4>JavaServer Faces Technology</h4>
+<a name="indexterm-72"></a><p>JavaServer Faces technology is a user interface framework for building web applications. The
+main components of JavaServer Faces technology are as follows:</p>
+
+
+<ul><li><p>A GUI component framework.</p>
+
+</li>
+<li><p>A flexible model for rendering components in different kinds of HTML or different markup languages and technologies. A <tt>Renderer</tt> object generates the markup to render the component and converts the data stored in a model object to types that can be represented in a view.</p>
+
+</li>
+<li><p>A standard <tt>RenderKit</tt> for generating HTML/4.01 markup.</p>
+
+</li></ul>
+<p>The following features support the GUI components:</p>
+
+
+<ul><li><p>Input validation</p>
+
+</li>
+<li><p>Event handling</p>
+
+</li>
+<li><p>Data conversion between model objects and components</p>
+
+</li>
+<li><p>Managed model object creation</p>
+
+</li>
+<li><p>Page navigation configuration</p>
+
+</li>
+<li><p>Expression Language (EL)</p>
+
+</li></ul>
+<p>All this functionality is available using standard Java APIs and XML-based configuration files.</p>
+
+<p>In the Java EE 6 platform, new features of JavaServer Faces include the
+following:</p>
+
+
+<ul><li><p>The ability to use annotations instead of a configuration file to specify managed beans</p>
+
+</li>
+<li><p>Facelets, a display technology that replaces JavaServer Pages (JSP) technology using XHTML files</p>
+
+</li>
+<li><p>Ajax support</p>
+
+</li>
+<li><p>Composite components</p>
+
+</li>
+<li><p>Implicit navigation</p>
+
+</li></ul>
+
+
+<a name="bnacn"></a><h4>JavaServer Pages Technology</h4>
+<p>JavaServer Pages (JSP) technology lets you put snippets of servlet code directly into
+a text-based document. A JSP page is a text-based document that contains two
+types of text:</p>
+
+
+<ul><li><p>Static data, which can be expressed in any text-based format such as HTML, WML, and XML</p>
+
+</li>
+<li><p>JSP elements, which determine how the page constructs dynamic content</p>
+
+</li></ul>
+
+
+<a name="bnaco"></a><h4>JavaServer Pages Standard Tag Library</h4>
+<a name="indexterm-73"></a><a name="indexterm-74"></a><p>The JavaServer Pages Standard Tag Library (JSTL) encapsulates core functionality common to many
+JSP applications. Instead of mixing tags from numerous vendors in your JSP applications,
+you use a single, standard set of tags. This standardization allows you to
+deploy your applications on any JSP container that supports JSTL and makes it
+more likely that the implementation of the tags is optimized.</p>
+
+<p>JSTL has iterator and conditional tags for handling flow control, tags for manipulating
+XML documents, internationalization tags, tags for accessing databases using SQL, and commonly used
+functions.</p>
+
+
+
+<a name="bnadb"></a><h4>Java Persistence API</h4>
+<a name="indexterm-75"></a><p>The Java Persistence API is a Java standards-based solution for persistence. Persistence uses
+an object/relational mapping approach to bridge the gap between an object-oriented model and
+a relational database. The Java Persistence API can also be used in Java
+SE applications, outside of the Java EE environment. Java Persistence consists of the
+following areas:</p>
+
+
+<ul><li><p>The Java Persistence API</p>
+
+</li>
+<li><p>The query language</p>
+
+</li>
+<li><p>Object/relational mapping metadata</p>
+
+</li></ul>
+
+
+<a name="bnacr"></a><h4>Java Transaction API</h4>
+<a name="indexterm-76"></a><a name="indexterm-77"></a><p>The Java Transaction API (JTA) provides a standard interface for demarcating transactions. The
+Java EE architecture provides a default auto commit to handle transaction commits and
+rollbacks. An <b>auto commit</b> means that any other applications that are viewing data will
+see the updated data after each database read or write operation. However, if
+your application performs two separate database access operations that depend on each other, you
+will want to use the JTA API to demarcate where the entire
+transaction, including both operations, begins, rolls back, and commits.</p>
+
+
+
+<a name="girbt"></a><h4>Java API for RESTful Web Services</h4>
+<a name="indexterm-78"></a><a name="indexterm-79"></a><p>The Java API for RESTful Web Services (JAX-RS) defines APIs for the development
+of web services built according to the Representational State Transfer (REST) architectural style. A
+JAX-RS application is a web application that consists of classes that are packaged
+as a servlet in a WAR file along with required libraries.</p>
+
+<p>The JAX-RS API is new to the Java EE 6 platform.</p>
+
+
+
+<a name="gjxsd"></a><h4>Managed Beans</h4>
+<a name="indexterm-80"></a><p>Managed Beans, lightweight container-managed objects (POJOs) with minimal requirements, support a small set
+of basic services, such as resource injection, lifecycle callbacks, and interceptors. Managed Beans
+represent a generalization of the managed beans specified by JavaServer Faces technology. They
+can be used anywhere in a Java EE application, not just in web
+modules.</p>
+
+<p>The managed beans specification is part of the Java EE 6 platform specification
+(JSR 316).</p>
+
+<p>Managed Beans are new to the Java EE 6 platform.</p>
+
+
+
+<a name="gjxvo"></a><h4>Contexts and Dependency Injection for the Java EE Platform (JSR 299)</h4>
+<a name="indexterm-81"></a><p>Contexts and Dependency Injection for the Java EE Platform (CDI) defines a set
+of contextual services, provided by Java EE containers, that make it easy for
+developers to use enterprise beans along with JavaServer Faces technology in web applications.
+Designed for use with stateful objects, CDU also has many broader uses, allowing
+developers a great deal of flexibility to integrate different kinds of components in
+a loosely coupled but type-safe way.</p>
+
+<p>CDI is new to the Java EE 6 platform.</p>
+
+
+
+<a name="gjxvg"></a><h4>Dependency Injection for Java (JSR 330)</h4>
+<a name="indexterm-82"></a><p>Dependency Injection for Java defines a standard set of annotations (and one interface)
+for use on injectable classes.</p>
+
+<p>In the Java EE platform, CDI provides support for Dependency Injection. Specifically, you
+can use DI injection points only in a CDI-enabled application.</p>
+
+<p>Dependency Injection for Java is new to the Java EE 6 platform.</p>
+
+
+
+<a name="gjxty"></a><h4>Bean Validation</h4>
+<a name="indexterm-83"></a><p>The Bean Validation specification defines a metadata model and API for validating data
+in JavaBeans components. Instead of distributing validation of data over several layers, such
+as the browser and the server side, you can define the validation constraints
+in one place and share them across the different layers.</p>
+
+<p>Bean Validation is new to the Java EE 6 platform.</p>
+
+
+
+<a name="bnacq"></a><h4>Java Message Service API</h4>
+<a name="indexterm-84"></a><p>The Java Message Service (JMS) API is a messaging standard that allows Java
+EE application components to create, send, receive, and read messages. It enables distributed
+communication that is loosely coupled, reliable, and asynchronous.</p>
+
+
+
+<a name="bnacz"></a><h4>Java EE Connector Architecture</h4>
+<a name="indexterm-85"></a><a name="indexterm-86"></a><a name="indexterm-87"></a><p>The Java EE Connector architecture is used by tools vendors and system integrators
+to create resource adapters that support access to enterprise information systems that can
+be plugged in to any Java EE product. A <b>resource adapter</b> is a
+software component that allows Java EE application components to access and interact with
+the underlying resource manager of the EIS. Because a resource adapter is specific
+to its resource manager, a different resource adapter typically exists for each type of
+database or enterprise information system.</p>
+
+<p>The Java EE Connector architecture also provides a performance-oriented, secure, scalable, and message-based
+transactional integration of Java EE based web services with existing EISs that can
+be either synchronous or asynchronous. Existing applications and EISs integrated through the Java
+EE Connector architecture into the Java EE platform can be exposed as XML-based
+web services by using JAX-WS and Java EE component models. Thus JAX-WS and
+the Java EE Connector architecture are complementary technologies for enterprise application integration (EAI)
+and end-to-end business integration.</p>
+
+
+
+<a name="bnacs"></a><h4>JavaMail API</h4>
+<a name="indexterm-88"></a><p>Java EE applications use the JavaMail API to send email notifications. The JavaMail
+API has two parts: </p>
+
+
+<ul><li><p>An application-level interface used by the application components to send mail</p>
+
+</li>
+<li><p>A service provider interface</p>
+
+</li></ul>
+<p>The Java EE platform includes the JavaMail API with a service provider that
+allows application components to send Internet mail.</p>
+
+
+
+<a name="girbe"></a><h4>Java Authorization Contract for Containers</h4>
+<a name="indexterm-89"></a><a name="indexterm-90"></a><p>The Java Authorization Contract for Containers (JACC) specification defines a contract between a
+Java EE application server and an authorization policy provider. All Java EE containers
+support this contract.</p>
+
+<p>The JACC specification defines <tt>java.security.Permission</tt> classes that satisfy the Java EE authorization model.
+The specification defines the binding of container access decisions to operations on instances
+of these permission classes. It defines the semantics of policy providers that use
+the new permission classes to address the authorization requirements of the Java EE
+platform, including the definition and use of roles.</p>
+
+
+
+<a name="girgp"></a><h4>Java Authentication Service Provider Interface for Containers</h4>
+<a name="indexterm-91"></a><a name="indexterm-92"></a><p>The Java Authentication Service Provider Interface for Containers (JASPIC) specification defines a service
+provider interface (SPI) by which authentication providers that implement message authentication mechanisms may
+be integrated in client or server message-processing containers or runtimes. Authentication providers integrated through
+this interface operate on network messages provided to them by their calling container.
+The authentication providers transform outgoing messages so that the source of the message
+can be authenticated by the receiving container, and the recipient of the message
+can be authenticated by the message sender. Authentication providers authenticate incoming messages and return
+to their calling container the identity established as a result of the message
+authentication.</p>
+
+<p>JASPIC is new to the Java EE 6 platform.</p>
+
+
+         </div>
+         <div class="navigation">
+             <a href="bnaca.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="girdr.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

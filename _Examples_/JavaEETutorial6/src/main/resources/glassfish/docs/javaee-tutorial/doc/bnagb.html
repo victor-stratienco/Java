@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Filtering Requests and Responses - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level3"><a href="bnafe.html">What Is a Servlet?</a></p>
+<p class="toc level3"><a href="bnafi.html">Servlet Life Cycle</a></p>
+<p class="toc level4"><a href="bnafi.html#bnafj">Handling Servlet Life-Cycle Events</a></p>
+<p class="toc level5"><a href="bnafi.html#bnafk">Defining the Listener Class</a></p>
+<p class="toc level5"><a href="bnafi.html#bnafm">To Specify an Event Listener Class</a></p>
+<p class="toc level4 tocsp"><a href="bnafi.html#bnafn">Handling Servlet Errors</a></p>
+<p class="toc level3 tocsp"><a href="bnafo.html">Sharing Information</a></p>
+<p class="toc level4"><a href="bnafo.html#bnafp">Using Scope Objects</a></p>
+<p class="toc level4"><a href="bnafo.html#bnafs">Controlling Concurrent Access to Shared Resources</a></p>
+<p class="toc level3 tocsp"><a href="bnafu.html">Initializing a Servlet</a></p>
+<p class="toc level3"><a href="bnafv.html">Writing Service Methods</a></p>
+<p class="toc level4"><a href="bnafv.html#bnafw">Getting Information from Requests</a></p>
+<p class="toc level4"><a href="bnafv.html#bnafz">Constructing Responses</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">Filtering Requests and Responses</a></p>
+<p class="toc level4"><a href="#bnagc">Programming Filters</a></p>
+<p class="toc level4"><a href="#bnagd">Programming Customized Requests and Responses</a></p>
+<p class="toc level4"><a href="#bnagf">Specifying Filter Mappings</a></p>
+<p class="toc level5"><a href="#gjslc">To Specify Filter Mappings Using NetBeans IDE</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="bnagi.html">Invoking Other Web Resources</a></p>
+<p class="toc level4"><a href="bnagi.html#bnagj">Including Other Resources in the Response</a></p>
+<p class="toc level4"><a href="bnagi.html#bnagk">Transferring Control to Another Web Component</a></p>
+<p class="toc level3 tocsp"><a href="bnagl.html">Accessing the Web Context</a></p>
+<p class="toc level3"><a href="bnagm.html">Maintaining Client State</a></p>
+<p class="toc level4"><a href="bnagm.html#bnagn">Accessing a Session</a></p>
+<p class="toc level4"><a href="bnagm.html#bnago">Associating Objects with a Session</a></p>
+<p class="toc level4"><a href="bnagm.html#bnagq">Session Management</a></p>
+<p class="toc level5"><a href="bnagm.html#gentextid-8684">To Set the Timeout Period Using NetBeans IDE</a></p>
+<p class="toc level4 tocsp"><a href="bnagm.html#bnagr">Session Tracking</a></p>
+<p class="toc level3 tocsp"><a href="bnags.html">Finalizing a Servlet</a></p>
+<p class="toc level4"><a href="bnags.html#bnagt">Tracking Service Requests</a></p>
+<p class="toc level4"><a href="bnags.html#bnagu">Notifying Methods to Shut Down</a></p>
+<p class="toc level4"><a href="bnags.html#bnagv">Creating Polite Long-Running Methods</a></p>
+<p class="toc level3 tocsp"><a href="bnagw.html">Further Information about Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bnafv.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="bnagi.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bnagb"></a><h3>Filtering Requests and Responses</h3>
+<p><a name="indexterm-734"></a>A <b>filter</b> is an object that can transform the header and content (or
+both) of a request or response. Filters differ from web components in that
+filters usually do not themselves create a response. Instead, a filter provides functionality that
+can be &ldquo;attached&rdquo; to any kind of web resource. Consequently, a filter should
+not have any dependencies on a web resource for which it is acting
+as a filter; this way it can be composed with more than
+one type of web resource. </p>
+
+<p>The main tasks that a filter can perform are as follows:</p>
+
+
+<ul><li><p>Query the request and act accordingly.</p>
+
+</li>
+<li><p>Block the request-and-response pair from passing any further.</p>
+
+</li>
+<li><p>Modify the request headers and data. You do this by providing a customized version of the request.</p>
+
+</li>
+<li><p>Modify the response headers and data. You do this by providing a customized version of the response.</p>
+
+</li>
+<li><p>Interact with external resources.</p>
+
+</li></ul>
+<p>Applications of filters include authentication, logging, image conversion, data compression, encryption, tokenizing streams,
+XML transformations, and so on.</p>
+
+<p>You can configure a web resource to be filtered by a chain
+of zero, one, or more filters in a specific order. This chain is
+specified when the web application containing the component is deployed and is instantiated
+when a web container loads the component.</p>
+
+
+
+<a name="bnagc"></a><h4>Programming Filters</h4>
+<p><a name="indexterm-735"></a><a name="indexterm-736"></a><a name="indexterm-737"></a><a name="indexterm-738"></a>The filtering API is defined by the <tt>Filter</tt>, <tt>FilterChain</tt>, and <tt>FilterConfig</tt> interfaces in the
+<tt>javax.servlet</tt> package. You define a filter by implementing the <tt>Filter</tt> interface. </p>
+
+<p>The most important method in this interface is <tt>doFilter</tt>, which is passed request,
+response, and filter chain objects. This method can perform the following actions:</p>
+
+
+<ul><li><p>Examine the request headers.</p>
+
+</li>
+<li><p>Customize the request object if the filter wishes to modify request headers or data.</p>
+
+</li>
+<li><p>Customize the response object if the filter wishes to modify response headers or data.</p>
+
+</li>
+<li><p>Invoke the next entity in the filter chain. If the current filter is the last filter in the chain that ends with the target web component or static resource, the next entity is the resource at the end of the chain; otherwise, it is the next filter that was configured in the WAR. The filter invokes the next entity by calling the <tt>doFilter</tt> method on the chain object (passing in the request and response it was called with, or the wrapped versions it may have created). Alternatively, it can choose to block the request by not making the call to invoke the next entity. In the latter case, the filter is responsible for filling out the response.</p>
+
+</li>
+<li><p>Examine response headers after it has invoked the next filter in the chain.</p>
+
+</li>
+<li><p>Throw an exception to indicate an error in processing.</p>
+
+</li></ul>
+<p><a name="indexterm-739"></a>In addition to <tt>doFilter</tt>, you must implement the <tt>init</tt> and <tt>destroy</tt> methods. The
+<tt>init</tt> method is called by the container when the filter is instantiated. If
+you wish to pass initialization parameters to the filter, you retrieve them from
+the <tt>FilterConfig</tt> object passed to <tt>init</tt>.</p>
+
+
+
+<a name="bnagd"></a><h4>Programming Customized Requests and Responses</h4>
+<p><a name="indexterm-740"></a><a name="indexterm-741"></a>There are many ways for a filter to modify a request or
+response. For example, a filter can add an attribute to the request or
+can insert data in the response.</p>
+
+<p>A filter that modifies a response must usually capture the response before it
+is returned to the client. To do this, you pass a stand-in
+stream to the servlet that generates the response. The stand-in stream prevents the servlet
+from closing the original response stream when it completes and allows the filter
+to modify the servlet&rsquo;s response.</p>
+
+<p><a name="indexterm-742"></a>To pass this stand-in stream to the servlet, the filter creates a response
+wrapper that overrides the <tt>getWriter</tt> or <tt>getOutputStream</tt> method to return this stand-in
+stream. The wrapper is passed to the <tt>doFilter</tt> method of the filter chain.
+Wrapper methods default to calling through to the wrapped request or response object.</p>
+
+<p><a name="indexterm-743"></a><a name="indexterm-744"></a>To override request methods, you wrap the request in an object that extends
+<tt>ServletRequestWrapper</tt> or <tt>HttpServletRequestWrapper</tt>. To override response methods, you wrap the response in an
+object that extends <tt>ServletResponseWrapper</tt> or <tt>HttpServletResponseWrapper</tt>.</p>
+
+
+
+<a name="bnagf"></a><h4>Specifying Filter Mappings</h4>
+<p><a name="indexterm-745"></a><a name="indexterm-746"></a><a name="indexterm-747"></a><a name="indexterm-748"></a>A web container uses filter mappings to decide how to apply filters to
+web resources. A filter mapping matches a filter to a web component by
+name, or to web resources by URL pattern. The filters are invoked in
+the order in which filter mappings appear in the filter mapping list of
+a WAR. You specify a filter mapping list for a WAR in its
+deployment descriptor, either with NetBeans IDE or by coding the list by hand
+with XML.</p>
+
+<p>If you want to log every request to a web application, you
+map the hit counter filter to the URL pattern <tt>/*</tt>.</p>
+
+<p>You can map a filter to one or more web resources and
+you can map more than one filter to a web resource. This is
+illustrated in <a href="#bnagh">Figure&nbsp;10-1</a>, where filter F1 is mapped to servlets S1, S2, and
+S3, filter F2 is mapped to servlet S2, and filter F3 is mapped
+to servlets S1 and S2.</p>
+
+<a name="bnagh"></a><h6>Figure&nbsp;10-1 Filter-to-Servlet Mapping</h6><img src="figures/web-filterMapping.gif" alt="Diagram of filter-to-servlet mapping with filters F1-F3 and servlets S1-S3. F1 filters S1-S3, then F2 filters S2, then F3 filters S1 and S2."></img><p><a name="indexterm-749"></a><a name="indexterm-750"></a>Recall that a filter chain is one of the objects passed to the
+<tt>doFilter</tt> method of a filter. This chain is formed indirectly by means of
+filter mappings. The order of the filters in the chain is the same
+as the order in which filter mappings appear in the web application deployment
+descriptor.</p>
+
+<p>When a filter is mapped to servlet S1, the web container invokes
+the <tt>doFilter</tt> method of F1. The <tt>doFilter</tt> method of each filter in S1&rsquo;s
+filter chain is invoked by the preceding filter in the chain by means
+of the <tt>chain.doFilter</tt> method. Because S1&rsquo;s filter chain contains filters F1 and F3,
+F1&rsquo;s call to <tt>chain.doFilter</tt> invokes the <tt>doFilter</tt> method of filter F3. When F3&rsquo;s
+<tt>doFilter</tt> method completes, control returns to F1&rsquo;s <tt>doFilter</tt> method.</p>
+
+
+
+<a name="gjslc"></a><h5>To Specify Filter Mappings Using NetBeans IDE</h5>
+<p>To declare a filter and map it to a web resource using
+NetBeans IDE, do the following:</p>
+
+<ol>
+<li><b>Expand the application&rsquo;s project node in the Project pane.</b></li>
+<li><b>Expand the Web Pages and WEB-INF nodes under the project node.</b></li>
+<li><b>Double-click <tt>web.xml</tt>.</b></li>
+<li><b>Click Filters at the top of the editor pane.</b></li>
+<li><b>Expand the Servlet Filters node in the editor pane.</b></li>
+<li><b>Click Add Filter Element to map the filter to a web resource
+by name or by URL pattern.</b></li>
+<li><b>In the Add Servlet Filter dialog, enter the name of the filter in
+the Filter Name field.</b></li>
+<li><b>Click Browse to locate the servlet class to which the filter applies.</b><p>You can include wildcard characters so that you can apply the filter to
+more than one servlet.</p></li>
+<li><b>Click OK.</b></li>
+<li><b>To constrain how the filter is applied to requests, follow these steps.</b><ol style="list-style-type: lower-alpha">
+<li><b>Expand the Filter Mappings node.</b></li>
+<li><b>Select the filter from the list of filters.</b></li>
+<li><b>Click Add.</b></li>
+<li><b>In the Add Filter Mapping dialog, select one of the following dispatcher types:</b>
+<ul><li><p><tt>REQUEST</tt>: Only when the request comes directly from the client</p>
+
+</li>
+<li><p><tt>FORWARD</tt>: Only when the request has been forwarded to a component (see <a href="bnagi.html#bnagk">Transferring Control to Another Web Component</a>)</p>
+
+</li>
+<li><p><tt>INCLUDE</tt>: Only when the request is being processed by a component that has been included (see <a href="bnagi.html#bnagj">Including Other Resources in the Response</a>)</p>
+
+</li>
+<li><p><tt>ERROR</tt>: Only when the request is being processed with the error page mechanism (see <a href="bnafi.html#bnafn">Handling Servlet Errors</a>)</p>
+
+<p>You can direct the filter to be applied to any combination of the preceding situations by selecting multiple dispatcher types. If no types are specified, the default option is <tt>REQUEST</tt>.</p>
+
+</li></ul>
+</li></ol></li></ol>
+         </div>
+         <div class="navigation">
+             <a href="bnafv.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="bnagi.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Setting Up a Page - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3"><a href="">Setting Up a Page</a></p>
+</div>
+<p class="toc level3"><a href="bnarf.html">Adding Components to a Page Using HTML Tags</a></p>
+<p class="toc level4"><a href="bnarf.html#bnarg">Common Component Tag Attributes</a></p>
+<p class="toc level5"><a href="bnarf.html#bnarh">The <tt>id</tt> Attribute</a></p>
+<p class="toc level5"><a href="bnarf.html#bnari">The <tt>immediate</tt> Attribute</a></p>
+<p class="toc level5"><a href="bnarf.html#bnarj">The <tt>rendered</tt> Attribute</a></p>
+<p class="toc level5"><a href="bnarf.html#bnark">The <tt>style</tt> and <tt>styleClass</tt> Attributes</a></p>
+<p class="toc level5"><a href="bnarf.html#bnarl">The <tt>value</tt> and <tt>binding</tt> Attributes</a></p>
+<p class="toc level4 tocsp"><a href="bnarf.html#gjdgq">HTML Head and Body Tags</a></p>
+<p class="toc level4"><a href="bnarf.html#bnarm">Form Components</a></p>
+<p class="toc level4"><a href="bnarf.html#bnaro">Using Text Components</a></p>
+<p class="toc level5"><a href="bnarf.html#bnarr">Rendering a Text Field With the <tt>inputText</tt> Tag</a></p>
+<p class="toc level5"><a href="bnarf.html#bnarv">Rendering a Password Field With the <tt>inputSecret</tt> Tag</a></p>
+<p class="toc level5"><a href="bnarf.html#bnars">Rendering a Label With the <tt>outputLabel</tt> Tag</a></p>
+<p class="toc level5"><a href="bnarf.html#bnart">Rendering a Hyperlink With the <tt>h:outputLink</tt> Tag</a></p>
+<p class="toc level5"><a href="bnarf.html#bnaru">Displaying a Formatted Message With the <tt>h:outputFormat</tt> Tag</a></p>
+<p class="toc level4 tocsp"><a href="bnarf.html#bnarw">Using Command Components for Performing Actions and Navigation</a></p>
+<p class="toc level5"><a href="bnarf.html#bnarx">Rendering a Button With the <tt>h:commandButton</tt> Tag</a></p>
+<p class="toc level5"><a href="bnarf.html#bnary">Rendering a Hyperlink With the <tt>h:commandLink</tt> Tag</a></p>
+<p class="toc level4 tocsp"><a href="bnarf.html#bnasb">Adding Graphics and Images With the <tt>h:graphicImage</tt> Tag</a></p>
+<p class="toc level4"><a href="bnarf.html#bnasc">Laying Out Components With the <tt>Panel</tt> Component</a></p>
+<p class="toc level4"><a href="bnarf.html#bnase">Displaying Components for Selecting One Value</a></p>
+<p class="toc level5"><a href="bnarf.html#bnasg">Displaying a Check Box Using the <tt>h:selectBooleanCheckbox</tt> Tag</a></p>
+<p class="toc level5"><a href="bnarf.html#bnash">Displaying a Menu Using the <tt>h:selectOneMenu</tt> Tag</a></p>
+<p class="toc level4 tocsp"><a href="bnarf.html#bnasi">Rendering Components for Selecting Multiple Values</a></p>
+<p class="toc level4"><a href="bnarf.html#bnask">Using the <tt>SelectItem</tt> and <tt>SelectItems</tt> Components</a></p>
+<p class="toc level5"><a href="bnarf.html#bnasm">Using the <tt>f:selectItems</tt> Tag</a></p>
+<p class="toc level5"><a href="bnarf.html#bnasn">Using the <tt>f:selectItem</tt> Tag</a></p>
+<p class="toc level4 tocsp"><a href="bnarf.html#bnarz">Using Data-Bound Table Components</a></p>
+<p class="toc level4"><a href="bnarf.html#bnaso">Displaying Error Messages With the <tt>h:message</tt> and <tt>h:messages</tt> Tags</a></p>
+<p class="toc level4"><a href="bnarf.html#giqzd">Creating Bookmarkable URLs With <tt>h:button</tt> and <tt>h:link</tt> Tags</a></p>
+<p class="toc level4"><a href="bnarf.html#giqwq">Using View Parameters to Configure Bookmarkable URLs</a></p>
+<p class="toc level4"><a href="bnarf.html#gjgep">Resource Relocation Using <tt>h:output</tt> Tags</a></p>
+<p class="toc level3 tocsp"><a href="bnarc.html">Using <tt>core</tt> Tags</a></p>
+<p class="toc level2 tocsp"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bnaqz.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="bnarf.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bnarb"></a><h3>Setting Up a Page</h3>
+<p>A typical JavaServer Faces web page includes the following elements:</p>
+
+
+<ul><li><p>A set of namespace declarations that declare the JavaServer Faces tag libraries</p>
+
+</li>
+<li><p>Optionally, the new HTML head (<tt>h:head</tt>) and body (<tt>h:body</tt>) tags</p>
+
+</li>
+<li><p>A form tag (<tt>h:form</tt>) that represents the user input components</p>
+
+</li></ul>
+<p><a name="indexterm-243"></a><a name="indexterm-244"></a><a name="indexterm-245"></a><a name="indexterm-246"></a>To add the JavaServer Faces components to your web page, you need to
+provide the page access to the two standard tag libraries: The JavaServer Faces
+HTML tag library, and the JavaServer Faces core tag library. The JavaServer Faces
+standard HTML tag library defines tags that represent common HTML user interface components. It
+is linked to the <a href="http://download.oracle.com/docs/cd/E17410_01/javaee/6/javaserverfaces/2.0/docs/renderkitdocs/">HTML render kit</a>. The JavaServer Faces core tag library defines tags
+that perform core actions.</p>
+
+<p>For a complete list of JavaServer Faces Facelets tags and their attributes, refer to
+the documentation at <a href="http://download.oracle.com/docs/cd/E17410_01/javaee/6/javaserverfaces/2.0/docs/pdldocs/facelets/">http://download.oracle.com/docs/cd/E17410_01/javaee/6/javaserverfaces/2.0/docs/pdldocs/facelets/</a>.</p>
+
+<p><a name="indexterm-247"></a>To use any of the JavaServer Faces tags, you need to include appropriate
+directives at the top of each page specifying the tag libraries.</p>
+
+<p>For Facelets applications, the XML namespace directives uniquely identify the tag library <tt>uri</tt>
+and the tag <tt>prefix</tt>.</p>
+
+<p>For example, when creating a Facelets XHTML page, include namespace directives as follows:</p>
+
+<pre>&lt;html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"></pre><p>The XML namespace <tt>uri</tt> identifies the tag library location and the <tt>prefix</tt> value
+is used to distinguish the tags belonging to that specific tag library. You
+can also use other prefixes instead of the standard <tt>h</tt> or <tt>f</tt>. However, when
+including the tag in the page, you must use the prefix that
+you have chosen for the tag library. For example, in the following web
+page, the <tt>form</tt> tag must be referenced using the <tt>h</tt> prefix because the
+preceding tag library directive uses the <tt>h</tt> prefix to distinguish the tags defined
+in HTML tag library:</p>
+
+<pre>&lt;h:form ...></pre><p>The following sections, <a href="bnarf.html">Adding Components to a Page Using HTML Tags</a> and <a href="bnarc.html">Using <tt>core</tt> Tags</a>, describe how to use the component tags
+from the JavaServer Faces standard HTML tag library and the core tags from
+the JavaServer Faces core tag library.</p>
+
+
+         </div>
+         <div class="navigation">
+             <a href="bnaqz.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="bnarf.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

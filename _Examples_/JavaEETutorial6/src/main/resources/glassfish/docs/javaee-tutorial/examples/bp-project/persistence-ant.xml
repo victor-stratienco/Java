@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="persistence-ant" default="dummy-default">
+    <property file="${ant.file.persistence-ant}/../persistence.properties"/>
+
+
+    <target name="-pre-metamodel-generate" depends="-pre-metamodel-generate-ant, -pre-metamodel-generate-nb" />
+
+    <target name="-pre-metamodel-generate-ant" unless="netbeans.home">
+        <path id="metamodel.classpath">
+            <path refid="javaee.classpath" />
+        </path>
+    </target>
+
+    <target name="-pre-metamodel-generate-nb" if="netbeans.home">
+        <path id="metamodel.classpath">
+            <pathelement path="${j2ee.platform.classpath}" />
+            <pathelement path="${javac.classpath}" />
+        </path>
+    </target>
+
+    <target name="metamodel-generate"
+            description="Generates static Metamodel classes for use with Criteria API queries."
+            depends="-pre-metamodel-generate">
+                <echo message="metamodel processor options: ${metamodel.processor.options}" />
+                <echo message="metamodel processor: ${metamodel.processor}" />
+        <mkdir dir="${build.generated.sources.dir}/metamodel"/>
+        <mkdir dir="${build.generated.dir}" />
+        <mkdir dir="${build.classes.dir}/META-INF" />
+        <copy file="${source.root}/conf/persistence.xml" todir="${build.classes.dir}/META-INF" />
+        <javac target="${default.javac.target}"
+               destdir="${build.classes.dir}"
+               excludes="${javac.excludes}"
+               debug="${javac.debug}"
+               debuglevel="${javac.debuglevel}"
+               verbose="${debug}">
+            <compilerarg value="-processor" />
+            <compilerarg value="${metamodel.processor}" />
+            <compilerarg value="-s" />
+            <compilerarg value="${basedir}/${build.generated.sources.dir}/metamodel" />
+            <compilerarg value="-proc:only" compiler="javac1.6" />
+            <!--compilerarg value="-A${metamodel.processor.options}" /-->
+            <classpath refid="metamodel.classpath"/>
+            <src path="${src.dir}" />
+            <include name="${metamodel.entity.package}/**" />
+         </javac>
+    </target>
+
+    <target name="dummy-default"/>
+</project>

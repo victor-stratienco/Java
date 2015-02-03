@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Running the Basic Contexts and Dependency Injection Examples - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level2"><a href="">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+</div>
+<p class="toc level3"><a href="gjbju.html">The <tt>simplegreeting</tt> CDI Example</a></p>
+<p class="toc level4"><a href="gjbju.html#gjcqs">The <tt>simplegreeting</tt> Source Files</a></p>
+<p class="toc level4"><a href="gjbju.html#gjdoj">The Facelets Template and Page</a></p>
+<p class="toc level4"><a href="gjbju.html#gjcvh">Configuration Files</a></p>
+<p class="toc level4"><a href="gjbju.html#gjcym">Building, Packaging, Deploying, and Running the <tt>simplegreeting</tt> CDI Example</a></p>
+<p class="toc level5"><a href="gjbju.html#gjcxp">To Build, Package, and Deploy the <tt>simplegreeting</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="gjbju.html#gjczt">To Build, Package, and Deploy the <tt>simplegreeting</tt> Example Using Ant</a></p>
+<p class="toc level5"><a href="gjbju.html#gjcze">To Run the <tt>simplegreeting</tt> Example</a></p>
+<p class="toc level3 tocsp"><a href="gjcxv.html">The <tt>guessnumber</tt> CDI Example</a></p>
+<p class="toc level4"><a href="gjcxv.html#gjdju">The <tt>guessnumber</tt> Source Files</a></p>
+<p class="toc level5"><a href="gjcxv.html#gjdjp">The <tt>@MaxNumber</tt> and <tt>@Random</tt> Qualifier Interfaces</a></p>
+<p class="toc level5"><a href="gjcxv.html#gjdjn">The <tt>Generator</tt> Managed Bean</a></p>
+<p class="toc level5"><a href="gjcxv.html#gjdhy">The <tt>UserNumberBean</tt> Managed Bean</a></p>
+<p class="toc level4 tocsp"><a href="gjcxv.html#gjdon">The Facelets Page</a></p>
+<p class="toc level4"><a href="gjcxv.html#gjdpw">Building, Packaging, Deploying, and Running the <tt>guessnumber</tt> CDI Example</a></p>
+<p class="toc level5"><a href="gjcxv.html#gjdps">To Build, Package, and Deploy the <tt>guessnumber</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="gjcxv.html#gjdpr">To Build, Package, and Deploy the <tt>guessnumber</tt> Example Using Ant</a></p>
+<p class="toc level5"><a href="gjcxv.html#gjdqb">To Run the <tt>guessnumber</tt> Example</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="giwel.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="gjbju.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             <a name="gjbls"></a><h3>Chapter&nbsp;19</h3><h3>Running the Basic Contexts and Dependency Injection Examples</h3><a name="indexterm-1016"></a><a name="indexterm-1017"></a><p>This chapter describes in detail how to build and run simple examples that
+use Contexts and Dependency Injection for the Java EE Platform (CDI).</p>
+
+<p>The examples are in the following directory:</p>
+
+<p><tt></tt><i>tut-install</i><tt>/examples/cdi/</tt></p>
+
+<p>To build and run the examples, you will do the following:</p>
+
+
+<ol><li><p>Use NetBeans IDE or the Ant tool to compile and package the example.</p>
+
+</li>
+<li><p>Use NetBeans IDE or the Ant tool to deploy the example.</p>
+
+</li>
+<li><p>Run the example in a web browser.</p>
+
+</li></ol>
+<p>Each example has a <tt>build.xml</tt> file that refers to files in the following
+directory:</p>
+
+<p><tt></tt><i>tut-install</i><tt>/examples/bp-project/</tt></p>
+
+<p>See <a href="gfiud.html">Chapter&nbsp;2, Using the Tutorial Examples</a>, for basic information on installing, building, and running the examples.</p>
+
+<p>The following topics are addressed here:</p>
+
+
+<ul><li><p><a href="gjbju.html">The <tt>simplegreeting</tt> CDI Example</a></p>
+
+</li>
+<li><p><a href="gjcxv.html">The <tt>guessnumber</tt> CDI Example</a></p>
+
+</li></ul>
+
+         </div>
+         <div class="navigation">
+             <a href="giwel.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="gjbju.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

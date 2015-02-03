@@ -1,0 +1,435 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Value and Method Expressions - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level3"><a href="bnahq.html">Overview of the EL</a></p>
+<p class="toc level3"><a href="bnahr.html">Immediate and Deferred Evaluation Syntax</a></p>
+<p class="toc level4"><a href="bnahr.html#bnahs">Immediate Evaluation</a></p>
+<p class="toc level4"><a href="bnahr.html#bnaht">Deferred Evaluation</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">Value and Method Expressions</a></p>
+<p class="toc level4"><a href="#bnahv">Value Expressions</a></p>
+<p class="toc level5"><a href="#bnahw">Referencing Objects Using Value Expressions</a></p>
+<p class="toc level5"><a href="#bnahx">Referring to Object Properties Using Value Expressions</a></p>
+<p class="toc level5"><a href="#bnahy">Where Value Expressions Can Be Used</a></p>
+<p class="toc level4 tocsp"><a href="#bnahz">Method Expressions</a></p>
+<p class="toc level5"><a href="#gjhbz">Parameterized Method Calls</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="bnaia.html">Defining a Tag Attribute Type</a></p>
+<p class="toc level3"><a href="bnaid.html">Literal Expressions</a></p>
+<p class="toc level3"><a href="bnaik.html">Operators</a></p>
+<p class="toc level3"><a href="bnail.html">Reserved Words</a></p>
+<p class="toc level3"><a href="bnaim.html">Examples of EL Expressions</a></p>
+<p class="toc level2 tocsp"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bnahr.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="bnaia.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bnahu"></a><h3>Value and Method Expressions</h3>
+<p>The EL defines two kinds of expressions: value expressions and method expressions. Value
+expressions can either yield a value or set a value. Method expressions reference
+methods that can be invoked and can return a value.</p>
+
+
+
+<a name="bnahv"></a><h4>Value Expressions</h4>
+<p><a name="indexterm-227"></a><a name="indexterm-228"></a><a name="indexterm-229"></a>Value expressions can be further categorized into rvalue and lvalue expressions. <b>Rvalue expressions</b> are
+those that can read data, but cannot write it. <b>Lvalue expressions</b> can both
+read and write data.</p>
+
+<p>All expressions that are evaluated immediately use the <tt>${}</tt> delimiters and are always
+rvalue expressions. Expressions whose evaluation can be deferred use the <tt>#{}</tt> delimiters and
+can act as both rvalue and lvalue expressions. Consider the following two value
+expressions:</p>
+
+<pre>${customer.name}</pre><pre>#{customer.name}</pre><p>The former uses immediate evaluation syntax, whereas the latter uses deferred evaluation syntax.
+The first expression accesses the <tt>name</tt> property, gets its value, adds the value
+to the response, and gets rendered on the page. The same can happen
+with the second expression. However, the tag handler can defer the evaluation of
+this expression to a later time in the page lifecycle, if the technology
+using this tag allows.</p>
+
+<p>In the case of JavaServer Faces technology, the latter tag&rsquo;s expression is evaluated
+immediately during an initial request for the page. In this case, this expression
+acts as an rvalue expression. During a postback request, this expression can be
+used to set the value of the <tt>name</tt> property with user input. In
+this case, the expression acts as an lvalue expression.</p>
+
+
+
+<a name="bnahw"></a><h5>Referencing Objects Using Value Expressions</h5>
+<p>Both rvalue and lvalue expressions can refer to the following objects and their
+properties or attributes:</p>
+
+
+<ul><li><p>JavaBeans components</p>
+
+</li>
+<li><p>Collections</p>
+
+</li>
+<li><p>Java SE enumerated types</p>
+
+</li>
+<li><p>Implicit objects</p>
+
+</li></ul>
+<p>To refer to these objects, you write an expression using a variable which
+is the name of the object. The following expression references a backing bean
+(a JavaBeans component) called <tt>customer</tt>.</p>
+
+<pre>${customer}</pre><p>The web container evaluates the variable that appears in an expression by looking
+up its value according to the behavior of <tt>PageContext.findAttribute(String)</tt>, where the <tt>String</tt>
+argument is the name of the variable. For example, when evaluating the expression
+<tt>${customer}</tt>, the container will look for <tt>customer</tt> in the page, request, session, and application
+scopes and will return its value. If <tt>customer</tt> is not found, <tt>null</tt> value
+is returned.</p>
+
+<p>You can alter the way variables are resolved with a custom EL
+resolver. For instance, you can provide an EL resolver that intercepts objects with the
+name <tt>customer</tt>, so that <tt>${customer}</tt> returns a value in the EL resolver instead.</p>
+
+<p>To reference an <tt>enum</tt> constant with an expression, use a <tt>String</tt> literal. For
+example, consider this <tt>Enum</tt> class:</p>
+
+<pre>public enum Suit {hearts, spades, diamonds, clubs}</pre><p>To refer to the <tt>Suit</tt> constant <tt>Suit.hearts</tt> with an expression, use the <tt>String</tt>
+literal, <tt>"hearts"</tt>. Depending on the context, the <tt>String</tt> literal is converted to the <tt>enum</tt>
+constant automatically. For example, in the following expression in which <tt>mySuit</tt> is an
+instance of <tt>Suit</tt>, <tt>"hearts"</tt> is first converted to <tt>Suit.hearts</tt> before it is
+compared to the instance.</p>
+
+<pre>${mySuit == "hearts"}</pre>
+
+<a name="bnahx"></a><h5>Referring to Object Properties Using Value Expressions</h5>
+<p>To refer to properties of a bean or an <tt>enum</tt> instance, items of
+a collection, or attributes of an implicit object, you use the <tt>.</tt>
+or <tt>[]</tt> notation, which is similar to the notation used by <tt>ECMAScript</tt> language.
+For more information on <tt>ECMAScript</tt>, see <a href="http://www.ecmascript.org">http://www.ecmascript.org</a>.</p>
+
+<p>If you want to reference the <tt>name</tt> property of the <tt>customer</tt> bean,
+use either the expression <tt>${customer.name}</tt> or the expression <tt>${customer["name"]}</tt>. The part inside the square
+brackets is a <tt>String</tt> literal that is the name of the property to
+reference.</p>
+
+<p>You can use double or single quotes for the <tt>String</tt> literal. You can
+also combine the <tt>[]</tt> and <tt>.</tt> notations, as shown here:</p>
+
+<pre>${customer.address["street"]}</pre><p>Properties of an <tt>enum</tt> constant can also be referenced in this way. However,
+as with JavaBeans component properties, the properties of an <tt>Enum</tt> class must follow
+JavaBeans component conventions. This means that a property must at least have an
+accessor method called <tt>get&lt;Property></tt> where <tt>&lt;Property></tt> is the name of the property which
+can be referenced by an expression.</p>
+
+<p>For example, consider an <tt>Enum</tt> class that encapsulates the names of the planets
+of our galaxy and includes a method to get the mass of a
+planet. You can use the following expression to reference the method <tt>getMass</tt>
+of the <tt>Planet</tt> <tt>Enum</tt> class:</p>
+
+<pre>${myPlanet.mass}</pre><p>If you are accessing an item in an array or list, you
+must use either a literal value that can be converted to <tt>int</tt> or
+the <tt>[]</tt> notation with an <tt>int</tt> and without quotes. The following examples could
+all resolve to the same item in a list or array, assuming that
+<tt>socks</tt> can be converted to <tt>int</tt>:</p>
+
+
+<ul><li><p><tt>${customer.orders[1]}</tt></p>
+
+</li>
+<li><p><tt>${customer.orders.socks}</tt></p>
+
+</li></ul>
+<p>In contrast, an item in a <tt>Map</tt> can be accessed using a string
+literal key; no coercion is required:</p>
+
+<pre>${customer.orders["socks"]}</pre><p>An rvalue expression also refers directly to values that are not objects, such
+as the result of arithmetic operations and literal values, as shown by these
+examples:</p>
+
+
+<ul><li><p><tt>${"literal"}</tt></p>
+
+</li>
+<li><p><tt>${customer.age + 20}</tt></p>
+
+</li>
+<li><p><tt>${true}</tt></p>
+
+</li>
+<li><p><tt>${57}</tt></p>
+
+</li></ul>
+<p><a name="indexterm-230"></a>The EL defines the following literals:</p>
+
+
+<ul><li><p>Boolean: <tt>true</tt> and <tt>false</tt></p>
+
+</li>
+<li><p>Integer: as in Java</p>
+
+</li>
+<li><p>Floating point: as in Java</p>
+
+</li>
+<li><p>String: with single and double quotes; <tt>"</tt> is escaped as <tt>\"</tt>, <tt>&rsquo;</tt> is escaped as <tt>\'</tt>, and <tt>\</tt> is escaped as <tt>\\</tt></p>
+
+</li>
+<li><p>Null: <tt>null</tt></p>
+
+</li></ul>
+<p>You can also write expressions that perform operations on an <tt>enum</tt> constant. For
+example, consider the following <tt>Enum</tt> class:</p>
+
+<pre>public enum Suit {club, diamond, heart, spade}</pre><p>After declaring an <tt>enum</tt> constant called <tt>mySuit</tt>, you can write the following expression
+to test if <tt>mySuit</tt> is <tt>spade</tt>:</p>
+
+<pre>${mySuit == "spade"}</pre><p>When the EL resolving mechanism resolves this expression, it will invoke the <tt>valueOf</tt>
+method of the <tt>Enum</tt> class with the <tt>Suit</tt> class and the <tt>spade</tt> type, as
+shown here:</p>
+
+<pre>mySuit.valueOf(Suit.class, "spade"}</pre>
+
+<a name="bnahy"></a><h5>Where Value Expressions Can Be Used</h5>
+<p>Value expressions using the <tt>${}</tt> delimiters can be used in the following places:</p>
+
+
+<ul><li><p>In static text</p>
+
+</li>
+<li><p>In any standard or custom tag attribute that can accept an expression</p>
+
+</li></ul>
+<p>The value of an expression in static text is computed and inserted
+into the current output. Here is an example of an expression embedded in
+static text:</p>
+
+<pre>&lt;some:tag>
+    some text ${expr} some text
+&lt;/some:tag></pre><p>If the static text appears in a tag body, note that an
+expression <b>will not</b> be evaluated if the body is declared to be <tt>tagdependent</tt>.</p>
+
+<p>Lvalue expressions can only be used in tag attributes that can accept lvalue
+expressions.</p>
+
+<p>There are three ways to set a tag attribute value using either
+an rvalue or lvalue expression:</p>
+
+
+<ul><li><p>With a single expression construct:</p>
+
+<pre>&lt;some:tag value="${expr}"/></pre><pre>&lt;another:tag value="#{expr}"/></pre><p>These expressions are evaluated and the result is converted to the attribute&rsquo;s expected type.</p>
+
+</li>
+<li><p>With one or more expressions separated or surrounded by text:</p>
+
+<pre>&lt;some:tag value="some${expr}${expr}text${expr}"/></pre><pre>&lt;another:tag value="some#{expr}#{expr}text#{expr}"/></pre><p>These kinds of expression are called <b>composite expressions</b>. They are evaluated from left to right. Each expression embedded in the composite expression is converted to a <tt>String</tt> and then concatenated with any intervening text. The resulting <tt>String</tt> is then converted to the attribute&rsquo;s expected type.</p>
+
+</li>
+<li><p>With text only:</p>
+
+<pre>&lt;some:tag value="sometext"/></pre><p><a name="indexterm-231"></a>This expression is called a <b>literal expression</b>. In this case, the attribute&rsquo;s <tt>String</tt> value is converted to the attribute&rsquo;s expected type. Literal value expressions have special syntax rules. See <a href="bnaid.html">Literal Expressions</a> for more information. When a tag attribute has an <tt>enum</tt> type, the expression that the attribute uses must be a literal expression. For example, the tag attribute can use the expression <tt>"hearts"</tt> to mean <tt>Suit.hearts</tt>. The literal is converted to <tt>Suit</tt> and the attribute gets the value <tt>Suit.hearts</tt>.</p>
+
+</li></ul>
+<p><a name="indexterm-232"></a>All expressions used to set attribute values are evaluated in the context of
+an expected type. If the result of the expression evaluation does not match
+the expected type exactly, a type conversion will be performed. For example, the
+expression <tt>${1.2E4}</tt> provided as the value of an attribute of type <tt>float</tt>
+will result in the following conversion:</p>
+
+<pre>Float.valueOf("1.2E4").floatValue()</pre><p>See Section 1.18 of the <i>JavaServer Pages 2.1 Expression Language Specification</i> (available from <a href="http://jcp.org/aboutJava/communityprocess/final/jsr245/">http://jcp.org/aboutJava/communityprocess/final/jsr245/</a>) for the complete
+type conversion rules.</p>
+
+
+
+<a name="bnahz"></a><h4>Method Expressions</h4>
+<p><a name="indexterm-233"></a>Another feature of the EL is its support of deferred method expressions. A
+method expression is used to invoke an arbitrary public method of a bean,
+which can return a result.</p>
+
+<p>In JavaServer Faces technology, a component tag represents a component on a page.
+The component tag uses method expressions to invoke methods that perform some processing
+for the component. These methods are necessary for handling events that the components
+generate and validating component data, as shown in this example:</p>
+
+<pre>&lt;h:form>
+    &lt;h:inputText
+        id="name"
+        value="#{customer.name}"
+        validator="#{customer.validateName}"/>
+    &lt;h:commandButton
+        id="submit"
+        action="#{customer.submit}" />
+&lt;/h:form></pre><p>The <tt>inputText</tt> tag displays as a text field. The <tt>validator</tt> attribute of
+this <tt>inputText</tt> tag references a method, called <tt>validateName</tt>, in the bean, called <tt>customer</tt>.
+</p>
+
+<p>Because a method can be invoked during different phases of the lifecycle, method
+expressions must always use the deferred evaluation syntax.</p>
+
+<p>Like lvalue expressions, method expressions can use the <tt>.</tt> and the <tt>[]</tt> operators.
+For example, <tt>#{object.method}</tt> is equivalent to <tt>#{object["method"]}</tt>. The literal inside the <tt>[]</tt> is
+converted to <tt>String</tt> and is used to find the name of the method
+that matches it. Once the method is found, it is invoked or information
+about the method is returned.</p>
+
+<p>Method expressions can be used only in tag attributes and only in
+the following ways:</p>
+
+
+<ul><li><p>With a single expression construct, where <tt>bean</tt> refers to a JavaBeans component and <tt>method</tt> refers to a method of the JavaBeans component:</p>
+
+<pre>&lt;some:tag value="#{bean.method}"/></pre><p>The expression is evaluated to a method expression, which is passed to the tag handler. The method represented by the method expression can then be invoked later.</p>
+
+</li>
+<li><p>With text only:</p>
+
+<pre>&lt;some:tag value="sometext"/></pre><p>Method expressions support literals primarily to support <tt>action</tt> attributes in JavaServer Faces technology. When the method referenced by this method expression is invoked, it returns the <tt>String</tt> literal, which is then converted to the expected return type, as defined in the tag&rsquo;s TLD.</p>
+
+</li></ul>
+
+
+<a name="gjhbz"></a><h5>Parameterized Method Calls</h5>
+<a name="indexterm-234"></a><a name="indexterm-235"></a><p>EL version 2.2, which is included in the Java EE 6 platform, offers
+support for parameterized method calls. Method calls can now use parameters without having
+to use static EL functions.</p>
+
+<p>Both the <tt>.</tt> and  <tt>[]</tt> operators can be used for invoking method
+calls with parameters, as shown in the following expression syntax:</p>
+
+
+<ul><li><p><tt>expr-a[expr-b](parameters)</tt></p>
+
+</li>
+<li><p><tt>expr-a.identifier-b(parameters)</tt></p>
+
+</li></ul>
+<p>In the first expression syntax, <tt>expr-a</tt> is evaluated to represent a bean object.
+The expression <tt>expr-b</tt> is evaluated and cast to a string which represents a
+method in the bean represented by <tt>expr-a</tt>. In the second expression syntax,
+<tt>expr-a</tt> is evaluated to represent a bean object and <tt>identifier-b</tt> is a string that
+represents a method in the bean object. The <tt>parameters</tt> in parentheses are the
+arguments for the method invocation. Parameters can be 0 or more values or
+expressions, separated by commas.</p>
+
+<p>Parameters are supported for both value expressions and method expressions. In the following
+example, which is a modified tag from <tt>guessNumber</tt> application, a random number is
+provided as an argument rather than from user input to the method call:</p>
+
+<pre>&lt;h:inputText value="#{userNumberBean.userNumber('5')}"></pre><p>The above example uses a value expression.</p>
+
+<p>Consider the following example of a JavaServer Faces component tag which uses a
+method expression:</p>
+
+<pre>&lt;h:commandButton action="#{trader.buy}" value="buy"/></pre><p>where EL expression <tt>trader.buy</tt> is calling the <tt>trader</tt> bean's <tt>buy</tt> method. You
+can modify the tag to pass on a parameter. Here is the revised
+tag where a parameter is passed:</p>
+
+<pre>&lt;h:commandButton action="#{trader.buy('JAVA')}" value="buy"/></pre><p>In the above example you are passing the string 'JAVA' (a stock
+symbol) as a parameter to the <tt>buy</tt> method.</p>
+
+<p>For more information on the updated EL, see <a href="https://uel.dev.java.net">https://uel.dev.java.net</a>.</p>
+
+
+         </div>
+         <div class="navigation">
+             <a href="bnahr.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="bnaia.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

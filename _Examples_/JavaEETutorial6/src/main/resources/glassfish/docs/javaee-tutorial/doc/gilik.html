@@ -1,0 +1,904 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Creating a RESTful Root Resource Class - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level3"><a href="gijqy.html">What are RESTful Web Services?</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3"><a href="">Creating a RESTful Root Resource Class</a></p>
+<p class="toc level4"><a href="#gilru">Developing RESTful Web Services with JAX-RS</a></p>
+<p class="toc level4"><a href="#gilqb">Overview of a JAX-RS Application</a></p>
+<p class="toc level4"><a href="#ginpw">The <tt>@Path</tt> Annotation and URI Path Templates</a></p>
+<p class="toc level4"><a href="#gipys">Responding to HTTP Resources</a></p>
+<p class="toc level5"><a href="#gipxs">The Request Method Designator Annotations</a></p>
+<p class="toc level5"><a href="#gipze">Using Entity Providers to Map HTTP Response and Request Entity Bodies</a></p>
+<p class="toc level4 tocsp"><a href="#gipzh">Using <tt>@Consumes</tt> and <tt>@Produces</tt> to Customize Requests and Responses</a></p>
+<p class="toc level5"><a href="#gipxf">The <tt>@Produces</tt> Annotation</a></p>
+<p class="toc level5"><a href="#gipyt">The <tt>@Consumes</tt> Annotation</a></p>
+<p class="toc level4 tocsp"><a href="#gipyw">Extracting Request Parameters</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="gipzz.html">Example Applications for JAX-RS</a></p>
+<p class="toc level4"><a href="gipzz.html#gipyz">Creating a RESTful Web Service</a></p>
+<p class="toc level5"><a href="gipzz.html#giqaa">Creating a RESTful Web Service Using NetBeans IDE</a></p>
+<p class="toc level4 tocsp"><a href="gipzz.html#gjvbc">The <tt>rsvp</tt> Example Application</a></p>
+<p class="toc level5"><a href="gipzz.html#gjvaw">Components of the <tt>rsvp</tt> Example Application</a></p>
+<p class="toc level5"><a href="gipzz.html#gjvau">Running the <tt>rsvp</tt> Example Application in NetBeans IDE</a></p>
+<p class="toc level5"><a href="gipzz.html#gjvai">Running the <tt>rsvp</tt> Example Application using Ant</a></p>
+<p class="toc level4 tocsp"><a href="gipzz.html#girci">Real-World Examples</a></p>
+<p class="toc level3 tocsp"><a href="giliz.html">Further Information about JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gijqy.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="gipzz.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gilik"></a><h3>Creating a RESTful Root Resource Class</h3>
+<a name="indexterm-802"></a><a name="indexterm-803"></a><a name="indexterm-804"></a><a name="indexterm-805"></a><a name="indexterm-806"></a><a name="indexterm-807"></a><a name="indexterm-808"></a><a name="indexterm-809"></a><a name="indexterm-810"></a><p><b>Root resource classes</b> are POJOs (Plain Old Java Objects) that are either annotated with <tt>@Path</tt>
+or have at least one method annotated with <tt>@Path</tt> or a <b>request method designator</b> such
+as <tt>@GET</tt>, <tt>@PUT</tt>, <tt>@POST</tt>, or <tt>@DELETE</tt>. <b>Resource methods</b> are methods of a resource class
+annotated with a request method designator. This section describes how to use JAX-RS
+to annotate Java classes to create RESTful web services.</p>
+
+
+
+<a name="gilru"></a><h4>Developing RESTful Web Services with JAX-RS</h4>
+<p>JAX-RS is a Java programming language API designed to make it easy
+to develop applications that use the REST architecture.</p>
+
+<p>The JAX-RS API uses Java programming language annotations to simplify the development of
+RESTful web services. Developers decorate Java programming language class files with JAX-RS annotations
+to define resources and the actions that can be performed on those resources.
+JAX-RS annotations are runtime annotations, therefore, runtime reflection will generate the helper classes
+and artifacts for the resource. A Java EE application archive containing JAX-RS resource classes
+will have the resources configured, the helper classes and artifacts generated, and the
+resource exposed to clients by deploying the archive to a Java EE server.</p>
+
+<p>Here is a listing of some of the Java programming annotations that
+are defined by JAX-RS, with a brief description of how each is used.
+Further information on the JAX-RS APIs can be viewed at <a href="http://download.oracle.com/docs/cd/E17410_01/javaee/6/docs/api/">http://download.oracle.com/docs/cd/E17410_01/javaee/6/docs/api/</a>. </p>
+
+<a name="ginna"></a><h6>Table&nbsp;13-1 Summary of Jersey Annotations</h6><table><col width="20%"><col width="79%"><tr><th align="left" valign="top" scope="column"><p>Annotation</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Description</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>@Path</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>The <tt>@Path</tt>
+annotation's value is a relative URI path indicating where the Java class will
+be hosted, for example, <tt>/helloworld</tt>. You can also embed variables in the
+URIs to make a URI path template. For example, you could ask for
+the name of a user, and pass it to the application as a
+variable in the URI, like this,  <tt>/helloworld/{username}</tt>.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>@GET</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>The <tt>@GET</tt> annotation is a
+request method designator and corresponds to the similarly named HTTP method. The Java
+method annotated with this request method designator will process HTTP GET requests. The
+behavior of a resource is determined by the HTTP method to which the
+resource is responding.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>@POST</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>The <tt>@POST</tt> annotation is a request method designator and corresponds to
+the similarly named HTTP method. The Java method annotated with this request method
+designator will process HTTP POST requests. The behavior of a resource is determined
+by the HTTP method to which the resource is responding.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>@PUT</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>The <tt>@PUT</tt> annotation
+is a request method designator and corresponds to the similarly named HTTP method.
+The Java method annotated with this request method designator will process HTTP PUT
+requests. The behavior of a resource is determined by the HTTP method to
+which the resource is responding.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>@DELETE</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>The <tt>@DELETE</tt> annotation is a request method designator and
+corresponds to the similarly named HTTP method. The Java method annotated with this
+request method designator will process HTTP DELETE requests. The behavior of a resource
+is determined by the HTTP method to which the resource is responding.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>@HEAD</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>The <tt>@HEAD</tt>
+annotation is a request method designator and corresponds to the similarly named HTTP
+method. The Java method annotated with this request method designator will process HTTP
+HEAD requests. The behavior of a resource is determined by the HTTP method
+to which the resource is responding.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>@PathParam</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>The <tt>@PathParam</tt> annotation is a type of
+parameter that you can extract for use in your resource class. URI path
+parameters are extracted from the request URI, and the parameter names correspond to
+the URI path template variable names specified in the <tt>@Path</tt> class-level annotation.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>@QueryParam</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>The <tt>@QueryParam</tt> annotation
+is a type of parameter that you can extract for use in your
+resource class. Query parameters are extracted from the request URI query parameters.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>@Consumes</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>The <tt>@Consumes</tt>
+annotation is used to specify the MIME media types of representations a resource
+can consume that were sent by the client.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>@Produces</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>The <tt>@Produces</tt> annotation is used to
+specify the MIME media types of representations a resource can produce and send
+back to the client, for example, <tt>"text/plain"</tt>.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>@Provider</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>The <tt>@Provider</tt> annotation is used for anything that
+is of interest to the JAX-RS runtime, such as <tt>MessageBodyReader</tt> and  <tt>MessageBodyWriter</tt>.
+For HTTP requests, the  <tt>MessageBodyReader</tt> is used to map an HTTP
+request entity body to method parameters. On the response side, a return value
+is mapped to an HTTP response entity body using a <tt>MessageBodyWriter</tt>. If the
+application needs to supply additional metadata, such as HTTP headers or a different
+status code, a method can return a <tt>Response</tt> that wraps the entity, and which
+can be built using <tt>Response.ResponseBuilder</tt>.</p>
+
+</td>
+</tr>
+</table>
+
+<a name="gilqb"></a><h4>Overview of a JAX-RS Application</h4>
+<a name="indexterm-811"></a><a name="gjuxz"></a><h6>Example&nbsp;13-1 A Simple JAX-RS Resource</h6><p>The following code sample is a very simple example of a root
+resource class using JAX-RS annotations. </p>
+
+<pre>package com.sun.jersey.samples.helloworld.resources;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Produces;
+import javax.ws.rs.Path;
+
+// The Java class will be hosted at the URI path "/helloworld"
+@Path("/helloworld")
+public class HelloWorldResource {
+    
+    // The Java method will process HTTP GET requests
+    @GET
+    // The Java method will produce content identified by the MIME Media
+    // type "text/plain"
+    @Produces("text/plain")
+    public String getClichedMessage() {
+        // Return some cliched textual content
+        return "Hello World";
+    }
+}</pre><p>The following sections describe the annotations used in this example.</p>
+
+
+<ul><li><p>The <tt>@Path</tt> annotation's value is a relative URI path. In the example above, the Java class will be hosted at the URI path <tt>/helloworld</tt>. This is an extremely simple use of the <tt>@Path</tt> annotation, with a static URI path. Variables can be embedded in the URIs. <b>URI path templates</b> are URIs with variables embedded within the URI syntax. </p>
+
+</li>
+<li><p>The <tt>@GET</tt> annotation is a request method designator, along with <tt>@POST</tt>, <tt>@PUT</tt>, <tt>@DELETE</tt>, and <tt>@HEAD</tt>, defined by JAX-RS, and which correspond to the similarly named HTTP methods. In the example above, the annotated Java method will process HTTP <tt>GET</tt> requests. The behavior of a resource is determined by the HTTP method to which the resource is responding.</p>
+
+</li>
+<li><p>The <tt>@Produces</tt> annotation is used to specify the MIME media types a resource can produce and send back to the client. In this example, the Java method will produce representations identified by the MIME media type <tt>"text/plain"</tt>.</p>
+
+</li>
+<li><p>The <tt>@Consumes</tt> annotation is used to specify the MIME media types a resource can consume that were sent by the client. The above example could be modified to set the message returned by the <tt>getClichedMessage</tt> method as shown in this code example.</p>
+
+<pre>@POST
+@Consumes("text/plain")
+public void postClichedMessage(String message) {
+    // Store the message
+}</pre></li></ul>
+
+
+<a name="ginpw"></a><h4>The <tt>@Path</tt> Annotation and URI Path Templates</h4>
+<a name="indexterm-812"></a><a name="indexterm-813"></a><a name="indexterm-814"></a><p>The <tt>@Path</tt> annotation identifies the URI path template to which the resource responds,
+and is specified at the class or method level of a resource. The
+<tt>@Path</tt> annotation's value is a partial URI path template relative to the base
+URI of the server on which the resource is deployed, the context root
+of the application, and the URL pattern to which the JAX&mdash;RS runtime responds.</p>
+
+<p>URI path templates are URIs with variables embedded within the URI syntax. These
+variables are substituted at runtime in order for a resource to respond to
+a request based on the substituted URI. Variables are denoted by curly braces
+(<tt>{</tt> and <tt>}</tt>). For example, look at the following <tt>@Path</tt> annotation:</p>
+
+<pre>@Path("/users/{username}")</pre><p>In this type of example, a user will be prompted to enter
+their name, and then a Jersey web service configured to respond to requests
+to this URI path template will respond. For example, if the user entered
+their user name as &ldquo;Galileo,&rdquo; the web service will respond to the following
+URL:</p>
+
+<pre>http://example.com/users/Galileo</pre><p>To obtain the value of the username variable, the <tt>@PathParam</tt>annotation may be used
+on the method parameter of a request method, as shown in the
+following code example.</p>
+
+<pre>@Path("/users/{username}")
+public class UserResource {
+
+    @GET
+    @Produces("text/xml")
+    public String getUser(@PathParam("username") String userName) {
+        ...
+    }
+}</pre><p>By default, the URI variable must match the regular expression <tt>"[^/]+?"</tt>. This
+variable may be customized by specifying a different regular expression after the variable
+name. For example, if a username must only consist of lower and upper
+case alphanumeric characters, override the default regular expression in the variable definition:</p>
+
+<pre>@Path("users/{username: [a-zA-Z][a-zA-Z_0-9]}")</pre><p>In this example the username variable will only match user names that begin
+with one upper or lower case letter and zero or more alpha
+numeric characters and the underscore character. If a user name does not match
+that template, a 404 (Not Found) response will be sent to the client.</p>
+
+<p>A <tt>@Path</tt> value isn't required to have leading or trailing slashes (/). The
+JAX-RS runtime parses URI path templates the same whether or not they have
+leading or trailing spaces.</p>
+
+<p>A URI path template has one or more variables, with each variable name
+surrounded by curly braces, <tt>{</tt> to begin the variable name and <tt>}</tt>
+to end it. In the example above, <tt>username</tt> is the variable name. At runtime,
+a resource configured to respond to the above URI path template will attempt
+to process the URI data that corresponds to the location of <tt>{username}</tt>
+in the URI as the variable data for <tt>username</tt>.</p>
+
+<p>For example, if you want to deploy a resource that responds to
+the URI path template <tt>http://example.com/myContextRoot/resources/{name1}/{name2}/</tt>, you must deploy the application to a Java EE
+server that responds to requests to the <tt>http://example.com/myContextRoot</tt> URI, and then decorate your resource
+with the following <tt>@Path</tt> annotation:</p>
+
+<pre>@Path("/{name1}/{name2}/")
+public class SomeResource {
+    ...
+}</pre><p>In this example, the URL pattern for the Jersey helper servlet, specified in
+<tt>web.xml</tt>, is the default:</p>
+
+<pre>&lt;servlet-mapping>
+      &lt;servlet-name>My JAX-RS Resource&lt;/servlet-name>
+      &lt;url-pattern>/resources/*&lt;/url-pattern>
+&lt;/servlet-mapping></pre><p>A variable name can be used more than once in the URI path
+template.</p>
+
+<p>If a character in the value of a variable would conflict with the
+reserved characters of a URI, the conflicting character should be substituted with percent
+encoding. For example, spaces in the value of a variable should be substituted
+with <tt>%20</tt>.</p>
+
+<p>Be careful when defining URI path templates that the resulting URI after
+substitution is valid.</p>
+
+<p><a href="#gipym">Table&nbsp;13-2</a> lists some examples of URI path template variables and how the URIs
+are resolved after substitution. The following variable names and values are used in
+the examples:</p>
+
+
+<ul><li><p><tt>name1</tt>: <tt>jay</tt></p>
+
+</li>
+<li><p><tt>name2</tt>: <tt>gatsby</tt></p>
+
+</li>
+<li><p><tt>name3</tt>: </p>
+
+</li>
+<li><p><tt>location</tt>: <tt>Main%20Street</tt></p>
+
+</li>
+<li><p><tt>question</tt>: <tt>why</tt></p>
+
+</li></ul>
+
+<hr><p><b>Note - </b>The value of the <tt>name3</tt> variable is an empty string.</p>
+
+
+<hr>
+<a name="gipym"></a><h6>Table&nbsp;13-2 Examples of URI Path Templates</h6><table><col width="50%"><col width="50%"><tr><th align="left" valign="top" scope="column"><p>URI Path Template</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>URI After
+Substitution</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>http://example.com/{name1}/{name2}/</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>http://example.com/jay/gatsby/</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>http://example.com/{question}/{question}/{question}/</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>http://example.com/why/why/why/</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>http://example.com/maps/{location}</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>http://example.com/maps/Main%20Street</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>http://example.com/{name3}/home/</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>http://example.com//home/</tt></p>
+
+</td>
+</tr>
+</table>
+
+<a name="gipys"></a><h4>Responding to HTTP Resources</h4>
+<a name="indexterm-815"></a><a name="indexterm-816"></a><a name="indexterm-817"></a><a name="indexterm-818"></a><a name="indexterm-819"></a><a name="indexterm-820"></a><p>The behavior of a resource is determined by the HTTP methods (typically,
+<tt>GET</tt>, <tt>POST</tt>, <tt>PUT</tt>, <tt>DELETE</tt>) to which the resource is responding.</p>
+
+
+
+<a name="gipxs"></a><h5>The Request Method Designator Annotations</h5>
+<p>A <b>request method designator</b>annotations are runtime annotations, defined by JAX-RS, and which correspond to the
+similarly named HTTP methods. Within a resource class file, HTTP methods are mapped
+to Java programming language methods using the request method designator annotations. The behavior of
+a resource is determined by which of the HTTP methods the resource is
+responding to.  Jersey defines a set of request method designators for the
+common HTTP methods: <tt>@GET</tt>, <tt>@POST</tt>, <tt>@PUT</tt>, <tt>@DELETE</tt>, <tt>@HEAD</tt>, but you can create your
+own custom request method designators. Creating custom request method designators is outside the
+scope of this document.</p>
+
+<p>The following example is an extract from the storage service sample that shows
+the use of the <tt>PUT</tt> method to create or update a storage container.</p>
+
+<pre>@PUT
+public Response putContainer() {
+    System.out.println("PUT CONTAINER " + container);
+
+    URI uri =  uriInfo.getAbsolutePath();
+    Container c = new Container(container, uri.toString());
+
+    Response r;
+    if (!MemoryStore.MS.hasContainer(c)) {
+        r = Response.created(uri).build();
+    } else {
+        r = Response.noContent().build();
+    }
+
+    MemoryStore.MS.createContainer(c);
+    return r;
+}</pre><p>By default the JAX-RS runtime will automatically support the methods <tt>HEAD</tt> and
+<tt>OPTIONS</tt> if not explicitly implemented. For <tt>HEAD</tt>, the runtime will invoke the implemented
+<tt>GET</tt> method (if present) and ignore the response entity (if set). For <tt>OPTIONS</tt>,
+the <tt>Allow</tt> response header will be set to the set of HTTP methods
+support by the resource. In addition Jersey will return a <a href="https://wadl.dev.java.net/">Web Application Definition Language (WADL)</a> document describing
+the resource.</p>
+
+<p>Methods decorated with request method designators must return <tt>void</tt>, a Java programming
+language type, or a <tt>javax.ws.rs.core.Response</tt> object. Multiple parameters may be extracted from
+the URI using the <tt>PathParam</tt> or <tt>QueryParam</tt> annotations as described in <a href="#gipyw">Extracting Request Parameters</a>. Conversion between Java
+types and an entity body is the responsibility of an entity provider, such
+as <tt>MessageBodyReader</tt> or <tt>MessageBodyWriter</tt>. Methods that need to provide additional metadata with a
+response should return an instance of the <tt>Response</tt> class. The <tt>ResponseBuilder</tt> class provides
+a convenient way to create a <tt>Response</tt> instance using a builder pattern. The HTTP
+<tt>PUT</tt> and <tt>POST</tt> methods expect an HTTP request body, so you should use
+a <tt>MessageBodyReader</tt> for methods that respond to <tt>PUT</tt> and <tt>POST</tt> requests. </p>
+
+<p>Both <tt>@PUT</tt> and <tt>@POST</tt> can be used to create or update a resource.
+<tt>POST</tt> can mean anything, so when using <tt>POST</tt>it is up to the application to
+define the semantics. <tt>PUT</tt> has well defined semantics. When using <tt>PUT</tt> for creation,
+the client declares the URI for the newly created resource. </p>
+
+<p><tt>PUT</tt> has very clear semantics for creating and updating a resource. The representation
+the client sends must be the same representation that is received using a
+<tt>GET</tt>, given the same media type. It does not specify partial update, a
+mistake people often make.  A common application pattern is to use <tt>POST</tt>
+to create a resource and return a <tt>201</tt> response with a location header whose
+value is the URI to the newly-created resource. In this pattern, the web
+service declares the URI for the newly-created resource. </p>
+
+
+
+<a name="gipze"></a><h5>Using Entity Providers to Map HTTP Response and Request Entity Bodies</h5>
+<a name="indexterm-821"></a><a name="indexterm-822"></a><a name="indexterm-823"></a><a name="indexterm-824"></a><p><b>Entity providers</b> supply mapping services between representations and their associated Java types. There are
+two types of entity providers: <tt>MessageBodyReader</tt> and <tt>MessageBodyWriter</tt>. For HTTP requests, the <tt>MessageBodyReader</tt>
+is used to map an HTTP request entity body to method parameters. On
+the response side, a return value is mapped to an HTTP response entity
+body using a <tt>MessageBodyWriter</tt>. If the application needs to supply additional metadata, such
+as HTTP headers or a different status code, a method can return a
+<tt>Response</tt> that wraps the entity, and which can be built using <tt>Response.ResponseBuilder</tt>.</p>
+
+<p>The following list contains the standard types that are supported automatically for entities.
+You only need to write an entity provider if you are not
+choosing one of the following standard types.</p>
+
+
+<ul><li><p><tt>byte[]</tt>: All media types (<tt>*/*</tt>)</p>
+
+</li>
+<li><p><tt>java.lang.String</tt>: All text media types (<tt>text/*</tt>)</p>
+
+</li>
+<li><p><tt>java.io.InputStream</tt>: All media types (<tt>*/*</tt>)</p>
+
+</li>
+<li><p><tt>java.io.Reader</tt>: All media types (<tt>*/*</tt>)</p>
+
+</li>
+<li><p><tt>java.io.File</tt>: All media types (<tt>*/*</tt>)</p>
+
+</li>
+<li><p><tt>javax.activation.DataSource</tt>: All media types (<tt>*/*</tt>)</p>
+
+</li>
+<li><p><tt>javax.xml.transform.Source</tt>: XML types (<tt>text/xml</tt>, <tt>application/xml</tt>, and <tt>application/*+xml</tt>)</p>
+
+</li>
+<li><p><tt>javax.xml.bind.JAXBElement</tt> and application-supplied JAXB classes: XML media types (<tt>text/xml</tt>, <tt>application/xml</tt>, and <tt>application/*+xml</tt>)</p>
+
+</li>
+<li><p><tt>MultivaluedMap&lt;String, String></tt>: Form content (<tt>application/x-www-form-urlencoded</tt>)</p>
+
+</li>
+<li><p><tt>StreamingOutput</tt>: All media types (<tt>*/*</tt>), <tt>MessageBodyWriter</tt> only</p>
+
+</li></ul>
+<p>The following example shows how to use <tt>MessageBodyReader</tt> with the <tt>@Consumes</tt> and <tt>@Provider</tt>
+annotations:</p>
+
+<pre>@Consumes("application/x-www-form-urlencoded")
+@Provider
+public class FormReader implements MessageBodyReader&lt;NameValuePair> {</pre><p>The following example shows how to use <tt>MessageBodyWriter</tt> with the <tt>@Produces</tt> and <tt>@Provider</tt>
+annotations:</p>
+
+<pre>@Produces("text/html")
+@Provider
+public class FormWriter implements MessageBodyWriter&lt;Hashtable&lt;String, String>> {</pre><p>The following example shows how to use <tt>ResponseBuilder</tt>:</p>
+
+<pre>    @GET
+    public Response getItem() {
+        System.out.println("GET ITEM " + container + " " + item);
+        
+        Item i = MemoryStore.MS.getItem(container, item);
+        if (i == null)
+            throw new NotFoundException("Item not found");
+        Date lastModified = i.getLastModified().getTime();
+        EntityTag et = new EntityTag(i.getDigest());
+        ResponseBuilder rb = request.evaluatePreconditions(lastModified, et);
+        if (rb != null)
+            return rb.build();
+            
+        byte[] b = MemoryStore.MS.getItemData(container, item);
+        return Response.ok(b, i.getMimeType()).
+                lastModified(lastModified).tag(et).build();
+    }    </pre>
+
+<a name="gipzh"></a><h4>Using <tt>@Consumes</tt> and <tt>@Produces</tt> to Customize Requests and Responses</h4>
+<a name="indexterm-825"></a><a name="indexterm-826"></a><p>The information sent to a resource and then passed back to the
+client is specified as a MIME media type in the headers of an
+HTTP request or response. You can specify which MIME media types of representations
+a resource can respond to or produce by using the <tt>javax.ws.rs.Consumes</tt> and <tt>javax.ws.rs.Produces</tt>
+annotations.</p>
+
+<p>By default, a resource class can respond to and produce all MIME
+media types of representations specified in the HTTP request and response headers.</p>
+
+
+
+<a name="gipxf"></a><h5>The <tt>@Produces</tt> Annotation</h5>
+<p>The <tt>@Produces</tt> annotation is used to specify the MIME media types or representations
+a resource can produce and send back to the client. If <tt>@Produces</tt> is
+applied at the class level, all the methods in a resource can produce
+the specified MIME types by default. If it is applied at the method
+level, it overrides any <tt>@Produces</tt> annotations applied at the class level.</p>
+
+<p>If no methods in a resource are able to produce the MIME
+type in a client request, the Jersey runtime sends back an HTTP &ldquo;406
+Not Acceptable&rdquo; error.</p>
+
+<p>The value of <tt>@Produces</tt> is an array of <tt>String</tt> of MIME types.
+For example:</p>
+
+<pre>@Produces({"image/jpeg,image/png"})</pre><p>The following example shows how to apply <tt>@Produces</tt> at both the class and
+method levels:</p>
+
+<pre>@Path("/myResource")
+@Produces("text/plain")
+public class SomeResource {
+    @GET
+    public String doGetAsPlainText() {
+        ...
+    }
+
+    @GET
+    @Produces("text/html")
+    public String doGetAsHtml() {
+        ...
+    }
+}</pre><p>The <tt>doGetAsPlainText</tt> method defaults to the MIME media type of the <tt>@Produces</tt> annotation
+at the class level. The <tt>doGetAsHtml</tt> method's <tt>@Produces</tt> annotation overrides the class-level <tt>@Produces</tt>
+setting, and specifies that the method can produce HTML rather than plain text.</p>
+
+<p>If a resource class is capable of producing more that one MIME
+media type, the resource method chosen will correspond to the most acceptable media type
+as declared by the client. More specifically, the <tt>Accept</tt> header of the HTTP
+request declared what is most acceptable. For example if the <tt>Accept</tt> header
+is <tt>Accept: text/plain</tt>, the <tt>doGetAsPlainText</tt> method will be invoked. Alternatively if the <tt>Accept</tt>
+header is <tt>Accept: text/plain;q=0.9, text/html</tt>, which declares that the client can accept media types of
+<tt>text/plain</tt> and <tt>text/html</tt>, but prefers the latter, then the  <tt>doGetAsHtml</tt> method will
+be invoked.</p>
+
+<p>More than one media type may be declared in the same <tt>@Produces</tt>
+declaration. The following code example shows how this is done.</p>
+
+<pre>@Produces({"application/xml", "application/json"})
+public String doGetAsXmlOrJson() {
+    ...
+}</pre><p>The <tt>doGetAsXmlOrJson</tt> method will get invoked if either of the media types <tt>application/xml</tt>
+and <tt>application/json</tt> are acceptable. If both are equally acceptable, then the former will
+be chosen because it occurs first.  The examples above refer explicitly to
+MIME media types for clarity. It is possible to refer to constant
+values, which may reduce typographical errors. For more information, see the constant field values
+of <a href="https://jsr311.dev.java.net/nonav/releases/1.0/javax/ws/rs/core/MediaType.html">MediaType</a>.</p>
+
+
+
+<a name="gipyt"></a><h5>The <tt>@Consumes</tt> Annotation</h5>
+<p>The <tt>@Consumes</tt> annotation is used to specify which MIME media types of representations
+a resource can accept, or consume, from the client. If <tt>@Consumes</tt> is applied
+at the class level, all the response methods accept the specified MIME types
+by default. If <tt>@Consumes</tt> is applied at the method level, it overrides
+any <tt>@Consumes</tt> annotations applied at the class level.</p>
+
+<p>If a resource is unable to consume the MIME type of a
+client request, the JAX-RS runtime sends back an HTTP 415 (&ldquo;Unsupported Media Type&rdquo;) error.</p>
+
+<p>The value of <tt>@Consumes</tt> is an array of <tt>String</tt> of acceptable MIME
+types. For example:</p>
+
+<pre>@Consumes({"text/plain,text/html"})</pre><p>The following example shows how to apply <tt>@Consumes</tt> at both the class and
+method levels:</p>
+
+<pre>@Path("/myResource")
+@Consumes("multipart/related")
+public class SomeResource {
+    @POST
+    public String doPost(MimeMultipart mimeMultipartData) {
+        ...
+    }
+
+    @POST
+    @Consumes("application/x-www-form-urlencoded")
+    public String doPost2(FormURLEncodedProperties formData) {
+        ...
+    }
+}</pre><p>The <tt>doPost</tt> method defaults to the MIME media type of the <tt>@Consumes</tt> annotation
+at the class level. The <tt>doPost2</tt> method overrides the class level <tt>@Consumes</tt> annotation
+to specify that it can accept URL-encoded form data.</p>
+
+<p>If no resource methods can respond to the requested MIME type, an
+HTTP 415 (&ldquo;Unsupported Media Type&rdquo;) error is returned to the client.</p>
+
+<p>The <tt>HelloWorld</tt> example discussed previously in this section can be modified to set
+the message using <tt>@Consumes</tt>, as shown in the following code example.</p>
+
+<pre>@POST
+@Consumes("text/plain")
+public void postClichedMessage(String message) {
+    // Store the message
+}</pre><p>In this example, the Java method will consume representations identified by the MIME
+media type <tt>text/plain</tt>. Notice that the resource method returns <tt>void</tt>. This means no
+representation is returned and response with a status code of HTTP 204 (&ldquo;No
+Content&rdquo;) will be returned.</p>
+
+
+
+<a name="gipyw"></a><h4>Extracting Request Parameters</h4>
+<a name="indexterm-827"></a><a name="indexterm-828"></a><a name="indexterm-829"></a><a name="indexterm-830"></a><a name="indexterm-831"></a><a name="indexterm-832"></a><a name="indexterm-833"></a><a name="indexterm-834"></a><a name="indexterm-835"></a><p>Parameters of a resource method may be annotated with parameter-based annotations to extract
+information from a request. A previous example presented the use of the <tt>@PathParam</tt>
+parameter to extract a path parameter from the path component of the request
+URL that matched the path declared in <tt>@Path</tt>.</p>
+
+<p>You can extract the following types of parameters for use in your
+resource class:</p>
+
+
+<ul><li><p>Query parameters</p>
+
+</li>
+<li><p>URI path parameters</p>
+
+</li>
+<li><p>Form parameters</p>
+
+</li>
+<li><p>Cookie parameters</p>
+
+</li>
+<li><p>Header parameters</p>
+
+</li>
+<li><p>Matrix parameters</p>
+
+</li></ul>
+<p><b>Query parameters</b> are extracted from the request URI query parameters, and are specified by
+using the <tt>javax.ws.rs.QueryParam</tt> annotation in the method parameter arguments. The following example (from
+the <tt>sparklines</tt> sample application) demonstrates using <tt>@QueryParam</tt> to extract query parameters from
+the <tt>Query</tt> component of the request URL. </p>
+
+<pre>@Path("smooth")
+@GET
+public Response smooth(
+        @DefaultValue("2") @QueryParam("step") int step,
+        @DefaultValue("true") @QueryParam("min-m") boolean hasMin,
+        @DefaultValue("true") @QueryParam("max-m") boolean hasMax,
+        @DefaultValue("true") @QueryParam("last-m") boolean hasLast,           
+        @DefaultValue("blue") @QueryParam("min-color") ColorParam minColor,
+        @DefaultValue("green") @QueryParam("max-color") ColorParam maxColor,
+        @DefaultValue("red") @QueryParam("last-color") ColorParam lastColor
+        ) { ... }</pre><p>If the query parameter <tt>step</tt> exists in the query component of the request
+URI, then the value of <tt>step</tt> will be extracted and parsed as a
+32&ndash;bit signed integer and assigned to the <tt>step</tt> method parameter. If <tt>step</tt> does
+not exist, then a default value of 2, as declared in the <tt>@DefaultValue</tt>
+annotation, will be assigned to the <tt>step</tt> method parameter. If the <tt>step</tt> value
+cannot be parsed as a 32&ndash;bit signed integer, then an HTTP 400 (&ldquo;Client
+Error&rdquo;) response is returned. </p>
+
+<p>User-defined Java programming language types may be used as query parameters.</p>
+
+<a name="gjuyk"></a><h6>Example&nbsp;13-2 User-Defined Java Programming Language Types in Query Parameters</h6><p>The following code example shows the <tt>ColorParam</tt> class used in the query parameter
+example above. </p>
+
+<pre>public class ColorParam extends Color {
+    public ColorParam(String s) {
+        super(getRGB(s));
+    }
+
+    private static int getRGB(String s) {
+        if (s.charAt(0) == '#') {
+            try {
+                Color c = Color.decode("0x" + s.substring(1));
+                return c.getRGB();
+            } catch (NumberFormatException e) {
+                throw new WebApplicationException(400);
+            }
+        } else {
+            try {
+                Field f = Color.class.getField(s);
+                return ((Color)f.get(null)).getRGB();
+            } catch (Exception e) {
+                throw new WebApplicationException(400);
+            }
+        }
+    }
+}</pre><p>The constructor for <tt>ColorParam</tt> takes a single <tt>String</tt> parameter.</p>
+
+<p><tt>@QueryParam</tt> and <tt>@PathParam</tt> can only be used on the following Java types:</p>
+
+
+<ul><li><p>All primitive types except <tt>char</tt></p>
+
+</li>
+<li><p>All wrapper classes of primitive types except <tt>Character</tt></p>
+
+</li>
+<li><p>Have a constructor that accepts a single <tt>String</tt> argument</p>
+
+</li>
+<li><p>Any class with the static method named <tt>valueOf(String)</tt> that accepts a single <tt>String</tt> argument</p>
+
+</li>
+<li><p>Any class with a constructor that takes a single <tt>String</tt> as a parameter</p>
+
+</li>
+<li><p><tt>List&lt;T></tt>, <tt>Set&lt;T></tt>, or <tt>SortedSet&lt;T></tt>, where <i>T</i> matches the already listed criteria. Sometimes parameters may contain more than one value for the same name. If this is the case, these types may be used to obtain all values</p>
+
+</li></ul>
+<p>If <tt>@DefaultValue</tt> is not used in conjunction with <tt>@QueryParam</tt>, and the query
+parameter is not present in the request, then value will be an empty
+collection for <tt>List</tt>, <tt>Set</tt>, or <tt>SortedSet</tt>; null for other object types; and the
+default for primitive types.</p>
+
+<p><b>URI path parameters</b> are extracted from the request URI, and the parameter names correspond to
+the URI path template variable names specified in the <tt>@Path</tt> class-level annotation. URI parameters
+are specified using the <tt>javax.ws.rs.PathParam</tt> annotation in the method parameter arguments. The following
+example shows how to use <tt>@Path</tt> variables and the <tt>@PathParam</tt> annotation in a
+method:</p>
+
+<pre>@Path("/{username}")
+public class MyResourceBean {
+    ...
+    @GET
+    public String printUsername(@PathParam("username") String userId) {
+        ...
+    }
+}</pre><p>In the above snippet, the URI path template variable name <tt>username</tt> is
+specified as a parameter to the <tt>printUserame</tt> method. The <tt>@PathParam</tt> annotation is set
+to the variable name <tt>username</tt>. At runtime, before <tt>printUsername</tt> is called, the value
+of <tt>username</tt> is extracted from the URI and cast to a <tt>String</tt>. The
+resulting <tt>String</tt> is then available to the method as the <tt>userId</tt> variable.</p>
+
+<p>If the URI path template variable cannot be cast to the specified
+type, the Jersey runtime returns an HTTP 400 (&ldquo;Bad Request&rdquo;) error to the client.
+If the <tt>@PathParam</tt> annotation cannot be cast to the specified type, the JAX-RS
+runtime returns an HTTP 404 (&ldquo;Not Found&rdquo;) error to the client.</p>
+
+<p>The <tt>@PathParam</tt> parameter and the other parameter-based annotations, <tt>@MatrixParam</tt>, <tt>@HeaderParam</tt>, <tt>@CookieParam</tt>, and <tt>@FormParam</tt>
+obey the same rules as <tt>@QueryParam</tt>.</p>
+
+<p><b>Cookie parameters</b> (indicated by decorating the parameter with <tt>javax.ws.rs.CookieParam</tt>) extract information from the cookies declared
+in cookie-related HTTP headers. <b>Header parameters</b> (indicated by decorating the parameter with <tt>javax.ws.rs.HeaderParam</tt>)
+extracts information from the HTTP headers. <b>Matrix parameters</b> (indicated by decorating the parameter
+with <tt>javax.ws.rs.MatrixParam</tt>) extracts information from URL path segments.</p>
+
+<p><b>Form parameters</b> (indicated by decorating the parameter with <tt>javax.ws.rs.FormParam</tt>) extract information from a request representation
+that is of the MIME media type <tt>application/x-www-form-urlencoded</tt> and conforms to the
+encoding specified by HTML forms, as described <a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.1">here</a>. This parameter is very
+useful for extracting information sent by <tt>POST</tt> in HTML forms.</p>
+
+<a name="gjuxf"></a><h6>Example&nbsp;13-3 Extracting HTTP Form Parameters</h6><p>The following example extracts the form parameter named <tt>name</tt> from the <tt>POST</tt> form
+data.</p>
+
+<pre>@POST
+@Consumes("application/x-www-form-urlencoded")
+public void post(@FormParam("name") String name) {
+    // Store the message
+}</pre><a name="gjuvf"></a><h6>Example&nbsp;13-4 Extracting a Map of Names and Values for Query and Path Parameters</h6><p>To obtain a general map of parameter names and values, use the
+following code:</p>
+
+<pre>@GET
+public String get(@Context UriInfo ui) {
+    MultivaluedMap&lt;String, String> queryParams = ui.getQueryParameters();
+    MultivaluedMap&lt;String, String> pathParams = ui.getPathParameters();
+}</pre><a name="gjuuv"></a><h6>Example&nbsp;13-5 Extracting a Map of Names and Values for Header and Cookie Parameters</h6><p>The following method extracts header and cookie parameter names and values into a
+map:</p>
+
+<pre>@GET
+public String get(@Context HttpHeaders hh) {
+    MultivaluedMap&lt;String, String> headerParams = ui.getRequestHeaders();
+    Map&lt;String, Cookie> pathParams = ui.getCookies();
+}</pre><p>In general <tt>@Context</tt> can be used to obtain contextual Java types related to
+the request or response.</p>
+
+<p>For form parameters it is possible to do the following:</p>
+
+<pre>@POST
+@Consumes("application/x-www-form-urlencoded")
+public void post(MultivaluedMap&lt;String, String> formParams) {
+    // Store the message
+}</pre>
+         </div>
+         <div class="navigation">
+             <a href="gijqy.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="gipzz.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

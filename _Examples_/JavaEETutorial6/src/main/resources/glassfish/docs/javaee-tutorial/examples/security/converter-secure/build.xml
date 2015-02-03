@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="converter-secure" default="default" basedir=".">
+    <description>Builds, tests, and runs the secure project converter-secure.</description>
+    
+    <property name="is.war.module" value="true" />
+    
+    <import file="../../bp-project/main.xml"/>
+
+    <target name="-pre-init" if="debug">
+        <echo message="---------------------------------------------------"/>
+        <echo message="Classpath info"/>
+        <echo message="---------------------------------------------------"/>
+        <property name="cp" refid="classpath"/>
+        <echo message="Classpath is ${cp}"/>
+        <echo message="---------------------------------------------------"/>
+        <echo message="Project properties"/>
+        <echo message="---------------------------------------------------"/>
+        <echoproperties/>
+    </target>
+
+    <target name="all" depends="default,run"/>
+
+</project>

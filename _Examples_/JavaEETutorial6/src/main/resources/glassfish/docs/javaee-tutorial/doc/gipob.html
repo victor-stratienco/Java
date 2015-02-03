@@ -1,0 +1,415 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Developing a Simple Facelets Application - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level3"><a href="gijtu.html">What Is Facelets?</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3"><a href="">Developing a Simple Facelets Application</a></p>
+<p class="toc level4"><a href="#giqte">Creating a Facelets Application</a></p>
+<p class="toc level5"><a href="#giqqz">Developing a Backing Bean</a></p>
+<p class="toc level5"><a href="#gjzpv">Creating Facelets Views</a></p>
+<p class="toc level4 tocsp"><a href="#gjjkc">Configuring the Application</a></p>
+<p class="toc level4"><a href="#girgf">Building, Packaging, Deploying, and Running the <tt>guessnumber</tt> Facelets Example</a></p>
+<p class="toc level5"><a href="#gjqzl">To Build, Package, and Deploy the <tt>guessnumber</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#gjqyu">To Build, Package, and Deploy the <tt>guessnumber</tt> Example Using Ant</a></p>
+<p class="toc level5"><a href="#gjqyx">To Run the <tt>guessnumber</tt> Example</a></p>
+<p class="toc level5"><a href="#gjqyv">To Undeploy the <tt>guessnumber</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#gjqzo">To Undeploy the <tt>guessnumber</tt> Example Using Ant</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="giqxp.html">Templating</a></p>
+<p class="toc level3"><a href="giqzr.html">Composite Components</a></p>
+<p class="toc level3"><a href="girgm.html">Resources</a></p>
+<p class="toc level2 tocsp"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gijtu.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="giqxp.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gipob"></a><h3>Developing a Simple Facelets Application</h3>
+<a name="indexterm-204"></a><p>This section describes the general steps involved in developing a JavaServer Faces application.</p>
+
+<p>Developing a simple JavaServer Faces application using Facelets technology, usually requires these tasks:</p>
+
+
+<ul><li><p>Developing the backing beans</p>
+
+</li>
+<li><p>Creating the pages using the component tags</p>
+
+</li>
+<li><p>Defining page navigation</p>
+
+</li>
+<li><p>Mapping the <tt>FacesServlet</tt> instance</p>
+
+</li>
+<li><p>Adding managed bean declarations</p>
+
+</li></ul>
+
+
+<a name="giqte"></a><h4>Creating a Facelets Application</h4>
+<p>The example used in this tutorial is the <tt>guessnumber</tt> application. The application presents
+you with a page that asks you to guess a number between 0
+and 10, validates your input against a random number, and responds with another
+page that informs you whether you guessed the number correctly or incorrectly.</p>
+
+
+
+<a name="giqqz"></a><h5>Developing a Backing Bean</h5>
+<a name="indexterm-205"></a><a name="indexterm-206"></a><p>In a typical JavaServer Faces application, each page of the application connects to
+a backing bean (a type of managed bean). The backing bean defines the
+methods and properties that are associated with the components.</p>
+
+<p>The following managed bean class, <tt>UserNumberBean.java</tt>, generates a random number from 0 to
+10:</p>
+
+<pre>package guessNumber;
+
+import java.util.Random;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped; 
+
+@ManagedBean
+@SessionScoped
+public class UserNumberBean {
+
+    Integer randomInt = null;
+    Integer userNumber = null;
+    String response = null;
+    private long maximum=10;
+    private long minimum=0;
+
+    public UserNumberBean() {
+        Random randomGR = new Random();
+        randomInt = new Integer(randomGR.nextInt(10));
+        System.out.println("Duke's number: " + randomInt);
+    } 
+    public void setUserNumber(Integer user_number) {
+        userNumber = user_number;
+    }
+
+    public Integer getUserNumber() {
+        return userNumber;
+    }
+
+    public String getResponse() {
+        if ((userNumber != null) &amp;&amp; (userNumber.compareTo(randomInt) == 0)) {
+            return "Yay! You got it!";
+        } else {
+            return "Sorry, " + userNumber + " is incorrect.";
+        }
+    }
+
+    public long getMaximum() {
+        return (this.maximum);
+    }
+
+    public void setMaximum(long maximum) {
+        this.maximum = maximum;
+    }
+
+    public long getMinimum() {
+        return (this.minimum);
+    }
+
+    public void setMinimum(long minimum) {
+        this.minimum = minimum;
+    }
+}</pre><p>Note the use of the <tt>@ManagedBean</tt> annotation, which registers the backing bean as
+a resource with JavaServer Faces implementation. The <tt>@SessionScoped</tt> annotation registers the bean scope as
+<tt>session</tt>.</p>
+
+
+
+<a name="gjzpv"></a><h5>Creating Facelets Views</h5>
+<a name="indexterm-207"></a><p>Creating a page or view is the responsibility of a page author.
+This task involves adding components on the pages, wiring the components to backing bean
+values and properties, and registering converters, validators, or listeners onto the components.</p>
+
+<p>For the example application, XHTML web pages serve as the front end. The
+first page of the example application is a page called <tt>greeting.xhtml</tt>. A
+closer look at various sections of this web page provides more information.</p>
+
+<p>The first section of the web page declares the content type for
+the page, which is XHTML:</p>
+
+<pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"></pre><p>The next section declares the XML namespace for the tag libraries that are
+used in the web page:</p>
+
+<pre>&lt;html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"></pre><p>The next section uses various tags to insert components into the web page:</p>
+
+<pre>h:head>
+        &lt;title>Guess Number Facelets Application&lt;/title>
+    &lt;/h:head>
+    &lt;h:body>
+        &lt;h:form>
+            &lt;h:graphicImage value="#{resource['images:wave.med.gif']}"/>
+            &lt;h2>
+                Hi, my name is Duke. I am thinking of a number from
+                #{userNumberBean.minimum} to #{userNumberBean.maximum}.
+                Can you guess it?
+                &lt;p>&lt;/p>
+                &lt;h:inputText
+                    id="userNo"
+                    value="#{userNumberBean.userNumber}">
+                    &lt;f:validateLongRange
+                        minimum="#{userNumberBean.minimum}"
+                        maximum="#{userNumberBean.maximum}"/>
+                &lt;/h:inputText>
+
+                &lt;h:commandButton id="submit" value="Submit"
+                                 action="response.xhtml"/>
+                &lt;h:message showSummary="true" showDetail="false"
+                           style="color: red;
+                           font-family: 'New Century Schoolbook', serif;
+                           font-style: oblique;
+                           text-decoration: overline"
+                           id="errors1"
+                           for="userNo"/>
+            &lt;/h2>
+        &lt;/h:form>
+    &lt;/h:body></pre><p>Note the use of the Facelets HTML tags (those beginning with <tt>h:</tt>) to
+add components, and the Facelets core tag <tt>f:validateLongRange</tt> to validate the user input.
+An <tt>inputText</tt> component accepts user input and sets the value of the backing
+bean property <tt>userNumber</tt> through the EL expression <tt>#{userNumberBean.userNumber}</tt>. The input value is validated for
+value range by the JavaServer Faces standard validator <tt>f:validateLongRange</tt>.</p>
+
+<p>The image file, <tt>wave.med.gif</tt>, is added to the page as a resource. For
+more details about the resources facility, see <a href="girgm.html">Resources</a>.</p>
+
+<p>A <tt>commandButton</tt> component with the ID <tt>submit</tt> starts validation of the input data
+when a user clicks the button. Using <b>implicit navigation</b>, the component redirects the client to
+another page, <tt>response.xhtml</tt>, which shows the response to your input.</p>
+
+<p>You can now create the second page, <tt>response.xhtml</tt>, with the following content:</p>
+
+<pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+&lt;html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    &lt;h:head>
+        &lt;title>Guess Number Facelets Application&lt;/title>
+    &lt;/h:head>
+    &lt;h:body>
+        &lt;h:form>
+            &lt;h:graphicImage value="#{resource['images:wave.med.gif']}"/>
+            &lt;h2>
+                &lt;h:outputText id="result" value="#{userNumberBean.response}"/>
+            &lt;/h2>
+            &lt;h:commandButton id="back" value="Back" action="greeting.xhtml"/>
+        &lt;/h:form>
+    &lt;/h:body>
+&lt;/html></pre>
+
+<a name="gjjkc"></a><h4>Configuring the Application</h4>
+<a name="indexterm-208"></a><p>Configuring a JavaServer Faces application involves various tasks which include adding managed-bean declarations,
+navigation rules, and resources bundle declarations in the application configuration resource files such
+as <tt>faces-config.xml</tt>, and mapping the Faces Servlet in the web deployment descriptor file
+such as a <tt>web.xml</tt> file.</p>
+
+<p>If you are using an IDE such as NetBeans IDE, a web
+deployment descriptor file is automatically created for you. In such IDE created <tt>web.xml</tt>
+file, change the default greeting page, which is <tt>index.xhtml</tt>, to <tt>greeting.xhtml</tt>. Here
+is an example <tt>web.xml</tt> file:</p>
+
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    &lt;context-param>
+        &lt;param-name>javax.faces.PROJECT_STAGE&lt;/param-name>
+        &lt;param-value>Development&lt;/param-value>
+    &lt;/context-param>
+    &lt;servlet>
+        &lt;servlet-name>Faces Servlet&lt;/servlet-name>
+        &lt;servlet-class>javax.faces.webapp.FacesServlet&lt;/servlet-class>
+        &lt;load-on-startup>1&lt;/load-on-startup>
+    &lt;/servlet>
+    &lt;servlet-mapping>
+        &lt;servlet-name>Faces Servlet&lt;/servlet-name>
+        &lt;url-pattern>/faces/*&lt;/url-pattern>
+    &lt;/servlet-mapping>
+    &lt;session-config>
+        &lt;session-timeout>
+            30
+        &lt;/session-timeout>
+    &lt;/session-config>
+    &lt;welcome-file-list>
+        &lt;welcome-file>faces/greeting.xhtml&lt;/welcome-file>
+    &lt;/welcome-file-list>
+&lt;/web-app></pre><p>Note the use of context parameter <tt>PROJECT_STAGE</tt>. Project stage is a parameter identifying
+the status of a JavaServer Faces application in the software lifecycle.</p>
+
+<p>The stage of an application can affect the behavior of the application. For
+example, if the project stage is defined as <tt>Development</tt>, debugging information is automatically
+generated for the user. If not defined by the user, the default project
+stage is considered as <tt>Production</tt>.</p>
+
+
+
+<a name="girgf"></a><h4>Building, Packaging, Deploying, and Running the <tt>guessnumber</tt> Facelets Example</h4>
+<a name="indexterm-209"></a><p>The example Facelets application described in this chapter can be built, packaged, and
+deployed using the NetBeans IDE with Java EE 6 SDK. For details on
+how to obtain this software and configure your environment to run the examples,
+see <a href="gfiud.html">Chapter&nbsp;2, Using the Tutorial Examples</a>. The source code for this example is available in the <tt></tt><i>tut-install</i><tt>/examples/web/guessnumber</tt>
+directory.</p>
+
+
+
+<a name="gjqzl"></a><h5>To Build, Package, and Deploy the <tt>guessnumber</tt> Example Using NetBeans IDE</h5>
+<p>Follow these instructions to build, package, and deploy the <tt>guessnumber</tt> example to
+your GlassFish Server instance using NetBeans IDE.</p>
+
+<ol>
+<li><b>In NetBeans IDE, select File&rarr;Open Project.</b></li>
+<li><b>In the Open Project dialog, navigate to the <tt></tt><i>tut-install</i><tt>/examples/web/</tt> directory.</b></li>
+<li><b>Select the <tt>guessnumber</tt> folder.</b></li>
+<li><b>Select the Open as Main Project check box.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>In the Projects tab, right-click the <tt>guessnumber</tt> project and select Deploy.</b><p>This option builds and deploys the example application to your GlassFish Server instance.</p></li></ol>
+
+<a name="gjqyu"></a><h5>To Build, Package, and Deploy the <tt>guessnumber</tt> Example Using Ant</h5>
+<p>To build, package, and deploy the <tt>guessNumber</tt> application using Ant, follow these steps.</p>
+
+<ol>
+<li><b>From a terminal window or command prompt, change to the <tt></tt><i>tut-install</i><tt>/examples/web/guessnumber/</tt> directory.</b></li>
+<li><b>Type the following command:</b><pre><tt><b>ant</b></tt></pre><p>This command calls the <tt>default</tt> target, which builds and packages the application into
+an WAR file, <tt>guessnumber.war</tt>, that is located in the <tt>dist</tt> directory.</p></li>
+<li><b>Make sure the GlassFish Server is started.</b></li>
+<li><b>To deploy the application, type the following command:</b><pre><tt><b>ant deploy</b></tt></pre></li></ol>
+
+<a name="gjqyx"></a><h5>To Run the <tt>guessnumber</tt> Example</h5>
+<p>To run the <tt>guessnumber</tt> example, follow these steps.</p>
+
+<ol>
+<li><b>Open a web browser.</b></li>
+<li><b>Type the following URL in your web browser:</b><pre>http://localhost:8080/guessnumber</pre><p>The web page shown in <a href="#gjqzs">Figure&nbsp;5-1</a> appears.</p><a name="gjqzs"></a><h6>Figure&nbsp;5-1 Running the <tt>guessnumber</tt> Application</h6><img src="figures/web-guessnumber.gif" alt="Screen shot showing Facelets example with text field for user to guess a number" width="631" height="387"></img></li>
+<li><b>In the text field, type a number from 0 to 10 and
+click Submit.</b><p>Another page appears, reporting whether your guess is correct or incorrect.</p></li>
+<li><b>If you guessed incorrectly, click the Back button to return to the main
+page. </b><p>You can continue to guess until you get the correct answer.</p></li></ol>
+
+<a name="gjqyv"></a><h5>To Undeploy the <tt>guessnumber</tt> Example Using NetBeans IDE</h5>
+<p>To undeploy <tt>guessnumber.war</tt> using NetBeans IDE, follow these steps.</p>
+
+<ol>
+<li><b>Click the Runtime tab.</b></li>
+<li><b>Expand the Servers node and locate the GlassFish Server instance to which you
+deployed <tt>guessnumber</tt>.</b></li>
+<li><b>Expand your GlassFish Server instance node, then Applications.</b></li>
+<li><b>Right-click <tt>guessnumber</tt> and select Undeploy.</b></li></ol>
+
+<a name="gjqzo"></a><h5>To Undeploy the <tt>guessnumber</tt> Example Using Ant</h5>
+<p>To undeploy <tt>guessnumber.war</tt> using Ant, type the following command:</p>
+
+<pre><tt><b>ant undeploy</b></tt></pre>
+         </div>
+         <div class="navigation">
+             <a href="gijtu.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="giqxp.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

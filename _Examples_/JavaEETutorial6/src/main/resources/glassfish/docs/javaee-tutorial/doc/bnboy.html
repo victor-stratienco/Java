@@ -1,0 +1,746 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Using the Timer Service - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level3"><a href="bnbod.html">The <tt>cart</tt> Example</a></p>
+<p class="toc level4"><a href="bnbod.html#bnboe">The Business Interface</a></p>
+<p class="toc level4"><a href="bnbod.html#bnbof">Session Bean Class</a></p>
+<p class="toc level5"><a href="bnbod.html#bnbog">Lifecycle Callback Methods</a></p>
+<p class="toc level5"><a href="bnbod.html#bnboh">Business Methods</a></p>
+<p class="toc level4 tocsp"><a href="bnbod.html#bnboi">The Remove Method</a></p>
+<p class="toc level4"><a href="bnbod.html#bnboj">Helper Classes</a></p>
+<p class="toc level4"><a href="bnbod.html#bnbok">Building, Packaging, Deploying, and Running the <tt>cart</tt> Example</a></p>
+<p class="toc level5"><a href="bnbod.html#bnbol">To Build, Package, and Deploy the <tt>cart</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnbod.html#bnbom">To Run the <tt>cart</tt> Application Client Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnbod.html#bnbon">To Build, Package, and Deploy the <tt>cart</tt> Example Using Ant</a></p>
+<p class="toc level5"><a href="bnbod.html#bnboo">To Run the <tt>cart</tt> Application Client Using Ant</a></p>
+<p class="toc level5"><a href="bnbod.html#bnbop">The <tt>all</tt> Task</a></p>
+<p class="toc level4 tocsp"><a href="bnbod.html#bnboq">Undeploying the <tt>cart</tt> Example</a></p>
+<p class="toc level5"><a href="bnbod.html#gjsjx">To Undeploy the <tt>cart</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnbod.html#gjsio">To Undeploy the <tt>cart</tt> Example Using Ant</a></p>
+<p class="toc level3 tocsp"><a href="gipvi.html">A Singleton Session Bean Example: <tt>counter</tt></a></p>
+<p class="toc level4"><a href="gipvi.html#gipvc">Creating a Singleton Session Bean</a></p>
+<p class="toc level5"><a href="gipvi.html#gippq">Initializing Singleton Session Beans</a></p>
+<p class="toc level5"><a href="gipvi.html#gipsz">Managing Concurrent Access in a Singleton Session Bean</a></p>
+<p class="toc level5"><a href="gipvi.html#gipvd">Handling Errors in a Singleton Session Bean</a></p>
+<p class="toc level4 tocsp"><a href="gipvi.html#gipxl">The Architecture of the <tt>counter</tt> Example</a></p>
+<p class="toc level4"><a href="gipvi.html#gipvl">Building, Deploying, and Running the <tt>counter</tt> Example</a></p>
+<p class="toc level5"><a href="gipvi.html#gipxt">To Build, Deploy, and Run the <tt>counter</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="gipvi.html#gipzw">To Build, Deploy, and Run the <tt>counter</tt> Example Using Ant</a></p>
+<p class="toc level3 tocsp"><a href="bnbor.html">A Web Service Example: <tt>helloservice</tt></a></p>
+<p class="toc level4"><a href="bnbor.html#bnbos">The Web Service Endpoint Implementation Class</a></p>
+<p class="toc level4"><a href="bnbor.html#bnbot">Stateless Session Bean Implementation Class</a></p>
+<p class="toc level4"><a href="bnbor.html#bnbou">Building, Packaging, Deploying, and Testing the <tt>helloservice</tt> Example</a></p>
+<p class="toc level5"><a href="bnbor.html#bnbov">To Build, Package, and Deploy the <tt>helloservice</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnbor.html#bnbow">To Build, Package, and Deploy the <tt>helloservice</tt> Example Using Ant</a></p>
+<p class="toc level5"><a href="bnbor.html#bnbox">To Test the Service without a Client</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">Using the Timer Service</a></p>
+<p class="toc level4"><a href="#giqlk">Creating Calendar-Based Timer Expressions</a></p>
+<p class="toc level5"><a href="#giqmx">Specifying Multiple Values in Calendar Expressions</a></p>
+<p class="toc level4 tocsp"><a href="#giqlt">Programmatic Timers</a></p>
+<p class="toc level5"><a href="#bnboz">The <tt>Timeout</tt> Method</a></p>
+<p class="toc level5"><a href="#bnbpa">Creating Programmatic Timers</a></p>
+<p class="toc level4 tocsp"><a href="#giqmb">Automatic Timers</a></p>
+<p class="toc level5"><a href="#giqlg">The <tt>@Schedule</tt> and <tt>@Schedules</tt> Annotations</a></p>
+<p class="toc level4 tocsp"><a href="#bnbpb">Canceling and Saving Timers</a></p>
+<p class="toc level4"><a href="#bnbpc">Getting Timer Information</a></p>
+<p class="toc level4"><a href="#bnbpd">Transactions and Timers</a></p>
+<p class="toc level4"><a href="#bnbpe">The <tt>timersession</tt> Example</a></p>
+<p class="toc level4"><a href="#bnbpf">Building, Packaging, Deploying, and Running the <tt>timersession</tt> Example</a></p>
+<p class="toc level5"><a href="#giqni">To Build, Package, Deploy, and Run the <tt>timersession</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#giqnq">To Build, Package, and Deploy the <tt>timersession</tt> Example Using Ant</a></p>
+<p class="toc level5"><a href="#giqop">To Run the Web Client</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="bnbpj.html">Handling Exceptions</a></p>
+<p class="toc level2 tocsp"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bnbor.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="bnbpj.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bnboy"></a><h3>Using the Timer Service</h3>
+<a name="indexterm-948"></a><a name="indexterm-949"></a><p>Applications that model business work flows often rely on timed notifications. The timer
+service of the enterprise bean container enables you to schedule timed notifications for
+all types of enterprise beans except for stateful session beans. You can schedule
+a timed notification to occur according to a calendar schedule, at a specific
+time, after a duration of time, or at timed intervals. For example, you
+could set timers to go off at 10:30 AM on May 23, in
+30 days, or every 12 hours.</p>
+
+<p>There are two types of enterprise bean timers: <b>programmatic timers</b> and <b>automatic timers</b>. Programmatic timers
+are set by explicitly calling one of the timer creation methods of the
+<tt>TimerService</tt> interface. Automatic timers are created upon the successful deployment of an enterprise
+bean that contains a method annotated with the <tt>java.ejb.Schedule</tt> or <tt>java.ejb.Schedules</tt> annotations.</p>
+
+
+
+<a name="giqlk"></a><h4>Creating Calendar-Based Timer Expressions</h4>
+<p>Timers can be set according to a calendar-based schedule, expressed using a syntax
+similar to the UNIX <tt>cron</tt> utility. Both programmatic and automatic timers can use
+calendar-based timer expressions.</p>
+
+<a name="giqly"></a><h6>Table&nbsp;16-1 Calendar-Based Timer Attributes</h6><table><col width="12%"><col width="18%"><col width="40%"><col width="11%"><col width="17%"><tr><th align="left" valign="top" scope="column"><p>Attribute</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Description</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Allowable Values</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Default Value</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Examples</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>second</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>One or more seconds within a minute.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>0</tt> to
+<tt>59</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>0</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>second="30"</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>minute</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>One or more minutes within an hour.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>0</tt> to <tt>59</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>0</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>minute="15"</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>hour</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>One or more hours
+within a day.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>0</tt> to <tt>23</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>0</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>hour="13"</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>dayOfWeek</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>One or more days within a week.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>0</tt> to
+<tt>7</tt><sup><a href="#gjscr">1</a></sup></p>
+
+<p><tt>Sun</tt>, <tt>Mon</tt>, <tt>Tue</tt>, <tt>Wed</tt>, <tt>Thu</tt>, <tt>Fri</tt>,
+<tt>Sat</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>*</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>dayOfWeek="3"</tt></p>
+
+<p><tt>dayOfWeek="Mon"</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>dayOfMonth</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>One or more days within a month.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>1</tt> to <tt>31</tt></p>
+
+<p><tt>-7</tt> to <tt>&ndash;1</tt><sup><a href="#gjscb">2</a></sup></p>
+
+<p><tt>Last</tt></p>
+
+<p>[<tt>1st</tt>,
+<tt>2nd</tt>, <tt>3rd</tt>, <tt>4th</tt>, <tt>5th</tt>, <tt>Last</tt>] [<tt>Sun</tt>, <tt>Mon</tt>, <tt>Tue</tt>, <tt>Wed</tt>, <tt>Thu</tt>, <tt>Fri</tt>, <tt>Sat</tt>]</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>*</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>dayOfMonth="15"</tt></p>
+
+<p><tt>dayOfMonth="-3"</tt></p>
+
+<p><tt>dayOfMonth="Last"</tt></p>
+
+<p><tt>dayOfMonth="2nd Fri"</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>month</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>One
+or more months within a year.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>1</tt> to <tt>12</tt></p>
+
+<p><tt>Jan</tt>, <tt>Feb</tt>, <tt>Mar</tt>, <tt>Apr</tt>, <tt>May</tt>,
+<tt>Jun</tt>, <tt>Jul</tt>, <tt>Aug</tt>, <tt>Sep</tt>, <tt>Oct</tt>, <tt>Nov</tt>, <tt>Dec</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>*</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>month="7"</tt></p>
+
+<p><tt>month="July"</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>year</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>A particular calendar year.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>A four-digit calendar
+year.</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>*</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>year="2010"</tt></p>
+
+</td>
+</tr>
+</table><p><sup>1</sup><a name="gjscr"></a>Both <tt>0</tt> and <tt>7</tt> refer to Sunday.</p><p><sup>2</sup><a name="gjscb"></a>A negative
+number means the <tt>x</tt>th day or days before the end of the month.</p>
+
+<a name="giqmx"></a><h5>Specifying Multiple Values in Calendar Expressions</h5>
+<p>You can specify multiple values in calendar expressions, as described in the following
+sections.</p>
+
+
+
+<a name="giqju"></a><h5>Using Wildcards in Calendar Expressions</h5>
+<p>Setting an attribute to an asterisk symbol (<tt>*</tt>) represents all allowable values for
+the attribute.</p>
+
+<a name="giqky"></a><h6>Example&nbsp;16-9 Calendar Expressions with Wildcards</h6><p>The following expression represents every minute:</p>
+
+<pre>minute="*"</pre><p>The following expression represents every day of the week:</p>
+
+<pre>dayOfWeek="*"</pre>
+
+<a name="giqnd"></a><h5>Specifying a List of Values</h5>
+<p>To specify two or more values for an attribute, use a comma
+(<tt>,</tt>) to separate the values. A range of values are allowed as part
+of a list. Wildcards and intervals, however, are not allowed.</p>
+
+<p>Duplicates within a list are ignored.</p>
+
+<a name="giqmf"></a><h6>Example&nbsp;16-10 Calendar Expressions with a List of Values</h6><p>The following expression sets the day of the week to Tuesday and
+Thursday:</p>
+
+<pre>dayOfWeek="Tue, Thu"</pre><p>The following expression represents 4:00 AM, every hour from 9:00 AM to 5:00
+PM using a range, and 10:00 PM:</p>
+
+<pre>hour="4,9-17,20"</pre>
+
+<a name="giqmu"></a><h5>Specifying a Range of Values</h5>
+<p>Use a dash character (<tt>-</tt>) to specify an inclusive range of values for
+an attribute. Members of a range cannot be wildcards, lists, or intervals. If
+the range is of the form <tt>x-x</tt>, it is equivalent to the single-valued
+expression <tt>x</tt>. If the range is of the form <tt>x-y</tt> and <tt>x</tt> is
+greater than <tt>y</tt>, it is equivalent to the expression <tt>x-<i>maximum value</i>, <i>minimum value</i>-y</tt>. That is, the expression
+begins at <tt>x</tt>, rolls-over to the beginning of the allowable values, and continues
+up to <tt>y</tt>.</p>
+
+<a name="giqma"></a><h6>Example&nbsp;16-11 Calendar Expressions Using Ranges</h6><p>The following expression represents 9:00 AM to 5:00 PM:</p>
+
+<pre>hour="9-17"</pre><p>The following expression represents Friday through Monday:</p>
+
+<pre>dayOfWeek="5-1"</pre><p>The following expression represents the 25th day of the month to the end
+of the month, and the beginning of the month to the 5th
+day of the month:</p>
+
+<pre>dayOfMonth="25-5"</pre><p>It is equivalent to the following expression:</p>
+
+<pre>dayOfMonth="25-Last,1-5"</pre>
+
+<a name="giqkv"></a><h5>Specifying Intervals</h5>
+<p>The forward slash (<tt>/</tt>) constrains an attribute to a starting point and an
+interval. It is used to specify every <tt>N</tt> seconds, minutes, or hours within
+the minute, hour or day. For an expression of the form <tt>x/y</tt>, <tt>x</tt>
+represents the starting point and <tt>y</tt> represents the interval. The wildcard character may be
+used in the <tt>x</tt> position of an interval, and is equivalent to setting
+<tt>x</tt> to <tt>0</tt>.</p>
+
+<p>Intervals may only be set for <tt>second</tt>, <tt>minute</tt>, and <tt>hour</tt> attributes.</p>
+
+<a name="giqms"></a><h6>Example&nbsp;16-12 Calendar Expressions Using Intervals</h6><p>The following expression represents every 10 minutes within the hour:</p>
+
+<pre>minute="*/10"</pre><p>It is equivalent to:</p>
+
+<pre>minute="0,10,20,30,40,50"</pre><p>The following expression represents every two hours starting at noon:</p>
+
+<pre>hour="12/2"</pre>
+
+<a name="giqlt"></a><h4>Programmatic Timers</h4>
+<p><a name="indexterm-950"></a>When a programmatic timer expires (goes off), the container calls the method annotated
+<tt>@Timeout</tt> in the bean&rsquo;s implementation class. The <tt>@Timeout</tt> method contains the business logic that
+handles the timed event.</p>
+
+
+
+<a name="bnboz"></a><h5>The <tt>Timeout</tt> Method</h5>
+<p>Methods annotated <tt>@Timeout</tt> in the enterprise bean class must return <tt>void</tt> and optionally
+take a <tt>javax.ejb.Timer</tt> object as the only parameter. They may not throw
+application exceptions.</p>
+
+<pre>@Timeout
+public void timeout(Timer timer) {
+    System.out.println("TimerBean: timeout occurred");
+}</pre>
+
+<a name="bnbpa"></a><h5>Creating Programmatic Timers</h5>
+<a name="indexterm-951"></a><p><a name="indexterm-952"></a>To create a timer, the bean invokes one of the <tt>create</tt> methods of
+the <tt>TimerService</tt> interface. The <tt>create</tt> methods of <tt>TimerService</tt> allow single-action, interval, or calendar-based timers
+to be created.</p>
+
+<p>For single-action or interval timers, the expiration of the timer can be expressed
+either as a duration or an absolute time. The duration is expressed as
+a the number of milliseconds before a timeout event is triggered. To
+specify an absolute time, create a <tt>java.util.Date</tt> object and pass it to either the
+<tt>TimerService.createSingleActionTimer</tt> or <tt>TimerService.createTimer</tt> methods.</p>
+
+<a name="giqpg"></a><h6>Example&nbsp;16-13 Setting a Programmatic Timer Based On a Duration</h6><p>The following code sets a programmatic timer that will expire in one minute
+(6000 milliseconds):</p>
+
+<pre>long duration = 6000;
+Timer timer = timerService.createSingleActionTimer(duration, new TimerConfig());</pre><a name="giqom"></a><h6>Example&nbsp;16-14 Setting a Programmatic Timer Based On an Absolute Time</h6><p>The following code sets a programmatic timer that will expire at 12:05 PM
+on May 1st, 2010, specified as a <tt>java.util.Date</tt>:</p>
+
+<pre>SimpleDateFormatter formatter = new SimpleDateFormatter("MM/dd/yyyy 'at' HH:mm");
+Date date = formatter.parse("05/01/2010 at 12:05");
+Timer timer = timerService.createSingleActionTimer(date, new TimerConfig());</pre><p>For calendar-based timers, the expiration of the timer is expressed as a <tt>javax.ejb.ScheduleExpression</tt>
+object, passed as a parameter to the <tt>TimerService.createCalendarTimer</tt> method. The <tt>ScheduleExpression</tt> class represents calendar-based timer
+expressions, and has methods that correspond to the attributes described in <a href="#giqlk">Creating Calendar-Based Timer Expressions</a>.</p>
+
+<a name="giqnw"></a><h6>Example&nbsp;16-15 Using <tt>ScheduleExpression</tt> to Set a Timer</h6><p>The following code creates a programmatic timer using the <tt>ScheduleExpression</tt> helper class:</p>
+
+<pre>ScheduleExpression schedule = new ScheduleExpression();
+schedule.dayOfWeek("Mon");
+schedule.hour("12-17, 23");
+Timer timer = timerService.createCalendarTimer(schedule);</pre><p>For details on the method signatures, see the <tt>TimerService</tt> API documentation at <a href="http://download.oracle.com/docs/cd/E17410_01/javaee/6/api/javax/ejb/TimerService.html">http://download.oracle.com/docs/cd/E17410_01/javaee/6/api/javax/ejb/TimerService.html</a>.</p>
+
+<p>The bean described in <a href="#bnbpe">The <tt>timersession</tt> Example</a> creates a timer as follows:</p>
+
+<pre>Timer timer = timerService.createTimer(intervalDuration,
+        "Created new programmatic timer");</pre><p>In the <tt>timersession</tt> example, <tt>createTimer</tt> is invoked in a business method, which is
+called by a client.</p>
+
+<p>Timers are persistent by default. If the server is shut down (or
+even crashes), persistent timers are saved and will become active again when the server
+is restarted. If a persistent timer expires while the server is down, the
+container will call the <tt>@Timeout</tt> method when the server is restarted.</p>
+
+<p>Non-persistent programmatic timers are created by calling <tt>TimerConfig.setPersistent(false)</tt> and passing the <tt>TimerConfig</tt>
+object to one of the timer creation methods.</p>
+
+<p>The <tt>Date</tt> and <tt>long</tt> parameters of the <tt>createTimer</tt> methods represent time with the
+resolution of milliseconds. However, because the timer service is not intended for real-time applications,
+a callback to the <tt>@Timeout</tt> method might not occur with millisecond precision. The
+timer service is for business applications, which typically measure time in hours, days,
+or longer durations.</p>
+
+
+
+<a name="giqmb"></a><h4>Automatic Timers</h4>
+<p>Automatic timers are created by the EJB container when an enterprise bean that
+contains methods annotated with the <tt>@Schedule</tt> or <tt>@Schedules</tt> annotations is deployed. An
+enterprise bean can have multiple automatic timeout methods, unlike a programmatic timer where
+there can only be one method annotated with the <tt>@Timeout</tt> annotation in the enterprise
+bean class.</p>
+
+<p>Automatic timers can be configured through annotations or through the <tt>ejb-jar.xml</tt> deployment
+descriptor.</p>
+
+
+
+<a name="giqlg"></a><h5>The <tt>@Schedule</tt> and <tt>@Schedules</tt> Annotations</h5>
+<p>Adding a <tt>@Schedule</tt> annotation on an enterprise bean marks that method as a
+timeout method according to the calendar schedule specified in the attributes of <tt>@Schedule</tt>.
+</p>
+
+<p>The <tt>@Schedule</tt> annotation has elements that correspond to the calendar expressions detailed in
+<a href="#giqlk">Creating Calendar-Based Timer Expressions</a>and the <tt>persistent</tt>, <tt>info</tt>, and <tt>timezone</tt> elements.</p>
+
+<p>The optional <tt>persistent</tt> element takes a boolean value, and is used to specify
+whether the automatic timer should survive a server restart or crash. By default,
+all automatic timers are persistent.</p>
+
+<p>The optional <tt>timezone</tt> element is used to optionally specify that the automatic timer
+is associated with a particular time zone. If set, this element will evaluate
+all timer expressions in relation to the specified time zone, regardless of the
+time zone in which the EJB container is running. By default, all automatic
+timers set are in relation to the default time zone of the server.</p>
+
+<p>The optional <tt>info</tt> element is used to set an informational description of the
+timer. A timer's information can be retrieved later using <tt>Timer.getInfo</tt>.</p>
+
+<a name="giqnj"></a><h6>Example&nbsp;16-16 Setting an Automatic Timer Using <tt>@Schedule</tt></h6><p>The following timeout method uses <tt>@Schedule</tt> to set a timer that will expire
+every Sunday at midnight:</p>
+
+<pre>@Schedule(dayOfWeek="Sun", hour="0")
+public void cleanupWeekData() { ... }</pre><p>The <tt>@Schedules</tt> annotation is used to specify multiple calendar-based timer expressions for a
+given timeout method.</p>
+
+<a name="giqoz"></a><h6>Example&nbsp;16-17 Setting Multiple Automatic Timers for a Timeout Method Using <tt>@Schedules</tt></h6><p>The following timeout method uses the <tt>@Schedules</tt> annotation to set multiple calendar-based timer
+expressions. The first expression sets a timer to expire on the last day
+of every month. The second expression sets a timer to expire every Friday
+at 11:00 PM.</p>
+
+<pre>@Schedules ({
+    @Schedule(dayOfMonth="Last"),
+    @Schedule(dayOfWeek="Fri", hour="23")
+})
+public void doPeriodicCleanup() { ... }</pre>
+
+<a name="bnbpb"></a><h4>Canceling and Saving Timers</h4>
+<a name="indexterm-953"></a><a name="indexterm-954"></a><p>Timers can be canceled by the following events:</p>
+
+
+<ul><li><p><a name="indexterm-955"></a>When a single-event timer expires, the EJB container calls the associated timeout method and then cancels the timer.</p>
+
+</li>
+<li><p>When the bean invokes the <tt>cancel</tt> method of the <tt>Timer</tt> interface, the container cancels the timer.</p>
+
+</li></ul>
+<p><a name="indexterm-956"></a>If a method is invoked on a canceled timer, the container throws the
+<tt>javax.ejb.NoSuchObjectLocalException</tt>.</p>
+
+<p>To save a <tt>Timer</tt> object for future reference, invoke its <tt>getHandle</tt> method and
+store the <tt>TimerHandle</tt> object in a database. (A <tt>TimerHandle</tt> object is serializable.) To
+re-instantiate the <tt>Timer</tt> object, retrieve the handle from the database and invoke <tt>getTimer</tt>
+on the handle. A <tt>TimerHandle</tt> object cannot be passed as an argument of a
+method defined in a remote or web service interface. In other words, remote
+clients and web service clients cannot access a bean&rsquo;s <tt>TimerHandle</tt> object. Local
+clients, however, do not have this restriction.</p>
+
+
+
+<a name="bnbpc"></a><h4>Getting Timer Information</h4>
+<a name="indexterm-957"></a><p><a name="indexterm-958"></a><a name="indexterm-959"></a><a name="indexterm-960"></a>In addition to defining the <tt>cancel</tt> and <tt>getHandle</tt> methods, the <tt>Timer</tt> interface
+defines methods for obtaining information about timers:</p>
+
+<pre>public long getTimeRemaining();
+public java.util.Date getNextTimeout();
+public java.io.Serializable getInfo();</pre><p>The <tt>getInfo</tt> method returns the object that was the last parameter of the
+<tt>createTimer</tt> invocation. For example, in the <tt>createTimer</tt> code snippet of the preceding section, this
+information parameter is a <tt>String</tt> object with the value <tt>created timer</tt>.</p>
+
+<p>To retrieve all of a bean&rsquo;s active timers, call the <tt>getTimers</tt> method
+of the <tt>TimerService</tt> interface. The <tt>getTimers</tt> method returns a collection of <tt>Timer</tt>
+objects.</p>
+
+
+
+<a name="bnbpd"></a><h4>Transactions and Timers</h4>
+<a name="indexterm-961"></a><a name="indexterm-962"></a><p>An enterprise bean usually creates a timer within a transaction. If this transaction
+is rolled back, the timer creation is also rolled back. Similarly, if a
+bean cancels a timer within a transaction that gets rolled back, the timer
+cancellation is rolled back. In this case, the timer&rsquo;s duration is reset as
+if the cancellation had never occurred.</p>
+
+<p>In beans that use container-managed transactions, the <tt>@Timeout</tt> method usually has the <tt>Required</tt>
+or <tt>RequiresNew</tt> transaction attribute to preserve transaction integrity. With these attributes, the EJB container
+begins the new transaction before calling the <tt>@Timeout</tt> method. If the transaction is
+rolled back, the container will call the <tt>@Timeout</tt> method at least one
+more time.</p>
+
+
+
+<a name="bnbpe"></a><h4>The <tt>timersession</tt> Example</h4>
+<a name="indexterm-963"></a><a name="indexterm-964"></a><p>The source code for this example is in the <tt></tt><i>tut-install</i><tt>/examples/ejb/timersession/src/java/</tt> directory.</p>
+
+<p><tt>TimerSessionBean</tt> is a singleton session bean that shows how to set both an
+automatic timer and a programmatic timer. In the source code listing of <tt>TimerSessionBean</tt>
+that follows, the <tt>setTimer</tt> and <tt>@Timeout</tt> methods are used to set a programmatic timer.
+A <tt>TimerService</tt> instance is injected by the container when the bean is created.
+Because it&rsquo;s a business method, <tt>setTimer</tt> is exposed to the local, no-interface view of
+<tt>TimerSessionBean</tt> and can be invoked by the client. In this example, the client
+invokes <tt>setTimer</tt> with an interval duration of 30,000 milliseconds. The <tt>setTimer</tt> method creates a
+new timer by invoking the <tt>createTimer</tt> method of <tt>TimerService</tt>. Now that the timer
+is set, the EJB container will invoke the <tt>programmaticTimeout</tt> method of <tt>TimerSessionBean</tt> when
+the timer expires, in about 30 seconds.</p>
+
+<pre>...
+    public void setTimer(long intervalDuration) {
+        logger.info("Setting a programmatic timeout for " +
+                intervalDuration + " milliseconds from now.");
+        Timer timer = timerService.createTimer(intervalDuration, 
+                "Created new programmatic timer");
+    }
+    
+    @Timeout
+    public void programmaticTimeout(Timer timer) {
+        this.setLastProgrammaticTimeout(new Date());
+        logger.info("Programmatic timeout occurred.");
+    }
+...</pre><p><tt>TimerSessionBean</tt> also has an automatic timer and timeout method, <tt>automaticTimeout</tt>. The automatic timer is
+set to expire every 3 minutes, and is set using a calendar-based timer
+expression in the <tt>@Schedule</tt> annotation.</p>
+
+<pre>...
+    @Schedule(minute="*/3", hour="*")
+    public void automaticTimeout() {
+        this.setLastAutomaticTimeout(new Date());
+        logger.info("Automatic timeout occured");
+    }
+...</pre><p><tt>TimerSessoinBean</tt> also has two business methods, <tt>getLastProgrammaticTimeout</tt> and <tt>getLastAutomaticTimeout</tt>. Clients call these methods
+to get the date and time of the last timeout for the programmatic
+timer and automatic timer, respectively.</p>
+
+<p>Here&rsquo;s the source code for the <tt>TimerSessionBean</tt> class:</p>
+
+<pre>package timersession.ejb;
+
+import java.util.Date;
+import java.util.logging.Logger;
+import javax.annotation.Resource;
+import javax.ejb.Schedule;
+import javax.ejb.Stateless;
+import javax.ejb.Timeout;
+import javax.ejb.Timer;
+import javax.ejb.TimerService;
+
+
+@Singleton
+public class TimerSessionBean {
+    @Resource
+    TimerService timerService;
+
+    private Date lastProgrammaticTimeout;
+    private Date lastAutomaticTimeout;
+    
+    private Logger logger = Logger
+            .getLogger("com.sun.tutorial.javaee.ejb.timersession.TimerSessionBean");
+    
+    public void setTimer(long intervalDuration) {
+        logger.info("Setting a programmatic timeout for " +
+                intervalDuration + " milliseconds from now.");
+        Timer timer = timerService.createTimer(intervalDuration, 
+                "Created new programmatic timer");
+    }
+    
+    @Timeout
+    public void programmaticTimeout(Timer timer) {
+        this.setLastProgrammaticTimeout(new Date());
+        logger.info("Programmatic timeout occurred.");
+    }
+
+    @Schedule(minute="*/3", hour="*")
+    public void automaticTimeout() {
+        this.setLastAutomaticTimeout(new Date());
+        logger.info("Automatic timeout occured");
+    }
+
+    public String getLastProgrammaticTimeout() {
+        if (lastProgrammaticTimeout != null) {
+            return lastProgrammaticTimeout.toString();
+        } else {
+            return "never";
+        }
+        
+    }
+
+    public void setLastProgrammaticTimeout(Date lastTimeout) {
+        this.lastProgrammaticTimeout = lastTimeout;
+    }
+
+    public String getLastAutomaticTimeout() {
+        if (lastAutomaticTimeout != null) {
+            return lastAutomaticTimeout.toString();
+        } else {
+            return "never";
+        }
+    }
+
+    public void setLastAutomaticTimeout(Date lastAutomaticTimeout) {
+        this.lastAutomaticTimeout = lastAutomaticTimeout;
+    }
+}</pre>
+<hr><p><b>Note - </b>GlassFish Server has a default minimum timeout value of 1000 milliseconds, or 1
+second. If you need to set the timeout value lower than 1000
+milliseconds, change the value of the <tt>minimum-delivery-interval-in-millis</tt> element in <tt></tt><i>domain-dir</i><tt>/config/domain.xml</tt>. Due to virtual machine constraints,
+the lowest practical value for <tt>minimum-delivery-interval-in-millis</tt> is around 10 milliseconds.</p>
+
+
+<hr>
+
+
+<a name="bnbpf"></a><h4>Building, Packaging, Deploying, and Running the <tt>timersession</tt> Example</h4>
+<p>You can build, package, deploy, and run the <tt>timersession</tt> example using either NetBeans
+IDE or Ant.</p>
+
+
+
+<a name="giqni"></a><h5>To Build, Package, Deploy, and Run the <tt>timersession</tt> Example Using NetBeans IDE</h5>
+<p>To build, package, and deploy the <tt>timersession</tt> example using NetBeans IDE, follow these
+steps.</p>
+
+<ol>
+<li><b>In NetBeans IDE, select File&rarr;Open Project.</b></li>
+<li><b>In the Open Project dialog, navigate to <tt></tt><i>tut-install</i><tt>/examples/ejb/</tt>.</b></li>
+<li><b>Select the <tt>timersession</tt> folder.</b></li>
+<li><b>Select the Open as Main Project check box.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>Select Run&rarr;Run Main Project.</b><p>This builds and packages the application into <tt>timersession.war</tt>, located in <tt></tt><i>tut-install</i><tt>/examples/ejb/timersession/dist/</tt>, deploys this WAR file
+to your GlassFish Server instance, and then runs the web client.</p></li></ol>
+
+<a name="giqnq"></a><h5>To Build, Package, and Deploy the <tt>timersession</tt> Example Using Ant</h5>
+<p>To build, package, and deploy the <tt>timersession</tt> example to your GlassFish Server instance
+using Ant, follow these steps.</p>
+
+<ol>
+<li><b>In a terminal window, go to the <tt></tt><i>tut-install</i><tt>/examples/ejb/timersession/</tt> directory.</b></li>
+<li><b>To build <tt>timersession</tt>, type the following command:</b><pre><tt><b>ant build</b></tt></pre><p>This runs the <tt>default</tt> task, which compiles the source files and packages the
+application into a WAR file located at <tt></tt><i>tut-install</i><tt>/examples/ejb/timersession/dist/timersession.war</tt>.</p></li>
+<li><b>To deploy the application, type the following command:</b><pre><tt><b>ant deploy</b></tt></pre></li></ol>
+
+<a name="giqop"></a><h5>To Run the Web Client</h5>
+<p>To run the web client, follow these steps.</p>
+
+<ol>
+<li><b>Open a web browser to <tt>http://localhost:8080/timersession</tt>.</b></li>
+<li><b>Click the Set Timer button to set a programmatic timer.</b></li>
+<li><b>Wait for a while and click the browser's Refresh button.</b><p>You will see the date and time of the last programmatic and
+automatic timeouts.</p><p>You can also see the messages that are logged when a timeout
+occurs by opening the <tt>server.log</tt> file located in <tt></tt><i>domain-dir</i><tt>/server/logs/</tt>.</p></li></ol>
+         </div>
+         <div class="navigation">
+             <a href="bnbor.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="bnbpj.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>The Life Cycles of Enterprise Beans - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level3"><a href="gipmb.html">What Is an Enterprise Bean?</a></p>
+<p class="toc level4"><a href="gipmb.html#giplk">Benefits of Enterprise Beans</a></p>
+<p class="toc level4"><a href="gipmb.html#gipkn">When to Use Enterprise Beans</a></p>
+<p class="toc level4"><a href="gipmb.html#gipnm">Types of Enterprise Beans</a></p>
+<p class="toc level3 tocsp"><a href="gipjg.html">What Is a Session Bean?</a></p>
+<p class="toc level4"><a href="gipjg.html#gipkr">Types of Session Beans</a></p>
+<p class="toc level5"><a href="gipjg.html#gipnl">Stateful Session Beans</a></p>
+<p class="toc level5"><a href="gipjg.html#gipin">Stateless Session Beans</a></p>
+<p class="toc level5"><a href="gipjg.html#gipim">Singleton Session Beans</a></p>
+<p class="toc level4 tocsp"><a href="gipjg.html#gipmt">When to Use Session Beans</a></p>
+<p class="toc level3 tocsp"><a href="gipko.html">What Is a Message-Driven Bean?</a></p>
+<p class="toc level4"><a href="gipko.html#gipmj">What Makes Message-Driven Beans Different from Session Beans?</a></p>
+<p class="toc level4"><a href="gipko.html#gipjx">When to Use Message-Driven Beans</a></p>
+<p class="toc level3 tocsp"><a href="gipjf.html">Accessing Enterprise Beans</a></p>
+<p class="toc level4"><a href="gipjf.html#girfl">Using Enterprise Beans in Clients</a></p>
+<p class="toc level5"><a href="gipjf.html#girgn">Portable JNDI Syntax</a></p>
+<p class="toc level4 tocsp"><a href="gipjf.html#gipiz">Deciding on Remote or Local Access</a></p>
+<p class="toc level4"><a href="gipjf.html#gipmz">Local Clients</a></p>
+<p class="toc level5"><a href="gipjf.html#gipsc">Accessing Local Enterprise Beans Using the No-Interface View</a></p>
+<p class="toc level5"><a href="gipjf.html#gipse">Accessing Local Enterprise Beans That Implement Business Interfaces</a></p>
+<p class="toc level4 tocsp"><a href="gipjf.html#gipiu">Remote Clients</a></p>
+<p class="toc level5"><a href="gipjf.html#gipsf">Accessing Remote Enterprise Beans</a></p>
+<p class="toc level4 tocsp"><a href="gipjf.html#gipkd">Web Service Clients</a></p>
+<p class="toc level4"><a href="gipjf.html#giply">Method Parameters and Access</a></p>
+<p class="toc level5"><a href="gipjf.html#giplx">Isolation</a></p>
+<p class="toc level5"><a href="gipjf.html#gipkv">Granularity of Accessed Data</a></p>
+<p class="toc level3 tocsp"><a href="gipio.html">The Contents of an Enterprise Bean</a></p>
+<p class="toc level4"><a href="gipio.html#gipnz">Packaging Enterprise Beans In EJB JAR Modules</a></p>
+<p class="toc level4"><a href="gipio.html#gippi">Packaging Enterprise Beans in WAR Modules</a></p>
+<p class="toc level3 tocsp"><a href="gipks.html">Naming Conventions for Enterprise Beans</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3"><a href="">The Life Cycles of Enterprise Beans</a></p>
+<p class="toc level4"><a href="#gipln">The Life Cycle of a Stateful Session Bean</a></p>
+<p class="toc level4"><a href="#giplm">The Life Cycle of a Stateless Session Bean</a></p>
+<p class="toc level4"><a href="#giprx">The Life Cycle of a Singleton Session Bean</a></p>
+<p class="toc level4"><a href="#gipkw">The Life Cycle of a Message-Driven Bean</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="giplg.html">Further Information about Enterprise Beans</a></p>
+<p class="toc level2 tocsp"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gipks.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="giplg.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="giplj"></a><h3>The Life Cycles of Enterprise Beans</h3>
+<a name="indexterm-897"></a><a name="indexterm-898"></a><a name="indexterm-899"></a><p>An enterprise bean goes through various stages during its lifetime, or life cycle.
+Each type of enterprise bean (stateful session, stateless session, singleton session, or message-driven)
+has a different life cycle.</p>
+
+<p>The descriptions that follow refer to methods that are explained along with the
+code examples in the next two chapters. If you are new to
+enterprise beans, you should skip this section and run the code examples first.</p>
+
+
+
+<a name="gipln"></a><h4>The Life Cycle of a Stateful Session Bean</h4>
+<p><a href="#gipmi">Figure&nbsp;14-3</a> illustrates the stages that a session bean passes through during its lifetime.
+The client initiates the life cycle by obtaining a reference to a stateful
+session bean. The container performs any dependency injection and then invokes the method annotated
+with <tt>@PostConstruct</tt>, if any. The bean is now ready to have its business
+methods invoked by the client.</p>
+
+<a name="gipmi"></a><h6>Figure&nbsp;14-3 Life Cycle of a Stateful Session Bean</h6><a name="indexterm-900"></a><img src="figures/ejbcon-statefulSessionBeanLifeCycle.gif" alt="Diagram showing the life cycle of a stateful session bean."></img><p><a name="indexterm-901"></a><a name="indexterm-902"></a>While in the ready stage, the EJB container may decide to deactivate, or
+<b>passivate</b>, the bean by moving it from memory to secondary storage. (Typically, the
+EJB container uses a least-recently-used algorithm to select a bean for passivation.) The
+EJB container invokes the method annotated <tt>@PrePassivate</tt>, if any, immediately before passivating it. If
+a client invokes a business method on the bean while it is in
+the passive stage, the EJB container activates the bean, calls the method annotated
+<tt>@PostActivate</tt>, if any, and then moves it to the ready stage.</p>
+
+<p>At the end of the life cycle, the client invokes a method
+annotated <tt>@Remove</tt>, and the EJB container calls the method annotated <tt>@PreDestroy</tt>, if
+any. The bean&rsquo;s instance is then ready for garbage collection.</p>
+
+<p>Your code controls the invocation of only one life-cycle method: the method annotated
+<tt>@Remove</tt>. All other methods in <a href="#gipmi">Figure&nbsp;14-3</a> are invoked by the EJB container. See
+<a href="bncjh.html">Chapter&nbsp;29, Resource Connections</a> for more information.</p>
+
+
+
+<a name="giplm"></a><h4>The Life Cycle of a Stateless Session Bean</h4>
+<p>Because a stateless session bean is never passivated, its life cycle has only
+two stages: nonexistent and ready for the invocation of business methods. <a href="#gipni">Figure&nbsp;14-4</a> illustrates the
+stages of a stateless session bean.</p>
+
+<a name="gipni"></a><h6>Figure&nbsp;14-4 Life Cycle of a Stateless Session Bean</h6><img src="figures/ejbcon-statelessSessionBeanLifeCycle.gif" alt="Diagram showing the life cycle of a stateless session bean."></img><p>The EJB container typically creates and maintains a pool of stateless session beans,
+beginning the stateless session bean's life cycle. The container performs any dependency injection
+and then invokes the method annotated <tt>@PostConstruct</tt>, if it exists. The bean
+is now ready to have its business methods invoked by a client.</p>
+
+<p>At the end of the life cycle, the EJB container calls the
+method annotated <tt>@PreDestroy</tt>, if it exists. The bean&rsquo;s instance is then ready for
+garbage collection.</p>
+
+
+
+<a name="giprx"></a><h4>The Life Cycle of a Singleton Session Bean</h4>
+<p>Like a stateless session bean, a singleton session bean is never passivated and
+has only two stages: nonexistent and ready for the invocation of business methods.
+</p>
+
+<a name="gippc"></a><h6>Figure&nbsp;14-5 Life Cycle of a Singleton Session Bean</h6><img src="figures/ejbcon-statelessSessionBeanLifeCycle.gif" alt="Diagram showing the life cycle of a singleton session bean."></img><p>The EJB container initiates the singleton session bean life cycle by creating the
+singleton instance. This occurs upon application deployment if the singleton is annotated with
+the <tt>@Startup</tt> annotation The container performs any dependency injection and then invokes the
+method annotated <tt>@PostConstruct</tt>, if it exists. The singleton session bean is now ready to
+have its business methods invoked by the client.</p>
+
+<p>At the end of the life cycle, the EJB container calls the
+method annotated <tt>@PreDestroy</tt>, if it exists. The singleton session bean is now
+ready for garbage collection.</p>
+
+
+
+<a name="gipkw"></a><h4>The Life Cycle of a Message-Driven Bean</h4>
+<p><a href="#giplr">Figure&nbsp;14-6</a> illustrates the stages in the life cycle of a message-driven bean.</p>
+
+<a name="giplr"></a><h6>Figure&nbsp;14-6 Life Cycle of a Message-Driven Bean</h6><img src="figures/ejbcon-messageDrivenBeanLifeCycle.gif" alt="Diagram showing the life cycle of a message-driven bean."></img><p>The EJB container usually creates a pool of message-driven bean instances. For each
+instance, the EJB container performs these tasks:</p>
+
+
+<ol><li><p>If the message-driven bean uses dependency injection, the container injects these references before instantiating the instance.</p>
+
+</li>
+<li><p>The container calls the method annotated <tt>@PostConstruct</tt>, if any.</p>
+
+</li></ol>
+<p>Like a stateless session bean, a message-driven bean is never passivated, and it
+has only two states: nonexistent and ready to receive messages.</p>
+
+<p><a name="indexterm-903"></a><a name="indexterm-904"></a>At the end of the life cycle, the container calls the method
+annotated <tt>@PreDestroy</tt>, if any. The bean&rsquo;s instance is then ready for garbage collection.</p>
+
+
+         </div>
+         <div class="navigation">
+             <a href="gipks.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="giplg.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

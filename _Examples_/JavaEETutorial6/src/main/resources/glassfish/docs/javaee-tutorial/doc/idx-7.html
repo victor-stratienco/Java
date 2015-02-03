@@ -1,0 +1,731 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title> - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="idx-6.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="idx-8.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             <h4>R</h4>
+<div class="indexdiv">
+<dl>
+<dd>realms<dl>
+<dd><a href="bnbxj.html#indexterm-1370">What Are Realms, Users, Groups, and Roles?</a></dd>
+<dd><a href="bnbxj.html#indexterm-1371">What Is a Realm?</a></dd>
+</dl>
+<dl>
+<dd><tt>admin-realm</tt>, <a href="bnbxj.html#indexterm-1375">What Is a Realm?</a></dd>
+<dd><tt>certificate</tt>, <a href="bnbxj.html#indexterm-1374">What Is a Realm?</a><dl>
+<dd>adding users, <a href="bnbxj.html#indexterm-1390">Adding Users to the Certificate Realm</a></dd>
+</dl>
+configuring, <a href="bnbxi.html#indexterm-1353">Securing the GlassFish Server</a></dd>
+<dd><tt>file</tt>, <a href="bnbxj.html#indexterm-1373">What Is a Realm?</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><tt>recover</tt> method, <a href="bncfu.html#indexterm-1789">Controlling Message Acknowledgment</a></dd>
+</dl>
+<dl>
+<dd>redelivery of messages<dl>
+<dd><a href="bncfu.html#indexterm-1783">Controlling Message Acknowledgment</a></dd>
+<dd><a href="bncfu.html#indexterm-1788">Controlling Message Acknowledgment</a></dd>
+</dl>
+<dl>
+<dd><tt>JMSRedelivered</tt> message header field, <a href="bnceh.html#indexterm-1763">Message Headers</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>referencing backing bean methods, <a href="bnatn.html#indexterm-553">Referencing a Backing Bean Method</a><dl>
+<dd>for handling action events<dl>
+<dd><a href="bnatn.html#indexterm-584">Referencing a Method That Handles an Action Event</a></dd>
+<dd><a href="bnavb.html#indexterm-664">Writing a Method to Handle an Action Event</a></dd>
+</dl>
+</dd>
+<dd>for handling value-change events, <a href="bnatn.html#indexterm-593">Referencing a Method That Handles a Value-Change Event</a></dd>
+<dd>for performing navigation<dl>
+<dd><a href="bnatn.html#indexterm-579">Referencing a Method That Performs Navigation</a></dd>
+<dd><a href="bnavb.html#indexterm-659">Writing a Method to Handle Navigation</a></dd>
+</dl>
+</dd>
+<dd>for performing validation<dl>
+<dd><a href="bnatn.html#indexterm-589">Referencing a Method That Performs Validation</a></dd>
+<dd><a href="bnavb.html#indexterm-674">Writing a Method to Perform Validation</a></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>relationship fields, query language, <a href="bnbth.html#indexterm-1124">Query Language Terminology</a></dd>
+</dl>
+<dl>
+<dd>relationships<dl>
+<dd>direction, <a href="bnbqa.html#indexterm-1056">Bidirectional Relationships</a></dd>
+<dd>unidirectional, <a href="giqst.html#indexterm-1097">Unidirectional Relationships</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>reliability, JMS<dl>
+<dd>advanced mechanisms, <a href="bncfu.html#indexterm-1810">Using Advanced Reliability Mechanisms</a></dd>
+<dd>basic mechanisms, <a href="bncfu.html#indexterm-1780">Using Basic Reliability Mechanisms</a></dd>
+<dd>durable subscriptions, <a href="bncfu.html#indexterm-1811">Creating Durable Subscriptions</a></dd>
+<dd>local transactions, <a href="bncfu.html#indexterm-1817">Using JMS API Local Transactions</a></dd>
+<dd>message acknowledgment, <a href="bncfu.html#indexterm-1781">Controlling Message Acknowledgment</a></dd>
+<dd>message expiration, <a href="bncfu.html#indexterm-1801">Allowing Messages to Expire</a></dd>
+<dd>message persistence, <a href="bncfu.html#indexterm-1790">Specifying Message Persistence</a></dd>
+<dd>message priority levels, <a href="bncfu.html#indexterm-1798">Setting Message Priority Levels</a></dd>
+<dd>temporary destinations, <a href="bncfu.html#indexterm-1804">Creating Temporary Destinations</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>remote interfaces, defined, <a href="gipjf.html#indexterm-885">Remote Clients</a></dd>
+</dl>
+<dl>
+<dd>Remote Method Invocation (RMI), and messaging, <a href="bncdr.html#indexterm-1688">What Is Messaging?</a></dd>
+</dl>
+<dl>
+<dd>request method designator<dl>
+<dd><a href="gilik.html#indexterm-809">Creating a RESTful Root Resource Class</a></dd>
+<dd><a href="gilik.html#indexterm-815">Responding to HTTP Resources</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>request/reply mechanism<dl>
+<dd><tt>JMSCorrelationID</tt> message header field, <a href="bnceh.html#indexterm-1758">Message Headers</a></dd>
+<dd><tt>JMSReplyTo</tt> message header field, <a href="bnceh.html#indexterm-1760">Message Headers</a></dd>
+<dd>temporary destinations and, <a href="bncfu.html#indexterm-1809">Creating Temporary Destinations</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><tt>RequestDispatcher</tt> interface, <a href="bnagi.html#indexterm-752">Invoking Other Web Resources</a></dd>
+</dl>
+<dl>
+<dd>requests, <a href="bnafv.html#indexterm-709">Getting Information from Requests</a><dl>
+<dd><i>See also </i>HTTP requests<dd>customizing, <a href="bnagb.html#indexterm-740">Programming Customized Requests and Responses</a></dd>
+<dd>getting information from, <a href="bnafv.html#indexterm-712">Getting Information from Requests</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><tt>Required</tt> transaction attribute, <a href="bncgl.html#indexterm-1838">Managing Distributed Transactions</a></dd>
+</dl>
+<dl>
+<dd>resource adapters<dl>
+<dd><a href="bnacj.html#indexterm-87">Java EE Connector Architecture</a></dd>
+<dd><a href="gipgl.html#indexterm-1674">Resource Adapters and Contracts</a></dd>
+</dl>
+<dl>
+<dd>security, <a href="bncal.html#indexterm-1587">Configuring Resource Adapter Security</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>resource class, <a href="gilik.html#indexterm-802">Creating a RESTful Root Resource Class</a></dd>
+</dl>
+<dl>
+<dd>resource injection, <a href="bncjk.html#indexterm-1673">Resource Injection</a></dd>
+</dl>
+<dl>
+<dd>resource method, <a href="gilik.html#indexterm-803">Creating a RESTful Root Resource Class</a></dd>
+</dl>
+<dl>
+<dd>resources, <a href="bncjh.html#indexterm-1664">Resource Connections</a><dl>
+<dd><i>See also </i>data sources<dd>Facelets, <a href="girgm.html#indexterm-215">Resources</a></dd>
+<dd>JMS, <a href="bncgl.html#indexterm-1823">Resource Management</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><tt>ResponseBuilder</tt>, <a href="gilik.html#indexterm-824">Using Entity Providers to Map HTTP Response and Request Entity Bodies</a></dd>
+</dl>
+<dl>
+<dd>responses, <a href="bnafv.html#indexterm-723">Constructing Responses</a><dl>
+<dd><i>See also </i>HTTP responses<dd>buffering output, <a href="bnafv.html#indexterm-730">Constructing Responses</a></dd>
+<dd>customizing, <a href="bnagb.html#indexterm-741">Programming Customized Requests and Responses</a></dd>
+<dd>setting headers, <a href="bnafv.html#indexterm-708">Writing Service Methods</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>RESTful web services<dl>
+<dd><a href="bnacj.html#indexterm-79">Java API for RESTful Web Services</a></dd>
+<dd><a href="giepu.html#indexterm-797">Building RESTful Web Services with JAX-RS and Jersey</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>roles, <a href="bnbxj.html#indexterm-1380">What Is a Role?</a><dl>
+<dd>application, <a href="bnbxj.html#indexterm-1397">Mapping Roles to Users and Groups</a></dd>
+<dd>declaring, <a href="bncbe.html#indexterm-1492">Declaring Security Roles</a></dd>
+<dd>development<dl>
+<dd><i>See </i>development roles</dd>
+</dl>
+mapping<dl>
+<dd>to groups, <a href="bncbe.html#indexterm-1494">Mapping Security Roles to GlassFish Server Groups</a></dd>
+</dl>
+mapping to groups, <a href="bnbxj.html#indexterm-1395">Mapping Roles to Users and Groups</a></dd>
+<dd>mapping to users, <a href="bnbxj.html#indexterm-1396">Mapping Roles to Users and Groups</a></dd>
+<dd>referencing, <a href="bnbyl.html#indexterm-1531">Specifying Authorized Users by Declaring Security Roles</a></dd>
+<dd>security<dl>
+<dd><a href="bnbxj.html#indexterm-1392">Setting Up Security Roles</a></dd>
+<dd><a href="bncbe.html#indexterm-1490">Declaring Security Roles</a></dd>
+<dd><a href="bnbyl.html#indexterm-1523">Securing an Enterprise Bean Using Declarative Security and Annotations</a></dd>
+<dd><a href="bnbyl.html#indexterm-1528">Specifying Authorized Users by Declaring Security Roles</a></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><tt>rollback</tt> method<dl>
+<dd><a href="bncij.html#indexterm-1628">Methods Not Allowed in Container-Managed Transactions</a></dd>
+<dd><a href="bnciy.html#indexterm-1645">JTA Transactions</a></dd>
+<dd><a href="bnciy.html#indexterm-1652">Methods Not Allowed in Bean-Managed Transactions</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><tt>rollback</tt> method (JMS), <a href="bncfu.html#indexterm-1821">Using JMS API Local Transactions</a></dd>
+</dl>
+<dl>
+<dd>rollbacks, <i>See </i>transactions, rollbacks</dd>
+</dl>
+<dl>
+<dd>run-as identity, <a href="bnbyl.html#indexterm-1553">Propagating a Security Identity (Run-As)</a></dd>
+</dl>
+<dl>
+<dd>running applications, JAX-RS, <a href="gipzz.html#indexterm-839">Example Applications for JAX-RS</a></dd>
+</dl>
+</div><h4>S</h4>
+<div class="indexdiv">
+<dl>
+<dd>SAAJ, <a href="girdr.html#indexterm-115">SOAP with Attachments API for Java</a></dd>
+</dl>
+<dl>
+<dd>SASL, <a href="bnbwy.html#indexterm-1319">Java SE Security Implementation Mechanisms</a></dd>
+</dl>
+<dl>
+<dd>schema, deployment descriptors, <a href="bnbxe.html#indexterm-1345">Using Deployment Descriptors for Declarative Security</a></dd>
+</dl>
+<dl>
+<dd><tt>schemagen</tt> tool, <a href="bnadf.html#indexterm-130">GlassFish Server 3.0.1 Tools</a></dd>
+</dl>
+<dl>
+<dd>scopes, using, <a href="gjbbk.html#indexterm-1001">Using Scopes</a></dd>
+</dl>
+<dl>
+<dd>secure connections<dl>
+<dd><a href="bnbxw.html#indexterm-1404">Establishing a Secure Connection Using SSL</a></dd>
+<dd><a href="bnbxw.html#indexterm-1410">Installing and Configuring SSL Support</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>Secure Socket Layer (SSL), <a href="bnbxw.html#indexterm-1400">Establishing a Secure Connection Using SSL</a></dd>
+</dl>
+<dl>
+<dd>security<dl>
+<dd>annotations<dl>
+<dd><a href="bnbxe.html#indexterm-1342">Using Annotations to Specify Security Information</a></dd>
+<dd><a href="bnbyl.html#indexterm-1516">Securing Enterprise Beans</a></dd>
+</dl>
+<dl>
+<dd>web applications, <a href="bncat.html#indexterm-1446">Overview of Web Application Security</a></dd>
+</dl>
+application, <a href="bnbwy.html#indexterm-1326">Application-Layer Security</a><dl>
+<dd>characteristics of, <a href="bnbwk.html#indexterm-1297">Characteristics of Application Security</a></dd>
+</dl>
+application client tier<dl>
+<dd>callback handlers, <a href="bncah.html#indexterm-1572">Using Login Modules</a></dd>
+</dl>
+application clients, <a href="bncah.html#indexterm-1564">Securing Application Clients</a></dd>
+<dd>callback handlers<dl>
+<dd><a href="bncah.html#indexterm-1566">Securing Application Clients</a></dd>
+<dd><a href="bncah.html#indexterm-1570">Using Login Modules</a></dd>
+</dl>
+</dd>
+<dd>constraints, <a href="gkbaa.html#indexterm-1455">Specifying Security Constraints</a></dd>
+<dd>container, <a href="bnbwk.html#indexterm-1287">Overview of Java EE Security</a></dd>
+<dd>container trust, <a href="bnbyl.html#indexterm-1558">Trust Between Containers</a></dd>
+<dd>containers, <a href="bnbxe.html#indexterm-1339">Securing Containers</a></dd>
+<dd>context<dl>
+<dd>enterprise beans, <a href="bnbyl.html#indexterm-1545">Accessing an Enterprise Bean Caller&rsquo;s Security Context</a></dd>
+</dl>
+declarative<dl>
+<dd><a href="bnbwk.html#indexterm-1289">Overview of Java EE Security</a></dd>
+<dd><a href="bnbxe.html#indexterm-1343">Using Deployment Descriptors for Declarative Security</a></dd>
+<dd><a href="bncat.html#indexterm-1448">Overview of Web Application Security</a></dd>
+<dd><a href="bnbyl.html#indexterm-1518">Securing Enterprise Beans</a></dd>
+</dl>
+</dd>
+<dd>default principal, <a href="bnbyl.html#indexterm-1561">To Accept Unauthenticated Users</a></dd>
+<dd>deploying enterprise beans, <a href="bnbyl.html#indexterm-1559">Deploying Secure Enterprise Beans</a></dd>
+<dd>EIS applications, <a href="bncal.html#indexterm-1575">Securing Enterprise Information Systems (EIS) Applications</a><dl>
+<dd>component-managed sign-on, <a href="bncal.html#indexterm-1584">Component-Managed Sign-On</a></dd>
+<dd>container-managed sign-on, <a href="bncal.html#indexterm-1581">Container-Managed Sign-On</a></dd>
+</dl>
+end-to-end, <a href="bnbwy.html#indexterm-1337">Message-Layer Security</a></dd>
+<dd>enterprise beans, <a href="bnbyl.html#indexterm-1511">Securing Enterprise Beans</a></dd>
+<dd>example, <a href="bnbwk.html#indexterm-1294">A Simple Security Example</a></dd>
+<dd>groups, <a href="bnbxj.html#indexterm-1379">What Is a Group?</a></dd>
+<dd>implementation mechanisms, <a href="bnbwy.html#indexterm-1307">Security Implementation Mechanisms</a></dd>
+<dd>introduction, <a href="bnbwj.html#indexterm-1286">Introduction to Security in the Java EE Platform</a></dd>
+<dd>JAAS login modules, <a href="bncah.html#indexterm-1574">Using Login Modules</a></dd>
+<dd>Java EE<dl>
+<dd>mechanisms, <a href="bnbwy.html#indexterm-1325">Java EE Security Implementation Mechanisms</a></dd>
+</dl>
+Java SE, <a href="bnbwy.html#indexterm-1308">Java SE Security Implementation Mechanisms</a></dd>
+<dd>login forms, <a href="bncah.html#indexterm-1567">Securing Application Clients</a></dd>
+<dd>login modules, <a href="bncah.html#indexterm-1569">Using Login Modules</a></dd>
+<dd>mechanism features, <a href="bnbwk.html#indexterm-1296">Features of a Security Mechanism</a></dd>
+<dd>message, <a href="bncat.html#indexterm-1453">Overview of Web Application Security</a></dd>
+<dd>message-layer, <a href="bnbwy.html#indexterm-1333">Message-Layer Security</a></dd>
+<dd>method permissions, <a href="bnbyl.html#indexterm-1526">Securing an Enterprise Bean Using Declarative Security and Annotations</a><dl>
+<dd>annotations, <a href="bnbyl.html#indexterm-1533">Specifying Authorized Users by Declaring Security Roles</a></dd>
+</dl>
+policy domain, <a href="bnbxj.html#indexterm-1383">Some Other Terminology</a></dd>
+<dd>programmatic<dl>
+<dd><a href="bnbwk.html#indexterm-1292">Overview of Java EE Security</a></dd>
+<dd><a href="bnbxe.html#indexterm-1348">Using Programmatic Security</a></dd>
+<dd><a href="bncat.html#indexterm-1451">Overview of Web Application Security</a></dd>
+<dd><a href="gjiie.html#indexterm-1496">Using Programmatic Security with Web Applications</a></dd>
+<dd><a href="bnbyl.html#indexterm-1521">Securing Enterprise Beans</a></dd>
+</dl>
+</dd>
+<dd>programmatic login, <a href="bnbxi.html#indexterm-1366">Securing the GlassFish Server</a></dd>
+<dd>propagating identity, <a href="bnbyl.html#indexterm-1551">Propagating a Security Identity (Run-As)</a></dd>
+<dd>realms, <a href="bnbxj.html#indexterm-1372">What Is a Realm?</a></dd>
+<dd>resource adapters, <a href="bncal.html#indexterm-1588">Configuring Resource Adapter Security</a></dd>
+<dd>role names<dl>
+<dd><a href="bncbe.html#indexterm-1493">Declaring Security Roles</a></dd>
+<dd><a href="bnbyl.html#indexterm-1527">Specifying Authorized Users by Declaring Security Roles</a></dd>
+</dl>
+</dd>
+<dd>roles<dl>
+<dd><a href="bnbxj.html#indexterm-1381">What Is a Role?</a></dd>
+<dd><a href="bnbxj.html#indexterm-1393">Setting Up Security Roles</a></dd>
+<dd><a href="bncbe.html#indexterm-1491">Declaring Security Roles</a></dd>
+<dd><a href="bnbyl.html#indexterm-1524">Securing an Enterprise Bean Using Declarative Security and Annotations</a></dd>
+</dl>
+</dd>
+<dd>run-as identity, <a href="bnbyl.html#indexterm-1554">Propagating a Security Identity (Run-As)</a></dd>
+<dd>single sign-on, <a href="bnbxi.html#indexterm-1364">Securing the GlassFish Server</a></dd>
+<dd>specifying run-as identity, <a href="bnbyl.html#indexterm-1552">Propagating a Security Identity (Run-As)</a></dd>
+<dd>transport-layer<dl>
+<dd><a href="bnbwy.html#indexterm-1328">Transport-Layer Security</a></dd>
+<dd><a href="bnbxw.html#indexterm-1403">Establishing a Secure Connection Using SSL</a></dd>
+</dl>
+</dd>
+<dd>users, <a href="bnbxj.html#indexterm-1377">What Is a User?</a></dd>
+<dd>web applications, <a href="bncas.html#indexterm-1441">Getting Started Securing Web Applications</a><dl>
+<dd>deployment descriptor, <a href="bncbe.html#indexterm-1488">Using Deployment Descriptors to Secure Web Applications</a></dd>
+<dd>overview, <a href="bncat.html#indexterm-1444">Overview of Web Application Security</a></dd>
+</dl>
+web components, <a href="bncas.html#indexterm-1442">Getting Started Securing Web Applications</a></dd>
+<dd>web services, <a href="bncas.html#indexterm-1443">Getting Started Securing Web Applications</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>security constraints, <a href="gkbaa.html#indexterm-1454">Specifying Security Constraints</a><dl>
+<dd>multiple, <a href="gkbaa.html#indexterm-1467">Specifying Separate Security Constraints for Various Resources</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>security domain, <a href="bnbxj.html#indexterm-1384">Some Other Terminology</a></dd>
+</dl>
+<dl>
+<dd>security identity<dl>
+<dd>propagating, <a href="bnbyl.html#indexterm-1550">Propagating a Security Identity (Run-As)</a></dd>
+<dd>specific identity, <a href="bnbyl.html#indexterm-1556">Propagating a Security Identity (Run-As)</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>security-role-mapping element, <a href="bnbxj.html#indexterm-1398">Mapping Roles to Users and Groups</a></dd>
+</dl>
+<dl>
+<dd><tt>security-role-ref</tt> element, <a href="gjiie.html#indexterm-1504">Declaring and Linking Role References</a></dd>
+</dl>
+<dl>
+<dd>security roles<dl>
+<dd><a href="bnbxj.html#indexterm-1394">Setting Up Security Roles</a></dd>
+<dd><a href="bnbyl.html#indexterm-1522">Securing an Enterprise Bean Using Declarative Security and Annotations</a></dd>
+</dl>
+<dl>
+<dd>mapping, <a href="bncbe.html#indexterm-1495">Mapping Security Roles to GlassFish Server Groups</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><tt>send</tt> method, <a href="bnceh.html#indexterm-1735">JMS Message Producers</a></dd>
+</dl>
+<dl>
+<dd>server, authentication, <a href="gkbaa.html#indexterm-1481">HTTPS Client Authentication</a></dd>
+</dl>
+<dl>
+<dd>servers, certificates, <a href="bnbxw.html#indexterm-1423">Working with Digital Certificates</a></dd>
+</dl>
+<dl>
+<dd>servers, Java EE<dl>
+<dd>deploying on more than one<dl>
+<dd><a href="bnchp.html#indexterm-1898">An Application Example That Consumes Messages from a Remote Server</a></dd>
+<dd><a href="bnchx.html#indexterm-1904">An Application Example That Deploys a Message-Driven Bean on Two Servers</a></dd>
+</dl>
+</dd>
+<dd>running JMS clients on more than one, <a href="bncfa.html#indexterm-1868">Running JMS Clients on Multiple Systems</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>servlet<dl>
+<dd>map<dl>
+<dd><i>See </i>web deployment descriptor</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><tt>Servlet</tt> interface, <a href="bnafe.html#indexterm-688">What Is a Servlet?</a></dd>
+</dl>
+<dl>
+<dd><tt>ServletContext</tt> interface, <a href="bnagl.html#indexterm-759">Accessing the Web Context</a></dd>
+</dl>
+<dl>
+<dd><tt>ServletInputStream</tt> class, <a href="bnafv.html#indexterm-716">Getting Information from Requests</a></dd>
+</dl>
+<dl>
+<dd><tt>ServletOutputStream</tt> class, <a href="bnafv.html#indexterm-729">Constructing Responses</a></dd>
+</dl>
+<dl>
+<dd><tt>ServletRequest</tt> interface, <a href="bnafv.html#indexterm-711">Getting Information from Requests</a></dd>
+</dl>
+<dl>
+<dd><tt>ServletResponse</tt> interface, <a href="bnafv.html#indexterm-725">Constructing Responses</a></dd>
+</dl>
+<dl>
+<dd>servlets, <a href="bnafe.html#indexterm-685">What Is a Servlet?</a><dl>
+<dd>binary data<dl>
+<dd>reading, <a href="bnafv.html#indexterm-715">Getting Information from Requests</a></dd>
+<dd>writing, <a href="bnafv.html#indexterm-728">Constructing Responses</a></dd>
+</dl>
+character data<dl>
+<dd>reading, <a href="bnafv.html#indexterm-713">Getting Information from Requests</a></dd>
+<dd>writing, <a href="bnafv.html#indexterm-726">Constructing Responses</a></dd>
+</dl>
+compiling, <a href="gipss.html#indexterm-915">Compiling, Packaging, and Running the converter Example</a></dd>
+<dd>examples, <a href="gipss.html#indexterm-910">Creating the converter Web Client</a></dd>
+<dd>finalization, <a href="bnags.html#indexterm-771">Finalizing a Servlet</a></dd>
+<dd>initialization, <a href="bnafu.html#indexterm-701">Initializing a Servlet</a><dl>
+<dd>failure, <a href="bnafu.html#indexterm-703">Initializing a Servlet</a></dd>
+</dl>
+life cycle, <a href="bnafi.html#indexterm-691">Servlet Life Cycle</a></dd>
+<dd>life-cycle events<dl>
+<dd>handling, <a href="bnafi.html#indexterm-693">Handling Servlet Life-Cycle Events</a></dd>
+</dl>
+packaging, <a href="gipss.html#indexterm-916">Compiling, Packaging, and Running the converter Example</a></dd>
+<dd>service methods, <a href="bnafv.html#indexterm-707">Writing Service Methods</a><dl>
+<dd>notifying, <a href="bnags.html#indexterm-773">Notifying Methods to Shut Down</a></dd>
+<dd>programming long running, <a href="bnags.html#indexterm-774">Creating Polite Long-Running Methods</a></dd>
+</dl>
+tracking service requests, <a href="bnags.html#indexterm-772">Tracking Service Requests</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>session beans<dl>
+<dd><a href="bnacj.html#indexterm-68">Enterprise JavaBeans Technology</a></dd>
+<dd><a href="gipjg.html#indexterm-854">What Is a Session Bean?</a></dd>
+</dl>
+<dl>
+<dd>activation, <a href="giplj.html#indexterm-901">The Life Cycle of a Stateful Session Bean</a></dd>
+<dd>clients, <a href="gipjg.html#indexterm-855">What Is a Session Bean?</a></dd>
+<dd>databases, <a href="bncij.html#indexterm-1622">Synchronizing a Session Bean&rsquo;s Instance Variables</a></dd>
+<dd>examples<dl>
+<dd><a href="gipss.html#indexterm-906">Coding the Enterprise Bean Class</a></dd>
+<dd><a href="bncgw.html#indexterm-1876">An Application That Uses the JMS API with a Session Bean</a></dd>
+</dl>
+</dd>
+<dd>passivation, <a href="giplj.html#indexterm-902">The Life Cycle of a Stateful Session Bean</a></dd>
+<dd>requirements, <a href="bnbod.html#indexterm-924">Session Bean Class</a></dd>
+<dd>stateful<dl>
+<dd><a href="gipjg.html#indexterm-857">Stateful Session Beans</a></dd>
+<dd><a href="gipjg.html#indexterm-862">When to Use Session Beans</a></dd>
+</dl>
+</dd>
+<dd>stateless<dl>
+<dd><a href="gipjg.html#indexterm-861">Stateless Session Beans</a></dd>
+<dd><a href="gipjg.html#indexterm-864">When to Use Session Beans</a></dd>
+</dl>
+</dd>
+<dd>transactions<dl>
+<dd><a href="bncij.html#indexterm-1605">Container-Managed Transactions</a></dd>
+<dd><a href="bncij.html#indexterm-1621">Synchronizing a Session Bean&rsquo;s Instance Variables</a></dd>
+<dd><a href="bnciy.html#indexterm-1636">Bean-Managed Transactions</a></dd>
+</dl>
+</dd>
+<dd>web services<dl>
+<dd><a href="gipjf.html#indexterm-887">Web Service Clients</a></dd>
+<dd><a href="bnbor.html#indexterm-947">Stateless Session Bean Implementation Class</a></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><tt>Session</tt> interface, <a href="bnceh.html#indexterm-1732">JMS Sessions</a></dd>
+</dl>
+<dl>
+<dd>sessions, <a href="bnagm.html#indexterm-761">Maintaining Client State</a><dl>
+<dd>associating attributes, <a href="bnagm.html#indexterm-765">Associating Objects with a Session</a></dd>
+<dd>associating with user, <a href="bnagm.html#indexterm-769">Session Tracking</a></dd>
+<dd>invalidating, <a href="bnagm.html#indexterm-768">Session Management</a></dd>
+<dd>notifying objects associated with, <a href="bnagm.html#indexterm-766">Associating Objects with a Session</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>sessions, JMS<dl>
+<dd>introduction, <a href="bnceh.html#indexterm-1731">JMS Sessions</a></dd>
+<dd>managing in enterprise bean applications, <a href="bncgl.html#indexterm-1825">Resource Management</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><tt>setRollbackOnly</tt> method, <a href="bncgl.html#indexterm-1836">Managing Distributed Transactions</a></dd>
+</dl>
+<dl>
+<dd>sign-on<dl>
+<dd>component-managed<dl>
+<dd><a href="bncal.html#indexterm-1580">Securing Enterprise Information Systems (EIS) Applications</a></dd>
+<dd><a href="bncal.html#indexterm-1586">Component-Managed Sign-On</a></dd>
+</dl>
+</dd>
+<dd>container-managed<dl>
+<dd><a href="bncal.html#indexterm-1578">Securing Enterprise Information Systems (EIS) Applications</a></dd>
+<dd><a href="bncal.html#indexterm-1583">Container-Managed Sign-On</a></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>Simple Authentication and Security Layer, <a href="bnbwy.html#indexterm-1318">Java SE Security Implementation Mechanisms</a></dd>
+</dl>
+<dl>
+<dd>single sign-on, <a href="bnbxi.html#indexterm-1362">Securing the GlassFish Server</a></dd>
+</dl>
+<dl>
+<dd><tt>SingleThreadModel</tt> interface, <a href="bnafo.html#indexterm-700">Controlling Concurrent Access to Shared Resources</a></dd>
+</dl>
+<dl>
+<dd>SOAP<dl>
+<dd><a href="giqsx.html#indexterm-778">Types of Web Services</a></dd>
+<dd><a href="bnayl.html#indexterm-783">Building Web Services with JAX-WS</a></dd>
+<dd><a href="bnayl.html#indexterm-788">Building Web Services with JAX-WS</a></dd>
+<dd><a href="bnaze.html#indexterm-794">Further Information about JAX-WS</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>SOAP messages<dl>
+<dd><a href="bnabs.html#indexterm-41">SOAP Transport Protocol</a></dd>
+<dd><a href="girdr.html#indexterm-117">SOAP with Attachments API for Java</a></dd>
+</dl>
+<dl>
+<dd>securing, <a href="bnbwy.html#indexterm-1335">Message-Layer Security</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>SOAP with Attachments API for Java, <i>See </i>SAAJ</dd>
+</dl>
+<dl>
+<dd>SQL<dl>
+<dd><a href="girdr.html#indexterm-95">Java Database Connectivity API</a></dd>
+<dd><a href="bnbtl.html#indexterm-1150">Queries That Navigate to Related Entities</a></dd>
+<dd><a href="bnbuf.html#indexterm-1175">Identifiers</a></dd>
+<dd><a href="bnbuf.html#indexterm-1195">Path Expressions</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>SQL92, <a href="bnbuf.html#indexterm-1242">NULL Values</a></dd>
+</dl>
+<dl>
+<dd>SSL<dl>
+<dd><a href="bnbwy.html#indexterm-1331">Transport-Layer Security</a></dd>
+<dd><a href="bnbxw.html#indexterm-1401">Establishing a Secure Connection Using SSL</a></dd>
+<dd><a href="gkbaa.html#indexterm-1465">Specifying a Secure Connection</a></dd>
+<dd><a href="gkbaa.html#indexterm-1478">HTTPS Client Authentication</a></dd>
+</dl>
+<dl>
+<dd>connector, <a href="bnbxw.html#indexterm-1415">Installing and Configuring SSL Support</a></dd>
+<dd>connectors<dl>
+<dd>GlassFish Server, <a href="bnbxw.html#indexterm-1413">Installing and Configuring SSL Support</a></dd>
+</dl>
+tips, <a href="bnbxw.html#indexterm-1419">Tips on Running SSL</a></dd>
+<dd>verifying support, <a href="bnbxw.html#indexterm-1417">Verifying SSL Support</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>SSL HTTPS Connector, configuring, <a href="bnbxw.html#indexterm-1414">Installing and Configuring SSL Support</a></dd>
+</dl>
+<dl>
+<dd>SSO, <a href="bnbxi.html#indexterm-1363">Securing the GlassFish Server</a></dd>
+</dl>
+<dl>
+<dd>standard converters<dl>
+<dd><tt>Converter</tt> implementation classes, <a href="bnast.html#indexterm-480">Using the Standard Converters</a></dd>
+<dd>converter tags<dl>
+<dd><a href="bnarc.html#indexterm-441">Using core Tags</a></dd>
+<dd><a href="bnarc.html#indexterm-468">Using core Tags</a></dd>
+<dd><a href="bnast.html#indexterm-510">Converting a Component&rsquo;s Value</a></dd>
+</dl>
+</dd>
+<dd><tt>NumberConverter</tt> class, <a href="bnast.html#indexterm-496">Using the Standard Converters</a></dd>
+<dd>using, <a href="bnast.html#indexterm-478">Using the Standard Converters</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>standard validators<dl>
+<dd>using, <a href="bnatc.html#indexterm-539">Using the Standard Validators</a></dd>
+<dd>validator tags<dl>
+<dd><i>See </i>validator tags</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>state fields, query language, <a href="bnbth.html#indexterm-1122">Query Language Terminology</a></dd>
+</dl>
+<dl>
+<dd><tt>StreamMessage</tt> interface, <a href="bnceh.html#indexterm-1771">Message Bodies</a></dd>
+</dl>
+<dl>
+<dd>subscription names, for durable subscribers, <a href="bncfu.html#indexterm-1816">Creating Durable Subscriptions</a></dd>
+</dl>
+<dl>
+<dd>substitution parameters, defining, <i>See </i>messages, <tt>param</tt> tag</dd>
+</dl>
+<dl>
+<dd>synchronous message consumption, <a href="bncdx.html#indexterm-1705">Message Consumption</a><dl>
+<dd>JMS client example, <a href="bncfa.html#indexterm-1845">A Simple Example of Synchronous Message Receives</a></dd>
+</dl>
+</dd>
+</dl>
+</div>
+         </div>
+         <div class="navigation">
+             <a href="idx-6.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="idx-8.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

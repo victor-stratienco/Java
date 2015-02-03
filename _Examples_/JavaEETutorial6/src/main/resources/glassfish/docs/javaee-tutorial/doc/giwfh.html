@@ -1,0 +1,589 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Writing Robust JMS Applications - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level3"><a href="bncfa.html">Writing Simple JMS Applications</a></p>
+<p class="toc level4"><a href="bncfa.html#bncfb">A Simple Example of Synchronous Message Receives</a></p>
+<p class="toc level5"><a href="bncfa.html#bncfc">Writing the Clients for the Synchronous Receive Example</a></p>
+<p class="toc level5"><a href="bncfa.html#bncfd">Starting the JMS Provider</a></p>
+<p class="toc level5"><a href="bncfa.html#bncfe">To Create JMS Administered Objects for the Synchronous Receive Example</a></p>
+<p class="toc level5"><a href="bncfa.html#bncfg">Building, Deploying, and Running the Clients for the Synchronous Receive Example</a></p>
+<p class="toc level4 tocsp"><a href="bncfa.html#bncfh">A Simple Example of Asynchronous Message Consumption</a></p>
+<p class="toc level5"><a href="bncfa.html#bncfi">Writing the Clients for the Asynchronous Receive Example</a></p>
+<p class="toc level5"><a href="bncfa.html#gjsch">To Build and Package the <tt>AsynchConsumer</tt> Client  Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bncfa.html#gjscf">To Deploy and Run the Clients for the Asynchronous Receive Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bncfa.html#bncfj">To Build and Package the <tt>AsynchConsumer</tt> Client Using Ant</a></p>
+<p class="toc level5"><a href="bncfa.html#bncfk">To Deploy and Run the Clients for the Asynchronous Receive Example Using Ant and the <tt>appclient</tt> Command</a></p>
+<p class="toc level4 tocsp"><a href="bncfa.html#bncfl">A Simple Example of Browsing Messages in a Queue</a></p>
+<p class="toc level5"><a href="bncfa.html#bncfm">Writing the Client for the Queue Browser Example</a></p>
+<p class="toc level5"><a href="bncfa.html#bncfo">To Build, Package, Deploy, and Run the <tt>MessageBrowser</tt> Client Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bncfa.html#bncfn">To Build, Package, Deploy, and Run the <tt>MessageBrowser</tt> Client Using Ant and the <tt>appclient</tt> Command</a></p>
+<p class="toc level4 tocsp"><a href="bncfa.html#bncfp">Running JMS Clients on Multiple Systems</a></p>
+<p class="toc level5"><a href="bncfa.html#bncfq">To Create Administered Objects for Multiple Systems</a></p>
+<p class="toc level5"><a href="bncfa.html#gjsdi">Changing the Default Host Name</a></p>
+<p class="toc level5"><a href="bncfa.html#gjsag">To Edit, Build, Package, Deploy, and Run the Clients Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bncfa.html#bncfs">To Edit, Build, Package, Deploy, and Run the Clients Using Ant and the <tt>appclient</tt> Command</a></p>
+<p class="toc level4 tocsp"><a href="bncfa.html#bncft">Undeploying and Cleaning the Simple JMS Examples</a></p>
+<p class="toc level5"><a href="bncfa.html#gjscq">To Undeploy and Clean the Simple JMS Examples Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bncfa.html#gjsbu">To Undeploy and Clean the Simple JMS Examples Using Ant</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">Writing Robust JMS Applications</a></p>
+<p class="toc level4"><a href="#bncfx">A Message Acknowledgment Example</a></p>
+<p class="toc level5"><a href="#gjsab">To Build, Package, Deploy, and Run the <tt>ackequivexample</tt> Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#gjscg">To Build, Package, Deploy, and Run <tt>ackequivexample</tt> Using Ant</a></p>
+<p class="toc level4 tocsp"><a href="#bncgg">A Durable Subscription Example</a></p>
+<p class="toc level5"><a href="#gjsar">To Build, Package, Deploy, and Run <tt>durablesubscriberexample</tt> Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#gjsci">To Build, Package, Deploy, and Run <tt>durablesubscriberexample</tt> Using Ant</a></p>
+<p class="toc level4 tocsp"><a href="#bncgj">A Local Transaction Example</a></p>
+<p class="toc level5"><a href="#gjsem">To Build, Package, Deploy, and Run <tt>transactedexample</tt> Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#gjsha">To Build, Package, Deploy, and Run <tt>transactedexample</tt> Using Ant and the <tt>appclient</tt> Command</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="bncgw.html">An Application That Uses the JMS API with a Session Bean</a></p>
+<p class="toc level4"><a href="bncgw.html#bncgx">Writing the Application Components for the <tt>clientsessionmdb</tt> Example</a></p>
+<p class="toc level5"><a href="bncgw.html#bncgz">Coding the Application Client: <tt>MyAppClient.java</tt></a></p>
+<p class="toc level5"><a href="bncgw.html#bncha">Coding the Publisher Session Bean</a></p>
+<p class="toc level5"><a href="bncgw.html#bnchb">Coding the Message-Driven Bean: <tt>MessageBean.java</tt></a></p>
+<p class="toc level4 tocsp"><a href="bncgw.html#bnchc">Creating Resources for the <tt>clientsessionmdb</tt> Example</a></p>
+<p class="toc level4"><a href="bncgw.html#bnchd">To Build, Package, Deploy, and Run the <tt>clientsessionmdb</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level4"><a href="bncgw.html#bnche">To Build, Package, Deploy, and Run the <tt>clientsessionmdb</tt> Example Using Ant</a></p>
+<p class="toc level3 tocsp"><a href="bnchf.html">An Application That Uses the JMS API with an Entity</a></p>
+<p class="toc level4"><a href="bnchf.html#bnchg">Overview of the <tt>clientmdbentity</tt> Example Application</a></p>
+<p class="toc level4"><a href="bnchf.html#bnchi">Writing the Application Components for the <tt>clientmdbentity</tt> Example</a></p>
+<p class="toc level5"><a href="bnchf.html#bnchj">Coding the Application Client: <tt>HumanResourceClient.java</tt></a></p>
+<p class="toc level5"><a href="bnchf.html#bnchk">Coding the Message-Driven Beans for the <tt>clientmdbentity</tt> Example</a></p>
+<p class="toc level5"><a href="bnchf.html#bnchl">Coding the Entity Class for the <tt>clientmdbentity</tt> Example</a></p>
+<p class="toc level4 tocsp"><a href="bnchf.html#bnchm">Creating Resources for the <tt>clientmdbentity</tt> Example</a></p>
+<p class="toc level4"><a href="bnchf.html#bnchn">To Build, Package, Deploy, and Run the <tt>clientmdbentity</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level4"><a href="bnchf.html#bncho">To Build, Package, Deploy, and Run the <tt>clientmdbentity</tt> Example Using Ant</a></p>
+<p class="toc level3 tocsp"><a href="bnchp.html">An Application Example That Consumes Messages from a Remote Server</a></p>
+<p class="toc level4"><a href="bnchp.html#bnchq">Overview of the <tt>consumeremote</tt> Example Modules</a></p>
+<p class="toc level4"><a href="bnchp.html#bnchs">Writing the Module Components for the <tt>consumeremote</tt> Example</a></p>
+<p class="toc level4"><a href="bnchp.html#bncht">Creating Resources for the <tt>consumeremote</tt> Example</a></p>
+<p class="toc level4"><a href="bnchp.html#bnchu">Using Two Application Servers for the <tt>consumeremote</tt> Example</a></p>
+<p class="toc level4"><a href="bnchp.html#bnchv">To Build, Package, Deploy, and Run the <tt>consumeremote</tt>Modules Using NetBeans IDE</a></p>
+<p class="toc level4"><a href="bnchp.html#bnchw">To Build, Package, Deploy, and Run the <tt>consumeremote</tt> Modules Using Ant</a></p>
+<p class="toc level3 tocsp"><a href="bnchx.html">An Application Example That Deploys a Message-Driven Bean on Two Servers</a></p>
+<p class="toc level4"><a href="bnchx.html#bnchy">Overview of the <tt>sendremote</tt> Example Modules</a></p>
+<p class="toc level4"><a href="bnchx.html#bnchz">Writing the Module Components for the <tt>sendremote</tt> Example</a></p>
+<p class="toc level5"><a href="bnchx.html#bncib">Coding the Application Client: <tt>MultiAppServerClient.java</tt></a></p>
+<p class="toc level5"><a href="bnchx.html#bncic">Coding the Message-Driven Bean: <tt>ReplyMsgBean.java</tt></a></p>
+<p class="toc level4 tocsp"><a href="bnchx.html#bncid">Creating Resources for the <tt>sendremote</tt> Example</a></p>
+<p class="toc level4"><a href="bnchx.html#bncie">To Use Two Application Servers for the <tt>sendremote</tt> Example</a></p>
+<p class="toc level4"><a href="bnchx.html#bncif">To Build, Package, Deploy, and Run the <tt>sendremote</tt> Modules Using NetBeans IDE</a></p>
+<p class="toc level4"><a href="bnchx.html#bncig">To Build, Package, Deploy, and Run the <tt>sendremote</tt> Modules Using Ant</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bncfa.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="bncgw.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="giwfh"></a><h3>Writing Robust JMS Applications</h3>
+<p>The following examples show how to use some of the more advanced
+features of the JMS API.</p>
+
+
+
+<a name="bncfx"></a><h4>A Message Acknowledgment Example</h4>
+<a name="indexterm-1871"></a><p>The <tt>AckEquivExample.java</tt> client shows how both of the following two scenarios ensure that
+a message will not be acknowledged until processing of it is complete:</p>
+
+
+<ul><li><p>Using an asynchronous message consumer (a message listener) in an <tt>AUTO_ACKNOWLEDGE</tt> session</p>
+
+</li>
+<li><p>Using a synchronous receiver in a <tt>CLIENT_ACKNOWLEDGE</tt> session</p>
+
+</li></ul>
+<p>With a message listener, the automatic acknowledgment happens when the <tt>onMessage</tt> method
+returns (that is, after message processing has finished). With a synchronous receiver, the
+client acknowledges the message after processing is complete. If you use <tt>AUTO_ACKNOWLEDGE</tt> with a
+synchronous receive, the acknowledgment happens immediately after the <tt>receive</tt> call; if any
+subsequent processing steps fail, the message cannot be redelivered.</p>
+
+<p>The example is in the following directory:</p>
+
+<pre><tt></tt><i>tut-install</i><tt>/examples/jms/advanced/ackequivexample/src/java/</tt></pre><p>The example contains an <tt>AsynchSubscriber</tt> class with a <tt>TextListener</tt> class, a <tt>MultiplePublisher</tt> class, a
+<tt>SynchReceiver</tt> class, a <tt>SynchSender</tt> class, a <tt>main</tt> method, and a method that runs
+the other classes&rsquo; threads.</p>
+
+<p>The example uses the following objects:</p>
+
+
+<ul><li><p><tt>jms/ConnectionFactory</tt>, <tt>jms/Queue</tt>, and <tt>jms/Topic</tt>: resources that you created in <a href="bncfa.html#bncfe">To Create JMS Administered Objects for the Synchronous Receive Example</a></p>
+
+</li>
+<li><p><tt>jms/ControlQueue</tt>: an additional queue</p>
+
+</li>
+<li><p><tt>jms/DurableConnectionFactory</tt>: a connection factory with a client ID (see <a href="bncfu.html#bncgd">Creating Durable Subscriptions</a>, for more information)</p>
+
+</li></ul>
+<p>To create the new queue and connection factory, you can use Ant
+targets defined in the file <tt></tt><i>tut-install</i><tt>/examples/jms/advanced/ackequivexample/build.xml</tt>.</p>
+
+
+
+<a name="gjsab"></a><h5>To Build, Package, Deploy, and Run the <tt>ackequivexample</tt> Using NetBeans IDE</h5>
+<ol>
+<li><b>In a terminal window, go to the following directory:</b><pre><tt></tt><i>tut-install</i><tt>/examples/jms/advanced/ackequivexample/</tt></pre></li>
+<li><b>To create the objects needed in this example, type the following commands:</b><pre><tt><b>ant create-control-queue ant create-durable-cf</b></tt></pre></li>
+<li><b>To build and package the client, follow these steps.</b><ol style="list-style-type: lower-alpha">
+<li><b>Choose Open Project from the File menu.</b></li>
+<li><b>In the Open Project dialog, navigate to <tt></tt><i>tut-install</i><tt>/examples/jms/advanced/</tt>.</b></li>
+<li><b>Select the <tt>ackequivexample</tt> folder.</b></li>
+<li><b>Select the Open as Main Project check box.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>Right-click the project and choose Build.</b></li></ol></li>
+<li><b>To run the client, right-click the <tt>ackequivexample</tt> project and choose Run.</b><p>The client output looks something like this (along with some application client container
+output):</p><pre>Queue name is jms/ControlQueue
+Queue name is jms/Queue
+Topic name is jms/Topic
+Connection factory name is jms/DurableConnectionFactory
+  SENDER: Created client-acknowledge session
+  SENDER: Sending message: Here is a client-acknowledge message
+  RECEIVER: Created client-acknowledge session
+  RECEIVER: Processing message: Here is a client-acknowledge message
+  RECEIVER: Now I&rsquo;ll acknowledge the message
+SUBSCRIBER: Created auto-acknowledge session
+SUBSCRIBER: Sending synchronize message to control queue
+PUBLISHER: Created auto-acknowledge session
+PUBLISHER: Receiving synchronize messages from control queue; count = 1
+PUBLISHER: Received synchronize message;  expect 0 more
+PUBLISHER: Publishing message: Here is an auto-acknowledge message 1
+PUBLISHER: Publishing message: Here is an auto-acknowledge message 2
+SUBSCRIBER: Processing message: Here is an auto-acknowledge message 1
+PUBLISHER: Publishing message: Here is an auto-acknowledge message 3
+SUBSCRIBER: Processing message: Here is an auto-acknowledge message 2
+SUBSCRIBER: Processing message: Here is an auto-acknowledge message 3</pre></li>
+<li><b>After you run the client, you can delete the destination resource <tt>jms/ControlQueue</tt>.
+Go to the directory <tt></tt><i>tut-install</i><tt>/examples/jms/advanced/ackequivexample/</tt> and type the following command:</b><pre><tt><b>ant delete-control-queue</b></tt></pre><p>You will need the other resources for other examples.</p></li>
+<li><b>To undeploy the example, follow these steps.</b><ol style="list-style-type: lower-alpha">
+<li><b>Click the Services tab.</b></li>
+<li><b>Expand the Servers node.</b></li>
+<li><b>Expand the GlassFish v3 Domain node.</b></li>
+<li><b>Expand or refresh the Applications node.</b></li>
+<li><b>Right-click <tt>ackequivexample</tt> and choose Undeploy.</b></li></ol></li>
+<li><b>To delete the class and JAR files for the client, right-click the project
+and choose Clean.</b></li></ol>
+
+<a name="gjscg"></a><h5>To Build, Package, Deploy, and Run <tt>ackequivexample</tt> Using Ant</h5>
+<ol>
+<li><b>In a terminal window, go to the following directory:</b><pre><tt></tt><i>tut-install</i><tt>/examples/jms/advanced/ackequivexample/</tt></pre></li>
+<li><b>To create the objects needed in this example, type the following commands:</b><pre><tt><b>ant create-control-queue ant create-durable-cf</b></tt></pre></li>
+<li><b>To compile and package the client, type the following command:</b><pre><tt><b>ant</b></tt></pre></li>
+<li><b>To deploy the client JAR file to the GlassFish Server, then retrieve the
+client stubs, type the following command:</b><pre><tt><b>ant getclient</b></tt></pre><p>Ignore the message that states that the application is deployed at a URL.</p></li>
+<li><b>Because this example takes no command-line arguments, you can run the client using
+the following command:</b><pre><tt><b>ant run</b></tt></pre><p>Alternatively, you can type the following command:</p><pre><tt><b>appclient -client client-jar/ackequivexampleClient.jar</b></tt></pre><p>The client output looks something like this (along with some application client container
+output):</p><pre>Queue name is jms/ControlQueue
+Queue name is jms/Queue
+Topic name is jms/Topic
+Connection factory name is jms/DurableConnectionFactory
+  SENDER: Created client-acknowledge session
+  SENDER: Sending message: Here is a client-acknowledge message
+  RECEIVER: Created client-acknowledge session
+  RECEIVER: Processing message: Here is a client-acknowledge message
+  RECEIVER: Now I&rsquo;ll acknowledge the message
+SUBSCRIBER: Created auto-acknowledge session
+SUBSCRIBER: Sending synchronize message to control queue
+PUBLISHER: Created auto-acknowledge session
+PUBLISHER: Receiving synchronize messages from control queue; count = 1
+PUBLISHER: Received synchronize message;  expect 0 more
+PUBLISHER: Publishing message: Here is an auto-acknowledge message 1
+PUBLISHER: Publishing message: Here is an auto-acknowledge message 2
+SUBSCRIBER: Processing message: Here is an auto-acknowledge message 1
+PUBLISHER: Publishing message: Here is an auto-acknowledge message 3
+SUBSCRIBER: Processing message: Here is an auto-acknowledge message 2
+SUBSCRIBER: Processing message: Here is an auto-acknowledge message 3</pre></li>
+<li><b>After you run the client, you can delete the destination resource <tt>jms/ControlQueue</tt>.
+Go to the directory <tt></tt><i>tut-install</i><tt>/examples/jms/advanced/ackequivexample/</tt> and type the following command:</b><pre><tt><b>ant delete-control-queue</b></tt></pre><p>You will need the other resources for other examples.</p></li>
+<li><b>To undeploy the client, type the following:</b><pre><tt><b>ant undeploy</b></tt></pre></li>
+<li><b>To delete the class and JAR files for the client, type the
+following:</b><pre><tt><b>ant clean</b></tt></pre></li></ol>
+
+<a name="bncgg"></a><h4>A Durable Subscription Example</h4>
+<a name="indexterm-1872"></a><a name="indexterm-1873"></a><p>The <tt>DurableSubscriberExample.java</tt> example shows how durable subscriptions work. It demonstrates that a durable
+subscription is active even when the subscriber is not active. The example contains
+a <tt>DurableSubscriber</tt> class, a <tt>MultiplePublisher</tt> class, a <tt>main</tt> method, and a method that
+instantiates the classes and calls their methods in sequence.</p>
+
+<p>The example is in the following directory:</p>
+
+<pre><tt></tt><i>tut-install</i><tt>/examples/jms/advanced/durablesubscriberexample/src/java/</tt></pre><p>The example begins in the same way as any publish/subscribe client: The subscriber
+starts, the publisher publishes some messages, and the subscriber receives them. At this
+point, the subscriber closes itself. The publisher then publishes some messages while the
+subscriber is not active. The subscriber then restarts and receives the messages.</p>
+
+
+
+<a name="gjsar"></a><h5>To Build, Package, Deploy, and Run <tt>durablesubscriberexample</tt> Using NetBeans IDE</h5>
+<p>To build, package, deploy, and run <tt>durablesubscriberexample</tt>, follow these steps.</p>
+
+<ol>
+<li><b>In a terminal window, go to the following directory:</b><pre><tt></tt><i>tut-install</i><tt>/examples/jms/advanced/durablesubscriberexample/</tt></pre></li>
+<li><b>If you did not do so for <a href="#bncfx">A Message Acknowledgment Example</a>, create a connection factory
+named <tt>jms/DurableConnectionFactory</tt>:</b><pre><tt><b>ant create-durable-cf</b></tt></pre></li>
+<li><b>To compile and package the client, follow these steps:</b><ol style="list-style-type: lower-alpha">
+<li><b>In NetBeans IDE, choose Open Project from the File menu.</b></li>
+<li><b>In the Open Project dialog, navigate to <tt></tt><i>tut-install</i><tt>/examples/jms/advanced/</tt>.</b></li>
+<li><b>Select the <tt>durablesubscriberexample</tt> folder.</b></li>
+<li><b>Select the Open as Main Project check box.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>Right-click the project and choose Build.</b></li></ol></li>
+<li><b>To run the client, right-click the <tt>durablesubscriberexample</tt> project and choose Run.</b><p>The output looks something like this (along with some application client container output):</p><pre>Connection factory without client ID is jms/ConnectionFactory
+Connection factory with client ID is jms/DurableConnectionFactory
+Topic name is jms/Topic
+Starting subscriber
+PUBLISHER: Publishing message: Here is a message 1
+SUBSCRIBER: Reading message: Here is a message 1
+PUBLISHER: Publishing message: Here is a message 2
+SUBSCRIBER: Reading message: Here is a message 2
+PUBLISHER: Publishing message: Here is a message 3
+SUBSCRIBER: Reading message: Here is a message 3
+Closing subscriber
+PUBLISHER: Publishing message: Here is a message 4
+PUBLISHER: Publishing message: Here is a message 5
+PUBLISHER: Publishing message: Here is a message 6
+Starting subscriber
+SUBSCRIBER: Reading message: Here is a message 4
+SUBSCRIBER: Reading message: Here is a message 5
+SUBSCRIBER: Reading message: Here is a message 6
+Closing subscriber
+Unsubscribing from durable subscription</pre></li>
+<li><b>After you run the client, you can delete the connection factory <tt>jms/DurableConnectionFactory</tt>.
+Go to the directory <tt></tt><i>tut-install</i><tt>/examples/jms/advanced/durablesubscriberexample/</tt> and type the following command:</b><pre><tt><b>ant delete-durable-cf</b></tt></pre></li>
+<li><b>To undeploy the example, follow these steps.</b><ol style="list-style-type: lower-alpha">
+<li><b>Click the Services tab.</b></li>
+<li><b>Expand the Servers node.</b></li>
+<li><b>Expand the GlassFish v3 Domain node.</b></li>
+<li><b>Expand or refresh the Applications node.</b></li>
+<li><b>Right-click <tt>durablesubscriberexample</tt> and choose Undeploy.</b></li></ol></li>
+<li><b>To delete the class and JAR files for the client, right-click the project
+and choose Clean.</b></li></ol>
+
+<a name="gjsci"></a><h5>To Build, Package, Deploy, and Run <tt>durablesubscriberexample</tt> Using Ant</h5>
+<p>To build, package, deploy, and run <tt>durablesubscriberexample</tt>, follow these steps.</p>
+
+<ol>
+<li><b>In a terminal window, go to the following directory:</b><pre><tt></tt><i>tut-install</i><tt>/examples/jms/advanced/durablesubscriberexample/</tt></pre></li>
+<li><b>If you did not do so for <a href="#bncfx">A Message Acknowledgment Example</a>, create a connection factory
+named <tt>jms/DurableConnectionFactory</tt>:</b><pre><tt><b>ant create-durable-cf</b></tt></pre></li>
+<li><b>To compile and package the client, type the following command:</b><pre><tt><b>ant</b></tt></pre></li>
+<li><b>To deploy the client JAR file to the GlassFish Server, then retrieve the
+client stubs, type the following command:</b><pre><tt><b>ant getclient</b></tt></pre><p>Ignore the message that states that the application is deployed at a URL.</p></li>
+<li><b>Because this example takes no command-line arguments, you can run the client using
+the following command:</b><pre><tt><b>ant run</b></tt></pre><p>Alternatively, you can type the following command:</p><pre><tt><b>appclient -client client-jar/durablesubscriberexampleClient.jar</b></tt></pre></li>
+<li><b>After you run the client, you can delete the connection factory <tt>jms/DurableConnectionFactory</tt>.
+Go to the directory <tt></tt><i>tut-install</i><tt>/examples/jms/advanced/durablesubscriberexample/</tt> and type the following command:</b><pre><tt><b>ant delete-durable-cf</b></tt></pre></li>
+<li><b>To undeploy the client, type the following:</b><pre><tt><b>ant undeploy</b></tt></pre></li>
+<li><b>To delete the class and JAR files for the client, type the
+following:</b><pre><tt><b>ant clean</b></tt></pre></li></ol>
+
+<a name="bncgj"></a><h4>A Local Transaction Example</h4>
+<a name="indexterm-1874"></a><a name="indexterm-1875"></a><p>The <tt>TransactedExample.java</tt> example demonstrates the use of transactions in a JMS client application.
+The example is in the following directory:</p>
+
+<pre><tt></tt><i>tut-install</i><tt>/examples/jms/advanced/transactedexample/src/java/</tt></pre><p>This example shows how to use a queue and a topic in
+a single transaction as well as how to pass a session to a
+message listener&rsquo;s constructor function. The example represents a highly simplified e-commerce application in which
+the following things happen.</p>
+
+
+<ol><li><p>A retailer sends a <tt>MapMessage</tt> to the vendor order queue, ordering a quantity of computers, and waits for the vendor&rsquo;s reply:</p>
+
+<pre>producer = session.createProducer(vendorOrderQueue);
+outMessage = session.createMapMessage();
+outMessage.setString("Item", "Computer(s)");
+outMessage.setInt("Quantity", quantity);
+outMessage.setJMSReplyTo(retailerConfirmQueue);
+producer.send(outMessage);
+System.out.println("Retailer: ordered " + quantity + " computer(s)");
+orderConfirmReceiver = session.createConsumer(retailerConfirmQueue);
+connection.start();</pre></li>
+<li><p>The vendor receives the retailer&rsquo;s order message and sends an order message to the supplier order topic in one transaction. This JMS transaction uses a single session, so you can combine a receive from a queue with a send to a topic. Here is the code that uses the same session to create a consumer for a queue and a producer for a topic:</p>
+
+<pre>vendorOrderReceiver = session.createConsumer(vendorOrderQueue);
+supplierOrderProducer = session.createProducer(supplierOrderTopic);</pre><p>The following code receives the incoming message, sends an outgoing message, and commits the session. The message processing has been removed to keep the sequence simple:</p>
+
+<pre>inMessage = vendorOrderReceiver.receive();
+// Process the incoming message and format the outgoing 
+// message
+...
+supplierOrderProducer.send(orderMessage);
+...
+session.commit();</pre></li>
+<li><p>Each supplier receives the order from the order topic, checks its inventory, and then sends the items ordered to the queue named in the order message&rsquo;s <tt>JMSReplyTo</tt> field. If it does not have enough in stock, the supplier sends what it has. The synchronous receive from the topic and the send to the queue take place in one JMS transaction.</p>
+
+<pre>receiver = session.createConsumer(orderTopic);
+...
+inMessage = receiver.receive();
+if (inMessage instanceof MapMessage) {
+    orderMessage = (MapMessage) inMessage;
+}
+// Process message
+MessageProducer producer = 
+    session.createProducer((Queue) orderMessage.getJMSReplyTo());
+outMessage = session.createMapMessage();
+// Add content to message
+producer.send(outMessage);
+// Display message contentssession.commit();</pre></li>
+<li><p>The vendor receives the replies from the suppliers from its confirmation queue and updates the state of the order. Messages are processed by an asynchronous message listener; this step shows the use of JMS transactions with a message listener.</p>
+
+<pre>MapMessage component = (MapMessage) message;
+...
+orderNumber = component.getInt("VendorOrderNumber");
+Order order = Order.getOrder(orderNumber).processSubOrder(component);
+session.commit();</pre></li>
+<li><p>When all outstanding replies are processed for a given order, the vendor message listener sends a message notifying the retailer whether it can fulfill the order.</p>
+
+<pre>Queue replyQueue = (Queue) order.order.getJMSReplyTo();
+MessageProducer producer = session.createProducer(replyQueue);
+MapMessage retailerConfirmMessage = session.createMapMessage();
+// Format the message
+producer.send(retailerConfirmMessage);
+session.commit();</pre></li>
+<li><p>The retailer receives the message from the vendor:</p>
+
+<pre>inMessage = (MapMessage) orderConfirmReceiver.receive();</pre></li></ol>
+<p><a href="#bncgk">Figure&nbsp;31-2</a> illustrates these steps.</p>
+
+<a name="bncgk"></a><h6>Figure&nbsp;31-2 Transactions: JMS Client Example</h6><img src="figures/jms-transactedExample.gif" alt="Diagram of steps in transaction example"></img><p>The example contains five classes: <tt>GenericSupplier</tt>, <tt>Order</tt>, <tt>Retailer</tt>, <tt>Vendor</tt>, and <tt>VendorMessageListener</tt>. The
+example also contains a <tt>main</tt> method and a method that runs the threads
+of the <tt>Retailer</tt>, <tt>Vendor</tt>, and two supplier classes.</p>
+
+<p>All the messages use the <tt>MapMessage</tt> message type. Synchronous receives are used for
+all message reception except for the case of the vendor processing the replies
+of the suppliers. These replies are processed asynchronously and demonstrate how to use
+transactions within a message listener.</p>
+
+<p>At random intervals, the <tt>Vendor</tt> class throws an exception to simulate a database
+problem and cause a rollback.</p>
+
+<p>All classes except <tt>Retailer</tt> use transacted sessions.</p>
+
+<p>The example uses three queues named <tt>jms/AQueue</tt>, <tt>jms/BQueue</tt>, and <tt>jms/CQueue</tt>, and one
+topic named <tt>jms/OTopic</tt>.</p>
+
+
+
+<a name="gjsem"></a><h5>To Build, Package, Deploy, and Run <tt>transactedexample</tt> Using NetBeans IDE</h5>
+<p>To build, package, deploy, and run <tt>transactedexample</tt>, follow these steps.</p>
+
+<ol>
+<li><b>In a terminal window, go to the following directory:</b><pre><tt></tt><i>tut-install</i><tt>/examples/jms/advanced/transactedexample/</tt></pre></li>
+<li><b>Create the necessary resources using the following command:</b><pre><tt><b>ant create-resources</b></tt></pre><p>This command creates three destination resources with the names <tt>jms/AQueue</tt>, <tt>jms/BQueue</tt>, and
+<tt>jms/CQueue</tt>, all of type <tt>javax.jms.Queue</tt>, and one destination resource with the name <tt>jms/OTopic</tt>, of
+type <tt>javax.jms.Topic</tt>.</p></li>
+<li><b>To compile and package the client, follow these steps:</b><ol style="list-style-type: lower-alpha">
+<li><b>Choose Open Project from the File menu.</b></li>
+<li><b>In the Open Project dialog, navigate to <tt></tt><i>tut-install</i><tt>/examples/jms/advanced/</tt>.</b></li>
+<li><b>Select the <tt>transactedexample</tt> folder.</b></li>
+<li><b>Select the Open as Main Project check box.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>Right-click the project and choose Build.</b></li></ol></li>
+<li><b>To deploy and run the client, follow these steps:</b><ol style="list-style-type: lower-alpha">
+<li><b>Right-click the <tt>transactedexample</tt> project and choose Properties.</b></li>
+<li><b>Select Run from the Categories tree.</b></li>
+<li><b>In the Arguments field, type a number that specifies the number of computers
+to order:</b><p><tt>3</tt></p></li>
+<li><b>Click OK.</b></li>
+<li><b>Right-click the project and choose Run.</b></li></ol><p>The output looks something like this (along with some application client container output):</p><pre>Quantity to be ordered is 3
+Retailer: ordered 3 computer(s)
+Vendor: Retailer ordered 3 Computer(s)
+Vendor: ordered 3 monitor(s) and hard drive(s)
+Monitor Supplier: Vendor ordered 3 Monitor(s)
+Monitor Supplier: sent 3 Monitor(s)
+  Monitor Supplier: committed transaction
+  Vendor: committed transaction 1
+Hard Drive Supplier: Vendor ordered 3 Hard Drive(s)
+Hard Drive Supplier: sent 1 Hard Drive(s)
+Vendor: Completed processing for order 1
+  Hard Drive Supplier: committed transaction
+Vendor: unable to send 3 computer(s)
+  Vendor: committed transaction 2
+Retailer: Order not filled
+Retailer: placing another order
+Retailer: ordered 6 computer(s)
+Vendor: JMSException occurred: javax.jms.JMSException: 
+Simulated database concurrent access exception
+javax.jms.JMSException: Simulated database concurrent access exception
+        at TransactedExample$Vendor.run(Unknown Source)
+  Vendor: rolled back transaction 1
+Vendor: Retailer ordered 6 Computer(s)
+Vendor: ordered 6 monitor(s) and hard drive(s)
+Monitor Supplier: Vendor ordered 6 Monitor(s)
+Hard Drive Supplier: Vendor ordered 6 Hard Drive(s)
+Monitor Supplier: sent 6 Monitor(s)
+  Monitor Supplier: committed transaction
+Hard Drive Supplier: sent 6 Hard Drive(s)
+  Hard Drive Supplier: committed transaction
+  Vendor: committed transaction 1
+Vendor: Completed processing for order 2
+Vendor: sent 6 computer(s)
+Retailer: Order filled
+  Vendor: committed transaction 2</pre></li>
+<li><b>After you run the client, you can delete the physical destinations and the
+destination resources. Go to the directory <tt></tt><i>tut-install</i><tt>/examples/jms/advanced/transactedexample/</tt> and type the following command:</b><pre><tt><b>ant delete-resources</b></tt></pre></li>
+<li><b>To undeploy the example, follow these steps.</b><ol style="list-style-type: lower-alpha">
+<li><b>Click the Services tab.</b></li>
+<li><b>Expand the Servers node.</b></li>
+<li><b>Expand the GlassFish v3 Domain node.</b></li>
+<li><b>Expand or refresh the Applications node.</b></li>
+<li><b>Right-click <tt>transactedexample</tt> and choose Undeploy.</b></li></ol></li>
+<li><b>To delete the class and JAR files for the client, right-click the project
+and choose Clean.</b></li></ol>
+
+<a name="gjsha"></a><h5>To Build, Package, Deploy, and Run <tt>transactedexample</tt> Using Ant and the <tt>appclient</tt> Command</h5>
+<p>To build, package, deploy, and run <tt>transactedexample</tt>, follow these steps.</p>
+
+<ol>
+<li><b>In a terminal window, go to the following directory:</b><pre><tt></tt><i>tut-install</i><tt>/examples/jms/advanced/transactedexample/</tt></pre></li>
+<li><b>Create the necessary resources using the following command:</b><pre><tt><b>ant create-resources</b></tt></pre><p>This command creates three destination resources with the names <tt>jms/AQueue</tt>, <tt>jms/BQueue</tt>, and
+<tt>jms/CQueue</tt>, all of type <tt>javax.jms.Queue</tt>, and one destination resource with the name <tt>jms/OTopic</tt>, of
+type <tt>javax.jms.Topic</tt>.</p></li>
+<li><b>To build and package the client, type the following command:</b><pre><tt><b>ant</b></tt></pre></li>
+<li><b>Deploy the client JAR file to the GlassFish Server, then retrieve the client
+stubs:</b><pre><tt><b>ant getclient</b></tt></pre><p>Ignore the message that states that the application is deployed at a URL.</p></li>
+<li><b>Use a command like the following to run the client.</b><p>The argument specifies the number of computers to order.</p><pre><tt><b>appclient -client client-jar/transactedexampleClient.jar 3</b></tt></pre><p>The output looks something like this (along with some application client container output):</p><pre>Quantity to be ordered is 3
+Retailer: ordered 3 computer(s)
+Vendor: Retailer ordered 3 Computer(s)
+Vendor: ordered 3 monitor(s) and hard drive(s)
+Monitor Supplier: Vendor ordered 3 Monitor(s)
+Monitor Supplier: sent 3 Monitor(s)
+  Monitor Supplier: committed transaction
+  Vendor: committed transaction 1
+Hard Drive Supplier: Vendor ordered 3 Hard Drive(s)
+Hard Drive Supplier: sent 1 Hard Drive(s)
+Vendor: Completed processing for order 1
+  Hard Drive Supplier: committed transaction
+Vendor: unable to send 3 computer(s)
+  Vendor: committed transaction 2
+Retailer: Order not filled
+Retailer: placing another order
+Retailer: ordered 6 computer(s)
+Vendor: JMSException occurred: javax.jms.JMSException: 
+Simulated database concurrent access exception
+javax.jms.JMSException: Simulated database concurrent access exception
+        at TransactedExample$Vendor.run(Unknown Source)
+  Vendor: rolled back transaction 1
+Vendor: Retailer ordered 6 Computer(s)
+Vendor: ordered 6 monitor(s) and hard drive(s)
+Monitor Supplier: Vendor ordered 6 Monitor(s)
+Hard Drive Supplier: Vendor ordered 6 Hard Drive(s)
+Monitor Supplier: sent 6 Monitor(s)
+  Monitor Supplier: committed transaction
+Hard Drive Supplier: sent 6 Hard Drive(s)
+  Hard Drive Supplier: committed transaction
+  Vendor: committed transaction 1
+Vendor: Completed processing for order 2
+Vendor: sent 6 computer(s)
+Retailer: Order filled
+  Vendor: committed transaction 2</pre></li>
+<li><b>After you run the client, you can delete the physical destinations and the
+destination resources. Go to the directory <tt></tt><i>tut-install</i><tt>/examples/jms/advanced/transactedexample/</tt> and type the following command:</b><pre><tt><b>ant delete-resources</b></tt></pre></li>
+<li><b>To undeploy the client, type the following:</b><pre><tt><b>ant undeploy</b></tt></pre></li>
+<li><b>To delete the class and JAR files for the client, type the
+following:</b><pre><tt><b>ant clean</b></tt></pre></li></ol>
+         </div>
+         <div class="navigation">
+             <a href="bncfa.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="bncgw.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

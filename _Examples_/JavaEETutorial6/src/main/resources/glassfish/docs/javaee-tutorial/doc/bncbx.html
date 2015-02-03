@@ -1,0 +1,520 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Examples: Securing Web Applications - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level3"><a href="bncat.html">Overview of Web Application Security</a></p>
+<p class="toc level3"><a href="gkbaa.html">Securing Web Applications</a></p>
+<p class="toc level4"><a href="gkbaa.html#bncbk">Specifying Security Constraints</a></p>
+<p class="toc level5"><a href="gkbaa.html#gjjcd">Specifying a Web Resource Collection</a></p>
+<p class="toc level5"><a href="gkbaa.html#gjjcg">Specifying an Authorization Constraint</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbm">Specifying a Secure Connection</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbl">Specifying Separate Security Constraints for Various Resources</a></p>
+<p class="toc level4 tocsp"><a href="gkbaa.html#gentextid-18908">Specifying Authentication Mechanisms</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbo">HTTP Basic Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbq">Form-Based Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbw">Digest Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbs">HTTPS Client Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbt">Mutual Authentication</a></p>
+<p class="toc level5"><a href="gkbaa.html#bncbn">Specifying an Authentication Mechanism</a></p>
+<p class="toc level3 tocsp"><a href="bncbe.html">Using Deployment Descriptors to Secure Web Applications</a></p>
+<p class="toc level4"><a href="bncbe.html#bncav">Declaring Security Roles</a></p>
+<p class="toc level5"><a href="bncbe.html#bncaz">Mapping Security Roles to GlassFish Server Groups</a></p>
+<p class="toc level3 tocsp"><a href="gjiie.html">Using Programmatic Security with Web Applications</a></p>
+<p class="toc level4"><a href="gjiie.html#gircj">Authenticating Users Programmatically</a></p>
+<p class="toc level4"><a href="gjiie.html#bncba">Checking Caller Identity Programmatically</a></p>
+<p class="toc level4"><a href="gjiie.html#gjjlq">Example Code for Programmatic Security</a></p>
+<p class="toc level4"><a href="gjiie.html#bncbb">Declaring and Linking Role References</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">Examples: Securing Web Applications</a></p>
+<p class="toc level4"><a href="#gjjlk">To Set Up Your System for Running the Security Examples</a></p>
+<p class="toc level4"><a href="#bncck">Example: Basic Authentication with a Servlet</a></p>
+<p class="toc level5"><a href="#gjrmh">Specifying Security for Basic Authentication Using Annotations</a></p>
+<p class="toc level5"><a href="#gjqys">To Build, Package, and Deploy the Servlet Basic Authentication Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#gjqzh">To Build, Package, and Deploy the Servlet Basic Authentication Example Using Ant</a></p>
+<p class="toc level5"><a href="#gjqzf">To Run the Basic Authentication Servlet</a></p>
+<p class="toc level4 tocsp"><a href="#bncby">Example: Form-Based Authentication with a JavaServer Faces Application</a></p>
+<p class="toc level5"><a href="#bncca">Creating the Login Form and the Error Page</a></p>
+<p class="toc level5"><a href="#bnccb">Specifying Security for the Form-Based Authentication Example</a></p>
+<p class="toc level5"><a href="#gjrba">To Build, Package, and Deploy the Form-Based Authentication Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#gjraz">To Build, Package, and Deploy the Form-Based Authentication Example Using Ant</a></p>
+<p class="toc level5"><a href="#gjral">To Run the Form-Based Authentication Example</a></p>
+</div>
+<p class="toc level2 tocsp"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="gjiie.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="bnbyk.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bncbx"></a><h3>Examples: Securing Web Applications</h3>
+<p>Some basic setup is required before any of the example applications will run
+correctly. The examples use annotations, programmatic security, and/or declarative security to demonstrate adding security
+to existing web applications.</p>
+
+<p>Here are some links to other locations where you will find examples of
+securing various types of applications:</p>
+
+
+<ul><li><p><a href="bnbyl.html#bnbzk">Example: Securing an Enterprise Bean</a></p>
+
+</li>
+<li><p><a href="bnbyl.html#bncaa">Example: Using the <tt>isCallerInRole</tt> and <tt>getCallerPrincipal</tt> Methods</a></p>
+
+</li>
+<li><p>GlassFish samples: <a href="https://glassfish-samples.dev.java.net/">https://glassfish-samples.dev.java.net/</a></p>
+
+</li></ul>
+
+
+<a name="gjjlk"></a><h4>To Set Up Your System for Running the Security Examples</h4><p>To set up your system for running the security examples, you need
+to configure a user database that the application can use for authenticating users. Before
+continuing, follow these steps.</p>
+
+<ol>
+<li><b>Add an authorized user to the GlassFish Server. For the examples in <a href="bncas.html">Chapter&nbsp;25, Getting Started Securing Web Applications</a>
+and <a href="bnbyk.html">Chapter&nbsp;26, Getting Started Securing Enterprise Applications</a>, add a user to the <tt>file</tt> realm of the GlassFish Server,
+and assign the user to the group <tt>TutorialUser</tt>:</b><ol style="list-style-type: lower-alpha">
+<li><b>From the Administration Console, expand the Configuration node.</b></li>
+<li><b>Expand the Security node.</b></li>
+<li><b>Expand the Realms node.</b></li>
+<li><b>Select the File node.</b></li>
+<li><b>On the Edit Realm page, click Manage Users.</b></li>
+<li><b>On the File Users page, click New.</b></li>
+<li><b>In the User ID field, type a User ID.</b></li>
+<li><b>In the Group List field, type</b><pre><tt><b>TutorialUser</b></tt></pre></li>
+<li><b>In the New Password and Confirm New Password fields, type a password.</b></li>
+<li><b>Click OK.</b></li></ol><p>Be sure to write down the user name and password for the user
+you create so that you can use it for testing the example applications.
+Authentication is case sensitive for both the user name and password, so write
+down the user name and password exactly. This topic is discussed more in
+<a href="bnbxj.html#bnbxr">Managing Users and Groups on the GlassFish Server</a>.</p></li>
+<li><b>Set up Default Principal to Role Mapping on the GlassFish Server:</b><ol style="list-style-type: lower-alpha">
+<li><b>From the Administration Console, expand the Configuration node.</b></li>
+<li><b>Select the Security node.</b></li>
+<li><b>Select the Default Principal to Role Mapping Enabled check box.</b></li>
+<li><b>Click Save.</b></li></ol></li></ol>
+
+<a name="bncck"></a><h4>Example: Basic Authentication with a Servlet</h4>
+<p>This example explains how to use basic authentication with a servlet. With
+basic authentication of a servlet, the web browser presents a standard login dialog
+that is not customizable. When a user submits his or her name and
+password, the server determines whether the user name and password are those of an
+authorized user and sends the requested web resource if the user is authorized
+to view it.</p>
+
+<p>In general, the following steps are necessary for adding basic authentication to an
+unsecured servlet, such as the ones described in <a href="bnadr.html">Chapter&nbsp;3, Getting Started with Web Applications</a>. In the example
+application included with this tutorial, many of these steps have been completed for
+you and are listed here simply to show what needs to be done
+should you wish to create a similar application. The completed version of this
+example application can be found in the directory <tt></tt><i>tut-install</i><tt>/examples/security/hello2_basicauth/</tt>.</p>
+
+
+<ol><li><p>Follow the steps in <a href="#gjjlk">To Set Up Your System for Running the Security Examples</a>.</p>
+
+</li>
+<li><p>Create a web module as described in <a href="bnadr.html">Chapter&nbsp;3, Getting Started with Web Applications</a> for the servlet example, <tt>hello2</tt>. </p>
+
+</li>
+<li><p>Add the appropriate security annotations to the servlet. The security annotations are described in <a href="#gjrmh">Specifying Security for Basic Authentication Using Annotations</a>.</p>
+
+</li>
+<li><p>Build, package, and deploy the web application by following the steps in <a href="#gjqys">To Build, Package, and Deploy the Servlet Basic Authentication Example Using NetBeans IDE</a> or <a href="#gjqzh">To Build, Package, and Deploy the Servlet Basic Authentication Example Using Ant</a>.</p>
+
+</li>
+<li><p>Run the web application by following the steps described in <a href="#gjqzf">To Run the Basic Authentication Servlet</a>.</p>
+
+</li></ol>
+
+
+<a name="gjrmh"></a><h5>Specifying Security for Basic Authentication Using Annotations</h5>
+<p>The default authentication mechanism used by the GlassFish Server is basic authentication. With
+basic authentication, the GlassFish Server spawns a standard login dialog to collect user
+name and password data for a protected resource. Once the user is authenticated,
+access to the protected resource is permitted.</p>
+
+<p>To specify security for a servlet, use the <tt>@ServletSecurity</tt> annotation. This annotation allows
+you to specify both specific constraints on HTTP methods and more general constraints
+that apply to all HTTP methods for which no specific constraint is specified.
+Within the <tt>@ServletSecurity</tt> annotation, you can specify <tt>@HttpMethodConstraint</tt> annotations that apply to specific HTTP
+protocol methods, or you can specify the more general <tt>@HttpConstraint</tt> annotation that
+applies to all HTTP protocol methods for which there is no corresponding <tt>@HttpMethodConstraint</tt>
+annotation.</p>
+
+
+<ul><li><p>The <tt>@HttpMethodConstraint</tt> annotation, which applies to a specific HTTP protocol method</p>
+
+</li>
+<li><p>The more general <tt>@HttpConstraint</tt> annotation, which applies to all HTTP protocol methods for which there is no corresponding <tt>@HttpMethodConstraint</tt> annotation</p>
+
+</li></ul>
+<p>Both the <tt>@HttpMethodConstraint</tt> and <tt>@HttpConstraint</tt> annotations within the <tt>@ServletSecurity</tt> annotation can specify the
+following:</p>
+
+
+<ul><li><p>A <tt>transportGuarantee</tt> element that specifies the data protection requirements (that is, whether or not SSL/TLS is required) that must be satisfied by the connections on which requests arrive. Valid values for this element are <tt>NONE</tt> and <tt>CONFIDENTIAL</tt>.</p>
+
+</li>
+<li><p>A <tt>rolesAllowed</tt> element that specifies the names of the authorized roles.</p>
+
+</li></ul>
+<p>For the <tt>hello2_basicauth</tt> application, the <tt>GreetingServlet</tt> has the following annotations:</p>
+
+<pre>@WebServlet(name = "GreetingServlet", urlPatterns = {"/greeting"})
+@ServletSecurity(
+@HttpConstraint(transportGuarantee = TransportGuarantee.CONFIDENTIAL,
+    rolesAllowed = {"TutorialUser"}))</pre><p>These annotations specify that the request URI <tt>/greeting</tt> can be accessed only by
+users who have been authorized to access this URL because they have been
+verified to be in the role <tt>TutorialUser</tt>. The data will be sent over
+a protected transport in order to keep the user name and password data
+from being read in transit.</p>
+
+
+
+<a name="gjqys"></a><h5>To Build, Package, and Deploy the Servlet Basic Authentication Example Using NetBeans IDE</h5>
+<p>To build, package, and deploy the <tt>hello2_basicauth</tt> example application using NetBeans IDE, follow
+these steps.</p>
+
+<ol>
+<li><b>Follow the steps in <a href="#gjjlk">To Set Up Your System for Running the Security Examples</a>.</b></li>
+<li><b>In NetBeans IDE, select File&rarr;Open Project.</b></li>
+<li><b>In the Open Project dialog, navigate to <tt></tt><i>tut-install</i><tt>/examples/security</tt>.</b></li>
+<li><b>Select the <tt>hello2_basicauth</tt> folder.</b></li>
+<li><b>Select the Open as Main Project check box.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>Right-click <tt>hello2_basicauth</tt> in the Projects pane and select Deploy.</b><p>This option builds and deploys the example application to your GlassFish Server instance.</p></li></ol>
+
+<a name="gjqzh"></a><h5>To Build, Package, and Deploy the Servlet Basic Authentication Example Using Ant</h5>
+<p>To build, package, and deploy the <tt>web/hello2_basicauth</tt> example using the Ant tool, follow
+these steps.</p>
+
+<ol>
+<li><b>Follow the steps in <a href="#gjjlk">To Set Up Your System for Running the Security Examples</a>.</b></li>
+<li><b>From a terminal window or command prompt, change to the <tt></tt><i>tut-install</i><tt>/examples/security/hello2_basicauth/</tt> directory.</b></li>
+<li><b>Type the following command:</b><pre><tt><b>ant</b></tt></pre><p>This command calls the <tt>default</tt> target, which builds and packages the application into
+an WAR file, <tt>hello2_basicauth.war</tt>, that is located in the <tt>dist</tt> directory.</p></li>
+<li><b>Make sure the GlassFish Server is started.</b></li>
+<li><b>To deploy the application, type the following command:</b><pre><tt><b>ant deploy</b></tt></pre></li></ol>
+
+<a name="gjqzf"></a><h5>To Run the Basic Authentication Servlet</h5>
+<p>To run the web client, follow these steps.</p>
+
+<ol>
+<li><b>In a web browser, navigate to the following URL:</b><pre>https://localhost:8181/hello2_basicauth/greeting</pre><p>You may be prompted to accept the security certificate for the server. If
+so, accept the security certificate. If the browser warns that the certificate
+is invalid because it is self-signed, add a security exception for the application.</p><p>An Authentication Required dialog box appears. Its appearance varies depending on the browser
+you use. <a href="#gjtbj">Figure&nbsp;25-6</a> shows an example.</p><a name="gjtbj"></a><h6>Figure&nbsp;25-6 Sample Basic Authentication Dialog Box</h6><img src="figures/security-basicdialog.gif" alt="Example of a basic authentication dialog box" width="376" height="169"></img></li>
+<li><b>Type a user name and password combination that corresponds to a user that
+has already been created in the <tt>file</tt> realm of the GlassFish Server and
+has been assigned to the group of <tt>TutorialUser</tt>, then click OK.</b><p>Basic authentication is case-sensitive for both the user name and password, so type
+the user name and password exactly as defined for the GlassFish Server.</p><p>The server returns the requested resource if all of the following conditions are
+met:</p>
+
+
+<ul><li><p>There is a user defined for the GlassFish Server with the user name you entered.</p>
+
+</li>
+<li><p>The user with the user name you entered has the password you entered.</p>
+
+</li>
+<li><p>The user name and password combination you entered is assigned to the group <tt>TutorialUser</tt> on the GlassFish Server.</p>
+
+</li>
+<li><p>The role of <tt>TutorialUser</tt>, as defined for the application, is mapped to the group <tt>TutorialUser</tt>, as defined for the GlassFish Server.</p>
+
+</li></ul>
+<p>When these conditions are met, and the server has authenticated the user, the
+application will appear as shown in <a href="bnadu.html#bnadv">Figure&nbsp;3-2</a> (but with a different URL).</p></li>
+<li><b>Type a name in the text field and click the Submit button.</b><p>Because you have already been authorized, the name you enter in this step
+does not have any limitations. You have unlimited access to the application now.</p><p>The application responds by saying &ldquo;Hello&rdquo; to you, as shown in <a href="bnadu.html#bnadw">Figure&nbsp;3-3</a> (but
+with a different URL).</p></li></ol><h6>Next Steps</h6><p>For repetitive testing of this example, you may need to close and
+reopen your browser. You should also run the <tt>ant undeploy</tt> and <tt>ant clean</tt> targets or
+the NetBeans IDE Clean and Build option to get a fresh start.</p>
+
+
+
+<a name="bncby"></a><h4>Example: Form-Based Authentication with a JavaServer Faces Application</h4>
+<a name="indexterm-1506"></a><a name="indexterm-1507"></a><a name="indexterm-1508"></a><p>This example explains how to use form-based authentication with a JavaServer Faces
+application. With form-based authentication, you can customize the login screen and error pages that
+are presented to the web client for authentication of the user name
+and password. When a user submits his or her name and password, the
+server determines whether the user name and password are those of an authorized
+user and, if authorized, sends the requested web resource.</p>
+
+<p>This example, <tt>hello1_formauth</tt>, adds security to the basic JavaServer Faces application shown in
+<a href="bnadx.html">Web Modules: The <tt>hello1</tt> Example</a>.</p>
+
+<p>In general, the steps necessary for adding form-based authentication to an unsecured JavaServer
+Faces application are similar to those described in <a href="#bncck">Example: Basic Authentication with a Servlet</a>. The major difference
+is that you must use a deployment descriptor to specify the use of
+form-based authentication, as described in <a href="#bnccb">Specifying Security for the Form-Based Authentication Example</a>. In addition, you must create a login
+form page and a login error page, as described in <a href="#bncca">Creating the Login Form and the Error Page</a>.</p>
+
+<p>The completed version of this example application can be found in the directory
+<tt></tt><i>tut-install</i><tt>/examples/security/hello1_formauth/</tt>.</p>
+
+
+
+<a name="bncca"></a><h5>Creating the Login Form and the Error Page</h5>
+<p>When using form-based login mechanisms, you must specify a page that contains the
+form you want to use to obtain the user name and password,
+as well as a page to display if login authentication fails. This section
+discusses the login form and the error page used in this example. <a href="#bnccb">Specifying Security for the Form-Based Authentication Example</a>
+shows how you specify these pages in the deployment descriptor.</p>
+
+<p>The login page can be an HTML page, a JavaServer Faces or
+JSP page, or a servlet, and it must return an HTML page containing
+a form that conforms to specific naming conventions (see the Java Servlet 3.0
+specification for more information on these requirements). To do this, include the elements that
+accept user name and password information between <tt>&lt;form>&lt;/form></tt> tags in your login
+page. The content of an HTML page, JavaServer Faces or JSP page, or
+servlet for a login page should be coded as follows:</p>
+
+<pre>&lt;form method=post action="j_security_check">
+    &lt;input type="text" name="j_username">
+    &lt;input type="password" name= "j_password">
+&lt;/form></pre><p>The full code for the login page used in this example can
+be found at <tt></tt><i>tut-install</i><tt>/examples/security/hello1_formauth/web/login.xhtml</tt>. An example of the running login form page is
+shown later, in <a href="#bncci">Figure&nbsp;25-7</a>. Here is the code for this page:</p>
+
+<pre>&lt;html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    &lt;h:head>
+        &lt;title>Login Form&lt;/title>
+    &lt;/h:head>
+    &lt;h:body>
+        &lt;h2>Hello, please log in:&lt;/h2>
+        <b>&lt;form name="loginForm" method="POST" action="j_security_check"></b>
+            &lt;p>&lt;strong>Please type your user name: &lt;/strong>
+                <b>&lt;input type="text" name="j_username" size="25"></b>&lt;/p>
+            &lt;p>&lt;strong>Please type your password: &lt;/strong>
+                <b>&lt;input type="password" size="15" name="j_password"></b>&lt;/p>
+            &lt;p>
+                &lt;input type="submit" value="Submit"/>
+                &lt;input type="reset" value="Reset"/>&lt;/p>
+        &lt;/form>       
+    &lt;/h:body>
+&lt;/html></pre><p>The login error page is displayed if the user enters a user
+name and password combination that is not authorized to access the protected URI.
+For this example, the login error page can be found at <tt></tt><i>tut-install</i><tt>/examples/security/hello1_formauth/web/error.xhtml</tt>. For
+this example, the login error page explains the reason for receiving the error page
+and provides a link that will allow the user to try again.
+Here is the code for this page:</p>
+
+<pre>&lt;html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    &lt;h:head>
+        &lt;title>Login Error&lt;/title>
+    &lt;/h:head>
+    &lt;h:body>
+    &lt;h2>Invalid user name or password.&lt;/h2>
+
+    &lt;p>Please enter a user name or password that is authorized to access this
+        application. For this application, this means a user that has been
+        created in the &lt;code>file&lt;/code> realm and has been assigned to the
+        &lt;em>group&lt;/em> of &lt;code>TutorialUser&lt;/code>.&lt;/p>
+   &lt;h:link outcome="login">Return to login page&lt;/h:link>
+
+    &lt;/h:body>
+&lt;/html></pre>
+
+<a name="bnccb"></a><h5>Specifying Security for the Form-Based Authentication Example</h5>
+<p>This example takes a very simple servlet-based web application and adds form-based security
+to this application. To specify form-based instead of basic authentication for a
+JavaServer Faces example, you must use the deployment descriptor.</p>
+
+<p>The following sample code shows the security elements added to the deployment descriptor
+for this example, which can be found in <tt></tt><i>tut-install</i><tt>/examples/security/hello1_formauth/web/WEB-INF/web.xml</tt>.</p>
+
+<pre>    &lt;security-constraint>
+        &lt;display-name>Constraint1&lt;/display-name>
+        &lt;web-resource-collection>
+            &lt;web-resource-name>wrcoll&lt;/web-resource-name>
+            &lt;description/>
+            &lt;url-pattern>/*&lt;/url-pattern>
+        &lt;/web-resource-collection>
+        &lt;auth-constraint>
+            &lt;description/>
+            &lt;role-name>TutorialUser&lt;/role-name>
+        &lt;/auth-constraint>
+    &lt;/security-constraint>
+    &lt;login-config>
+        &lt;auth-method>FORM&lt;/auth-method>
+        &lt;realm-name>file&lt;/realm-name>
+        &lt;form-login-config>
+            &lt;form-login-page>/login.xhtml&lt;/form-login-page>
+            &lt;form-error-page>/error.xhtml&lt;/form-error-page>
+        &lt;/form-login-config>
+    &lt;/login-config>
+    &lt;security-role>
+        &lt;description/>
+        &lt;role-name>TutorialUser&lt;/role-name>
+    &lt;/security-role></pre>
+
+<a name="gjrba"></a><h5>To Build, Package, and Deploy the Form-Based Authentication Example Using NetBeans IDE</h5>
+<ol>
+<li><b>Follow the steps in <a href="#gjjlk">To Set Up Your System for Running the Security Examples</a>.</b></li>
+<li><b>Open the project in NetBeans IDE by selecting File&rarr;Open Project.</b></li>
+<li><b>In the Open Project dialog, navigate to <tt></tt><i>tut-install</i><tt>/examples/security</tt>.</b></li>
+<li><b>Select the <tt>hello1_formauth</tt> folder.</b></li>
+<li><b>Select the Open as Main Project check box.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>Right-click <tt>hello1_formauth</tt> in the Projects pane and select Deploy.</b></li></ol><h6>Next Steps</h6><p>Follow the steps in <a href="#gjral">To Run the Form-Based Authentication Example</a>.</p>
+
+
+
+<a name="gjraz"></a><h5>To Build, Package, and Deploy the Form-Based Authentication Example Using Ant</h5>
+<ol>
+<li><b>Follow the steps in <a href="#gjjlk">To Set Up Your System for Running the Security Examples</a>.</b></li>
+<li><b>From a terminal window or command prompt, change to the following directory:</b><pre><tt></tt><i>tut-install</i><tt>/examples/security/hello2_formauth/</tt></pre></li>
+<li><b>Type the following command at the terminal window or command prompt:</b><pre><tt><b>ant</b></tt></pre><p>This target will spawn any necessary compilations, copy files to the <tt></tt><i>tut-install</i><tt>/examples/security/hello2_formauth/build/</tt>
+directory, create the WAR file, and copy it to the <tt></tt><i>tut-install</i><tt>/examples/security/hello2_formauth/dist/</tt> directory.</p></li>
+<li><b>To deploy <tt>hello2_formauth.war</tt> to the GlassFish Server, type the following command:</b><pre><tt><b>ant deploy</b></tt></pre></li></ol><h6>Next Steps</h6><p>Follow the steps in <a href="#gjral">To Run the Form-Based Authentication Example</a>.</p>
+
+
+
+<a name="gjral"></a><h5>To Run the Form-Based Authentication Example</h5>
+<p>To run the web client for <tt>hello1_formauth</tt>, follow these steps.</p>
+
+<ol>
+<li><b>Open a web browser to the following URL:</b><pre>https://localhost:8181/hello1_formauth/</pre><p>The login form displays in the browser, as shown in <a href="#bncci">Figure&nbsp;25-7</a>.</p><a name="bncci"></a><h6>Figure&nbsp;25-7 Form-Based Login Page</h6><img src="figures/security-formLogin.gif" alt="Screen shot of form-based login page showing text fields for user name and password" width="544" height="327"></img></li>
+<li><b>Type a user name and password combination that corresponds to a user who
+has already been created in the <tt>file</tt> realm of the GlassFish Server and has
+been assigned to the group of <tt>TutorialUser</tt>.</b><p>Form-based authentication is case sensitive for both the user name and password, so type
+the user name and password exactly as defined for the GlassFish Server.</p></li>
+<li><b>Click the Submit button. </b><p>If you entered <tt>My_Name</tt> as the name and <tt>My_Pwd</tt> for the password, the
+server returns the requested resource if all the following conditions are met.</p>
+
+
+<ul><li><p>A user with the user name of <tt>My_Name</tt> is defined for the GlassFish Server.</p>
+
+</li>
+<li><p>The user with the user name of <tt>My_Name</tt> has a password of <tt>My_Pwd</tt> defined for the GlassFish Server.</p>
+
+</li>
+<li><p>The user <tt>My_Name</tt> with the password <tt>My_Pwd</tt> is assigned to the group of <tt>TutorialUser</tt> on the GlassFish Server.</p>
+
+</li>
+<li><p>The role <tt>TutorialUser</tt>, as defined for the application, is mapped to the group <tt>TutorialUser</tt>, as defined for the GlassFish Server.</p>
+
+<p>When these conditions are met and the server has authenticated the user, the application will appear as shown in <a href="bnadu.html#bnadv">Figure&nbsp;3-2</a> but with a different URL.</p>
+
+</li></ul>
+</li>
+<li><b>Type your name and click the Submit button.</b><p>Because you have already been authorized, the name you enter in this step
+does not have any limitations. You have unlimited access to the application now.</p><p>The application responds by saying &ldquo;Hello&rdquo; to you, as shown in <a href="bnadu.html#bnadw">Figure&nbsp;3-3</a> but
+with a different URL.</p></li></ol><h6>Next Steps</h6><p>For additional testing and to see the login error page generated, close and
+reopen your browser, type the application URL, and type a user name and
+password that are not authorized.</p>
+
+
+<hr><p><b>Note - </b>For repetitive testing of this example, you may need to close and reopen
+your browser. You should also run the  <tt>ant clean</tt> and  <tt>ant undeploy</tt> commands
+to ensure a fresh build if using the Ant tool, or select Clean
+and Build then Deploy if using NetBeans IDE.</p>
+
+
+<hr>
+
+         </div>
+         <div class="navigation">
+             <a href="gjiie.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="bnbyk.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

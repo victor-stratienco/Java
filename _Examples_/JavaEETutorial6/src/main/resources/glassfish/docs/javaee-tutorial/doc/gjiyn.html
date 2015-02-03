@@ -1,0 +1,326 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Replacing Deployment Descriptors With Metadata Annotations - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level3"><a href="bncji.html">Resources and JNDI Naming</a></p>
+<p class="toc level3"><a href="bncjj.html"><tt>DataSource</tt> Objects and Connection Pools</a></p>
+<p class="toc level3"><a href="bncjk.html">Resource Injection</a></p>
+<p class="toc level4"><a href="bncjk.html#bncjl">Field-Based Injection</a></p>
+<p class="toc level4"><a href="bncjk.html#bncjm">Method-Based Injection</a></p>
+<p class="toc level4"><a href="bncjk.html#bncjn">Class-Based Injection</a></p>
+<p class="toc level3 tocsp"><a href="gipgl.html">Resource Adapters and Contracts</a></p>
+<p class="toc level4"><a href="gipgl.html#gipgy">Management Contracts</a></p>
+<p class="toc level5"><a href="gipgl.html#gipht">Life Cycle Management</a></p>
+<p class="toc level5"><a href="gipgl.html#gipig">Work Management Contract</a></p>
+<p class="toc level4 tocsp"><a href="gipgl.html#gipmk">Generic Work Context Contract</a></p>
+<p class="toc level5"><a href="gipgl.html#gipke">Transaction Context</a></p>
+<p class="toc level5"><a href="gipgl.html#gipnw">Security Context</a></p>
+<p class="toc level5"><a href="gipgl.html#gipjh">Work Security Map</a></p>
+<p class="toc level5"><a href="gipgl.html#gipjr">Hints Context</a></p>
+<p class="toc level4 tocsp"><a href="gipgl.html#gipji">Outbound Contracts</a></p>
+<p class="toc level5"><a href="gipgl.html#gipki">Connection Management Contract</a></p>
+<p class="toc level5"><a href="gipgl.html#gipkg">Transaction Management Contract</a></p>
+<p class="toc level5"><a href="gipgl.html#gipjn">Security Management Contract</a></p>
+<p class="toc level4 tocsp"><a href="gipgl.html#gipjw">Inbound Contracts</a></p>
+<p class="toc level5"><a href="gipgl.html#gipiy">Messaging Contracts</a></p>
+<p class="toc level5"><a href="gipgl.html#gipjk">Transaction Inflow</a></p>
+<p class="toc level3 tocsp"><a href="girdd.html">Metadata Annotations</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3"><a href="">Replacing Deployment Descriptors With Metadata Annotations</a></p>
+<p class="toc level4"><a href="#gjiyu">Example 1: <tt>@Connector</tt> Annotation</a></p>
+<p class="toc level4"><a href="#gjixz">Example 2: <tt>@ConnectionDefinition</tt> Annotation</a></p>
+<p class="toc level4"><a href="#gjiyg">Example 3: <tt>@Activation</tt> Annotation</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="gipju.html">Common Client Interface</a></p>
+<p class="toc level3"><a href="bncjw.html">Further Information about Resources</a></p>
+<p class="toc level2 tocsp"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="girdd.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="gipju.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="gjiyn"></a><h3>Replacing Deployment Descriptors With Metadata Annotations</h3>
+<a name="indexterm-1676"></a><p>The use of annotations reduces or completely eliminates the need to deal with
+a deployment descriptor in many cases. The use of annotations also reduces the
+need to keep the deployment descriptor synchronized with changes to source code.</p>
+
+<p>The following examples provide sample deployment descriptors and equivalent annotations.</p>
+
+
+
+<a name="gjiyu"></a><h4>Example 1: <tt>@Connector</tt> Annotation</h4>
+<p>The following deployment descriptor defines a connector:</p>
+
+<pre>&lt;connector xmlns "http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation=http://java.sun.com/xml/ns/j2ee 
+    http://java.sun.com/xml/ns/j2ee/connector_1_6.xsd" 
+    version="1.6">
+  &lt;description>Sample adapter using the JavaMail API&lt;/description>
+  &lt;display-name>InboundResourceAdapter&lt;/display-name>
+  &lt;icon>&lt;/icon>
+  &lt;vendor-name>Sun Microsystems, Inc.&lt;/vendor-name>
+
+  &lt;eis-type>MAIL&lt;/eis-type>
+  &lt;resourceadapter-version>1.0&lt;/resourceadapter-version>
+    ...
+    ...
+    ...
+  &lt;authentication-mechanism>
+    &lt;authentication-mechanism-type>
+      BasicPassword
+    &lt;/authentication-mechanism-type>
+    &lt;credential-interface>
+      javax.resource.spi.security.PasswordCredential
+    &lt;/credential-interface>
+  &lt;/authentication-mechanism>
+  &lt;reauthentication-support>false&lt;/reauthentication-support>
+    ...
+    ...
+&lt;/connector></pre><p>The equivalent metadata annotation is as follows:</p>
+
+<pre>@Connector(
+   description = "Sample adapter using the JavaMail API",
+   displayName = "InboundResourceAdapter",
+   vendorName = "Sun Microsystems, Inc.",
+   eisType = "MAIL",
+   version = "1.0",
+   authMechanisms = {
+          @AuthenticationMechanism(
+            authMechanism = "BasicPassword",
+            credentialInterface = 
+                AuthenticationMechanism.CredentialInterface.PasswordCredential
+          )
+   )
+
+/*
+ // Since the following attribute values denote the default values of the annotation,
+ // they need not be specified explicitly
+
+ transactionSupport = TransactionSupport.TransactionSupportLevel.NoTransaction,
+    reauthenticationSupport = false
+*/
+)
+
+public class ResourceAdapterImpl 
+        implements ResourceAdapter, java.io.Serializable {
+    ...
+    ...
+}</pre>
+
+<a name="gjixz"></a><h4>Example 2: <tt>@ConnectionDefinition</tt> Annotation</h4>
+<p>The following deployment descriptor snippet describes a connection definition:</p>
+
+<pre>&lt;connection-definition>
+  &lt;managedconnectionfactory-class>
+    samples.mailra.ra.outbound.ManagedConnectionFactoryImpl
+  &lt;/managedconnectionfactory-class>
+  &lt;config-property>
+    &lt;config-property-name>serverName&lt;/config-property-name>
+    &lt;config-property-type>java.lang.String&lt;/config-property-type>
+    &lt;config-property-value>UnknownHostName&lt;/config-property-value>
+  &lt;/config-property>
+
+    ...
+    ...
+  &lt;connectionfactory-interface>
+    samples.mailra.api.JavaMailConnectionFactory
+  &lt;/connectionfactory-interface>
+  &lt;connectionfactory-impl-class>
+    samples.mailra.ra.outbound.JavaMailConnectionFactoryImpl
+  &lt;/connectionfactory-impl-class>
+  &lt;connection-interface>
+    samples.mailra.api.JavaMailConnection
+  &lt;/connection-interface>
+  &lt;credential-interface>
+    javax.resource.spi.security.PasswordCredential
+  &lt;/credential-interface>
+  &lt;connection-impl-class>
+    samples.mailra.ra.outbound.JavaMailConnectionImpl
+  &lt;/connection-impl-class>
+&lt;/connection-definition></pre><p>The equivalent metadata annotation is as follows:</p>
+
+<pre>@ConnectionDefinition(
+    connectionFactory = 
+        samples.mailra..api.JavaMailConnectionFactory.class,
+    connectionFactoryImpl = 
+        samples.mailra.ra.outbound.JavaMailConnectionFactoryImpl.class,
+    connection = 
+        samples.connectors.mailconnector.api.JavaMailConnection.class,
+    connectionImpl = 
+        samples.mailra..ra.outbound.JavaMailConnectionImpl.class
+)
+
+public class ManagedConnectionFactoryImpl implements
+        ManagedConnectionFactory, Serializable {
+    ...
+    ...
+    @ConfigProperty(defaultValue = "UnknownHostName")
+    public void setServerName(String serverName) {
+       ...
+    }
+}</pre>
+
+<a name="gjiyg"></a><h4>Example 3: <tt>@Activation</tt> Annotation</h4>
+<p>The following deployment descriptor snippet describes the messaging capabilities of a resource adapter:</p>
+
+<pre>&lt;messageadapter>
+  &lt;messagelistener>
+    &lt;messagelistener-type>
+      samples.mailra.api.JavaMailMessageListener
+    &lt;/messagelistener-type>
+    &lt;activationspec>
+      &lt;activationspec-class>
+        samples.mailra.ra.inbound.ActivationSpecImpl
+      &lt;/activationspec-class>
+      &lt;required-config-property>
+        &lt;config-property-name>serverName&lt;/config-property-name>
+        &lt;config-property-value>userName&lt;/config-property-value>
+      &lt;/required-config-property>
+      &lt;required-config-property>
+        &lt;config-property-name>password&lt;/config-property-name>
+        &lt;config-property-value>folderName&lt;/config-property-value>
+      &lt;/required-config-property>
+      &lt;required-config-property>
+        &lt;description>Normally imap or pop3&lt;/description>
+        &lt;config-property-name>protocol&lt;/config-property-name>
+        &lt;config-property-value>IMAP&lt;/config-property-value>
+      &lt;/required-config-property>
+    &lt;/activationspec>
+  &lt;/messagelistener>
+&lt;/messageadapter></pre><p>The equivalent metadata annotation is as follows:</p>
+
+<pre>@Activation(
+        messageListeners = {samples.mailra.api.JavaMailMessageListener.class}
+)
+public class ActivationSpecImpl implements javax.resource.spi.ActivationSpec,
+                                           java.io.Serializable {
+    ...
+    @ConfigProperty()
+    // serverName property value
+    private String serverName = new String("");
+
+    @ConfigProperty()
+    // userName property value
+    private String userName = new String("");
+
+    @ConfigProperty()
+    // password property value
+    private String password = new String("");
+
+    @ConfigProperty()
+    // folderName property value
+    private String folderName = new String("Inbox");
+
+    // protocol property value
+    // Normally imap or pop3
+    @ConfigProperty(
+            description = "Normally imap or pop3"
+    )
+    private String protocol = new String("imap");
+    ...
+    ...
+}</pre>
+         </div>
+         <div class="navigation">
+             <a href="girdd.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="gipju.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

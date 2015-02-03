@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Composite Components - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level3"><a href="gijtu.html">What Is Facelets?</a></p>
+<p class="toc level3"><a href="gipob.html">Developing a Simple Facelets Application</a></p>
+<p class="toc level4"><a href="gipob.html#giqte">Creating a Facelets Application</a></p>
+<p class="toc level5"><a href="gipob.html#giqqz">Developing a Backing Bean</a></p>
+<p class="toc level5"><a href="gipob.html#gjzpv">Creating Facelets Views</a></p>
+<p class="toc level4 tocsp"><a href="gipob.html#gjjkc">Configuring the Application</a></p>
+<p class="toc level4"><a href="gipob.html#girgf">Building, Packaging, Deploying, and Running the <tt>guessnumber</tt> Facelets Example</a></p>
+<p class="toc level5"><a href="gipob.html#gjqzl">To Build, Package, and Deploy the <tt>guessnumber</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="gipob.html#gjqyu">To Build, Package, and Deploy the <tt>guessnumber</tt> Example Using Ant</a></p>
+<p class="toc level5"><a href="gipob.html#gjqyx">To Run the <tt>guessnumber</tt> Example</a></p>
+<p class="toc level5"><a href="gipob.html#gjqyv">To Undeploy the <tt>guessnumber</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="gipob.html#gjqzo">To Undeploy the <tt>guessnumber</tt> Example Using Ant</a></p>
+<p class="toc level3 tocsp"><a href="giqxp.html">Templating</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3"><a href="">Composite Components</a></p>
+</div>
+<p class="toc level3"><a href="girgm.html">Resources</a></p>
+<p class="toc level2 tocsp"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="giqxp.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="girgm.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="giqzr"></a><h3>Composite Components</h3>
+<a name="indexterm-212"></a><a name="indexterm-213"></a><p>JavaServer Faces technology offers the concept of composite components with Facelets. A composite
+component can be considered a a special type of template that acts as
+a component.</p>
+
+<p>Any component essentially is a piece of reusable code that is capable of
+a certain functionality. For example, an <tt>inputText</tt> component is capable of accepting user
+input. A component also has validators, converters, and listeners attached to it to
+perform certain defined actions.</p>
+
+<p>A composite component is a component that consists of a collection of markups
+and other existing components. It is a reusable, user-created component that is capable
+of a customized, defined functionality and can have validators, converters, and listeners attached
+to it like any other JavaServer Faces component.</p>
+
+<p>With Facelets, any XHTML page that is inserted with markups and other components
+can be converted into a composite component. Using the <tt>resources</tt> facility, the
+composite component can be stored in a library that is available to the
+application from the defined resources location.</p>
+
+<p><a href="#gjcwc">Table&nbsp;5-3</a> lists the most commonly used composite tags and their functions.</p>
+
+<a name="gjcwc"></a><h6>Table&nbsp;5-3 Composite Component Tags</h6><table><col width="34%"><col width="65%"><tr><th align="left" valign="top" scope="column"><p>Tag</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Function</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>composite:interface</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Declares the usage
+contract for a composite component. The composite component can be used as a
+single component whose feature set is the union of the features declared in
+the usage contract.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>composite:implementation</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Defines the implementation of the composite component. If a <tt>composite:interface</tt>
+element appears, there must be a corresponding <tt>composite:implementation</tt>.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>composite:attribute</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Declares an attribute that may
+be given to an instance of the composite component, in which this tag
+is declared.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>composite:insertChildren</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Any child components or template text within the composite component tag in
+the using page will be re-parented into the composite component at the point
+indicated by this tag's placement within the <tt>composite:implementation</tt> section.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>composite:valueHolder</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Declares that the composite
+component whose contract is declared by the <tt>composite:interface</tt> in which this element is
+nested exposes an implementation of <tt>ValueHolder</tt> suitable for use as the target of attached
+objects in the using page.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>composite:editableValueHolder</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Declares that the composite component whose contract is
+declared by the <tt>composite:interface</tt> in which this element is nested exposes an implementation of
+<tt>EditableValueHolder</tt> suitable for use as the target of attached objects in the using
+page.</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>composite:actionSource</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Declares that the composite component whose contract is declared by the <tt>composite:interface</tt> in
+which this element is nested exposes an implementation of <tt>ActionSource2</tt> suitable for use as
+the target of attached objects in the using page.</p>
+
+</td>
+</tr>
+</table><p>For more information and a complete list of Facelets composite tags, see the documentation
+at <a href="http://download.oracle.com/docs/cd/E17410_01/javaee/6/javaserverfaces/2.0/docs/pdldocs/facelets/">http://download.oracle.com/docs/cd/E17410_01/javaee/6/javaserverfaces/2.0/docs/pdldocs/facelets/</a>.</p>
+
+<p>The following example shows a composite component that accepts an email address as
+input:</p>
+
+<pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+&lt;html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:composite="http://java.sun.com/jsf/composite"
+xmlns:h="http://java.sun.com/jsf/html">
+
+&lt;h:head>
+&lt;title>This content will not be displayed
+&lt;/title>
+&lt;/h:head>
+&lt;h:body>
+
+&lt;composite:interface>
+&lt;composite:attribute name="value" required="false"/>
+&lt;/composite:interface>
+
+&lt;composite:implementation>
+    &lt;h:outputLabel value="Email id: ">
+    &lt;/h:outputLabel>
+    &lt;h:inputText value="#{cc.attrs.value}">
+    &lt;/h:inputText>
+&lt;/composite:implementation>
+
+&lt;/h:body>
+&lt;/html></pre><p>Note the use of <tt>cc.attrs.value</tt> when defining the value of the <tt>inputText</tt> component.
+The word <tt>cc</tt> in JavaServer Faces is a reserved word for composite components.
+The <tt>#{cc.attrs.ATTRIBUTE_NAME}</tt> expression is used to access the attributes defined for the
+composite component's interface which in this case happens to be <tt>value</tt>.</p>
+
+<p>The preceding example content is stored as a file named <tt>email.xhtml</tt> in
+a folder named <tt>resources/emcomp</tt>, under the application web root directory. This directory is
+considered as a library by JavaServer Faces, and a <tt>UIcomponent</tt> can be accessed from
+such a library. For more information on resources, see <a href="girgm.html">Resources</a>.</p>
+
+<p>The web page that uses this composite component is generally called a <tt>using</tt>
+page. The <tt>using</tt> page includes a reference to the composite component, in the
+<tt>xml</tt> namespace declarations:</p>
+
+<pre>&lt;!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+&lt;html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:em="http://java.sun.com/jsf/composite/emcomp/">
+
+&lt;h:head>
+&lt;title>Using a sample composite component&lt;/title>
+&lt;/h:head>
+
+&lt;body>
+&lt;h:form>
+&lt;em:email value="Enter your email id" />
+
+&lt;/h:form>
+&lt;/body>
+&lt;/html></pre><p>The local composite component library is defined in the <tt>xml</tt> namespace with the
+declaration <tt>xmlns:em="http://java.sun.com/jsf/composite/emcomp/"</tt>. The component itself is accessed through the use of <tt>em:email</tt>
+tag. The preceding example content can be stored as a web page named
+<tt>emuserpage.xhtml</tt> under the web root directory. When compiled and deployed on a server,
+it can be accessed with the following URL:</p>
+
+<pre>http://localhost:8080/&lt;application_name>/faces/emuserpage.xhtml</pre>
+         </div>
+         <div class="navigation">
+             <a href="giqxp.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="girgm.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

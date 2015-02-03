@@ -1,0 +1,521 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Web Modules: The hello1 Example - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level3"><a href="geysj.html">Web Applications</a></p>
+<p class="toc level3"><a href="bnadu.html">Web Application Life Cycle</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3"><a href="">Web Modules: The <tt>hello1</tt> Example</a></p>
+<p class="toc level4"><a href="#gjwux">Examining the <tt>hello1</tt> Web Module</a></p>
+<p class="toc level5"><a href="#gjwtv">To View the <tt>hello1</tt> Web Module Using NetBeans IDE</a></p>
+<p class="toc level4 tocsp"><a href="#bnadz">Packaging a Web Module</a></p>
+<p class="toc level5"><a href="#bnaeb">To Set the Context Root</a></p>
+<p class="toc level5"><a href="#gjrgn">To Build and Package the <tt>hello1</tt> Web Module Using  NetBeans IDE</a></p>
+<p class="toc level5"><a href="#gjrkn">To Build and Package the <tt>hello1</tt> Web Module Using Ant</a></p>
+<p class="toc level4 tocsp"><a href="#bnaea">Deploying a Web Module</a></p>
+<p class="toc level5"><a href="#bnaeg">To Deploy the <tt>hello1</tt> Web Module Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#bnaef">To Deploy the <tt>hello1</tt> Web Module Using Ant</a></p>
+<p class="toc level4 tocsp"><a href="#gentextid-2084">Running a Deployed Web Module</a></p>
+<p class="toc level5"><a href="#bnaeh">To Run a Deployed Web Module</a></p>
+<p class="toc level4 tocsp"><a href="#bnaei">Listing Deployed Web Modules</a></p>
+<p class="toc level5"><a href="#gjsgr">To List Deployed Web Modules Using the Administration Console</a></p>
+<p class="toc level5"><a href="#gjsew">To List Deployed Web Modules Using the <tt>asadmin</tt> Command</a></p>
+<p class="toc level4 tocsp"><a href="#bnaej">To Update a Web Module</a></p>
+<p class="toc level4"><a href="#bnaem">Dynamic Reloading</a></p>
+<p class="toc level5"><a href="#gjsgv">To Disable or Modify Dynamic Reloading</a></p>
+<p class="toc level4 tocsp"><a href="#bnaen">Undeploying Web Modules</a></p>
+<p class="toc level5"><a href="#gjsej">To Undeploy the <tt>hello1</tt> Web Module Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="#gjshh">To Undeploy the <tt>hello1</tt> Web Module Using Ant</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="bnaeo.html">Configuring Web Applications: The <tt>hello2</tt> Example</a></p>
+<p class="toc level4"><a href="bnaeo.html#bnaep">Mapping URLs to Web Components</a></p>
+<p class="toc level4"><a href="bnaeo.html#gjwwg">Examining the <tt>hello2</tt> Web Module</a></p>
+<p class="toc level5"><a href="bnaeo.html#gjwwa">To View the <tt>hello2</tt> Web Module Using NetBeans IDE</a></p>
+<p class="toc level4 tocsp"><a href="bnaeo.html#gjsed">To Package, Deploy, and Run the <tt>hello2</tt> Example Using NetBeans IDE</a></p>
+<p class="toc level4"><a href="bnaeo.html#gjshx">To Package, Deploy, and Run the <tt>hello2</tt> Example Using Ant</a></p>
+<p class="toc level4"><a href="bnaeo.html#bnaer">Declaring Welcome Files</a></p>
+<p class="toc level4"><a href="bnaeo.html#bnaes">Setting Context and Initialization Parameters</a></p>
+<p class="toc level5"><a href="bnaeo.html#gjsfj">To Add a Context Parameter Using NetBeans IDE</a></p>
+<p class="toc level5"><a href="bnaeo.html#gjsdy">To Add an Initialization Parameter Using NetBeans IDE</a></p>
+<p class="toc level4 tocsp"><a href="bnaeo.html#bnaet">To Map Errors to Error Screens</a></p>
+<p class="toc level4"><a href="bnaeo.html#bnaeu">Declaring Resource References</a></p>
+<p class="toc level5"><a href="bnaeo.html#bnaew">Declaring a Reference to a Resource</a></p>
+<p class="toc level5"><a href="bnaeo.html#bnaex">Declaring a Reference to a Web Service</a></p>
+<p class="toc level3 tocsp"><a href="bnafc.html">Further Information about Web Applications</a></p>
+<p class="toc level2 tocsp"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bnadu.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="bnaeo.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bnadx"></a><h3>Web Modules: The <tt>hello1</tt> Example</h3>
+<p><a name="indexterm-162"></a><a name="indexterm-163"></a><a name="indexterm-164"></a>In the Java EE architecture, web components and static web content files, such as
+images, are called <b>web resources</b>. A <b>web module</b> is the smallest deployable and usable unit of
+web resources. A Java EE web module corresponds to a <b>web application</b> as defined
+in the Java Servlet specification.</p>
+
+<p>In addition to web components and web resources, a web module can
+contain other files:</p>
+
+
+<ul><li><p><a name="indexterm-165"></a><a name="indexterm-166"></a>Server-side utility classes, such as shopping carts</p>
+
+</li>
+<li><p>Client-side classes, such as applets and utility classes</p>
+
+</li></ul>
+<p>A web module has a specific structure. The top-level directory of a web
+module is the <b>document root</b> of the application. The document root is where XHTML
+pages, <b>client-side</b> classes and archives, and static web resources, such as images, are
+stored.</p>
+
+<p>The document root contains a subdirectory named <tt>WEB-INF</tt>, which can contain the following files
+and directories:</p>
+
+
+<ul><li><p><tt>classes</tt>: A directory that contains <b>server-side classes</b>: servlets, enterprise bean class files, utility classes, and JavaBeans components</p>
+
+</li>
+<li><p><tt>tags</tt>: A directory that contains tag files, which are implementations of tag libraries</p>
+
+</li>
+<li><p><tt>lib</tt>: A directory that contains JAR files that contain enterprise beans, and JAR archives of libraries called by server-side classes</p>
+
+</li>
+<li><p><a name="indexterm-167"></a>Deployment descriptors, such as <tt>web.xml</tt> (the web application deployment descriptor) and <tt>ejb-jar.xml</tt> (an EJB deployment descriptor)</p>
+
+</li></ul>
+<p>A web module needs a <tt>web.xml</tt> file if it uses JavaServer Faces technology, if
+it must specify certain kinds of security information, or if you want
+to override information specified by web component annotations. </p>
+
+<p>You can also create application-specific subdirectories (that is, package directories) in either the
+document root or the <tt>WEB-INF/classes/</tt> directory.</p>
+
+<p>A web module can be deployed as an unpacked file structure or
+can be packaged in a JAR file known as a Web Archive (WAR)
+file. Because the contents and use of WAR files differ from those of
+JAR files, WAR file names use a <tt>.war</tt> extension. The web module
+just described is portable; you can deploy it into any web container that
+conforms to the Java Servlet specification.</p>
+
+<p><a name="indexterm-168"></a>To deploy a WAR on the GlassFish Server, the file must  contain
+a runtime deployment descriptor. The runtime DD is an XML file that contains
+such information as the context root of the web application and the
+mapping of the portable names of an application&rsquo;s resources to the GlassFish Server&rsquo;s
+resources. The GlassFish Server web application runtime DD is named <tt>sun-web.xml</tt> and
+is located in the <tt>WEB-INF</tt> directory. The structure of a web module that
+can be deployed on the GlassFish Server is shown in <a href="#bnady">Figure&nbsp;3-4</a>.</p>
+
+<p>For example, the <tt>sun-web.xml</tt> file for the <tt>hello1</tt> application specifies the following context
+root:</p>
+
+<pre>&lt;context-root>/hello1&lt;/context-root></pre><a name="bnady"></a><h6>Figure&nbsp;3-4 Web Module Structure</h6><img src="figures/web-module.gif" alt="Diagram of web module structure. WEB-INF and web pages are under the root. Under WEB-INF are descriptors and the lib, classes, and tags directories."></img>
+
+<a name="gjwux"></a><h4>Examining the <tt>hello1</tt> Web Module</h4>
+<p>The <tt>hello1</tt> application is a web module that uses JavaServer Faces technology to
+display a greeting and response. You can use a text editor to view
+the application files, or you can use NetBeans IDE.</p>
+
+
+
+<a name="gjwtv"></a><h5>To View the <tt>hello1</tt> Web Module Using NetBeans IDE</h5>
+<ol>
+<li><b>In NetBeans IDE, select File&rarr;Open Project.</b></li>
+<li><b>In the Open Project dialog, navigate to:</b><pre><i>tut-install</i>/examples/web/</pre></li>
+<li><b>Select the <tt>hello1</tt> folder.</b></li>
+<li><b>Select the Open as Main Project check box.</b></li>
+<li><b>Expand the Web Pages node and double-click the <tt>index.xhtml</tt> file to view it
+in the right-hand pane.</b><p>The <tt>index.html</tt> file is the default landing page for a Facelets application. For
+this application, the page uses simple tag markup to display a form with
+a graphic image, a header, a text field, and two command buttons:</p><pre>&lt;?xml version='1.0' encoding='UTF-8' ?>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+&lt;html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    &lt;h:head>
+        &lt;title>Facelets Hello Greeting&lt;/title>
+    &lt;/h:head>
+    &lt;h:body>
+        &lt;h:form>
+            &lt;h:graphicImage url="duke.waving.gif"/>
+            &lt;h2>Hello, my name is Duke. What's yours?&lt;/h2>
+            &lt;h:inputText id="username" 
+                         value="#{hello.name}"
+                         required="true"
+                         requiredMessage="A name is required."
+                         maxlength="25">
+            &lt;/h:inputText>
+            &lt;p>&lt;/p>
+            &lt;h:commandButton id="submit" value="Submit" action="response">
+            &lt;/h:commandButton>
+            &lt;h:commandButton id="reset" value="Reset" type="reset">
+            &lt;/h:commandButton>
+        &lt;/h:form>
+    &lt;/h:body>
+&lt;/html></pre><p>The most complex element on the page is the <tt>inputText</tt> text field. The
+<tt>maxlength</tt> attribute specifies the maximum length of the field. The <tt>required</tt> attribute specifies
+that the field must be filled out; the <tt>requiredMessage</tt> attribute provides the error message
+to be displayed if the field is left empty. Finally, the <tt>value</tt> attribute
+contains an expression that will be provided by the <tt>Hello</tt> backing bean.</p><p>The Submit <tt>commandButton</tt> element specifies the action as <tt>response</tt>, meaning that when the
+button is clicked, the <tt>response.xhtml</tt> page is displayed.</p></li>
+<li><b>Double-click the <tt>response.xhtml</tt> file to view it.</b><p>The response page appears. This page is even simpler than the greeting page.
+It contains a graphic image, a header that displays the expression provided by
+the backing bean, and a single button whose <tt>action</tt> element transfers you
+back to the <tt>index.xhtml</tt> page:</p><pre>&lt;?xml version='1.0' encoding='UTF-8' ?>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+&lt;html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    &lt;h:head>
+        &lt;title>Facelets Hello Response&lt;/title>
+    &lt;/h:head>
+    &lt;h:body>
+        &lt;h:form>
+            &lt;h:graphicImage url="duke.waving.gif"/>
+            &lt;h2>Hello, #{hello.name}!&lt;/h2>
+            &lt;p>&lt;/p>
+            &lt;h:commandButton id="back" value="Back" action="index" />
+        &lt;/h:form>
+    &lt;/h:body>
+&lt;/html></pre></li>
+<li><b>Expand the Source Packages node, then the <tt>hello1</tt> node.</b></li>
+<li><b>Double-click the <tt>Hello.java</tt> file to view it.</b><p>The <tt>Hello</tt> class, called a backing bean class, provides getter and setter methods
+for the <tt>name</tt> property used in the Facelets page expressions. By default, the
+expression language refers to the class name with the first letter in lowercase
+(<tt>hello.name</tt>).</p><pre>package hello1;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+
+@ManagedBean
+@RequestScoped
+public class Hello {
+
+    private String name;
+
+    public Hello() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String user_name) {
+        this.name = user_name;
+    }
+}</pre></li>
+<li><b>Under the Web Pages node, expand the <tt>WEB-INF</tt> node, then double-click the <tt>web.xml</tt>
+file to view it.</b><p>The <tt>web.xml</tt> file contains several elements that are required for a Facelets application.
+All of these are created automatically when you use NetBeans IDE to create
+an application.</p>
+
+
+<ul><li><p>A context parameter specifying the project stage:</p>
+
+<pre>    &lt;context-param>
+        &lt;param-name>javax.faces.PROJECT_STAGE&lt;/param-name>
+        &lt;param-value>Development&lt;/param-value>
+    &lt;/context-param></pre></li>
+<li><p>A <tt>servlet</tt> element and its <tt>servlet-mapping</tt> element specifying the <tt>FacesServlet</tt>:</p>
+
+<pre>    &lt;servlet>
+        &lt;servlet-name>Faces Servlet&lt;/servlet-name>
+        &lt;servlet-class>javax.faces.webapp.FacesServlet&lt;/servlet-class>
+        &lt;load-on-startup>1&lt;/load-on-startup>
+    &lt;/servlet>
+    &lt;servlet-mapping>
+        &lt;servlet-name>Faces Servlet&lt;/servlet-name>
+        &lt;url-pattern>/faces/*&lt;/url-pattern>
+    &lt;/servlet-mapping></pre></li>
+<li><p>A <tt>welcome-file-list</tt> element specifying the location of the landing page (note that the location is <tt>faces/index.xhtml</tt>, not just <tt>index.xhtml</tt>):</p>
+
+<pre>    &lt;welcome-file-list>
+        &lt;welcome-file>faces/index.xhtml&lt;/welcome-file>
+    &lt;/welcome-file-list></pre></li></ul>
+</li></ol>
+
+<a name="bnadz"></a><h4>Packaging a Web Module</h4>
+<p>A web module must be packaged into a WAR in certain deployment
+scenarios and whenever you want to distribute the web module. You package a
+web module into a WAR by executing the <tt>jar</tt> command in a directory laid
+out in the format of a web module, by using the Ant
+utility, or by using the IDE tool of your choice. This tutorial shows
+you how to use NetBeans IDE or Ant to build, package, and deploy
+the <tt>hello1</tt> sample application.</p>
+
+
+
+<a name="bnaeb"></a><h5>To Set the Context Root</h5>
+<a name="indexterm-169"></a><p>A <b>context root</b> identifies a web application in a Java EE server. A context
+root must start with a forward slash (<tt>/</tt>) and end with a string.</p>
+
+<p>In a packaged web module for deployment on the GlassFish Server, the
+context root is stored in <tt>sun-web.xml</tt>.</p>
+
+<p>To view or edit the context root, follow these steps.</p>
+
+<ol>
+<li><b>Expand the Web Pages and WEB-INF nodes of the <tt>hello1</tt> project.</b></li>
+<li><b>Double-click <tt>sun-web.xml</tt>.</b></li>
+<li><b>In the General tab, observe that the Context Root field is set to
+<tt>/hello1</tt>.</b><p>If you needed to edit this value, you could do so here. When
+you create a new application, you type the context root here.</p></li>
+<li>(Optional) <b>Click the XML tab.</b><p>Observe that the context root value <tt>/hello1</tt> is enclosed by the <tt>context-root</tt>
+element. You could also edit the value here.</p></li></ol>
+
+<a name="gjrgn"></a><h5>To Build and Package the <tt>hello1</tt> Web Module Using  NetBeans IDE</h5>
+<p>To build and package the <tt>hello1</tt> web module with NetBeans IDE, follow these
+steps.</p>
+
+<ol>
+<li><b>Select File&rarr;Open Project.</b></li>
+<li><b>In the Open Project dialog, navigate to:</b><pre><i>tut-install</i>/examples/web/</pre></li>
+<li><b>Select the <tt>hello1</tt> folder.</b></li>
+<li><b>Select the Open as Main Project check box.</b></li>
+<li><b>Click Open Project.</b></li>
+<li><b>In the Projects tab, right-click the <tt>hello1</tt> project and select Build.</b></li></ol>
+
+<a name="gjrkn"></a><h5>To Build and Package the <tt>hello1</tt> Web Module Using Ant</h5>
+<p>To build and package the <tt>hello1</tt> web module using the Ant utility,
+follow these steps:</p>
+
+<ol>
+<li><b>In a terminal window, go to <tt></tt><i>tut-install</i><tt>/examples/web/hello1/</tt>.</b></li>
+<li><b>Type <tt><b>ant</b></tt>. </b><p>This command spawns any necessary compilations, copies files to the <tt></tt><i>tut-install</i><tt>/examples/web/hello1/build/</tt> directory, creates the
+WAR file, and copies it to the <tt></tt><i>tut-install</i><tt>/examples/web/hello1/dist/</tt> directory.</p></li></ol>
+
+<a name="bnaea"></a><h4>Deploying a Web Module</h4>
+<a name="indexterm-170"></a><p>You can deploy a WAR file to the GlassFish Server by</p>
+
+
+<ul><li><p>Using NetBeans IDE</p>
+
+</li>
+<li><p>Using the Ant utility</p>
+
+</li>
+<li><p>Using the <tt>asadmin</tt> command</p>
+
+</li>
+<li><p>Using the Administration Console</p>
+
+</li>
+<li><p>Copying the WAR file into the <tt></tt><i>domain-dir</i><tt>/autodeploy/</tt> directory</p>
+
+</li></ul>
+<p>Throughout the tutorial, you will use NetBeans IDE or Ant for packaging and deploying. Other
+deployment methods are discussed in <a href="http://docs.sun.com/doc/821-1751"><i>Oracle GlassFish Server 3.0.1 Administration Guide</i></a>.</p>
+
+
+
+<a name="bnaeg"></a><h5>To Deploy the <tt>hello1</tt> Web Module Using NetBeans IDE</h5>
+<ul>
+<li><b>Right-click the <tt>hello1</tt> project and select Deploy.</b></li></ul>
+
+<a name="bnaef"></a><h5>To Deploy the <tt>hello1</tt> Web Module Using Ant</h5>
+<p>To deploy the <tt>hello1</tt> web module with the Ant tool, follow these steps.</p>
+
+<ol>
+<li><b>Open a terminal window or command prompt in the directory where you built
+and packaged the WAR.</b></li>
+<li><b>Execute the following command:</b><pre><tt><b>ant deploy</b></tt></pre></li></ol>
+
+<a name="gentextid-2084"></a><h4>Running a Deployed Web Module</h4>
+<p>Now that the web module is deployed, you can view it by
+opening the application in a web browser. By default, the application is deployed
+to host <tt>localhost</tt> on port 8080. The context root of the web
+application is <tt>hello1</tt>.</p>
+
+
+
+<a name="bnaeh"></a><h5>To Run a Deployed Web Module</h5>
+<p>To run the application, follow these steps.</p>
+
+<ol>
+<li><b>Open a web browser.</b></li>
+<li><b>Type the following URL:</b><pre>http://localhost:8080/hello1/</pre></li>
+<li><b>Type your name and click Submit.</b><p>The response page displays the name you submitted. Click the Back button to
+try again.</p></li></ol>
+
+<a name="bnaei"></a><h4>Listing Deployed Web Modules</h4>
+<a name="indexterm-171"></a><p>The GlassFish Server provides two ways to view the deployed web modules: the
+Administration Console and the <tt>asadmin</tt> command.</p>
+
+
+
+<a name="gjsgr"></a><h5>To List Deployed Web Modules Using the Administration Console</h5>
+<p>To use the Administration Console to list web modules, follow these steps.</p>
+
+<ol>
+<li><b>Open the URL <tt>http://localhost:4848/</tt> in a browser.</b></li>
+<li><b>Select the Applications node.</b><p>The deployed web modules appear in the Deployed Applications table.</p></li></ol>
+
+<a name="gjsew"></a><h5>To List Deployed Web Modules Using the <tt>asadmin</tt> Command</h5>
+<p>Use the <tt>asadmin</tt> command to list web modules as follows:</p>
+
+<pre><tt><b>asadmin list-applications</b></tt></pre>
+
+<a name="bnaej"></a><h4>To Update a Web Module</h4><a name="indexterm-172"></a><p>A typical iterative development cycle involves deploying a web module and then making
+changes to the application components. To update a deployed web module, follow these
+steps.</p>
+
+<ol>
+<li><b>Recompile any modified classes.</b></li>
+<li><b>Redeploy the module.</b></li>
+<li><b>Reload the URL in the client.</b></li></ol>
+
+<a name="bnaem"></a><h4>Dynamic Reloading</h4>
+<p><a name="indexterm-173"></a>If dynamic reloading is enabled, you do not have to redeploy an application
+or module when you change its code or deployment descriptors. All you have
+to do is copy the changed pages or class files into the
+deployment directory for the application or module. The deployment directory for a web module
+named <i>context-root</i> is <tt></tt><i>domain-dir</i><tt>/applications/</tt><i>context-root</i><tt></tt>. The server checks for changes periodically and redeploys the
+application, automatically and dynamically, with the changes.</p>
+
+<p>This capability is useful in a development environment, because it allows code changes
+to be tested quickly. Dynamic reloading is not recommended for a production environment,
+however, because it may degrade performance. In addition, whenever a reload is done,
+the sessions at that time become invalid and the client must restart the
+session.</p>
+
+<p>In the GlassFish Server, dynamic reloading is enabled by default.</p>
+
+
+
+<a name="gjsgv"></a><h5>To Disable or Modify Dynamic Reloading</h5>
+<p>If for some reason you do not want the default dynamic reloading
+behavior, follow these steps in the Administration Console.</p>
+
+<ol>
+<li><b>Open the URL <tt>http://localhost:4848/</tt> in a browser.</b></li>
+<li><b>Select the GlassFish Server node.</b></li>
+<li><b>Select the Advanced tab.</b></li>
+<li><b>To disable dynamic reloading, deselect the Reload Enabled check box.</b></li>
+<li><b>To change  the interval at which applications and modules are checked for
+code changes and dynamically reloaded, type a number of seconds in the Reload
+Poll Interval field.</b><p>The default value is 2 seconds.</p></li>
+<li><b>Click the Save button.</b></li></ol>
+
+<a name="bnaen"></a><h4>Undeploying Web Modules</h4>
+<a name="indexterm-174"></a><p>You can undeploy web modules using eitherNetBeans IDE or the Ant tool.</p>
+
+
+
+<a name="gjsej"></a><h5>To Undeploy the <tt>hello1</tt> Web Module Using NetBeans IDE</h5>
+<p>To undeploy the <tt>hello1</tt> web module using NetBeans IDE, follow these steps.</p>
+
+<ol>
+<li><b>Ensure the GlassFish Server is running.</b></li>
+<li><b>In the Services window, expand the Servers node, GlassFish Server instance and the
+Applications node.</b></li>
+<li><b>Right-click the <tt>hello1</tt> module and choose Undeploy.</b></li></ol>
+
+<a name="gjshh"></a><h5>To Undeploy the <tt>hello1</tt> Web Module Using Ant</h5>
+<p>To use the Ant tool to undeploy the <tt>hello1</tt> web module, execute the
+following command in the directory where you built and packaged the WAR:</p>
+
+<pre><tt><b>ant undeploy</b></tt></pre>
+         </div>
+         <div class="navigation">
+             <a href="bnadu.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="bnaeo.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

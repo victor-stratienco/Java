@@ -1,0 +1,433 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Using core Tags - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level3"><a href="bnarb.html">Setting Up a Page</a></p>
+<p class="toc level3"><a href="bnarf.html">Adding Components to a Page Using HTML Tags</a></p>
+<p class="toc level4"><a href="bnarf.html#bnarg">Common Component Tag Attributes</a></p>
+<p class="toc level5"><a href="bnarf.html#bnarh">The <tt>id</tt> Attribute</a></p>
+<p class="toc level5"><a href="bnarf.html#bnari">The <tt>immediate</tt> Attribute</a></p>
+<p class="toc level5"><a href="bnarf.html#bnarj">The <tt>rendered</tt> Attribute</a></p>
+<p class="toc level5"><a href="bnarf.html#bnark">The <tt>style</tt> and <tt>styleClass</tt> Attributes</a></p>
+<p class="toc level5"><a href="bnarf.html#bnarl">The <tt>value</tt> and <tt>binding</tt> Attributes</a></p>
+<p class="toc level4 tocsp"><a href="bnarf.html#gjdgq">HTML Head and Body Tags</a></p>
+<p class="toc level4"><a href="bnarf.html#bnarm">Form Components</a></p>
+<p class="toc level4"><a href="bnarf.html#bnaro">Using Text Components</a></p>
+<p class="toc level5"><a href="bnarf.html#bnarr">Rendering a Text Field With the <tt>inputText</tt> Tag</a></p>
+<p class="toc level5"><a href="bnarf.html#bnarv">Rendering a Password Field With the <tt>inputSecret</tt> Tag</a></p>
+<p class="toc level5"><a href="bnarf.html#bnars">Rendering a Label With the <tt>outputLabel</tt> Tag</a></p>
+<p class="toc level5"><a href="bnarf.html#bnart">Rendering a Hyperlink With the <tt>h:outputLink</tt> Tag</a></p>
+<p class="toc level5"><a href="bnarf.html#bnaru">Displaying a Formatted Message With the <tt>h:outputFormat</tt> Tag</a></p>
+<p class="toc level4 tocsp"><a href="bnarf.html#bnarw">Using Command Components for Performing Actions and Navigation</a></p>
+<p class="toc level5"><a href="bnarf.html#bnarx">Rendering a Button With the <tt>h:commandButton</tt> Tag</a></p>
+<p class="toc level5"><a href="bnarf.html#bnary">Rendering a Hyperlink With the <tt>h:commandLink</tt> Tag</a></p>
+<p class="toc level4 tocsp"><a href="bnarf.html#bnasb">Adding Graphics and Images With the <tt>h:graphicImage</tt> Tag</a></p>
+<p class="toc level4"><a href="bnarf.html#bnasc">Laying Out Components With the <tt>Panel</tt> Component</a></p>
+<p class="toc level4"><a href="bnarf.html#bnase">Displaying Components for Selecting One Value</a></p>
+<p class="toc level5"><a href="bnarf.html#bnasg">Displaying a Check Box Using the <tt>h:selectBooleanCheckbox</tt> Tag</a></p>
+<p class="toc level5"><a href="bnarf.html#bnash">Displaying a Menu Using the <tt>h:selectOneMenu</tt> Tag</a></p>
+<p class="toc level4 tocsp"><a href="bnarf.html#bnasi">Rendering Components for Selecting Multiple Values</a></p>
+<p class="toc level4"><a href="bnarf.html#bnask">Using the <tt>SelectItem</tt> and <tt>SelectItems</tt> Components</a></p>
+<p class="toc level5"><a href="bnarf.html#bnasm">Using the <tt>f:selectItems</tt> Tag</a></p>
+<p class="toc level5"><a href="bnarf.html#bnasn">Using the <tt>f:selectItem</tt> Tag</a></p>
+<p class="toc level4 tocsp"><a href="bnarf.html#bnarz">Using Data-Bound Table Components</a></p>
+<p class="toc level4"><a href="bnarf.html#bnaso">Displaying Error Messages With the <tt>h:message</tt> and <tt>h:messages</tt> Tags</a></p>
+<p class="toc level4"><a href="bnarf.html#giqzd">Creating Bookmarkable URLs With <tt>h:button</tt> and <tt>h:link</tt> Tags</a></p>
+<p class="toc level4"><a href="bnarf.html#giqwq">Using View Parameters to Configure Bookmarkable URLs</a></p>
+<p class="toc level4"><a href="bnarf.html#gjgep">Resource Relocation Using <tt>h:output</tt> Tags</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3 tocsp"><a href="">Using <tt>core</tt> Tags</a></p>
+</div>
+<p class="toc level2 tocsp"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level2"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bnarf.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="gjcut.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bnarc"></a><h3>Using <tt>core</tt> Tags</h3>
+<p><a name="indexterm-434"></a>The tags included in the JavaServer Faces <tt>core</tt> tag library are used to
+perform core actions that are not performed by HTML tags. Commonly used <tt>core</tt>
+tags are listed in <a href="#bnard">Table&nbsp;7-5</a> along with the functions they perform.</p>
+
+<a name="bnard"></a><h6>Table&nbsp;7-5 The <tt>core</tt> Tags</h6><table><col width="16%"><col width="31%"><col width="51%"><tr><th align="left" valign="top" scope="column"><p>Tag Categories</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Tags</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Functions</p>
+
+</th>
+</tr>
+<tr><td rowspan="4" align="left" valign="top" scope="row"><p>Event-handling tags</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a name="indexterm-435"></a><a name="indexterm-436"></a><tt>f:actionListener</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p> Adds
+an action listener to a parent component</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>f:phaseListener</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p> Adds a PhaseListener to a
+page</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>f:setPropertyActionListener</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Registers a special action listener whose sole purpose is to push a value
+into a backing bean when a form is submitted</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><a name="indexterm-437"></a><a name="indexterm-438"></a><tt>f:valueChangeListener</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Adds a value-change listener
+to a parent component</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><a name="indexterm-439"></a>Attribute configuration tag</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a name="indexterm-440"></a><tt>f:attribute</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Adds configurable attributes to a parent component</p>
+
+</td>
+</tr>
+<tr><td rowspan="3" align="left" valign="top" scope="row"><p><a name="indexterm-441"></a>Data
+conversion tags</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a name="indexterm-442"></a><tt>f:converter</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p> Adds an arbitrary converter to the parent component</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><a name="indexterm-443"></a><tt>f:convertDateTime</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Adds a <tt>DateTime</tt>
+converter instance to the parent component</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><a name="indexterm-444"></a><tt>f:convertNumber</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Adds a <tt>Number</tt> converter instance to the parent
+component</p>
+
+</td>
+</tr>
+<tr><td rowspan="2" align="left" valign="top" scope="row"><p><a name="indexterm-445"></a>Facet tag</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a name="indexterm-446"></a><tt>f:facet</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p> Adds a nested component that has a special relationship to
+its enclosing tag</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>f:metadata</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Registers a <tt>facet</tt> on a parent component</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>Localization tag</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a name="indexterm-447"></a><tt>f:loadBundle</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Specifies a <tt>ResourceBundle</tt> that
+is exposed as a <tt>Map</tt></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><a name="indexterm-448"></a><a name="indexterm-449"></a>Parameter substitution tag</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a name="indexterm-450"></a><tt>f:param</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a name="indexterm-451"></a>Substitutes parameters into a <tt>MessageFormat</tt> instance and adds
+query string name-value pairs to a URL</p>
+
+</td>
+</tr>
+<tr><td rowspan="2" align="left" valign="top" scope="row"><p>Tags for representing items in a
+list</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a name="indexterm-452"></a><tt>f:selectItem</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a name="indexterm-453"></a><a name="indexterm-454"></a>Represents one item in a list of items in a <tt>SelectOne</tt> or <tt>SelectMany</tt>
+component</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><a name="indexterm-455"></a><tt>f:selectItems</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Represents a set of items in a <tt>SelectOne</tt> or <tt>SelectMany</tt> component</p>
+
+</td>
+</tr>
+<tr><td rowspan="7" align="left" valign="top" scope="row"><p><a name="indexterm-456"></a><a name="indexterm-457"></a><a name="indexterm-458"></a>Validator tags</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a name="indexterm-459"></a><tt>f:validateDoubleRange</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a name="indexterm-460"></a>Adds a <tt>DoubleRangeValidator</tt>
+to a component</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><a name="indexterm-461"></a><tt>f:validateLength</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a name="indexterm-462"></a>Adds a <tt>LengthValidator</tt> to a component</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><a name="indexterm-463"></a><tt>f:validateLongRange</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a name="indexterm-464"></a>Adds a <tt>LongRangeValidator</tt> to a component</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><a name="indexterm-465"></a><tt>f:validator</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a name="indexterm-466"></a>Adds a
+custom validator to a component</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>f:validateRegEx</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Adds a RegExValidator instance to a component</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>f:validateBean</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Delegates the
+validation of a local value to a BeanValidator instance</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>f:validateRequired</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Enforces the presence of
+a value in a component</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>Ajax tag</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>f:ajax</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Associates Ajax action to a single or
+group of components based on placement</p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p>Event tag</p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><tt>f:event</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p>Allows installing <tt>ComponentSystemEventListener</tt> on a component</p>
+
+</td>
+</tr>
+</table><p>These tags, which are used in conjunction with component tags, are explained in
+other sections of this tutorial. <a href="#bnare">Table&nbsp;7-6</a> lists the sections that explain how
+to use specific <tt>core</tt> tags.</p>
+
+<a name="bnare"></a><h6>Table&nbsp;7-6 Where the <tt>core</tt> Tags Are Explained</h6><a name="indexterm-467"></a><table><col width="22%"><col width="77%"><tr><th align="left" valign="top" scope="column"><p>Tags</p>
+
+</th>
+<th align="left" valign="top" scope="column"><p>Where Explained</p>
+
+</th>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><tt>Event-handling tags</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a href="bnasz.html">Registering Listeners on Components</a></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><a name="indexterm-468"></a><tt>Data conversion tags</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a href="bnast.html">Using the Standard Converters</a></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><a name="indexterm-469"></a><tt>facet</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a href="bnarf.html#bnarz">Using Data-Bound Table Components</a> and <a href="bnarf.html#bnasc">Laying Out Components With the <tt>Panel</tt> Component</a></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><a name="indexterm-470"></a><a name="indexterm-471"></a><tt>loadBundle</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a href="bnarf.html#bnasi">Rendering Components for Selecting Multiple Values</a></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><a name="indexterm-472"></a><tt>param</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a href="bnarf.html#bnaru">Displaying a Formatted Message With the <tt>h:outputFormat</tt> Tag</a></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><a name="indexterm-473"></a><a name="indexterm-474"></a><tt>selectItem</tt> and <tt>selectItems</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a href="bnarf.html#bnask">Using the <tt>SelectItem</tt> and <tt>SelectItems</tt> Components</a></p>
+
+</td>
+</tr>
+<tr><td align="left" valign="top" scope="row"><p><a name="indexterm-475"></a><a name="indexterm-476"></a><a name="indexterm-477"></a><tt>Validator tags</tt></p>
+
+</td>
+<td align="left" valign="top" scope="row"><p><a href="bnatc.html">Using the Standard Validators</a> </p>
+
+</td>
+</tr>
+</table>
+         </div>
+         <div class="navigation">
+             <a href="bnarf.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="gjcut.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+

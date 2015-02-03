@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+<!-- GenHTML revision 24387-->
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<title>Creating Queries Using the Java Persistence Query Language - The Java EE 6 Tutorial</title>
+<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2010-06-01">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/ipg.css">
+<link rel="stylesheet" type="text/css" href="css/javaeetutorial.css">
+</head>
+
+<body>
+
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+   <tr valign="top">
+      <td width="400px"><p class="toc level1"><a href="docinfo.html">Document Information</a></p>
+<p class="toc level1 tocsp"><a href="gexaf.html">Preface</a></p>
+<p class="toc level1 tocsp"><a href="gfirp.html">Part&nbsp;I&nbsp;Introduction</a></p>
+<p class="toc level2"><a href="bnaaw.html">1.&nbsp;&nbsp;Overview</a></p>
+<p class="toc level2"><a href="gfiud.html">2.&nbsp;&nbsp;Using the Tutorial Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnadp.html">Part&nbsp;II&nbsp;The Web Tier</a></p>
+<p class="toc level2"><a href="bnadr.html">3.&nbsp;&nbsp;Getting Started with Web Applications</a></p>
+<p class="toc level2"><a href="bnaph.html">4.&nbsp;&nbsp;JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="giepx.html">5.&nbsp;&nbsp;Introduction to Facelets</a></p>
+<p class="toc level2"><a href="gjddd.html">6.&nbsp;&nbsp;Expression Language</a></p>
+<p class="toc level2"><a href="bnaqz.html">7.&nbsp;&nbsp;Using JavaServer Faces Technology in Web Pages</a></p>
+<p class="toc level2"><a href="gjcut.html">8.&nbsp;&nbsp;Using Converters, Listeners, and Validators</a></p>
+<p class="toc level2"><a href="bnatx.html">9.&nbsp;&nbsp;Developing With JavaServer Faces Technology</a></p>
+<p class="toc level2"><a href="bnafd.html">10.&nbsp;&nbsp;Java Servlet Technology</a></p>
+<p class="toc level1 tocsp"><a href="bnayk.html">Part&nbsp;III&nbsp;Web Services</a></p>
+<p class="toc level2"><a href="gijti.html">11.&nbsp;&nbsp;Introduction to Web Services</a></p>
+<p class="toc level2"><a href="bnayl.html">12.&nbsp;&nbsp;Building Web Services with JAX-WS</a></p>
+<p class="toc level2"><a href="giepu.html">13.&nbsp;&nbsp;Building RESTful Web Services with JAX-RS and Jersey</a></p>
+<p class="toc level1 tocsp"><a href="bnblr.html">Part&nbsp;IV&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijsz.html">14.&nbsp;&nbsp;Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijre.html">15.&nbsp;&nbsp;Getting Started with Enterprise Beans</a></p>
+<p class="toc level2"><a href="gijrb.html">16.&nbsp;&nbsp;Running the Enterprise Bean Examples</a></p>
+<p class="toc level2"><a href="bnbpk.html">17.&nbsp;&nbsp;A Message-Driven Bean Example</a></p>
+<p class="toc level1 tocsp"><a href="gjbnr.html">Part&nbsp;V&nbsp;Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="giwhb.html">18.&nbsp;&nbsp;Introduction to Contexts and Dependency Injection for the Java EE Platform</a></p>
+<p class="toc level2"><a href="gjbls.html">19.&nbsp;&nbsp;Running the Basic Contexts and Dependency Injection Examples</a></p>
+<p class="toc level1 tocsp"><a href="bnbpy.html">Part&nbsp;VI&nbsp;Persistence</a></p>
+<p class="toc level2"><a href="bnbpz.html">20.&nbsp;&nbsp;Introduction to the Java Persistence API</a></p>
+<p class="toc level2"><a href="gijst.html">21.&nbsp;&nbsp;Running the Persistence Examples</a></p>
+<p class="toc level2"><a href="bnbtg.html">22.&nbsp;&nbsp;The Java Persistence Query Language</a></p>
+<p class="toc level3"><a href="bnbth.html">Query Language Terminology</a></p>
+<div id="scrolltoc" class="onpage">
+<p class="toc level3"><a href="">Creating Queries Using the Java Persistence Query Language</a></p>
+<p class="toc level4"><a href="#bnbrh">Named Parameters in Queries</a></p>
+<p class="toc level4"><a href="#bnbri">Positional Parameters in Queries</a></p>
+</div>
+<p class="toc level3 tocsp"><a href="bnbti.html">Simplified Query Language Syntax</a></p>
+<p class="toc level4"><a href="bnbti.html#bnbtj">Select Statements</a></p>
+<p class="toc level4"><a href="bnbti.html#bnbtk">Update and Delete Statements</a></p>
+<p class="toc level3 tocsp"><a href="bnbtl.html">Example Queries</a></p>
+<p class="toc level4"><a href="bnbtl.html#bnbtm">Simple Queries</a></p>
+<p class="toc level5"><a href="bnbtl.html#bnbtn">A Basic Select Query</a></p>
+<p class="toc level5"><a href="bnbtl.html#bnbto">Eliminating Duplicate Values</a></p>
+<p class="toc level5"><a href="bnbtl.html#bnbtp">Using Named Parameters</a></p>
+<p class="toc level4 tocsp"><a href="bnbtl.html#bnbtq">Queries That Navigate to Related Entities</a></p>
+<p class="toc level5"><a href="bnbtl.html#bnbtr">A Simple Query with Relationships</a></p>
+<p class="toc level5"><a href="bnbtl.html#bnbts">Navigating to Single-Valued Relationship Fields</a></p>
+<p class="toc level5"><a href="bnbtl.html#bnbtt">Traversing Relationships with an Input Parameter</a></p>
+<p class="toc level5"><a href="bnbtl.html#bnbtu">Traversing Multiple Relationships</a></p>
+<p class="toc level5"><a href="bnbtl.html#bnbtv">Navigating According to Related Fields</a></p>
+<p class="toc level4 tocsp"><a href="bnbtl.html#bnbtw">Queries with Other Conditional Expressions</a></p>
+<p class="toc level5"><a href="bnbtl.html#bnbtx">The <tt>LIKE</tt> Expression</a></p>
+<p class="toc level5"><a href="bnbtl.html#bnbty">The <tt>IS NULL</tt> Expression</a></p>
+<p class="toc level5"><a href="bnbtl.html#bnbtz">The <tt>IS EMPTY</tt> Expression</a></p>
+<p class="toc level5"><a href="bnbtl.html#bnbua">The <tt>BETWEEN</tt> Expression</a></p>
+<p class="toc level5"><a href="bnbtl.html#bnbub">Comparison Operators</a></p>
+<p class="toc level4 tocsp"><a href="bnbtl.html#bnbuc">Bulk Updates and Deletes</a></p>
+<p class="toc level5"><a href="bnbtl.html#bnbud">Update Queries</a></p>
+<p class="toc level5"><a href="bnbtl.html#bnbue">Delete Queries</a></p>
+<p class="toc level3 tocsp"><a href="bnbuf.html">Full Query Language Syntax</a></p>
+<p class="toc level4"><a href="bnbuf.html#bnbug">BNF Symbols</a></p>
+<p class="toc level4"><a href="bnbuf.html#bnbui">BNF Grammar of the Java Persistence Query Language</a></p>
+<p class="toc level4"><a href="bnbuf.html#bnbuj"><tt>FROM</tt> Clause</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbuk">Identifiers</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbum">Identification Variables</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbun">Range Variable Declarations</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbuo">Collection Member Declarations</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbup">Joins</a></p>
+<p class="toc level4 tocsp"><a href="bnbuf.html#bnbuq">Path Expressions</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbur">Examples of Path Expressions</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbus">Expression Types</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbut">Navigation</a></p>
+<p class="toc level4 tocsp"><a href="bnbuf.html#bnbuu"><tt>WHERE</tt> Clause</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbuv">Literals</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbva">Input Parameters</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbvb">Conditional Expressions</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbvc">Operators and Their Precedence</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbve"><tt>BETWEEN</tt> Expressions</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbvf"><tt>IN</tt> Expressions</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbvg"><tt>LIKE</tt> Expressions</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbvi"><tt>NULL</tt> Comparison Expressions</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbvj">Empty Collection Comparison Expressions</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbvk">Collection Member Expressions</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbvl">Subqueries</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbvo">Functional Expressions</a></p>
+<p class="toc level5"><a href="bnbuf.html#gjjnd">Case Expressions</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbvr">NULL Values</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbvu">Equality Semantics</a></p>
+<p class="toc level4 tocsp"><a href="bnbuf.html#bnbvx"><tt>SELECT</tt> Clause</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbvy">Return Types</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbwb">The <tt>DISTINCT</tt> Keyword</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbwc">Constructor Expressions</a></p>
+<p class="toc level4 tocsp"><a href="bnbuf.html#bnbwd"><tt>ORDER BY</tt> Clause</a></p>
+<p class="toc level4"><a href="bnbuf.html#bnbwe">The <tt>GROUP BY</tt> Clause</a></p>
+<p class="toc level5"><a href="bnbuf.html#bnbwf">The <tt>HAVING</tt> Clause</a></p>
+<p class="toc level2 tocsp"><a href="gjitv.html">23.&nbsp;&nbsp;Using the Criteria API to Create Queries </a></p>
+<p class="toc level1 tocsp"><a href="gijrp.html">Part&nbsp;VII&nbsp;Security</a></p>
+<p class="toc level2"><a href="bnbwj.html">24.&nbsp;&nbsp;Introduction to Security in the Java EE Platform</a></p>
+<p class="toc level2"><a href="bncas.html">25.&nbsp;&nbsp;Getting Started Securing Web Applications</a></p>
+<p class="toc level2"><a href="bnbyk.html">26.&nbsp;&nbsp;Getting Started Securing Enterprise Applications</a></p>
+<p class="toc level1 tocsp"><a href="gijue.html">Part&nbsp;VIII&nbsp;Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="gijto.html">27.&nbsp;&nbsp;Introduction to Java EE Supporting Technologies</a></p>
+<p class="toc level2"><a href="bncih.html">28.&nbsp;&nbsp;Transactions</a></p>
+<p class="toc level2"><a href="bncjh.html">29.&nbsp;&nbsp;Resource Connections</a></p>
+<p class="toc level2"><a href="bncdq.html">30.&nbsp;&nbsp;Java Message Service Concepts</a></p>
+<p class="toc level2"><a href="bncgv.html">31.&nbsp;&nbsp;Java Message Service Examples</a></p>
+<p class="toc level1 tocsp"><a href="idx-1.html">Index</a></p>
+</td>
+      <td width="10px">&nbsp;</td>
+      <td>
+         <div class="header">
+             <div class="banner">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                   <tbody>
+                      <tr>
+                         <td valign="bottom"><h1 class="Banner">The Java EE 6 Tutorial
+</h1></td>
+                         <td align="right"  valign="bottom"><img src="graphics/javalogo.png" alt="Java Coffee Cup logo"></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+
+             <div class="header-links">
+	         <a href="./index.html">Home</a> | 
+<a href="https://javaeetutorial.dev.java.net/files/documents/7232/141115/javaeetutorial6.zip">Download</a> | 
+<a href="./javaeetutorial6.pdf">PDF</a> | 
+<a href="http://wiki.glassfish.java.net/Wiki.jsp?page=JavaEE6TutorialFAQ">FAQ</a> | 
+<a href="http://download.oracle.com/docs/cd/E17410_01/javaee/feedback.htm">Feedback</a>
+
+             </div>
+             <div class="navigation">
+                 <a href="bnbth.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+                 <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+                 <a href="bnbti.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+             </div>
+         </div>
+
+	 <div class="maincontent">      	 
+             
+
+<a name="bnbrg"></a><h3>Creating Queries Using the Java Persistence Query Language</h3>
+<a name="indexterm-1126"></a><p>The <tt>EntityManager.createQuery</tt> and <tt>EntityManager.createNamedQuery</tt> methods are used to query the datastore using
+Java Persistence query language queries. </p>
+
+<p>The <tt>createQuery</tt> method is used to create <b>dynamic queries</b>, which are queries that
+are defined directly within an application&rsquo;s business logic.</p>
+
+<pre>public List findWithName(String name) {
+return em.createQuery(
+    "SELECT c FROM Customer c WHERE c.name LIKE :custName")
+    .setParameter("custName", name)
+    .setMaxResults(10)
+    .getResultList();
+}</pre><p><a name="indexterm-1127"></a>The <tt>createNamedQuery</tt> method is used to create <b>static queries</b>, or queries that are
+defined in metadata using the <tt>javax.persistence.NamedQuery</tt> annotation. The <tt>name</tt> element of <tt>@NamedQuery</tt> specifies
+the name of the query that will be used with the <tt>createNamedQuery</tt> method.
+The <tt>query</tt> element of <tt>@NamedQuery</tt> is the query.</p>
+
+<pre>@NamedQuery(
+    name="findAllCustomersWithName",
+    query="SELECT c FROM Customer c WHERE c.name LIKE :custName"
+)</pre><p>Here&rsquo;s an example of <tt>createNamedQuery</tt>, which uses the <tt>@NamedQuery</tt> defined above.</p>
+
+<pre>@PersistenceContext
+public EntityManager em;
+...
+customers = em.createNamedQuery("findAllCustomersWithName")
+    .setParameter("custName", "Smith")
+    .getResultList();</pre>
+
+<a name="bnbrh"></a><h4>Named Parameters in Queries</h4>
+<a name="indexterm-1128"></a><p>Named parameters are parameters in a query that are prefixed with a colon
+(<tt>:</tt>). Named parameters in a query are bound to an argument by the
+<tt>javax.persistence.Query.setParameter(String name, Object value)</tt> method. In the following example, the <tt>name</tt> argument to the <tt>findWithName</tt> business
+method is bound to the <tt>:custName</tt> named parameter in the query by
+calling <tt>Query.setParameter</tt>.</p>
+
+<pre>public List findWithName(String name) {
+    return em.createQuery(
+        "SELECT c FROM Customer c WHERE c.name LIKE :custName")
+        .setParameter("custName", name)
+        .getResultList();
+}</pre><p>Named parameters are case-sensitive, and may be used by both dynamic and static
+queries.</p>
+
+
+
+<a name="bnbri"></a><h4>Positional Parameters in Queries</h4>
+<a name="indexterm-1129"></a><p>You may alternately use positional parameters in queries, instead of named parameters. Positional
+parameters are prefixed with a question mark (<tt>?</tt>) followed the numeric position of
+the parameter in the query. The <tt>Query.setParameter(integer position, Object value)</tt> method is used to set the parameter
+values.</p>
+
+<p>In the following example, the <tt>findWithName</tt> business method is rewritten to use input
+parameters:</p>
+
+<pre>public List findWithName(String name) {
+    return em.createQuery(
+        &ldquo;SELECT c FROM Customer c WHERE c.name LIKE ?1&rdquo;)
+        .setParameter(1, name)
+        .getResultList();
+}</pre><p>Input parameters are numbered starting from 1. Input parameters are case-sensitive, and may
+be used by both dynamic and static queries.</p>
+
+
+         </div>
+         <div class="navigation">
+             <a href="bnbth.html"><img style="padding-right: 3px" src="graphics/leftButton.gif" border="0"></a>
+             <a href="p1.html"><img style="padding-right: 3px" src="graphics/upButton.gif" border="0"></a>
+             <a href="bnbti.html"><img style="padding-left: 3px" src="graphics/rightButton.gif" border="0"></a>
+         </div>
+
+         <div class="copyright">
+      	    <p>Copyright &copy; 2010, Oracle and/or its affiliates. All rights reserved. <a href="docinfo.html">Legal Notices</a></p>
+      	 </div>
+
+      </td>
+   </tr>
+</tbody>
+</table>
+</body>
+</html>
+
